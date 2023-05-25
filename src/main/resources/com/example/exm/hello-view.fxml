@@ -1,57 +1,55 @@
-<?xml version="1.0" encoding="UTF-8"?>
+ <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.geometry.Point3D?>
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.Glow?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root blendMode="DARKEN" maxHeight="1600.0" maxWidth="720.0" minHeight="800.0" minWidth="360.0" prefHeight="960.0" prefWidth="432.0" type="AnchorPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.HelloController">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="623.0" prefWidth="280.0" type="AnchorPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.HelloController">
    <children>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="2.0" layoutY="181.0" prefHeight="96.0" prefWidth="429.0" text="لطفا شماره تلفن خود را وارد کنید:" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
+      <Label layoutX="100.0" layoutY="266.0" prefHeight="47.0" prefWidth="37.0" text="+">
          <font>
-            <Font name="B Koodak Bold" size="25.0" />
+            <Font size="25.0" />
          </font>
-         <rotationAxis>
-            <Point3D />
-         </rotationAxis>
       </Label>
-      <ComboBox fx:id="phoneNumberCountry" layoutX="23.0" layoutY="316.0" prefHeight="52.0" prefWidth="82.0" />
-      <TextField fx:id="phoneNumber" layoutX="145.0" layoutY="314.0" prefHeight="57.0" prefWidth="278.0" promptText="--- --- ----">
+      <ComboBox fx:id="phoneNumberCountry" layoutX="50.0" layoutY="266.0" prefHeight="47.0" prefWidth="37.0" />
+      <TextField fx:id="phoneNumber" layoutX="118.0" layoutY="263.0" prefHeight="56.0" prefWidth="201.0" promptText="--- --- ----">
          <font>
             <Font size="26.0" />
          </font>
       </TextField>
-      <Pane maxHeight="1600.0" maxWidth="720.0" minHeight="128.0" minWidth="360.0" prefHeight="128.0" prefWidth="432.0" AnchorPane.bottomAnchor="832.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane layoutX="4.0" prefHeight="200.0" prefWidth="337.0">
          <children>
-            <ImageView fx:id="icon" fitHeight="99.0" fitWidth="123.0" layoutX="117.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" />
-            <Label contentDisplay="CENTER" layoutX="248.0" layoutY="7.0" mouseTransparent="true" prefHeight="106.0" prefWidth="188.0" text="چغک">
+            <ImageView fx:id="icon" fitHeight="74.0" fitWidth="107.0" layoutX="94.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="165.0" layoutY="38.0" prefHeight="47.0" prefWidth="59.0" text="چغک">
                <font>
                   <Font name="B Titr Bold" size="26.0" />
                </font>
             </Label>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="90.0" layoutY="169.0" prefHeight="47.0" prefWidth="223.0" text="لطفا شماره همراه خود را وارد کنید" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Separator layoutX="-4.0" layoutY="118.0" prefHeight="18.0" prefWidth="341.0" />
          </children>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
       </Pane>
-      <Button layoutX="5.0" layoutY="911.0" mnemonicParsing="false" onAction="#nexti" prefHeight="43.0" prefWidth="110.0" text="بعدی">
+      <Label layoutX="40.0" layoutY="351.0" prefHeight="47.0" prefWidth="297.0" text="با سیاست های فوق امنیتی چغک موافقت میکنم" textAlignment="JUSTIFY" textOverrun="CLIP">
          <font>
-            <Font name="B Koodak Bold" size="25.0" />
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <CheckBox layoutX="8.0" layoutY="360.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="23.0" />
+      <Button layoutX="139.0" layoutY="473.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="68.0" text="بعدی" textOverrun="CLIP">
+         <font>
+            <Font name="Arial Black" size="12.0" />
          </font>
       </Button>
    </children>
-   <cursor>
-      <Cursor fx:constant="DEFAULT" />
-   </cursor>
-   <effect>
-      <Glow />
-   </effect>
 </fx:root>
