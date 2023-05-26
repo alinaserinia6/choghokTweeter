@@ -19,12 +19,17 @@ public class Client {
 		sleep(3000);
 		System.out.println("after 3 seconds sleep");
 		try (Socket client = new Socket("localhost", 5757)) {
+			System.out.println(client.getInetAddress());
             System.out.println("i am in try socket");
 			listen lis = new listen(client);
             System.out.println("lis in created");
 			lis.start();
 			ObjectOutputStream out = new ObjectOutputStream(client.getOutputStream());
             System.out.println("i created out");
+			while (!client.isClosed()) {
+				System.out.println("i am alive khorshid sahel");
+				sleep(10000);
+			}
 		} catch (IOException ex) {
             System.err.println("i caught an exception in socket client");
 		}
@@ -48,18 +53,23 @@ class listen extends Thread {
 			while (true) {
                 System.out.println("i am wait for user:");
                 System.out.println(Client.user);
-				if (Thread.currentThread().isInterrupted()) {
-					return;
-				}
-				Object o = in.readObject();
-				if (o instanceof Tweet tweet) {
-					System.out.print(tweet);
-				} else {
-					System.out.println((String) o);
-				}
+//				if (Thread.currentThread().isInterrupted()) {
+//					return;
+//				}
+//				Object o;
+//				try {
+//					o = in.readObject();
+//				} catch (EOFException e) {
+//					continue;
+//				}
+//				if (o instanceof Tweet tweet) {
+//					System.out.print(tweet);
+//				} else {
+//					System.out.println((String) o);
+//				}
 				sleep(5000);
 			}
-		} catch (IOException | ClassNotFoundException | InterruptedException e) {
+		} catch (IOException | InterruptedException e) {
             System.err.println("exception error in run listening");
             e.printStackTrace(System.out);
         }

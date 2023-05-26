@@ -20,11 +20,11 @@ public class Server {
 			while (true) {
 				System.out.println("i am in " + (++i) + "-th loop");
 				Socket client = serverSocket.accept();
+				System.out.println(client.getInetAddress());
 				Accept ac = new Accept(client);
 				ac.start();
-				sleep(3000);
 			}
-		} catch (IOException | InterruptedException exception) {
+		} catch (IOException exception) {
 			exception.printStackTrace();
 		}
 	}
@@ -45,20 +45,19 @@ class Accept extends Thread {
 			in = new ObjectInputStream(client.getInputStream());
 			out = new ObjectOutputStream(client.getOutputStream());
 			Server.list.add(out);
-			user = (User) in.readObject();
-			String username = user.getUsername();
-			Server.users.put(username, user);
 			while (true) {
-				Tweet tweet;
-				try {
-					tweet = (Tweet) in.readObject();
-				} catch (StreamCorruptedException e) {
-					continue;
-				}
-				user.tweets.add(tweet);
+				System.out.println("i am listening!");
+//				Tweet tweet;
+//				try {
+////					tweet = (Tweet) in.readObject();
+//				} catch (StreamCorruptedException e) {
+//					continue;
+//				}
+				sleep(3000);
 			}
-		} catch (IOException | ClassNotFoundException e) {
+		} catch (IOException | InterruptedException e) {
 			Server.list.remove(out);
+			e.printStackTrace(System.out);
 		}
 
 	}
