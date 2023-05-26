@@ -17,18 +17,6 @@ import java.io.ObjectOutputStream;
 import java.util.*;
 
 public class HelloController {
-    private ObjectOutputStream out;
-
-    public void setOut(ObjectOutputStream out) {
-        this.out = out;
-    }
-
-    private User user = new User();
-    private Scene scene;
-
-    public void setScene(Scene scene) {
-        this.scene = scene;
-    }
 
     @FXML
     private ImageView icon;
@@ -78,11 +66,10 @@ public class HelloController {
             shouldAcceptRule.setVisible(true);
             return;
         }
-        user.setPhoneNumber(phoneNumberCountry.getValue() + phoneNumber.getText());
+//        user.setPhoneNumber(phoneNumberCountry.getValue() + phoneNumber.getText());
 
         Stage stage = (Stage) nextButton.getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("a3.fxml"));
-//        nextButton.getScene().setRoot(root);
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

@@ -9,11 +9,13 @@ import static java.lang.Thread.sleep;
 
 public class Client {
 
+	public User user = new User();
+
 	public static void main(String[] args) throws IOException, InterruptedException {
 		Scanner q = new Scanner(System.in);
 		HelloApplication app = new HelloApplication();
 		Platform.startup(app);
-		sleep(5000);
+		sleep(3000);
 		HelloController hi = app.getHi();
 		System.out.println(hi == null);
 		System.out.println("hey");
@@ -21,7 +23,7 @@ public class Client {
 			listen lis = new listen(client);
 			lis.start();
 			ObjectOutputStream out = new ObjectOutputStream(client.getOutputStream());
-			hi.setOut(out);
+
 		} catch (IOException ex) {
 
 		}
