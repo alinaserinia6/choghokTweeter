@@ -18,8 +18,6 @@ public class HelloApplication extends Application implements Runnable {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("a2.fxml"));
-//        AnchorPane anchorPane = new AnchorPane();
-//        fxmlLoader.setRoot(anchorPane);
         Scene scene = new Scene(fxmlLoader.load());
         hi = fxmlLoader.getController();
         stage.setTitle("Choghok");
