@@ -7,14 +7,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.*;
 
@@ -36,6 +36,10 @@ public class HelloController {
     private ImageView icon;
     @FXML
     private TextField phoneNumber;
+    @FXML
+    private CheckBox acceptRule;
+    @FXML
+    private Label shouldAcceptRule;
 
     private String [] ISO = Locale.getISOCountries();
     private ObservableList observOfISO;
@@ -59,7 +63,22 @@ public class HelloController {
 
     @FXML
     public void nexti(ActionEvent e) {
-        user.setPhoneNumber(phoneNumber.getText());
+        if (phoneNumberCountry.getSelectionModel().isEmpty()) {
+            shouldAcceptRule.setText("کشور خود را وارد کنید");
+            shouldAcceptRule.setVisible(true);
+            return;
+        }
+        if (phoneNumber.getText().length() != 10) {
+            shouldAcceptRule.setText("شماره همراه باید ۱۰ رقمی باشد");
+            shouldAcceptRule.setVisible(true);
+            return;
+        }
+        if (!acceptRule.isSelected()) {
+            shouldAcceptRule.setText("باید با سیاست های فوق امنیتی چغک موافقت کنید");
+            shouldAcceptRule.setVisible(true);
+            return;
+        }
+        user.setPhoneNumber(phoneNumberCountry.getValue() + phoneNumber.getText());
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ali.fxml"));
         AnchorPane anchorPane = new AnchorPane();
         fxmlLoader.setRoot(anchorPane);
@@ -68,5 +87,7 @@ public class HelloController {
         stage.setScene(scene);
         stage.show();
     }
+
+
 
 }
