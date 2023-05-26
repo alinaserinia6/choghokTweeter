@@ -79,13 +79,17 @@ public class HelloController {
             return;
         }
         user.setPhoneNumber(phoneNumberCountry.getValue() + phoneNumber.getText());
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("ali.fxml"));
+
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view-with-gridpane.fxml"));
         AnchorPane anchorPane = new AnchorPane();
         fxmlLoader.setRoot(anchorPane);
-        Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        scene.setRoot(anchorPane);
-        stage.setScene(scene);
-        stage.show();
+        ((Node) e.getSource()).getScene().setRoot(fxmlLoader.getRoot());
+//        Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+//        scene.setRoot(anchorPane);
+//        scene = new Scene(fxmlLoader.getRoot());
+//        stage.setScene(scene);
+//        stage.show();
+
     }
 
     @FXML
