@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<fx:root maxHeight="1600.0" maxWidth="720.0" minHeight="800.0" minWidth="360.0" type="GridPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.HelloController">
+   <columnConstraints>
+      <ColumnConstraints maxWidth="432.0" minWidth="364.6666564941406" prefWidth="404.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints maxHeight="50.0" minHeight="40.0" />
+      <RowConstraints maxHeight="70.0" minHeight="50.0" />
+      <RowConstraints maxHeight="100.0" minHeight="60.0" />
+      <RowConstraints />
+      <RowConstraints />
+      <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+      <RowConstraints maxHeight="674.0" minHeight="674.0" prefHeight="674.0" />
+   </rowConstraints>
+   <children>
+      <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="68.0" text="بعدی" textOverrun="CLIP" GridPane.rowIndex="6">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </Button>
+      <Label prefHeight="47.0" prefWidth="297.0" text="با سیاست های فوق امنیتی چغک موافقت میکنم" textAlignment="JUSTIFY" textOverrun="CLIP" GridPane.rowIndex="6">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="134.0" prefWidth="404.0" text="لطفا شماره همراه خود را وارد کنید" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <CheckBox mnemonicParsing="false" prefHeight="31.0" prefWidth="23.0" GridPane.rowIndex="6" />
+      <Button mnemonicParsing="false" text="Button" GridPane.rowIndex="6" />
+      <HBox alignment="CENTER" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+         <children>
+            <ImageView fx:id="icon" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="SOMETIMES">
+               <image>
+                  <Image url="@icon.png" />
+               </image>
+               <HBox.margin>
+                  <Insets bottom="-10.0" />
+               </HBox.margin>
+            </ImageView>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="45.0" prefWidth="54.0" text="چغک">
+               <font>
+                  <Font name="B Titr Bold" size="26.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox prefHeight="100.0" prefWidth="200.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+         <children>
+            <ComboBox fx:id="phoneNumberCountry" maxHeight="80.0" maxWidth="160.0" minHeight="32.0" minWidth="50.0" prefHeight="45.0" prefWidth="100.0">
+               <HBox.margin>
+                  <Insets left="30.0" />
+               </HBox.margin>
+            </ComboBox>
+            <TextField fx:id="phoneNumber" prefHeight="50.0" prefWidth="258.0" promptText="--- --- ----">
+               <font>
+                  <Font size="30.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </TextField>
+         </children>
+      </HBox>
+   </children>
+</fx:root>
