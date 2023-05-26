@@ -45,7 +45,7 @@
       </Label>
       <CheckBox mnemonicParsing="false" prefHeight="31.0" prefWidth="23.0" GridPane.rowIndex="6" />
       <Button mnemonicParsing="false" text="Button" GridPane.rowIndex="6" />
-      <HBox alignment="CENTER" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <HBox alignment="CENTER" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <children>
             <ImageView fx:id="icon" fitHeight="75.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true" HBox.hgrow="SOMETIMES">
                <image>

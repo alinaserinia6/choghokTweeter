@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="623.0" prefWidth="280.0" type="AnchorPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.HelloController">
    <children>
       <Label layoutX="97.0" layoutY="8.0" text="ثبت نام">
@@ -20,7 +19,7 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <TextField layoutX="7.0" layoutY="83.0" prefHeight="25.0" prefWidth="259.0" promptText="FirstName:" />
+      <TextField fx:id="firstName" layoutX="7.0" layoutY="83.0" prefHeight="25.0" prefWidth="259.0" promptText="FirstName:" />
       <Label layoutX="199.0" layoutY="125.0" text="نام خانوادگی">
          <font>
             <Font size="13.0" />
@@ -30,18 +29,18 @@
       <Label layoutX="226.0" layoutY="324.0" text="گذرواژه" />
       <Label layoutX="201.0" layoutY="387.0" text="تکرار گذرواژه" />
       <Label layoutX="215.0" layoutY="453.0" text="تاریخ تولد" />
-      <TextField layoutX="7.0" layoutY="144.0" prefHeight="25.0" prefWidth="259.0" promptText="LastName:" />
-      <TextField layoutX="7.0" layoutY="278.0" prefHeight="25.0" prefWidth="259.0" promptText="Email:" />
-      <TextField layoutX="7.0" layoutY="347.0" prefHeight="25.0" prefWidth="259.0" promptText="Password:" />
-      <DatePicker layoutX="7.0" layoutY="476.0" prefHeight="25.0" prefWidth="259.0" />
-      <TextField layoutX="7.0" layoutY="411.0" prefHeight="25.0" prefWidth="259.0" promptText="Repeat Password:" />
-      <Button layoutX="113.0" layoutY="527.0" mnemonicParsing="false" text="SingUp" />
-      <Label layoutX="15.0" layoutY="560.0" prefHeight="60.0" prefWidth="259.0" textFill="RED" />
+      <TextField fx:id="lastName" layoutX="7.0" layoutY="144.0" prefHeight="25.0" prefWidth="259.0" promptText="LastName:" />
+      <TextField fx:id="email" layoutX="7.0" layoutY="278.0" prefHeight="25.0" prefWidth="259.0" promptText="Email:" />
+      <TextField fx:id="password" layoutX="7.0" layoutY="347.0" prefHeight="25.0" prefWidth="259.0" promptText="Password:" />
+      <DatePicker fx:id="birthDate" layoutX="7.0" layoutY="476.0" prefHeight="25.0" prefWidth="259.0" />
+      <TextField fx:id="repeatPassword" layoutX="7.0" layoutY="411.0" prefHeight="25.0" prefWidth="259.0" promptText="Repeat Password:" />
+      <Button layoutX="113.0" layoutY="527.0" mnemonicParsing="false" onAction="#singUpbuttonAction" text="SingUp" />
+      <Label fx:id="singUpError" layoutX="15.0" layoutY="560.0" prefHeight="60.0" prefWidth="259.0" textFill="RED" visible="false" />
       <Label layoutX="214.0" layoutY="185.0" text="نام کاربری">
          <font>
             <Font size="13.0" />
          </font>
       </Label>
-      <TextField layoutX="7.0" layoutY="210.0" prefHeight="25.0" prefWidth="259.0" promptText="UserName:" />
+      <TextField fx:id="userName" layoutX="7.0" layoutY="210.0" prefHeight="25.0" prefWidth="259.0" promptText="UserName:" />
    </children>
 </fx:root>
