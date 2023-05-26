@@ -63,10 +63,44 @@ public class signUpController {
             singUpError.setVisible(true);
             return;
         }
+        if(!password.getText().equals(repeatPassword.getText())){
+            singUpError.setText("تکرار گذر واژه صحیح نیست");
+            singUpError.setVisible(true);
+            return;
+        }
+        if (!checkPassword(password.getText())){
+            singUpError.setText("گذرواژه نامعتبر است");
+            singUpError.setVisible(true);
+            return;
+
+        }
+
+
 
         HelloApplication.ChangePage(e, "a4");
 
 
     }
+    public static boolean checkPassword(String password) {
+        if (password == null || password.length() < 8) {
+            return false;
+        }
+        boolean hasUppercase = false;
+        boolean hasLowercase = false;
+        for (int i = 0; i < password.length(); i++) {
+            char c = password.charAt(i);
+            if (Character.isUpperCase(c)) {
+                hasUppercase = true;
+            } else if (Character.isLowerCase(c)) {
+                hasLowercase = true;
+            }
+            if (hasUppercase && hasLowercase) {
+                return true;
+            }
+        }
+        return false;
+
+    }
+
 
 }
