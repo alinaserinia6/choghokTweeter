@@ -82,81 +82,12 @@ public class HelloController {
 //        }
         user.setPhoneNumber(phoneNumberCountry.getValue() + phoneNumber.getText());
 
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view-with-gridpane.fxml"));
-        AnchorPane anchorPane = new AnchorPane();
-        fxmlLoader.setRoot(anchorPane);
-        ((Node) e.getSource()).getScene().setRoot(fxmlLoader.getRoot());
-        Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        scene.setRoot(anchorPane);
-//        scene = new Scene(fxmlLoader.getRoot());
+        Stage stage = (Stage) nextButton.getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("a3.fxml"));
+//        nextButton.getScene().setRoot(root);
+        Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-
-//        Stage stage = (Stage)
-//        Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-//        scene = new Scene(FXMLLoader.load(getClass().getResource("ali.fxml")));
-//        String css = this.getClass().getResource("ali.css").toExternalForm();
-//        scene.getStylesheets().add(css);
-//        stage.setScene(scene);
-//        stage.show();
-
     }
-
-//    @FXML
-//    private Label firstName;
-//    @FXML
-//    private Label lastName;
-//    @FXML
-//    private Label userName;
-//    @FXML
-//    private Label email;
-//    @FXML
-//    private Label password;
-//    @FXML
-//    private Label repeatPassword;
-//    @FXML
-//    private Label birthDate;
-//    @FXML
-//    private Label singUpError;
-//
-//    @FXML
-//    public void singUpbuttonAction(ActionEvent e) {
-//        if (firstName.getText().isEmpty()) {
-//            singUpError.setText("نام نباید خالی باشد");
-//            singUpError.setVisible(true);
-//            return;
-//        }
-//        if (lastName.getText().isEmpty()) {
-//            singUpError.setText("نام خانوادگی نباید خالی باشد");
-//            singUpError.setVisible(true);
-//            return;
-//        }
-//        if (userName.getText().isEmpty()) {
-//            singUpError.setText("نام کاربری نباید خالی باشد");
-//            singUpError.setVisible(true);
-//            return;
-//        }
-//        if (email.getText().isEmpty()) {
-//            singUpError.setText("ایمیل نباید خالی باشد");
-//            singUpError.setVisible(true);
-//            return;
-//        }
-//        if (password.getText().isEmpty()) {
-//            singUpError.setText("گذرواژه نباید خالی باشد");
-//            singUpError.setVisible(true);
-//            return;
-//        }
-//        if (repeatPassword.getText().isEmpty()) {
-//            singUpError.setText("تکرار گذرواژه نباید خالی باشد");
-//            singUpError.setVisible(true);
-//            return;
-//        }
-//        if (birthDate.getText().isEmpty()) {
-//            singUpError.setText("تاریخ تولد نباید خالی باشد");
-//            singUpError.setVisible(true);
-//            return;
-//        }
-//
-//    }
 
 }
