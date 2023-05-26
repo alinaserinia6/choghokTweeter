@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="623.0" prefWidth="280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.">
+<AnchorPane prefHeight="623.0" prefWidth="280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.singinController">
    <children>
       <Label layoutX="110.0" layoutY="14.0" prefHeight="32.0" prefWidth="66.0" text="وارد شوید">
          <font>
@@ -16,9 +15,9 @@
       </Label>
       <Label layoutX="204.0" layoutY="109.0" text="نام کاربری" />
       <Label layoutX="217.0" layoutY="233.0" text="گذرواژه" />
-      <TextField layoutX="22.0" layoutY="136.0" prefHeight="25.0" prefWidth="231.0" promptText="UserName:" />
-      <TextField layoutX="22.0" layoutY="265.0" prefHeight="25.0" prefWidth="231.0" promptText="Password:" />
-      <Button layoutX="117.0" layoutY="409.0" mnemonicParsing="false" text="SingIn" />
-      <Label layoutX="40.0" layoutY="500.0" prefHeight="55.0" prefWidth="231.0" textAlignment="CENTER" textFill="RED" />
+      <TextField fx:id="username" layoutX="22.0" layoutY="136.0" prefHeight="25.0" prefWidth="231.0" promptText="UserName:" />
+      <TextField fx:id="password" layoutX="22.0" layoutY="265.0" prefHeight="25.0" prefWidth="231.0" promptText="Password:" />
+      <Button layoutX="117.0" layoutY="409.0" mnemonicParsing="false" onAction="#singInbuttonAction" text="SingIn" />
+      <Label fx:id="error" layoutX="40.0" layoutY="500.0" prefHeight="55.0" prefWidth="231.0" textAlignment="CENTER" textFill="RED" />
    </children>
 </AnchorPane>
