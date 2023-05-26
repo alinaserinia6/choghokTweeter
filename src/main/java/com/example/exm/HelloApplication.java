@@ -9,18 +9,12 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class HelloApplication extends Application implements Runnable {
-    private HelloController hi;
-    private ModuleLayer.Controller h;
-
-    public HelloController getHi() {
-        return hi;
-    }
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("a2.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("a1.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        h = fxmlLoader.getController();
+//        hi = fxmlLoader.getController();
         stage.setTitle("Choghok");
         stage.setScene(scene);
         stage.show();

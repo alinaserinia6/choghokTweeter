@@ -2,11 +2,16 @@ package com.example.exm;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.time.LocalDate;
 
@@ -40,7 +45,7 @@ public class signUpController {
     private Label singUpError;
 
     @FXML
-    public void singUpbuttonAction(ActionEvent e) {
+    public void singUpbuttonAction(ActionEvent e) throws IOException {
         if (firstName.getText().isEmpty()) {
             singUpError.setText("نام نباید خالی باشد");
             singUpError.setVisible(true);
@@ -76,6 +81,12 @@ public class signUpController {
 //            singUpError.setVisible(true);
 //            return;
 //        }
+
+        Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        Parent root = FXMLLoader.load(getClass().getResource("a4.fxml"));
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
 
     }
 

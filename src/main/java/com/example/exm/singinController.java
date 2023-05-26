@@ -35,7 +35,7 @@ public class singinController {
             return;
         }
         Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("a3.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("a1.fxml"));
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();

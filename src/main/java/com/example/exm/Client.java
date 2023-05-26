@@ -16,8 +16,8 @@ public class Client {
 		HelloApplication app = new HelloApplication();
 		Platform.startup(app);
 		sleep(3000);
-		HelloController hi = app.getHi();
-		System.out.println(hi == null);
+//		HelloController hi = app.getHi();
+//		System.out.println(hi == null);
 		System.out.println("hey");
 		try (Socket client = new Socket("localhost", 5757)) {
 			listen lis = new listen(client);

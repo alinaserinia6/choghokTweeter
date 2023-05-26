@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="623.0" prefWidth="280.0" type="AnchorPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="623.0" prefWidth="280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.StartController">
    <children>
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="58.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -34,10 +34,10 @@
             <Font name="System Bold Italic" size="37.0" />
          </font>
       </Label>
-      <Button layoutX="95.0" layoutY="507.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="78.0" text="بزن بریم !">
+      <Button layoutX="95.0" layoutY="507.0" mnemonicParsing="false" onAction="#letUsGo" prefHeight="25.0" prefWidth="78.0" text="بزن بریم !">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
    </children>
-</fx:root>
+</AnchorPane>
