@@ -6,6 +6,8 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import static java.lang.Thread.sleep;
+
 public class Server {
 	static ArrayList<ObjectOutputStream> list = new ArrayList<ObjectOutputStream>();
 	public static HashMap<String, User> users = new HashMap<>();
@@ -13,12 +15,16 @@ public class Server {
 	public static void main(String[] args) {
 		System.out.println("\t".repeat(7) + "{SERVER}\n");
 		try (ServerSocket serverSocket = new ServerSocket(5757)){
+			System.out.println("server socket is created");
+			int i = 0;
 			while (true) {
+				System.out.println("i am in " + (++i) + "-th loop");
 				Socket client = serverSocket.accept();
 				Accept ac = new Accept(client);
 				ac.start();
+				sleep(3000);
 			}
-		} catch (IOException exception) {
+		} catch (IOException | InterruptedException exception) {
 			exception.printStackTrace();
 		}
 	}

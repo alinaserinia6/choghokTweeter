@@ -1,12 +1,6 @@
 package com.example.exm;
 
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
 
 import java.io.*;
 import java.util.*;
@@ -23,14 +17,16 @@ public class Client {
 		HelloApplication app = new HelloApplication();
 		Platform.startup(app);
 		sleep(3000);
-		System.out.println("hey");
+		System.out.println("after 3 seconds sleep");
 		try (Socket client = new Socket("localhost", 5757)) {
+            System.out.println("i am in try socket");
 			listen lis = new listen(client);
+            System.out.println("lis in created");
 			lis.start();
 			ObjectOutputStream out = new ObjectOutputStream(client.getOutputStream());
-
+            System.out.println("i created out");
 		} catch (IOException ex) {
-
+            System.err.println("i caught an exception in socket client");
 		}
 	}
 
@@ -46,8 +42,12 @@ class listen extends Thread {
 	@Override
 	public void run() {
 		try {
+            System.out.println("i am in run of listening man!");
 			ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
+            System.out.println("I created inputSteam man!");
 			while (true) {
+                System.out.println("i am wait for user:");
+                System.out.println(Client.user);
 				if (Thread.currentThread().isInterrupted()) {
 					return;
 				}
@@ -59,7 +59,10 @@ class listen extends Thread {
 				}
 				sleep(5000);
 			}
-		} catch (IOException | ClassNotFoundException | InterruptedException ignored) {}
+		} catch (IOException | ClassNotFoundException | InterruptedException e) {
+            System.err.println("exception error in run listening");
+            e.printStackTrace(System.out);
+        }
 	}
 
 }
