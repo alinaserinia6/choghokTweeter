@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="623.0" prefWidth="280.0" type="AnchorPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="623.0" prefWidth="280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.HelloController">
    <children>
       <ComboBox fx:id="phoneNumberCountry" layoutX="32.0" layoutY="266.0" prefHeight="47.0" prefWidth="78.0" />
       <TextField fx:id="phoneNumber" layoutX="118.0" layoutY="263.0" prefHeight="56.0" prefWidth="201.0" promptText="--- --- ----">
@@ -52,4 +52,4 @@
          </font>
       </Label>
    </children>
-</fx:root>
+</AnchorPane>

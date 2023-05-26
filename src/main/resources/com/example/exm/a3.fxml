@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="623.0" prefWidth="280.0" type="AnchorPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.HelloController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="623.0" prefWidth="280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.signUpController">
    <children>
       <Label layoutX="97.0" layoutY="8.0" text="ثبت نام">
          <font>
@@ -43,4 +43,4 @@
       </Label>
       <TextField fx:id="userName" layoutX="7.0" layoutY="210.0" prefHeight="25.0" prefWidth="259.0" promptText="UserName:" />
    </children>
-</fx:root>
+</AnchorPane>
