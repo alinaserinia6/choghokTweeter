@@ -76,11 +76,11 @@ public class signUpController {
             singUpError.setVisible(true);
             return;
         }
-//        if (birthDate.().isEmpty()) {
-//            singUpError.setText("تاریخ تولد نباید خالی باشد");
-//            singUpError.setVisible(true);
-//            return;
-//        }
+        if (birthDate.getValue() == null) {
+            singUpError.setText("تاریخ تولد نباید خالی باشد");
+            singUpError.setVisible(true);
+            return;
+        }
 
         Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
         Parent root = FXMLLoader.load(getClass().getResource("a4.fxml"));
