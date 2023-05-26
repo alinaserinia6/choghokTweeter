@@ -14,7 +14,6 @@ public class HelloApplication extends Application implements Runnable {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("a1.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-//        hi = fxmlLoader.getController();
         stage.setTitle("Choghok");
         stage.setScene(scene);
         stage.show();

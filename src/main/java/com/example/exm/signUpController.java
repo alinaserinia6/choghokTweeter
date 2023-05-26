@@ -10,22 +10,9 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
 import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.time.LocalDate;
 
 public class signUpController {
-    private Scene scene;
-    private ObjectOutputStream out;
-
-    public void setOut(ObjectOutputStream out) {
-        this.out = out;
-    }
-
-    public void setScene(Scene scene) {
-        this.scene = scene;
-    }
 
     @FXML
     private TextField firstName;
