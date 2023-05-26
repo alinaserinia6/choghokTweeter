@@ -66,13 +66,9 @@ public class HelloController {
             shouldAcceptRule.setVisible(true);
             return;
         }
-//        user.setPhoneNumber(phoneNumberCountry.getValue() + phoneNumber.getText());
+        Client.user.setPhoneNumber(phoneNumberCountry.getValue() + phoneNumber.getText());
 
-        Stage stage = (Stage) nextButton.getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("a3.fxml"));
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        HelloApplication.ChangePage(e, "a3.fxml");
     }
 
 }

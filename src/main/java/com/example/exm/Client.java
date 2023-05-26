@@ -1,6 +1,13 @@
 package com.example.exm;
 
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
 import java.io.*;
 import java.util.*;
 import java.net.Socket;
@@ -9,7 +16,7 @@ import static java.lang.Thread.sleep;
 
 public class Client {
 
-	public User user = new User();
+	public static User user = new User();
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 		Scanner q = new Scanner(System.in);

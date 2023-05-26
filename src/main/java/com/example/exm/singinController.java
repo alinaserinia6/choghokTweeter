@@ -34,10 +34,6 @@ public class singinController {
             error.setVisible(true);
             return;
         }
-        Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("a1.fxml"));
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        HelloApplication.ChangePage(e, "a1.fxml");
     }
 }

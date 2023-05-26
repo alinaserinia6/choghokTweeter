@@ -69,11 +69,7 @@ public class signUpController {
             return;
         }
 
-        Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        Parent root = FXMLLoader.load(getClass().getResource("a4.fxml"));
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        HelloApplication.ChangePage(e, "a4.fxml");
 
     }
 

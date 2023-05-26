@@ -8,7 +8,7 @@ import java.util.HashMap;
 
 public class Server {
 	static ArrayList<ObjectOutputStream> list = new ArrayList<ObjectOutputStream>();
-	static HashMap<String, User> users = new HashMap<>();
+	public static HashMap<String, User> users = new HashMap<>();
 
 	public static void main(String[] args) {
 		System.out.println("\t".repeat(7) + "{SERVER}\n");
