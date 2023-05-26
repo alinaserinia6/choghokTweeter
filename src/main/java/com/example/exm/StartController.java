@@ -13,6 +13,6 @@ import java.io.IOException;
 public class StartController {
     @FXML
     public void letUsGo(ActionEvent e) throws IOException {
-        HelloApplication.ChangePage(e, "a2.fxml");
+        HelloApplication.ChangePage(e, "a2");
     }
 }

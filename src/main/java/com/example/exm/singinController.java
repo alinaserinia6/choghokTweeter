@@ -34,6 +34,6 @@ public class singinController {
             error.setVisible(true);
             return;
         }
-        HelloApplication.ChangePage(e, "a1.fxml");
+        HelloApplication.ChangePage(e, "a1");
     }
 }

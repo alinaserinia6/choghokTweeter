@@ -51,5 +51,10 @@
             <Font size="15.0" />
          </font>
       </Label>
+      <Label fx:id="emailChoose" layoutX="189.0" layoutY="404.0" onMouseClicked="#emailClicked" prefHeight="21.0" prefWidth="140.0" text="ثبت نام از طریق ایمیل" textFill="#4b09e8" underline="true">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

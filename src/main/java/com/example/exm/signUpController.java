@@ -69,7 +69,7 @@ public class signUpController {
             return;
         }
 
-        HelloApplication.ChangePage(e, "a4.fxml");
+        HelloApplication.ChangePage(e, "a4");
 
     }
 

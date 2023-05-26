@@ -4,16 +4,12 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
+import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.util.*;
 
 public class HelloController {
@@ -26,6 +22,8 @@ public class HelloController {
     private Button nextButton;
     @FXML
     private CheckBox acceptRule;
+    @FXML
+    private Label emailChoose;
     @FXML
     private Label shouldAcceptRule;
 
@@ -68,7 +66,12 @@ public class HelloController {
         }
         Client.user.setPhoneNumber(phoneNumberCountry.getValue() + phoneNumber.getText());
 
-        HelloApplication.ChangePage(e, "a3.fxml");
+        HelloApplication.ChangePage(e, "a3");
     }
 
+    @FXML
+    public void emailClicked(MouseEvent e) throws IOException {
+        System.out.println("clicked email");
+        HelloApplication.ChangePage(e, "a2email");
+    }
 }
