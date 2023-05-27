@@ -33,7 +33,7 @@
             <Image url="@Untitled.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="110.0" layoutY="587.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="21.0" fitWidth="23.0" layoutX="110.0" layoutY="593.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@سیب.jpg" />
          </image>
