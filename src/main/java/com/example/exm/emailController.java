@@ -41,6 +41,10 @@ public class emailController {
         Client.user.setEmail(email.getText());
         HelloApplication.ChangePage(e, "a3");
     }
+    public void backnumber(ActionEvent e) throws IOException {
+        HelloApplication.ChangePage(e, "a2");
+
+    }
 }
 
 class EmailValidator {

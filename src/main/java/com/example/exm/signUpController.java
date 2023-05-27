@@ -59,16 +59,20 @@ public class signUpController {
             singUpError.setVisible(true);
             return;
         }
-        if(!password.getText().equals(repeatPassword.getText())){
+        if (!password.getText().equals(repeatPassword.getText())) {
             singUpError.setText("تکرار گذر واژه صحیح نیست");
             singUpError.setVisible(true);
             return;
         }
-        if (!checkPassword(password.getText())){
+        if (!checkPassword(password.getText())) {
             singUpError.setText("گذرواژه نامعتبر است");
             singUpError.setVisible(true);
             return;
         }
+        HelloApplication.ChangePage(e, "a5");
+
+
+
 
         Client.user.setFirstName(firstName.getText());
         Client.user.setLastName(lastName.getText());
@@ -82,7 +86,10 @@ public class signUpController {
         String key = Client.user.getEmail() == null ? Client.user.getPhoneNumber() : Client.user.getEmail();
         Server.users.put(key, Client.user);
         Client.out.writeObject(Client.user);
-        HelloApplication.ChangePage(e, "a4");
+    }
+    public void back(ActionEvent e) throws IOException {
+        HelloApplication.ChangePage(e, "a2");
+
     }
     public static boolean checkPassword(String password) {
         if (password == null || password.length() < 8) {

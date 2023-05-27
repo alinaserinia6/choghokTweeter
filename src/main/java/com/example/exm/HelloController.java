@@ -79,4 +79,10 @@ public class HelloController {
         System.out.println("clicked email");
         HelloApplication.ChangePage(e, "a2email");
     }
+
+    public void asingin(ActionEvent e) throws IOException {
+        HelloApplication.ChangePage(e, "a4");
+
+    }
+
 }

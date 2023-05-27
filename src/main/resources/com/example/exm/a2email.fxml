@@ -22,7 +22,8 @@
             <Separator layoutX="-4.0" layoutY="118.0" prefHeight="18.0" prefWidth="341.0" />
          </children>
       </Pane>
-      <Button layoutX="139.0" layoutY="473.0" mnemonicParsing="false" onAction="#emailAction" prefHeight="31.0" prefWidth="68.0" text="بعدی" textOverrun="CLIP">
+      <TextField fx:id="email" layoutX="49.0" layoutY="249.0" prefHeight="25.0" prefWidth="264.0" promptText="Email:" />
+      <Button layoutX="229.0" layoutY="461.0" mnemonicParsing="false" onAction="#emailAction" prefHeight="31.0" prefWidth="68.0" text="بعدی" textOverrun="CLIP">
          <font>
             <Font name="Arial Black" size="12.0" />
          </font>
@@ -32,11 +33,11 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="email" layoutX="49.0" layoutY="249.0" prefHeight="25.0" prefWidth="264.0" promptText="Email:" />
       <Label fx:id="error" layoutX="39.0" layoutY="539.0" prefHeight="62.0" prefWidth="296.0" textAlignment="CENTER" textFill="#ff0707">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
+      <Button layoutX="49.0" layoutY="461.0" mnemonicParsing="false" onAction="#backnumber" prefHeight="31.0" prefWidth="68.0" text="مرحله قبل" />
    </children>
 </AnchorPane>
