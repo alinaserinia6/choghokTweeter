@@ -46,7 +46,7 @@
             <Font name="Arial Black" size="12.0" />
          </font>
       </Button>
-      <Label fx:id="shouldAcceptRule" alignment="CENTER" layoutX="8.0" layoutY="542.0" prefHeight="65.0" prefWidth="323.0" text="باید با سیاست های فوق امنیتی چغک موافقت کنید" textAlignment="CENTER" textFill="RED" visible="false">
+      <Label fx:id="error" alignment="CENTER" layoutX="8.0" layoutY="542.0" prefHeight="65.0" prefWidth="323.0" text="باید با سیاست های فوق امنیتی چغک موافقت کنید" textAlignment="CENTER" textFill="RED" visible="false">
          <font>
             <Font size="15.0" />
          </font>

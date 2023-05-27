@@ -1,16 +1,16 @@
 package com.example.exm;
 
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.KeySpec;
+import java.util.Base64;
 import java.util.Locale;
 
 public class Main {
-    public static void main(String[] args) {
-//        Client cli = new Client();
-//        Platform.runLater(new Runnable() {
-//            @Override
-//            public void run() {
-//                // Update UI here.
-//            }
-//        });
-//        cli.start();
+    public static void main(String[] args) throws NoSuchAlgorithmException, InvalidKeySpecException {
+
     }
 }

@@ -25,7 +25,7 @@ public class HelloController {
     @FXML
     private Label emailChoose;
     @FXML
-    private Label shouldAcceptRule;
+    private Label error;
 
     private String [] ISO = Locale.getISOCountries();
     private ObservableList observOfISO;
@@ -50,22 +50,27 @@ public class HelloController {
     @FXML
     public void nexti(ActionEvent e) throws IOException {
         if (phoneNumberCountry.getSelectionModel().isEmpty()) {
-            shouldAcceptRule.setText("کشور خود را وارد کنید");
-            shouldAcceptRule.setVisible(true);
+            error.setText("کشور خود را وارد کنید");
+            error.setVisible(true);
             return;
         }
         if (phoneNumber.getText().length() != 10) {
-            shouldAcceptRule.setText("شماره همراه باید ۱۰ رقمی باشد");
-            shouldAcceptRule.setVisible(true);
+            error.setText("شماره همراه باید ۱۰ رقمی باشد");
+            error.setVisible(true);
             return;
         }
         if (!acceptRule.isSelected()) {
-            shouldAcceptRule.setText("باید با سیاست های فوق امنیتی چغک موافقت کنید");
-            shouldAcceptRule.setVisible(true);
+            error.setText("باید با سیاست های فوق امنیتی چغک موافقت کنید");
+            error.setVisible(true);
             return;
         }
-        Client.user.setPhoneNumber(phoneNumberCountry.getValue() + phoneNumber.getText());
-
+        String key = phoneNumberCountry.getValue() + phoneNumber.getText();
+        if (Server.users.containsKey(key)) {
+            error.setText("شماره تلفن وارد شده قبلا ثبت شده است");
+            error.setVisible(true);
+            return;
+        }
+        Client.user.setPhoneNumber(key);
         HelloApplication.ChangePage(e, "a3");
     }
 

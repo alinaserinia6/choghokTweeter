@@ -6,8 +6,6 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import static java.lang.Thread.sleep;
-
 public class Server {
 	static ArrayList<ObjectOutputStream> list = new ArrayList<ObjectOutputStream>();
 	public static HashMap<String, User> users = new HashMap<>();
@@ -53,7 +51,7 @@ class Accept extends Thread {
 //				} catch (StreamCorruptedException e) {
 //					continue;
 //				}
-				sleep(3000);
+				sleep(5000);
 			}
 		} catch (IOException | InterruptedException e) {
 			Server.list.remove(out);

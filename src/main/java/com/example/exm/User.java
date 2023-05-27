@@ -14,6 +14,7 @@ enum Gender {
 public class User implements Serializable {
     private String username;
     private String phoneNumber;
+    private String email;
     private String firstName;
     private String lastName;
     private String bio;
@@ -22,9 +23,10 @@ public class User implements Serializable {
     public ArrayList<Tweet> tweets;
     private ImageView avatar;
     private ImageView header;
-    private LocalDateTime birthDate;
-    private LocalDate joinDate;
+    private String birthDate;
+    private String joinDate;
     private Gender gender;
+    private String password;
 
     public String getUsername() {
         return username;
@@ -82,19 +84,19 @@ public class User implements Serializable {
         this.header = header;
     }
 
-    public LocalDateTime getBirthDate() {
+    public String getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(LocalDateTime birthDate) {
+    public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
     }
 
-    public LocalDate getJoinDate() {
+    public String getJoinDate() {
         return joinDate;
     }
 
-    public void setJoinDate(LocalDate joinDate) {
+    public void setJoinDate(String joinDate) {
         this.joinDate = joinDate;
     }
 
@@ -104,6 +106,22 @@ public class User implements Serializable {
 
     public void setGender(Gender gender) {
         this.gender = gender;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @Override

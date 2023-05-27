@@ -22,19 +22,24 @@ public class emailController {
 
     @FXML
     public void emailAction(ActionEvent e) throws IOException {
-        if (email.getText().isEmpty()) {
+        String key = email.getText();
+        if (key.isEmpty()) {
             error.setText("آدرس ایمیل نمیتواند خالی باشد");
             error.setVisible(true);
             return;
         }
-        if (!Pattern.compile(EMAIL_PATTERN).matcher(email.getText()).matches()) {
+        if (!Pattern.compile(EMAIL_PATTERN).matcher(key).matches()) {
             error.setText("آدرس ایمیل نا معتبر است");
             error.setVisible(true);
             return;
         }
-
+        if (Server.users.containsKey(key)) {
+            error.setText("ایمیل وارد شده قبلا ثبت شده است");
+            error.setVisible(true);
+            return;
+        }
+        Client.user.setEmail(email.getText());
         HelloApplication.ChangePage(e, "a3");
-
     }
 }
 

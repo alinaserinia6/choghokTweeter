@@ -6,6 +6,9 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 public class signUpController {
 
@@ -15,8 +18,6 @@ public class signUpController {
     private TextField lastName;
     @FXML
     private TextField userName;
-    @FXML
-    private TextField email;
     @FXML
     private TextField password;
     @FXML
@@ -40,11 +41,6 @@ public class signUpController {
         }
         if (userName.getText().isEmpty()) {
             singUpError.setText("نام کاربری نباید خالی باشد");
-            singUpError.setVisible(true);
-            return;
-        }
-        if (email.getText().isEmpty()) {
-            singUpError.setText("ایمیل نباید خالی باشد");
             singUpError.setVisible(true);
             return;
         }
@@ -72,14 +68,18 @@ public class signUpController {
             singUpError.setText("گذرواژه نامعتبر است");
             singUpError.setVisible(true);
             return;
-
         }
 
-
-
+        Client.user.setFirstName(firstName.getText());
+        Client.user.setLastName(lastName.getText());
+        Client.user.setUsername(userName.getText());
+        String date = new SimpleDateFormat("yyy MM").format(new Date());
+        Client.user.setJoinDate(date);
+        Client.user.setUsername(userName.getText());
+        Client.user.setPassword(password.getText());
+        String birth = birthDate.getValue().format(DateTimeFormatter.ofPattern("MMM dd"));
+        Client.user.setBirthDate(birth);
         HelloApplication.ChangePage(e, "a4");
-
-
     }
     public static boolean checkPassword(String password) {
         if (password == null || password.length() < 8) {
