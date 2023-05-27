@@ -18,7 +18,6 @@ public class Server {
 			while (true) {
 				System.out.println("i am in " + (++i) + "-th loop");
 				Socket client = serverSocket.accept();
-				System.out.println(client.getInetAddress());
 				Accept ac = new Accept(client);
 				ac.start();
 			}
@@ -45,12 +44,12 @@ class Accept extends Thread {
 			Server.list.add(out);
 			while (true) {
 				System.out.println("i am listening!");
-//				Tweet tweet;
-//				try {
-////					tweet = (Tweet) in.readObject();
-//				} catch (StreamCorruptedException e) {
-//					continue;
-//				}
+				try {
+					String o = (String) in.readObject();
+					System.out.println(o);
+				} catch (ClassNotFoundException e) {
+					System.err.println("cant cast read from user to String!");
+				}
 				sleep(5000);
 			}
 		} catch (IOException | InterruptedException e) {

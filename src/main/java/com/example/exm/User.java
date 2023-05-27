@@ -2,8 +2,6 @@ package com.example.exm;
 
 import javafx.scene.image.ImageView;
 import java.io.Serializable;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 enum Gender {
@@ -126,6 +124,8 @@ public class User implements Serializable {
 
     @Override
     public String toString() {
-        return phoneNumber;
+        return "id: " + ((phoneNumber == null) ? email : phoneNumber) + "\n"
+                + "Name: " + firstName + " " + lastName + "\n"
+                + "username: " + username;
     }
 }

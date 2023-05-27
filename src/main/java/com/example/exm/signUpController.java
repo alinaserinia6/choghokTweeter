@@ -79,6 +79,9 @@ public class signUpController {
         Client.user.setPassword(password.getText());
         String birth = birthDate.getValue().format(DateTimeFormatter.ofPattern("MMM dd"));
         Client.user.setBirthDate(birth);
+        String key = Client.user.getEmail() == null ? Client.user.getPhoneNumber() : Client.user.getEmail();
+        Server.users.put(key, Client.user);
+        Client.out.writeObject(Client.user);
         HelloApplication.ChangePage(e, "a4");
     }
     public static boolean checkPassword(String password) {
