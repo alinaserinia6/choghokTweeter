@@ -60,7 +60,7 @@ class listen extends Thread {
 //				} else {
 //					System.out.println((String) o);
 //				}
-				sleep(5000);
+				sleep(10000);
 			}
 		} catch (IOException | InterruptedException e) {
             System.err.println("exception error in run listening");

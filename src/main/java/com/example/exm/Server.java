@@ -18,6 +18,7 @@ public class Server {
 			while (true) {
 				System.out.println("i am in " + (++i) + "-th loop");
 				Socket client = serverSocket.accept();
+				System.out.println(client.getInetAddress());
 				Accept ac = new Accept(client);
 				ac.start();
 			}
@@ -35,7 +36,6 @@ class Accept extends Thread {
 	}
 	@Override
 	public void run() {
-		User user;
 		ObjectInputStream in;
 		ObjectOutputStream out = null;
 		try {
@@ -43,13 +43,26 @@ class Accept extends Thread {
 			out = new ObjectOutputStream(client.getOutputStream());
 			Server.list.add(out);
 			while (true) {
-				System.out.println("i am listening!");
+				System.out.println("i am listening to " + Server.users.size());
+				for (User i : Server.users.values()) {
+					System.out.println(i);
+				}
 				try {
-					String o = (String) in.readObject();
+					Object o = in.readObject();
+					if (o instanceof String) {
+						String s = (String) o;
+						System.out.println(s);
+					} else if (o instanceof User) {
+						User u = (User) o;
+						System.out.println(u);
+					}
 					System.out.println(o);
 				} catch (ClassNotFoundException e) {
 					System.err.println("cant cast read from user to String!");
+				} catch (EOFException e) {
+					System.err.println("file is empty");
 				}
+				System.out.print("+");
 				sleep(5000);
 			}
 		} catch (IOException | InterruptedException e) {

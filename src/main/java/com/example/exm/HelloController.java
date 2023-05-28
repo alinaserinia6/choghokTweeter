@@ -5,7 +5,6 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
@@ -63,11 +62,12 @@ public class HelloController {
             return;
         }
         String key = phoneNumberCountry.getValue() + phoneNumber.getText();
-        if (Server.users.containsKey(key)) {
-            error.setText("شماره تلفن وارد شده قبلا ثبت شده است");
-            error.setVisible(true);
-            return;
-        }
+//        if (Server.users.containsKey(key)) {
+//            error.setText("شماره تلفن وارد شده قبلا ثبت شده است");
+//            error.setVisible(true);
+//            return;
+//        }
+        Client.out.writeObject(key);
         Client.user.setPhoneNumber(key);
         HelloApplication.ChangePage(e, "a3");
     }

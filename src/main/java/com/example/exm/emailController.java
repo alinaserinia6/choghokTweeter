@@ -33,11 +33,12 @@ public class emailController {
             error.setVisible(true);
             return;
         }
-        if (Server.users.containsKey(key)) {
-            error.setText("ایمیل وارد شده قبلا ثبت شده است");
-            error.setVisible(true);
-            return;
-        }
+//        if (Server.users.containsKey(key)) {
+//            error.setText("ایمیل وارد شده قبلا ثبت شده است");
+//            error.setVisible(true);
+//            return;
+//        }
+        Client.out.writeObject(key);
         Client.user.setEmail(email.getText());
         HelloApplication.ChangePage(e, "a3");
     }
