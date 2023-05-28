@@ -32,7 +32,6 @@ public class HelloController {
     @FXML
     private ComboBox<String> phoneNumberCountry = new ComboBox<>();
 
-    private Image Ico = new Image(getClass().getResourceAsStream("icon.png"));
 
     public void initialize() {
         ArrayList<String> c = new ArrayList<>();
@@ -43,7 +42,6 @@ public class HelloController {
         }
         observOfISO = FXCollections.observableArrayList(c);
         phoneNumberCountry.setItems(observOfISO);
-        icon.setImage(Ico);
         System.out.println("initialize");
     }
 
