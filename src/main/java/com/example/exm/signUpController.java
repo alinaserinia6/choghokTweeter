@@ -71,9 +71,6 @@ public class signUpController {
         }
         HelloApplication.ChangePage(e, "a5");
 
-
-
-
         Client.user.setFirstName(firstName.getText());
         Client.user.setLastName(lastName.getText());
         Client.user.setUsername(userName.getText());
@@ -84,8 +81,10 @@ public class signUpController {
         String birth = birthDate.getValue().format(DateTimeFormatter.ofPattern("MMM dd"));
         Client.user.setBirthDate(birth);
         String key = Client.user.getEmail() == null ? Client.user.getPhoneNumber() : Client.user.getEmail();
-        Server.users.put(key, Client.user);
-        Client.out.writeObject(Client.user);
+
+        synchronized (Client.out) {
+            Client.out.writeObject(Client.user);
+        }
     }
     public void back(ActionEvent e) throws IOException {
         HelloApplication.ChangePage(e, "a2");
