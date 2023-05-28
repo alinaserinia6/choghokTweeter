@@ -23,22 +23,22 @@
       <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <VBox alignment="CENTER" prefHeight="623.0" prefWidth="280.0">
+      <VBox alignment="CENTER" prefHeight="623.0" prefWidth="285.0">
          <children>
             <Label prefHeight="25.0" prefWidth="227.0" text="لطفا شماره همراه خود را وارد کنید:">
                <font>
                   <Font size="16.0" />
                </font>
             </Label>
-            <Label fx:id="error" alignment="CENTER" prefHeight="65.0" prefWidth="323.0" text="باید با سیاست های فوق امنیتی چغک موافقت کنید" textAlignment="CENTER" textFill="RED" visible="false">
+            <Label fx:id="error" alignment="CENTER" prefHeight="65.0" prefWidth="323.0" text="باید با سیاست های فوق امنیتی چغک موافقت کنید" textAlignment="CENTER" textFill="RED" translateX="5.0" translateY="380.0" visible="false">
                <font>
-                  <Font size="15.0" />
+                  <Font size="13.0" />
                </font>
             </Label>
             <HBox prefHeight="100.0" prefWidth="200.0">
                <children>
                   <ComboBox fx:id="phoneNumberCountry" prefHeight="47.0" prefWidth="78.0" />
-                  <TextField fx:id="phoneNumber" prefHeight="57.0" prefWidth="224.0" promptText="--- --- ----">
+                  <TextField fx:id="phoneNumber" prefHeight="57.0" prefWidth="207.0" promptText="--- --- ----">
                      <font>
                         <Font size="26.0" />
                      </font>
@@ -76,7 +76,6 @@
                   <Font name="Arial Black" size="12.0" />
                </font>
             </Button>
-            <Label prefHeight="66.0" prefWidth="271.0" textFill="RED" translateY="50.0" />
          </children>
       </VBox>
    </children>
