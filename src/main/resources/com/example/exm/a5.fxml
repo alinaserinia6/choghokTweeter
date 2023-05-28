@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -43,5 +44,10 @@
             <Image url="@ضضض.jpg" />
          </image>
       </ImageView>
+      <Hyperlink layoutX="242.0" layoutY="16.0" prefHeight="23.0" prefWidth="21.0" />
+      <Hyperlink layoutX="227.0" layoutY="591.0" prefHeight="23.0" prefWidth="18.0" />
+      <Hyperlink layoutX="110.0" layoutY="592.0" prefHeight="23.0" prefWidth="18.0" />
+      <Hyperlink layoutX="41.0" layoutY="592.0" prefHeight="23.0" prefWidth="31.0" />
+      <Hyperlink layoutX="167.0" layoutY="590.0" prefHeight="23.0" prefWidth="21.0" />
    </children>
 </AnchorPane>
