@@ -6,14 +6,20 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<GridPane prefHeight="623.0" prefWidth="280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.StartController">
+<AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.StartController">
+<children>
+<ImageView fitHeight="625.0" fitWidth="285.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <image>
+            <Image url="@back.png" />
+         </image></ImageView>
+<GridPane prefHeight="623.0" prefWidth="280.0">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
    </columnConstraints>
@@ -34,7 +40,7 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
             </ImageView>
-            <Label prefHeight="26.0" prefWidth="176.0" text="لذت استفاده از تکنولوژی" translateY="-100.0">
+            <Label prefHeight="26.0" prefWidth="176.0" text="لذت استفاده از تکنولوژی" textFill="#f8f8f8" translateY="-100.0">
                <font>
                   <Font size="17.0" />
                </font>
@@ -42,7 +48,7 @@
                   <Insets />
                </VBox.margin>
             </Label>
-            <Label prefHeight="26.0" prefWidth="110.0" text="و برقراری ارتباط" translateY="-90.0">
+            <Label prefHeight="26.0" prefWidth="110.0" text="و برقراری ارتباط" textFill="WHITE" translateY="-90.0">
                <font>
                   <Font size="17.0" />
                </font>
@@ -50,7 +56,7 @@
                   <Insets />
                </VBox.margin>
             </Label>
-            <Label text="با" translateY="-80.0">
+            <Label text="با" textFill="WHITE" translateY="-80.0">
                <font>
                   <Font size="20.0" />
                </font>
@@ -58,7 +64,7 @@
                   <Insets />
                </VBox.margin>
             </Label>
-            <Label text="چغک" translateY="-70.0">
+            <Label text="چغک" textFill="WHITE" translateY="-70.0">
                <font>
                   <Font name="System Bold Italic" size="37.0" />
                </font>
@@ -81,3 +87,5 @@
       </VBox>
    </children>
 </GridPane>
+</children>
+</AnchorPane>
