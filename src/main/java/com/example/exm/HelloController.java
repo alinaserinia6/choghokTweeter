@@ -8,8 +8,11 @@ import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
+import java.io.EOFException;
 import java.io.IOException;
 import java.util.*;
+
+import static java.lang.Thread.sleep;
 
 public class HelloController {
 
@@ -62,12 +65,13 @@ public class HelloController {
             return;
         }
         String key = phoneNumberCountry.getValue() + phoneNumber.getText();
-//        if (Server.users.containsKey(key)) {
-//            error.setText("شماره تلفن وارد شده قبلا ثبت شده است");
-//            error.setVisible(true);
-//            return;
-//        }
         Client.out.writeObject(key);
+        boolean b = (boolean) Client.getObject();
+        if (b) {
+            error.setText("شماره تلفن وارد شده قبلا ثبت شده است");
+            error.setVisible(true);
+            return;
+        }
         Client.user.setPhoneNumber(key);
         HelloApplication.ChangePage(e, "a3");
     }

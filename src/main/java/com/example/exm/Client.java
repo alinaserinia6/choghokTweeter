@@ -12,6 +12,7 @@ public class Client {
 
 	public static User user = new User();
 	public static ObjectOutputStream out;
+	public static ObjectInputStream in;
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 		Scanner q = new Scanner(System.in);
@@ -20,9 +21,10 @@ public class Client {
 		sleep(3000);
 		try (Socket client = new Socket("localhost", 5757)) {
 			System.out.println(client.getInetAddress());
-			listen lis = new listen(client);
-			lis.start();
 			out = new ObjectOutputStream(client.getOutputStream());
+			in = new ObjectInputStream(client.getInputStream());
+//			listen lis = new listen(client, out, in);
+//			lis.start();
 			while (!client.isClosed()) {
 				sleep(10000);
 			}
@@ -31,36 +33,48 @@ public class Client {
 		}
 	}
 
+	public static Object getObject() {
+		while (true) {
+			try {
+				return in.readObject();
+			} catch (ClassNotFoundException | IOException ignore) {
+				try {
+					sleep(100);
+				} catch (InterruptedException ex) {
+					System.err.println("sleep exception");
+				}
+			}
+		}
+	}
+
 }
 
 class listen extends Thread {
 	private Socket socket;
+	private ObjectOutputStream out;
+	private ObjectInputStream in;
 
-	public listen(Socket socket) {
+	public listen(Socket socket, ObjectOutputStream out, ObjectInputStream in) {
 		this.socket = socket;
+		this.out = out;
+		this.in = in;
 	}
 
 	@Override
 	public void run() {
 		try {
-			ObjectInputStream in = new ObjectInputStream(socket.getInputStream());
+			in = new ObjectInputStream(socket.getInputStream());
 			while (true) {
                 System.out.println(Client.user);
 //				if (Thread.currentThread().isInterrupted()) {
 //					return;
 //				}
-//				Object o;
-//				try {
-//					o = in.readObject();
-//				} catch (EOFException e) {
-//					continue;
-//				}
-//				if (o instanceof Tweet tweet) {
-//					System.out.print(tweet);
-//				} else {
-//					System.out.println((String) o);
-//				}
-				sleep(10000);
+				Object o;
+				try {
+					o = in.readObject();
+				} catch (EOFException | ClassNotFoundException e) {
+					sleep(3000);
+				}
 			}
 		} catch (IOException | InterruptedException e) {
             System.err.println("exception error in run listening");
