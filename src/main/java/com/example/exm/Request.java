@@ -1,6 +1,8 @@
 package com.example.exm;
 
-public class Request {
+import java.io.Serializable;
+
+public class Request implements Serializable {
 	RM method;
 	Object p, q, r;
 
