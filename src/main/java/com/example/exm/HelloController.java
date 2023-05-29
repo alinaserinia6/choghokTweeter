@@ -8,7 +8,6 @@ import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
-import java.io.EOFException;
 import java.io.IOException;
 import java.util.*;
 
@@ -65,7 +64,8 @@ public class HelloController {
             return;
         }
         String key = phoneNumberCountry.getValue() + phoneNumber.getText();
-        Client.out.writeObject(key);
+        Request r = new Request(RM.DUPLICATE_KEY, key);
+        Client.out.writeObject(r);
         boolean b = (boolean) Client.getObject();
         if (b) {
             error.setText("شماره تلفن وارد شده قبلا ثبت شده است");

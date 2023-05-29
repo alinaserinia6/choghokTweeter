@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
+
 public class signUpController {
 
     @FXML
@@ -69,6 +70,15 @@ public class signUpController {
             singUpError.setVisible(true);
             return;
         }
+        Request r = new Request(RM.DUPLICATE_ID, userName.getText());
+        Client.out.writeObject(r);
+        boolean b = (boolean) Client.getObject();
+        if (b) {
+            singUpError.setText("نام کاربری قبلا استفاده شده است");
+            singUpError.setVisible(true);
+            return;
+        }
+
         HelloApplication.ChangePage(e, "a5");
 
         Client.user.setFirstName(firstName.getText());
@@ -81,14 +91,12 @@ public class signUpController {
         String birth = birthDate.getValue().format(DateTimeFormatter.ofPattern("MMM dd"));
         Client.user.setBirthDate(birth);
         String key = Client.user.getEmail() == null ? Client.user.getPhoneNumber() : Client.user.getEmail();
-
-        synchronized (Client.out) {
-            Client.out.writeObject(Client.user);
-        }
+        r = new Request(RM.ADD_USER, Client.user, key);
+        Client.out.writeObject(r);
     }
+
     public void back(ActionEvent e) throws IOException {
         HelloApplication.ChangePage(e, "a2");
-
     }
     public static boolean checkPassword(String password) {
         if (password == null || password.length() < 8) {

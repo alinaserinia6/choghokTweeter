@@ -33,7 +33,9 @@ public class emailController {
             error.setVisible(true);
             return;
         }
-        Client.out.writeObject(key);
+        Request r = new Request(RM.DUPLICATE_KEY, key);
+        Client.out.writeObject(r);
+        Client.out.writeObject(r);
         boolean b = (boolean) Client.getObject();
         if (b) {
             error.setText("ایمیل وارد شده قبلا ثبت شده است");
