@@ -6,6 +6,10 @@ public class Request implements Serializable {
 	RM method;
 	Object p, q, r;
 
+	public Request(RM method) {
+		this.method = method;
+	}
+
 	public Request(RM method, Object p) {
 		this.method = method;
 		this.p = p;

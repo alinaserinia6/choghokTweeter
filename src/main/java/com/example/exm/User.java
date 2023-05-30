@@ -3,6 +3,7 @@ package com.example.exm;
 import javafx.scene.image.ImageView;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 enum Gender {
     MALE,
@@ -16,8 +17,8 @@ public class User implements Serializable {
     private String firstName;
     private String lastName;
     private String bio;
-    public ArrayList<User> followers;
-    public ArrayList<User> following;
+    public HashSet<String> followers;
+    public HashSet<String> following;
     public ArrayList<Tweet> tweets;
     private ImageView avatar;
     private ImageView header;
