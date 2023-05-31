@@ -1,5 +1,11 @@
 #pane{
-    -fx-background-image: url("back.png");
+    -fx-background-image: url("abc.gif");
+    -fx-background-repeat: stretch;   
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+}
+#a2{
+    -fx-background-image: url("aminak.gif");
     -fx-background-repeat: stretch;   
     -fx-background-size: cover;
     -fx-background-position: center center;

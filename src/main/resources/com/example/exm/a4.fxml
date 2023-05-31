@@ -19,6 +19,7 @@
       <TextField fx:id="username" layoutX="22.0" layoutY="136.0" prefHeight="25.0" prefWidth="231.0" promptText="UserName:" />
       <PasswordField fx:id="password" layoutX="21.0" layoutY="264.0" prefHeight="25.0" prefWidth="231.0" promptText="Password:" />
       <Button layoutX="117.0" layoutY="409.0" mnemonicParsing="false" onAction="#singInbuttonAction" text="SingIn" />
-      <Label fx:id="error" layoutX="40.0" layoutY="500.0" prefHeight="55.0" prefWidth="231.0" textAlignment="CENTER" textFill="RED" />
+      <Label fx:id="error" layoutX="14.0" layoutY="517.0" prefHeight="55.0" prefWidth="231.0" textAlignment="CENTER" textFill="RED" />
+      <Button layoutX="117.0" layoutY="468.0" mnemonicParsing="false" onAction="#backk" prefHeight="25.0" prefWidth="50.0" text="back" />
    </children>
 </AnchorPane>

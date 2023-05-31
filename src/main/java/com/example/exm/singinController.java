@@ -44,4 +44,7 @@ public class singinController {
         }
         HelloApplication.ChangePage(e, "a5");
     }
+    public void backk(ActionEvent e) throws IOException {
+        HelloApplication.ChangePage(e, "a2");
+    }
 }

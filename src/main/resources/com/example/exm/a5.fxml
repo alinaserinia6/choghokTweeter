@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Hyperlink?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="623.0" prefWidth="280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.TimeLineController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="285.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.TimeLineController">
    <children>
       <Label layoutX="102.0" layoutY="14.0" text="چغک">
          <font>
@@ -23,33 +26,51 @@
          </image>
       </ImageView>
       <Circle fill="#adbecd" layoutX="255.0" layoutY="28.0" radius="19.0" stroke="BLACK" strokeType="INSIDE" />
-      <Line endX="165.0" layoutX="115.0" layoutY="51.0" startX="-115.0" />
-      <Line endX="150.0" layoutX="130.0" layoutY="584.0" startX="-130.0" />
-      <ImageView fitHeight="38.0" fitWidth="32.0" layoutX="220.0" layoutY="585.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@HOME-ICONS-12.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="21.0" fitWidth="23.0" layoutX="167.0" layoutY="591.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Untitled.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="21.0" fitWidth="23.0" layoutX="110.0" layoutY="593.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@سیب.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="21.0" fitWidth="31.0" layoutX="41.0" layoutY="592.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@ضضض.jpg" />
-         </image>
-      </ImageView>
+      <Line endX="171.0" endY="1.0" layoutX="115.0" layoutY="51.0" startX="-115.0" />
+      <Line endX="156.0" endY="-1.0" layoutX="130.0" layoutY="584.0" startX="-130.0" />
       <Hyperlink layoutX="242.0" layoutY="16.0" prefHeight="23.0" prefWidth="21.0" />
-      <Hyperlink layoutX="227.0" layoutY="591.0" prefHeight="23.0" prefWidth="18.0" />
-      <Hyperlink layoutX="110.0" layoutY="592.0" prefHeight="23.0" prefWidth="18.0" />
-      <Hyperlink layoutX="41.0" layoutY="592.0" prefHeight="23.0" prefWidth="31.0" />
-      <Hyperlink layoutX="167.0" layoutY="590.0" prefHeight="23.0" prefWidth="21.0" />
-      <ScrollPane fx:id="sp" layoutX="1.0" layoutY="51.0" prefHeight="532.0" prefWidth="281.0" />
+      <ScrollPane fx:id="sp" layoutX="-1.0" layoutY="52.0" prefHeight="531.0" prefWidth="287.0" />
+      <HBox layoutY="580.0" prefHeight="47.0" prefWidth="281.0">
+         <children>
+            <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="-20.0" translateY="5.0">
+               <image>
+                  <Image url="@email.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="10.0" translateY="5.0">
+               <image>
+                  <Image url="@notification.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="40.0" translateY="5.0">
+               <image>
+                  <Image url="@search.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+            </ImageView>
+            <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="70.0" translateY="5.0">
+               <image>
+                  <Image url="@home.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+            </ImageView>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets left="50.0" />
+         </padding>
+      </HBox>
    </children>
 </AnchorPane>
