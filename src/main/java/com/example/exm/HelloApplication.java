@@ -17,7 +17,7 @@ public class HelloApplication extends Application implements Runnable {
 
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("a1.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("showTweet.fxml"));
         Parent myPane = fxmlLoader.load();
         myPane.setId("pane");//igyogyoigyi
         Scene scene = new Scene(myPane);

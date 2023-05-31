@@ -1,6 +1,7 @@
 package com.example.exm;
 
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.ScrollPane;
@@ -17,6 +18,7 @@ public class TimeLineController {
 		Client.out.writeObject(new Request(RM.GET_TWEETS, Client.user.following));
 		ArrayList<Pane> twPane = (ArrayList<Pane>) Client.getObject();
 		for (Pane i : twPane) sp.setContent(i);
+
 		Platform.runLater(new Runnable() {
 			@Override
 			public void run() {
@@ -27,5 +29,10 @@ public class TimeLineController {
 		});
 
 		//		sp.setContent();
+	}
+
+	@FXML
+	void addTweet(ActionEvent e) throws IOException {
+		HelloApplication.ChangePage(e, "a6");
 	}
 }
