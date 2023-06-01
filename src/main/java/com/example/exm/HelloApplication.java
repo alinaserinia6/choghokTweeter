@@ -12,6 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.nio.file.Paths;
 
 public class HelloApplication extends Application implements Runnable {
 
@@ -25,7 +26,10 @@ public class HelloApplication extends Application implements Runnable {
         scene.getStylesheets().addAll(this.getClass().getResource("anchor.css").toExternalForm());
         stage.setScene(scene);
         stage.show();
+        
+
     }
+
 
     @Override
     public void run() {
@@ -39,6 +43,7 @@ public class HelloApplication extends Application implements Runnable {
 
     public static void main(String[] args) {
         launch();
+
     }
 
     public static void ChangePage(Event e, String fxmlFile) throws IOException {
@@ -51,5 +56,6 @@ public class HelloApplication extends Application implements Runnable {
         scene.getStylesheets().addAll(a.getClass().getResource("anchor.css").toExternalForm());
         stage.show();
     }
+
 
 }

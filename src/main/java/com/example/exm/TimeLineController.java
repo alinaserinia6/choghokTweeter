@@ -38,4 +38,10 @@ public class TimeLineController {
 	void addTweet(MouseEvent e) throws IOException {
 		HelloApplication.ChangePage(e, "a6");
 	}
+	@FXML
+	void setting(ActionEvent e) throws IOException {
+		HelloApplication.ChangePage(e, "a7");
+	}
+
+
 }
