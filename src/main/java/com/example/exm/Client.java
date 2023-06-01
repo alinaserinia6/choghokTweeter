@@ -39,6 +39,7 @@ public class Client {
 				return in.readObject();
 			} catch (ClassNotFoundException | IOException ignore) {
 				try {
+					System.out.print("+");
 					sleep(100);
 				} catch (InterruptedException ex) {
 					System.err.println("sleep exception");

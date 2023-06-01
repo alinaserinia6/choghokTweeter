@@ -83,6 +83,7 @@ class Accept extends Thread {
 						}
 						case ADD_TWEET -> {
 							Server.tweets.add((Tweet) o.get1());
+							System.out.println(Server.tweets.size());
 						}
 						case GET_TWEETS -> {
 							out.writeObject(Server.tweets);

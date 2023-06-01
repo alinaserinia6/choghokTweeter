@@ -7,3 +7,6 @@
     -fx-background-color: green;
     md: resize;
 }
+.Pane{
+    -fx-background-color: red;
+}

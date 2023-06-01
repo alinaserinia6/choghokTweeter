@@ -42,4 +42,8 @@ public class Tweet implements Serializable {
         controller.setAvatar(user.getAvatar());
         return p;
     }
+
+    public String getText() {
+        return text;
+    }
 }
