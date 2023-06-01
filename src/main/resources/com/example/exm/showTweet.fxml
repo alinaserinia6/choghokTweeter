@@ -20,7 +20,7 @@
             <Font size="20.0" />
          </font>
       </TextField>
-      <Label fx:id="lke" layoutX="483.0" layoutY="220.0" text="like" />
+      <Label fx:id="like" layoutX="483.0" layoutY="220.0" text="like" />
       <Label fx:id="comment" layoutX="367.0" layoutY="221.0" text="comment" />
       <Label fx:id="retweet" layoutX="249.0" layoutY="221.0" text="retweet" />
    </children>

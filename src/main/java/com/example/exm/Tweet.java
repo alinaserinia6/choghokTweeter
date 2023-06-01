@@ -24,14 +24,15 @@ public class Tweet {
         dt = LocalDateTime.now();
         likes = new ArrayList<User>();
         comments = new ArrayList<Comment>();
+        retweet = new ArrayList<User>();
     }
 
     public Pane tweetToPane() throws IOException {
         TweetController controller = new TweetController();
         this.controller = controller;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("showTweet.fxml"));
-        Pane p = fxmlLoader.load();
         fxmlLoader.setController(controller);
+        Pane p = fxmlLoader.load();
         controller.setName(user.getFirstName() + " " + user.getLastName() + " " + user.getUsername());
         controller.setText(text);
         controller.setLike(likes.size());
