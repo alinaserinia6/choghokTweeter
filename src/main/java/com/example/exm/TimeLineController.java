@@ -17,9 +17,10 @@ public class TimeLineController {
 
 
 	public void initialize() throws IOException {
+		System.out.println("initialize timeLine");
 		Client.out.writeObject(new Request(RM.GET_TWEETS, Client.user.following));
-		ArrayList<Pane> twPane = (ArrayList<Pane>) Client.getObject();
-		for (Pane i : twPane) sp.setContent(i);
+		ArrayList<Tweet> twPane = (ArrayList<Tweet>) Client.getObject();
+		for (Tweet i : twPane) sp.setContent(i.tweetToPane());
 //		Platform.runLater(new Runnable() {
 //			@Override
 //			public void run() {

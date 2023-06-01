@@ -13,7 +13,7 @@ public class Server {
 	static HashMap<String, ObjectOutputStream> list = new HashMap<String, ObjectOutputStream>();
 	public static HashMap<String, User> users = new HashMap<>();
 	public static HashSet<String> keys = new HashSet<>();
-	public static ArrayList<Pane> tweets = new ArrayList<>();
+	public static ArrayList<Tweet> tweets = new ArrayList<>();
 
 	public static void main(String[] args) {
 		User user = new User();
@@ -82,7 +82,7 @@ class Accept extends Thread {
 							out.writeObject(res);
 						}
 						case ADD_TWEET -> {
-							Server.tweets.add((Pane) o.get1());
+							Server.tweets.add((Tweet) o.get1());
 						}
 						case GET_TWEETS -> {
 							out.writeObject(Server.tweets);

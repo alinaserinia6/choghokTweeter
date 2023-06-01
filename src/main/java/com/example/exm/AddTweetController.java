@@ -22,8 +22,8 @@ public class AddTweetController {
             return;
         }
         Tweet tweet = new Tweet(text.getText(), Client.user);
-        Pane p = tweet.tweetToPane();
-        Client.out.writeObject(new Request(RM.ADD_TWEET, p));
+//        Pane p = tweet.tweetToPane();
+        Client.out.writeObject(new Request(RM.ADD_TWEET, tweet));
         HelloApplication.ChangePage(e, "a5");
     }
 

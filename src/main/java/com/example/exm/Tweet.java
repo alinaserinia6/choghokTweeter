@@ -6,10 +6,11 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-public class Tweet {
+public class Tweet implements Serializable {
     private String text;
     private LocalDateTime dt;
     private User user;

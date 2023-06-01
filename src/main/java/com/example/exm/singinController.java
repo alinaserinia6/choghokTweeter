@@ -34,7 +34,6 @@ public class singinController {
             error.setVisible(true);
             return;
         }
-//        System.out.println(username.getText(), password);
         Request r = new Request(RM.CHECK_PASS ,username.getText(), password.getText());
         Client.out.writeObject(r);
         boolean b = (boolean) Client.getObject();
