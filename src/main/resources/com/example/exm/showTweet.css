@@ -1,0 +1,9 @@
+.textArea {
+    display: none;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow: hidden;
+    resize: vertical; /* user can resize vertically, but width is fixed */
+    -fx-background-color: green;
+    md: resize;
+}

@@ -2,6 +2,7 @@ package com.example.exm;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
@@ -14,6 +15,8 @@ public class Tweet {
     private User user;
     private ArrayList<User> likes;
     private ArrayList<Comment> comments;
+    private ArrayList<User> retweet;
+    private TweetController controller;
 
     public Tweet(String text, User user) {
         this.text = text;
@@ -24,9 +27,17 @@ public class Tweet {
     }
 
     public Pane tweetToPane() throws IOException {
-        Parent root = FXMLLoader.load(HelloApplication.class.getResource("showTweet.fxml"));
-        Pane p = new Pane(root);
-
+        TweetController controller = new TweetController();
+        this.controller = controller;
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("showTweet.fxml"));
+        Pane p = fxmlLoader.load();
+        fxmlLoader.setController(controller);
+        controller.setName(user.getFirstName() + " " + user.getLastName() + " " + user.getUsername());
+        controller.setText(text);
+        controller.setLike(likes.size());
+        controller.setComment(comments.size());
+        controller.setRetweet(retweet.size());
+        controller.setAvatar(user.getAvatar());
         return p;
     }
 }

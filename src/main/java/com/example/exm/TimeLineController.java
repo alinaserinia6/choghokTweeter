@@ -18,17 +18,16 @@ public class TimeLineController {
 		Client.out.writeObject(new Request(RM.GET_TWEETS, Client.user.following));
 		ArrayList<Pane> twPane = (ArrayList<Pane>) Client.getObject();
 		for (Pane i : twPane) sp.setContent(i);
+//		Platform.runLater(new Runnable() {
+//			@Override
+//			public void run() {
+//				while (sp.getScene().getWindow().getScene() == sp.getScene()) {
+//
+//				}
+//			}
+//		});
+		
 
-		Platform.runLater(new Runnable() {
-			@Override
-			public void run() {
-				while (sp.getScene().getWindow().getScene() == sp.getScene()) {
-
-				}
-			}
-		});
-
-		//		sp.setContent();
 	}
 
 	@FXML

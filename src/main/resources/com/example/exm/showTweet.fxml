@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.Avatar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="400.0" maxWidth="600.0" minHeight="250.0" minWidth="600.0" stylesheets="@showTweet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Avatar layoutX="482.0" layoutY="57.0" />
+      <ImageView fx:id="avatar" fitHeight="42.0" fitWidth="44.0" layoutX="556.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
+      <TextArea fx:id="text" layoutX="56.0" layoutY="37.0" maxHeight="400.0" maxWidth="500.0" minHeight="100.0" minWidth="400.0" promptText="write" styleClass="textArea" stylesheets="@showTweet.css" wrapText="true">
+         <font>
+            <Font size="62.0" />
+         </font>
+      </TextArea>
+      <TextField fx:id="name" alignment="CENTER_RIGHT" layoutX="156.0" layoutY="10.0" maxHeight="30" maxWidth="500" minHeight="10" minWidth="400.0" promptText="نام">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </TextField>
+      <Label fx:id="lke" layoutX="483.0" layoutY="220.0" text="like" />
+      <Label fx:id="comment" layoutX="367.0" layoutY="221.0" text="comment" />
+      <Label fx:id="retweet" layoutX="249.0" layoutY="221.0" text="retweet" />
    </children>
 </Pane>

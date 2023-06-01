@@ -38,20 +38,7 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>com.gluonhq</groupId>
-            <artifactId>charm-glisten</artifactId>
-            <version>6.2.3</version>
-<!--            <systemPath>${project.basedir}/src/main/resources/charm-down-plugin-ble-3.1.0.jar</systemPath>-->
-        </dependency>
     </dependencies>
-
-    <repositories>
-        <repository>
-            <id>gluon-nexus-repository</id>
-            <url>https://mvnrepository.com/artifact/com.gluonhq/charm-glisten</url>
-        </repository>
-    </repositories>
 
     <build>
         <plugins>

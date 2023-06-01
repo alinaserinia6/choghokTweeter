@@ -1,8 +1,11 @@
 package com.example.exm;
 
+import javafx.scene.layout.Pane;
+
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 
@@ -10,6 +13,7 @@ public class Server {
 	static HashMap<String, ObjectOutputStream> list = new HashMap<String, ObjectOutputStream>();
 	public static HashMap<String, User> users = new HashMap<>();
 	public static HashSet<String> keys = new HashSet<>();
+	public static ArrayList<Pane> tweets = new ArrayList<>();
 
 	public static void main(String[] args) {
 		System.out.println("\t".repeat(7) + "{SERVER}\n");
@@ -73,6 +77,12 @@ class Accept extends Thread {
 							String pass = (String) o.get2();
 							boolean res = Server.users.containsKey(username) && Server.users.get(username).getPassword().equals(pass);
 							out.writeObject(res);
+						}
+						case ADD_TWEET -> {
+							Server.tweets.add((Pane) o.get1());
+						}
+						case GET_TWEETS -> {
+							out.writeObject(Server.tweets);
 						}
 					}
 				} catch (ClassNotFoundException e) {
