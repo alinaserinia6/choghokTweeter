@@ -16,6 +16,9 @@ public class Server {
 	public static ArrayList<Pane> tweets = new ArrayList<>();
 
 	public static void main(String[] args) {
+		User user = new User();
+		user.setPassword("ali");
+		users.put("ali", user);
 		System.out.println("\t".repeat(7) + "{SERVER}\n");
 		try (ServerSocket serverSocket = new ServerSocket(5757)){
 			System.out.println("server socket is created");
