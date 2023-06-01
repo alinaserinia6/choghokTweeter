@@ -5,8 +5,21 @@
     -fx-background-position: center center;
 }
 #a2{
-    -fx-background-image: url("aminak.gif");
+    -fx-background-image: url("ji.gif");
     -fx-background-repeat: stretch;   
     -fx-background-size: cover;
     -fx-background-position: center center;
 }
+#a7{
+       -fx-background-image: url("a7.jpg");
+       -fx-background-repeat: stretch;
+       -fx-background-size: cover;
+       -fx-background-position: center center;
+   }
+
+#a5{
+          -fx-background-image: url("a7.jpg");
+          -fx-background-repeat: stretch;
+          -fx-background-size: cover;
+          -fx-background-position: center center;
+   }

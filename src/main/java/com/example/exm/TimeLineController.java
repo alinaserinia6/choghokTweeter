@@ -7,20 +7,21 @@ import javafx.fxml.FXML;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
+import javafx.scene.layout.Pane;
+import javafx.scene.shape.Shape;
 
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
-
-import static java.lang.Thread.sleep;
 
 public class TimeLineController {
 	@FXML
 	private ScrollPane sp;
+	@FXML
+	private Shape qw;
 	@FXML
 	private VBox vb;
 
@@ -28,11 +29,6 @@ public class TimeLineController {
 
 	public void initialize() throws IOException {
 		System.out.println("initialize timeLine");
-		InputStream stream = new FileInputStream("/home/ali/B/exm/src/main/resources/com/example/exm/header.jpg");
-		Image image = new Image(stream);
-		ImageView j = new ImageView();
-		j.setImage(image);
-		vb.getChildren().add(j);
 		Client.out.writeObject(new Request(RM.GET_TWEETS, Client.user.following));
 		ArrayList<Tweet> twPane = (ArrayList<Tweet>) Client.getObject();
 		System.out.println(twPane.size() + ": ");
@@ -60,7 +56,7 @@ public class TimeLineController {
 	}
 
 	@FXML
-	void setting(ActionEvent e) throws IOException {
+	void setting(MouseEvent e) throws IOException {
 		HelloApplication.ChangePage(e, "a7");
 	}
 

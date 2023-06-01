@@ -27,7 +27,7 @@
       </ImageView>
       <Circle fill="#adbecd" layoutX="255.0" layoutY="28.0" onMouseClicked="#setting" radius="19.0" stroke="BLACK" strokeType="INSIDE">
          <cursor>
-            <Cursor fx:constant="OPEN_HAND" />
+            <Cursor fx:constant="HAND" />
          </cursor></Circle>
       <Line endX="171.0" endY="1.0" layoutX="115.0" layoutY="51.0" startX="-115.0" />
       <Line endX="156.0" endY="-1.0" layoutX="130.0" layoutY="584.0" startX="-130.0" />
@@ -35,10 +35,13 @@
          <content>
             <VBox fx:id="vb" alignment="TOP_RIGHT" prefHeight="529.0" prefWidth="269.0" />
          </content></ScrollPane>
-      <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#addTweet" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="10.0">
+      <ImageView fitHeight="47.0" fitWidth="47.0" onMouseClicked="#addTweet" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="53.0" AnchorPane.leftAnchor="10.0">
          <image>
-            <Image url="@icon.png" />
+            <Image url="@9225355261627121646-128.png" />
          </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </ImageView>
       <HBox layoutY="580.0" prefHeight="47.0" prefWidth="281.0">
          <children>
@@ -47,7 +50,7 @@
                   <Image url="@email.png" />
                </image>
                <cursor>
-                  <Cursor fx:constant="OPEN_HAND" />
+                  <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
             <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="10.0" translateY="5.0">
@@ -55,7 +58,7 @@
                   <Image url="@notification.png" />
                </image>
                <cursor>
-                  <Cursor fx:constant="OPEN_HAND" />
+                  <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
             <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="40.0" translateY="5.0">
@@ -63,7 +66,7 @@
                   <Image url="@search.png" />
                </image>
                <cursor>
-                  <Cursor fx:constant="OPEN_HAND" />
+                  <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
             <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="70.0" translateY="5.0">
@@ -71,7 +74,7 @@
                   <Image url="@home.png" />
                </image>
                <cursor>
-                  <Cursor fx:constant="OPEN_HAND" />
+                  <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
          </children>
