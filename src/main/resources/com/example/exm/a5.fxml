@@ -7,83 +7,99 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="285.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.TimeLineController">
+
+<GridPane alignment="CENTER" prefHeight="625.0" prefWidth="285.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.TimeLineController">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+   </rowConstraints>
    <children>
-      <Label layoutX="102.0" layoutY="14.0" text="چغک">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="47.0" fitWidth="59.0" layoutX="130.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@icon.png" />
-         </image>
-      </ImageView>
-      <Circle fill="#adbecd" layoutX="255.0" layoutY="28.0" onMouseClicked="#setting" radius="19.0" stroke="BLACK" strokeType="INSIDE">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor></Circle>
-      <Line endX="171.0" endY="1.0" layoutX="115.0" layoutY="51.0" startX="-115.0" />
-      <Line endX="156.0" endY="-1.0" layoutX="130.0" layoutY="584.0" startX="-130.0" />
-      <ScrollPane fx:id="sp" layoutX="1.0" layoutY="53.0" pannable="true" prefHeight="531.0" prefWidth="287.0" vbarPolicy="ALWAYS" vmax="10.0" vmin="1.0">
-         <content>
-            <VBox fx:id="vb" alignment="TOP_RIGHT" prefHeight="529.0" prefWidth="269.0" />
-         </content></ScrollPane>
-      <ImageView fitHeight="47.0" fitWidth="47.0" onMouseClicked="#addTweet" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="53.0" AnchorPane.leftAnchor="10.0">
-         <image>
-            <Image url="@9225355261627121646-128.png" />
-         </image>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </ImageView>
-      <HBox layoutY="580.0" prefHeight="47.0" prefWidth="281.0">
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="285.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <children>
-            <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="-20.0" translateY="5.0">
+            <Label layoutX="102.0" layoutY="14.0" text="چغک">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="47.0" fitWidth="59.0" layoutX="130.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@email.png" />
+                  <Image url="@icon.png" />
+               </image>
+            </ImageView>
+            <Circle fill="#adbecd" layoutX="255.0" layoutY="28.0" onMouseClicked="#setting" radius="19.0" stroke="BLACK" strokeType="INSIDE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Circle>
+            <Line endX="171.0" endY="1.0" layoutX="115.0" layoutY="51.0" startX="-115.0" />
+            <Line endX="156.0" endY="-1.0" layoutX="130.0" layoutY="584.0" startX="-130.0" />
+            <ScrollPane fx:id="sp" layoutX="1.0" layoutY="53.0" pannable="true" prefHeight="531.0" prefWidth="287.0" vbarPolicy="ALWAYS" vmax="10.0" vmin="1.0">
+               <content>
+                  <VBox fx:id="vb" alignment="TOP_RIGHT" prefHeight="529.0" prefWidth="269.0" />
+               </content>
+            </ScrollPane>
+            <ImageView fitHeight="53.0" fitWidth="38.0" layoutX="-2.0" onMouseClicked="#addTweet" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-10.0" AnchorPane.bottomAnchor="43.0" AnchorPane.leftAnchor="-2.0">
+               <image>
+                  <Image url="@qw.jpg" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="10.0" translateY="5.0">
-               <image>
-                  <Image url="@notification.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
-            <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="40.0" translateY="5.0">
-               <image>
-                  <Image url="@search.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
-            <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="70.0" translateY="5.0">
-               <image>
-                  <Image url="@home.png" />
-               </image>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </ImageView>
+            <HBox layoutY="580.0" prefHeight="47.0" prefWidth="281.0">
+               <children>
+                  <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="-20.0" translateY="5.0">
+                     <image>
+                        <Image url="@email.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="10.0" translateY="5.0">
+                     <image>
+                        <Image url="@notification.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="40.0" translateY="5.0">
+                     <image>
+                        <Image url="@search.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="70.0" translateY="5.0">
+                     <image>
+                        <Image url="@home.png" />
+                     </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="50.0" />
+               </padding>
+            </HBox>
          </children>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-         <padding>
-            <Insets left="50.0" />
-         </padding>
-      </HBox>
+      </AnchorPane>
    </children>
-</AnchorPane>
+</GridPane>
