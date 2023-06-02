@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.gluonhq.charm.glisten.control.Avatar?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="447.0" maxWidth="285.0" minHeight="250.0" minWidth="285.0" prefWidth="600.0" stylesheets="@showTweet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="447.0" maxWidth="285.0" minHeight="250.0" minWidth="285.0" prefWidth="600.0" stylesheets="@showTweet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.TweetController">
    <children>
       <TextArea fx:id="text" layoutX="13.0" layoutY="36.0" maxHeight="300.0" maxWidth="260.0" minHeight="100.0" minWidth="260.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="363.0" prefWidth="500.0" promptText="متن توویت:" styleClass="textArea" stylesheets="@showTweet.css" wrapText="true">
          <font>
@@ -19,9 +22,27 @@
             <Font size="15.0" />
          </font>
       </TextField>
-      <Label fx:id="like" layoutX="176.0" layoutY="369.0" text="like" />
-      <Label fx:id="comment" layoutX="86.0" layoutY="369.0" text="comment" />
-      <Label fx:id="retweet" layoutX="14.0" layoutY="369.0" text="retweet" />
+      <Label fx:id="like" layoutX="227.0" layoutY="373.0" text="like" />
+      <Label fx:id="comment" layoutX="126.0" layoutY="373.0" text="comment" translateX="-5.0" />
+      <Label fx:id="retweet" layoutX="29.0" layoutY="373.0" text="retweet" />
       <Avatar layoutX="237.0" layoutY="5.0" />
+      <ImageView fx:id="likepic" fitHeight="18.0" fitWidth="20.0" layoutX="250.0" layoutY="373.0" onMouseClicked="#like" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@162732873716363058935021-128.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="184.0" layoutY="373.0" pickOnBounds="true" preserveRatio="true" translateX="-3.0">
+         <image>
+            <Image url="@19540556161582545596-128.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="73.0" layoutY="373.0" pickOnBounds="true" preserveRatio="true" translateX="3.0">
+         <image>
+            <Image url="@3479454101582793681-128.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>
