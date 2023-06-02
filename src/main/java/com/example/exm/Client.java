@@ -16,7 +16,6 @@ public class Client {
 	public static ObjectOutputStream out;
 	public static ObjectInputStream in;
 	public static VBox timeline = new VBox();
-	public static HashMap<String, LocalDateTime> followingTime;
 
 	public static void main(String[] args) throws InterruptedException {
 		Scanner q = new Scanner(System.in);

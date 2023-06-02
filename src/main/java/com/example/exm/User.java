@@ -2,7 +2,9 @@ package com.example.exm;
 
 import javafx.scene.image.ImageView;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 
 enum Gender {
@@ -18,7 +20,7 @@ public class User implements Serializable {
     private String lastName;
     private String bio;
     public HashSet<String> followers;
-    public HashSet<String> following;
+    public HashMap<String, LocalDateTime> following;
     public ArrayList<Tweet> tweets;
     public ArrayList<Comment> comments;
     private ImageView avatar;

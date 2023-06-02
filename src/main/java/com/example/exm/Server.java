@@ -1,24 +1,33 @@
 package com.example.exm;
 
-import javafx.scene.layout.Pane;
-
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.util.*;
 
 public class Server {
 	static HashMap<String, ObjectOutputStream> list = new HashMap<String, ObjectOutputStream>();
 	public static HashMap<String, User> users = new HashMap<>();
 	public static HashSet<String> keys = new HashSet<>();
 	public static ArrayList<Tweet> tweets = new ArrayList<>();
+	public static HashMap<String, LocalDateTime> followingTime;
 
 	public static void main(String[] args) {
 		User user = new User();
+		user.setUsername("ali");
+		user.setFirstName("ali");
+		user.setLastName("farahbaksh");
 		user.setPassword("ali");
 		users.put("ali", user);
+		User support = new User();
+		support.setUsername("@support");
+		support.setFirstName("support");
+		support.setLastName("Choghok");
+		users.put("@support", support);
+		user.following.put("@support", LocalDateTime.MIN);
+//		followingTime.put("")
 		Tweet t = new Tweet("only heydar is amir al momenin", user);
 		tweets.add(t);
 
@@ -92,8 +101,18 @@ class Accept extends Thread {
 							System.out.println(Server.tweets.size());
 						}
 						case GET_TWEETS -> {
-//							out.writeObject(Server.tweets);
-							for (Tweet i : Server.tweets) out.writeObject(i);
+							for (Map.Entry<String, LocalDateTime> i : Server.followingTime.entrySet()) {
+								String username = i.getKey();
+								LocalDateTime ldt = i.getValue();
+								for (Tweet j : Server.users.get(username).tweets) {
+									if (j.getDt().isAfter(ldt)) {
+										out.writeObject(j);
+									}
+								}
+							}
+						}
+						case LAST_SEEN_TIME -> {
+							Server.followingTime.put((String) o.get1(), (LocalDateTime) o.get2());
 						}
 					}
 				} catch (ClassNotFoundException e) {

@@ -57,7 +57,11 @@ public class TimeLineController {
             Pane pane = i.tweetToPane();
             Platform.runLater(() -> {
                 Client.timeline.getChildren().add(pane);
-
+                try {
+                    Client.out.writeObject(new Request(RM.LAST_SEEN_TIME, i.getUser().getUsername(), i.getDt()));
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             });
 		} catch (IOException ignore) {
 			System.err.println("get IOException");
