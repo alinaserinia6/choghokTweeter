@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.gluonhq.charm.glisten.control.Avatar?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
 <Pane maxHeight="447.0" maxWidth="285.0" minHeight="250.0" minWidth="285.0" prefWidth="600.0" stylesheets="@showTweet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ImageView fx:id="avatar" fitHeight="42.0" fitWidth="44.0" layoutX="237.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" />
       <TextArea fx:id="text" layoutX="13.0" layoutY="36.0" maxHeight="300.0" maxWidth="260.0" minHeight="100.0" minWidth="260.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="363.0" prefWidth="500.0" promptText="متن توویت:" styleClass="textArea" stylesheets="@showTweet.css" wrapText="true">
          <font>
             <Font size="31.0" />
@@ -23,5 +22,6 @@
       <Label fx:id="like" layoutX="176.0" layoutY="369.0" text="like" />
       <Label fx:id="comment" layoutX="86.0" layoutY="369.0" text="comment" />
       <Label fx:id="retweet" layoutX="14.0" layoutY="369.0" text="retweet" />
+      <Avatar layoutX="237.0" layoutY="5.0" />
    </children>
 </Pane>
