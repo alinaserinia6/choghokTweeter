@@ -1,6 +1,7 @@
 package com.example.exm;
 
 import javafx.application.Platform;
+import javafx.scene.layout.VBox;
 
 import java.io.*;
 import java.util.*;
@@ -13,6 +14,7 @@ public class Client {
 	public static User user = new User();
 	public static ObjectOutputStream out;
 	public static ObjectInputStream in;
+	public static VBox timeline = new VBox();
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 		Scanner q = new Scanner(System.in);

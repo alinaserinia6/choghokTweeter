@@ -19,6 +19,10 @@ public class Server {
 		User user = new User();
 		user.setPassword("ali");
 		users.put("ali", user);
+		Tweet t = new Tweet("only heydar is amir al momenin", user);
+		tweets.add(t);
+
+
 		System.out.println("\t".repeat(7) + "{SERVER}\n");
 		try (ServerSocket serverSocket = new ServerSocket(5757)){
 			System.out.println("server socket is created");
@@ -88,7 +92,8 @@ class Accept extends Thread {
 							System.out.println(Server.tweets.size());
 						}
 						case GET_TWEETS -> {
-							out.writeObject(Server.tweets);
+//							out.writeObject(Server.tweets);
+							for (Tweet i : Server.tweets) out.writeObject(i);
 						}
 					}
 				} catch (ClassNotFoundException e) {

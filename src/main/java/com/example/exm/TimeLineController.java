@@ -1,11 +1,13 @@
 package com.example.exm;
 
+import javafx.application.Platform;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.shape.Shape;
 
 import java.io.IOException;
@@ -16,14 +18,15 @@ public class TimeLineController {
 	private ScrollPane sp;
 	@FXML
 	private Shape qw;
-	@FXML
-	private VBox vb;
 	private boolean shutdown;
 
-	public void initialize() throws IOException {
+	public void initialize() throws IOException, ClassNotFoundException {
 		System.out.println("initialize timeLine");
 		shutdown = false;
-		Client.out.writeObject(new Request(RM.GET_TWEETS));
+		Label l = new Label();
+		l.setText("In the name of GOD");
+		Client.timeline.getChildren().add(l);
+        sp.setContent(Client.timeline);
 		Service<Void> service = new Service<Void>() {
 			@Override
 			protected Task<Void> createTask() {
@@ -32,10 +35,11 @@ public class TimeLineController {
 					protected Void call() throws Exception {
 						//Background work
 						System.out.println("IN SERVICE");
+                        Client.out.writeObject(new Request(RM.GET_TWEETS));
 						while (!shutdown) {
 							System.out.println("in while");
 							getTweets();
-							Thread.currentThread().sleep(5000);
+							Thread.currentThread().sleep(4000);
 						}
 						return null;
 					}
@@ -49,16 +53,18 @@ public class TimeLineController {
 	private void getTweets() {
 		System.out.println("\t".repeat(7) + "{getTweet}");
 		try {
-			ArrayList<Tweet> tw = (ArrayList<Tweet>) Client.in.readObject();
-			System.out.println("tw size: " + tw.size());
-			for (Tweet i : tw) vb.getChildren().add(i.tweetToPane());
-		} catch (IOException | ClassNotFoundException e) {
-			throw new RuntimeException(e);
+            Tweet i = (Tweet) Client.getObject();
+            System.out.println("i am in: " + i.getText() + ": ");
+            Pane pane = i.tweetToPane();
+            Platform.runLater(() -> Client.timeline.getChildren().add(pane));
+		} catch (IOException ignore) {
+			System.err.println("get IOException");
 		}
+        System.err.println("finish getting tweet");
 	}
 
 	@FXML
-	void addTweet(MouseEvent e) throws IOException, InterruptedException {
+	void addTweet(MouseEvent e) throws IOException {
 		shutdown = true;
 		HelloApplication.ChangePage(e, "a6");
 	}
