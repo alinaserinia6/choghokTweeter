@@ -20,11 +20,12 @@ public class User implements Serializable {
     public HashSet<String> followers;
     public HashSet<String> following;
     public ArrayList<Tweet> tweets;
+    public ArrayList<Comment> comments;
     private ImageView avatar;
     private ImageView header;
     private String birthDate;
     private String joinDate;
-    private Gender gender;
+    private Gender gender = Gender.UNKNOWN;
     private String password;
 
     public String getUsername() {

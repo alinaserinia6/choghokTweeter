@@ -1,17 +1,11 @@
 package com.example.exm;
 
-import javafx.animation.KeyFrame;
-import javafx.animation.Timeline;
-import javafx.event.ActionEvent;
+import javafx.concurrent.Service;
+import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
-import javafx.util.Duration;
-import javafx.scene.layout.Pane;
 import javafx.scene.shape.Shape;
 
 import java.io.IOException;
@@ -24,39 +18,54 @@ public class TimeLineController {
 	private Shape qw;
 	@FXML
 	private VBox vb;
-
-	private Timeline timeline;
+	private boolean shutdown;
 
 	public void initialize() throws IOException {
 		System.out.println("initialize timeLine");
-		Client.out.writeObject(new Request(RM.GET_TWEETS, Client.user.following));
-		ArrayList<Tweet> twPane = (ArrayList<Tweet>) Client.getObject();
-		System.out.println(twPane.size() + ": ");
-		for (Tweet i : twPane) {
-			System.out.println(i.getText());
-		}
-		for (Tweet i : twPane) vb.getChildren().add(i.tweetToPane());
-
-		timeline = new Timeline();
-		timeline.setCycleCount(Timeline.INDEFINITE);
-		timeline.setAutoReverse(true);
-		KeyFrame kf1 = new KeyFrame(Duration.ZERO, e -> getTweets());
-		timeline.getKeyFrames().add(kf1);
-		timeline.play();
+		shutdown = false;
+		Client.out.writeObject(new Request(RM.GET_TWEETS));
+		Service<Void> service = new Service<Void>() {
+			@Override
+			protected Task<Void> createTask() {
+				return new Task<Void>() {
+					@Override
+					protected Void call() throws Exception {
+						//Background work
+						System.out.println("IN SERVICE");
+						while (!shutdown) {
+							System.out.println("in while");
+							getTweets();
+							Thread.currentThread().sleep(5000);
+						}
+						return null;
+					}
+				};
+			}
+		};
+		service.start();
 		System.err.println("hey");
 	}
 
 	private void getTweets() {
-		System.out.println("in timeline");
+		System.out.println("\t".repeat(7) + "{getTweet}");
+		try {
+			ArrayList<Tweet> tw = (ArrayList<Tweet>) Client.in.readObject();
+			System.out.println("tw size: " + tw.size());
+			for (Tweet i : tw) vb.getChildren().add(i.tweetToPane());
+		} catch (IOException | ClassNotFoundException e) {
+			throw new RuntimeException(e);
+		}
 	}
 
 	@FXML
-	void addTweet(MouseEvent e) throws IOException {
+	void addTweet(MouseEvent e) throws IOException, InterruptedException {
+		shutdown = true;
 		HelloApplication.ChangePage(e, "a6");
 	}
 
 	@FXML
 	void setting(MouseEvent e) throws IOException {
+		shutdown = true;
 		HelloApplication.ChangePage(e, "a7");
 	}
 

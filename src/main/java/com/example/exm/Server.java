@@ -39,6 +39,7 @@ public class Server {
 
 class Accept extends Thread {
 	private Socket client;
+	private User user;
 	public Accept(Socket client) {
 		this.client = client;
 	}
@@ -71,6 +72,7 @@ class Accept extends Thread {
 						}
 						case ADD_USER -> {
 							User user = (User) o.get1();
+							this.user = user;
 							String key = (String) o.get2();
 							Server.keys.add(key);
 							Server.users.put(user.getUsername(), user);
