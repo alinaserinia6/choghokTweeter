@@ -1,5 +1,6 @@
 package com.example.exm;
 
+import com.gluonhq.charm.glisten.control.Avatar;
 import javafx.application.Platform;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
@@ -8,15 +9,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Shape;
-
 import java.io.IOException;
 
 public class TimeLineController {
 	@FXML
 	private ScrollPane sp;
 	@FXML
-	private Shape qw;
+	private Avatar avatar;
 	private boolean shutdown;
 
 	public void initialize() {

@@ -55,6 +55,13 @@
             <scope>system</scope>
             <systemPath>${basedir}/src/main/resources/charm-glisten-6.2.3.jar</systemPath>
         </dependency>
+        <dependency>
+            <groupId>com.gluonhq.attach</groupId>
+            <artifactId>util</artifactId>
+            <version>4.0.18</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/src/main/resources/util-4.0.18.jar</systemPath>
+        </dependency>
     </dependencies>
 
     <build>

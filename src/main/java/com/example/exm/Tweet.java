@@ -54,4 +54,13 @@ public class Tweet implements Serializable {
     public LocalDateTime getDt() {
         return dt;
     }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return user.getUsername() + ": " + text;
+    }
 }

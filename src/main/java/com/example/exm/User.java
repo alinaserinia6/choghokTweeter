@@ -27,8 +27,16 @@ public class User implements Serializable {
     private ImageView header;
     private String birthDate;
     private String joinDate;
-    private Gender gender = Gender.UNKNOWN;
+    private Gender gender;
     private String password;
+
+    public User() {
+        followers = new HashSet<>();
+        following = new HashMap<>();
+        tweets = new ArrayList<>();
+        comments = new ArrayList<>();
+        gender = Gender.UNKNOWN;
+    }
 
     public String getUsername() {
         return username;

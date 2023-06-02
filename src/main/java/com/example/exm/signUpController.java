@@ -86,7 +86,6 @@ public class signUpController {
         Client.user.setUsername(userName.getText());
         String date = new SimpleDateFormat("yyy MM").format(new Date());
         Client.user.setJoinDate(date);
-        Client.user.setUsername(userName.getText());
         Client.user.setPassword(password.getText());
         String birth = birthDate.getValue().format(DateTimeFormatter.ofPattern("MMM dd"));
         Client.user.setBirthDate(birth);

@@ -42,6 +42,7 @@ public class singinController {
             error.setVisible(true);
             return;
         }
+        Client.out.writeObject(new Request(RM.GET_USER, username.getText()));
         HelloApplication.ChangePage(e, "a5");
     }
     public void backk(ActionEvent e) throws IOException {

@@ -7,5 +7,6 @@ public enum RM { // REQUEST METHOD
     CHECK_PASS,
     GET_TWEETS,
     ADD_TWEET,
-    LAST_SEEN_TIME
+    LAST_SEEN_TIME,
+    GET_USER
 }

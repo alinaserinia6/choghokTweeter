@@ -18,7 +18,11 @@ public class Client {
 	public static VBox timeline = new VBox();
 
 	public static void main(String[] args) throws InterruptedException {
-		Scanner q = new Scanner(System.in);
+		user.setUsername("ali");
+		user.setFirstName("ali");
+		user.setLastName("farahbaksh");
+		user.setPassword("ali");
+		user.following.put("@support", LocalDateTime.MIN);
 		HelloApplication app = new HelloApplication();
 		Platform.startup(app);
 		sleep(3000);

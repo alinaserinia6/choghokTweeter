@@ -3,10 +3,8 @@ package com.example.exm;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 
@@ -22,7 +20,6 @@ public class AddTweetController {
             return;
         }
         Tweet tweet = new Tweet(text.getText(), Client.user);
-//        Pane p = tweet.tweetToPane();
         Client.out.writeObject(new Request(RM.ADD_TWEET, tweet));
         HelloApplication.ChangePage(e, "a5");
     }

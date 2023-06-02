@@ -12,7 +12,6 @@ public class Server {
 	public static HashMap<String, User> users = new HashMap<>();
 	public static HashSet<String> keys = new HashSet<>();
 	public static ArrayList<Tweet> tweets = new ArrayList<>();
-	public static HashMap<String, LocalDateTime> followingTime;
 
 	public static void main(String[] args) {
 		User user = new User();
@@ -28,7 +27,8 @@ public class Server {
 		users.put("@support", support);
 		user.following.put("@support", LocalDateTime.MIN);
 //		followingTime.put("")
-		Tweet t = new Tweet("only heydar is amir al momenin", user);
+		Tweet t = new Tweet("only heydar is amir al momenin", support);
+		support.tweets.add(t);
 		tweets.add(t);
 
 
@@ -65,10 +65,6 @@ class Accept extends Thread {
 			out = new ObjectOutputStream(client.getOutputStream());
 //			Server.list.add(out);
 			while (true) {
-				System.out.println("i am listening to " + Server.users.size());
-				for (User i : Server.users.values()) {
-					System.out.println(i);
-				}
 				try {
 					Request o = (Request) in.readObject();
 					RM method = o.getMethod();
@@ -90,6 +86,10 @@ class Accept extends Thread {
 							Server.keys.add(key);
 							Server.users.put(user.getUsername(), user);
 						}
+						case GET_USER -> {
+							String username = (String) o.get1();
+							user = Server.users.get(username);
+						}
 						case CHECK_PASS -> {
 							String username = (String) o.get1();
 							String pass = (String) o.get2();
@@ -97,22 +97,29 @@ class Accept extends Thread {
 							out.writeObject(res);
 						}
 						case ADD_TWEET -> {
-							Server.tweets.add((Tweet) o.get1());
-							System.out.println(Server.tweets.size());
+							Tweet tw = (Tweet) o.get1();
+							Server.tweets.add(tw);
+							out.writeObject(tw);
 						}
 						case GET_TWEETS -> {
-							for (Map.Entry<String, LocalDateTime> i : Server.followingTime.entrySet()) {
+							System.out.println("GET_TWEETS REQUEST FROM " + user.getUsername() + ":");
+							for (Map.Entry<String, LocalDateTime> i : user.following.entrySet()) {
 								String username = i.getKey();
 								LocalDateTime ldt = i.getValue();
+								System.out.println(username + " " + ldt);
 								for (Tweet j : Server.users.get(username).tweets) {
+									System.out.print(j);
 									if (j.getDt().isAfter(ldt)) {
 										out.writeObject(j);
+										System.out.println("  watch it");
+									} else {
+										System.out.println("  watched");
 									}
 								}
 							}
 						}
 						case LAST_SEEN_TIME -> {
-							Server.followingTime.put((String) o.get1(), (LocalDateTime) o.get2());
+							user.following.put((String) o.get1(), (LocalDateTime) o.get2());
 						}
 					}
 				} catch (ClassNotFoundException e) {

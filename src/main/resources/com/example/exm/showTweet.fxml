@@ -2,21 +2,16 @@
 
 <?import com.gluonhq.charm.glisten.control.Avatar?>
 <?import javafx.scene.Cursor?>
+<?import com.jfoenix.controls.JFXTextArea?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="447.0" maxWidth="285.0" minHeight="250.0" minWidth="285.0" prefWidth="600.0" stylesheets="@showTweet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.TweetController">
+<Pane maxHeight="447.0" maxWidth="285.0" minHeight="250.0" minWidth="280.0" stylesheets="@showTweet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextArea fx:id="text" layoutX="13.0" layoutY="36.0" maxHeight="300.0" maxWidth="260.0" minHeight="100.0" minWidth="260.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="363.0" prefWidth="500.0" promptText="متن توویت:" styleClass="textArea" stylesheets="@showTweet.css" wrapText="true">
-         <font>
-            <Font size="31.0" />
-         </font>
-      </TextArea>
       <TextField fx:id="name" alignment="CENTER_RIGHT" layoutX="14.0" layoutY="10.0" maxHeight="36.0" maxWidth="500" minHeight="10" minWidth="223.0" prefHeight="26.0" prefWidth="223.0" promptText="نام">
          <font>
             <Font size="15.0" />
@@ -26,6 +21,10 @@
       <Label fx:id="comment" layoutX="126.0" layoutY="373.0" text="comment" translateX="-5.0" />
       <Label fx:id="retweet" layoutX="29.0" layoutY="373.0" text="retweet" />
       <Avatar layoutX="237.0" layoutY="5.0" />
+      <JFXTextArea fx:id="text" editable="false" layoutX="19.0" layoutY="59.0" maxHeight="300.0" maxWidth="220.0" minHeight="200.0" minWidth="150.0" nodeOrientation="RIGHT_TO_LEFT" promptText="متن توییت:" wrapText="true">
+         <font>
+            <Font size="30.0" />
+         </font></JFXTextArea>
       <ImageView fx:id="likepic" fitHeight="18.0" fitWidth="20.0" layoutX="250.0" layoutY="373.0" onMouseClicked="#like" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@162732873716363058935021-128.png" />
