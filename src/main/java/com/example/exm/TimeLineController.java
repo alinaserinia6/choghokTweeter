@@ -11,7 +11,6 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Shape;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 public class TimeLineController {
 	@FXML
@@ -20,7 +19,7 @@ public class TimeLineController {
 	private Shape qw;
 	private boolean shutdown;
 
-	public void initialize() throws IOException, ClassNotFoundException {
+	public void initialize() {
 		System.out.println("initialize timeLine");
 		shutdown = false;
 		Label l = new Label();
@@ -56,7 +55,10 @@ public class TimeLineController {
             Tweet i = (Tweet) Client.getObject();
             System.out.println("i am in: " + i.getText() + ": ");
             Pane pane = i.tweetToPane();
-            Platform.runLater(() -> Client.timeline.getChildren().add(pane));
+            Platform.runLater(() -> {
+                Client.timeline.getChildren().add(pane);
+
+            });
 		} catch (IOException ignore) {
 			System.err.println("get IOException");
 		}
