@@ -17,7 +17,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="285.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.profileController">
+<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="285.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.profileController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -29,18 +29,18 @@
       <RowConstraints maxHeight="299.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <AnchorPane>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <children>
             <TextArea layoutY="186.0" prefHeight="56.0" prefWidth="285.0" promptText="bio:">
                <font>
                   <Font size="13.0" />
                </font>
             </TextArea>
-            <ImageView fitHeight="146.0" fitWidth="285.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" translateY="-20.0">
+            <ImageView fitHeight="93.0" fitWidth="285.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" translateY="-20.0">
                <image>
                   <Image url="@header2.jpg" />
                </image></ImageView>
-            <ImageView fx:id="IM" fitHeight="43.0" fitWidth="55.0" layoutX="242.0" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#backtotimeline" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="IM" fitHeight="43.0" fitWidth="45.0" layoutX="242.0" layoutY="-3.0" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#backtotimeline" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@1959125971582004485-128.png" />
                </image>
@@ -107,9 +107,9 @@
             </Label>
          </children>
       </AnchorPane>
-      <HBox prefHeight="140.0" prefWidth="285.0" GridPane.rowIndex="1">
+      <HBox alignment="CENTER" prefHeight="140.0" prefWidth="285.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <children>
-            <Label text="عکس و فیلم" translateX="5.0">
+            <Label text="عکس و فیلم" translateX="-3.0">
                <font>
                   <Font size="14.0" />
                </font>
@@ -117,7 +117,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Label prefHeight="20.0" prefWidth="126.0" text="ویراست ها و پاسخ ها" translateX="18.0">
+            <Label prefHeight="20.0" prefWidth="126.0" text="ویراست ها و پاسخ ها" translateX="5.0">
                <font>
                   <Font size="14.0" />
                </font>
@@ -125,7 +125,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Label prefHeight="20.0" prefWidth="72.0" text="ویراست ها" translateX="25.0">
+            <Label prefHeight="20.0" prefWidth="72.0" text="ویراست ها" translateX="12.0">
                <font>
                   <Font size="14.0" />
                </font>
@@ -135,10 +135,10 @@
             </Label>
          </children>
       </HBox>
-      <Line endX="184.2928924560547" endY="-0.21569085121154785" startX="-100.0" GridPane.rowIndex="2" />
-      <HBox prefHeight="214.0" prefWidth="285.0" GridPane.rowIndex="4">
+      <Line endX="184.2928924560547" endY="-0.21569085121154785" startX="-100.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+      <HBox alignment="CENTER" prefHeight="214.0" prefWidth="285.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <children>
-            <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="-20.0" translateY="-5.0">
+            <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="-65.0" translateY="-5.0">
                <image>
                   <Image url="@email.png" />
                </image>
@@ -146,7 +146,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="10.0" translateY="-5.0">
+            <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="-35.0" translateY="-5.0">
                <image>
                   <Image url="@notification.png" />
                </image>
@@ -154,7 +154,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="40.0" translateY="-5.0">
+            <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="-5.0" translateY="-5.0">
                <image>
                   <Image url="@search.png" />
                </image>
@@ -162,7 +162,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="70.0" translateY="-5.0">
+            <ImageView fitHeight="35.0" fitWidth="45.0" onMouseClicked="#backtotimeline" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-5.0">
                <image>
                   <Image url="@home.png" />
                </image>
@@ -178,6 +178,6 @@
             <Insets left="50.0" />
          </padding>
       </HBox>
-      <Line endX="184.2928924560547" endY="-0.21569085121154785" startX="-100.0" translateY="109.0" GridPane.rowIndex="3" />
+      <Line endX="184.2928924560547" endY="-0.21569085121154785" startX="-100.0" translateY="109.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
    </children>
 </GridPane>

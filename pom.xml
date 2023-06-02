@@ -48,6 +48,13 @@
             <artifactId>jfoenix</artifactId>
             <version>9.0.10</version>
         </dependency>
+        <dependency>
+            <groupId>com.gluonhq</groupId>
+            <artifactId>charm-glisten</artifactId>
+            <version>6.2.3</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/src/main/resources/charm-glisten-6.2.3.jar</systemPath>
+        </dependency>
     </dependencies>
 
     <build>
