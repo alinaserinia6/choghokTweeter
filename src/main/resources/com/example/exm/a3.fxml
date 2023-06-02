@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <GridPane prefHeight="625.0" prefWidth="285.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.signUpController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
@@ -19,35 +18,35 @@
       <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <VBox alignment="TOP_CENTER">
+      <VBox alignment="TOP_CENTER" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <children>
-            <Label text="ثبت نام">
+            <Label text="ثبت نام" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="26.0" />
                </font>
             </Label>
-            <Label prefHeight="21.0" prefWidth="36.0" text="نام:" translateX="132.0" translateY="5.0">
+            <Label prefHeight="21.0" prefWidth="36.0" text="نام:" textFill="WHITE" translateX="132.0" translateY="5.0">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <TextField fx:id="firstName" prefHeight="25.0" prefWidth="259.0" promptText="FirstName:" translateY="7.0" />
-            <Label prefHeight="19.0" prefWidth="75.0" text="نام خانوادگی:" translateX="105.0" translateY="30.0">
+            <TextField fx:id="firstName" maxWidth="285.0" prefHeight="25.0" prefWidth="259.0" promptText="FirstName:" translateY="7.0" />
+            <Label prefHeight="19.0" prefWidth="75.0" text="نام خانوادگی:" textFill="WHITE" translateX="105.0" translateY="30.0">
                <font>
                   <Font size="13.0" />
                </font>
             </Label>
-            <Label text="گذرواژه:" translateX="120.0" translateY="146.0" />
-            <Label text="تکرار گذرواژه:" translateX="107.0" translateY="198.0" />
-            <Label text="تاریخ تولد:" translateX="114.0" translateY="250.0" />
-            <TextField fx:id="lastName" prefHeight="25.0" prefWidth="259.0" promptText="LastName:" translateY="-20.0" />
-            <TextField fx:id="userName" prefHeight="25.0" prefWidth="259.0" promptText="UserName:" translateY="20.0" />
-            <TextField fx:id="password" prefHeight="25.0" prefWidth="259.0" promptText="Password:" translateY="65.0" />
-            <TextField fx:id="repeatPassword" prefHeight="25.0" prefWidth="259.0" promptText="Repeat Password:" translateY="110.0" />
+            <Label text="گذرواژه:" textFill="WHITE" translateX="120.0" translateY="146.0" />
+            <Label text="تکرار گذرواژه:" textFill="WHITE" translateX="107.0" translateY="198.0" />
+            <Label text="تاریخ تولد:" textFill="WHITE" translateX="114.0" translateY="250.0" />
+            <TextField fx:id="lastName" maxWidth="285.0" prefHeight="25.0" prefWidth="259.0" promptText="LastName:" translateY="-20.0" />
+            <TextField fx:id="userName" maxWidth="285.0" prefHeight="25.0" prefWidth="259.0" promptText="UserName:" translateY="20.0" />
+            <TextField fx:id="password" maxWidth="285.0" prefHeight="25.0" prefWidth="259.0" promptText="Password:" translateY="65.0" />
+            <TextField fx:id="repeatPassword" maxWidth="285.0" prefHeight="25.0" prefWidth="259.0" promptText="Repeat Password:" translateY="110.0" />
             <DatePicker fx:id="birthDate" prefHeight="25.0" prefWidth="287.0" translateY="154.0" />
             <Button mnemonicParsing="false" onAction="#singUpbuttonAction" text="SingUp" translateY="200.0" />
             <Label fx:id="singUpError" alignment="CENTER" contentDisplay="CENTER" prefHeight="62.0" prefWidth="259.0" textFill="RED" translateY="260.0" visible="false" />
-            <Label text="نام کاربری:" translateX="110.0" translateY="-185.0">
+            <Label text="نام کاربری:" textFill="WHITE" translateX="110.0" translateY="-185.0">
                <font>
                   <Font size="13.0" />
                </font>

@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.HelloController">
+<GridPane prefHeight="625.0" prefWidth="285.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.HelloController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
    </columnConstraints>
@@ -34,10 +34,10 @@
                   <Font size="13.0" />
                </font>
             </Label>
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <ComboBox fx:id="phoneNumberCountry" prefHeight="47.0" prefWidth="78.0" />
-                  <TextField fx:id="phoneNumber" alignment="CENTER" prefHeight="57.0" prefWidth="207.0" promptText="--- --- ----">
+                  <ComboBox fx:id="phoneNumberCountry" prefHeight="47.0" prefWidth="78.0" translateY="-30.0" />
+                  <TextField fx:id="phoneNumber" alignment="CENTER" prefHeight="57.0" prefWidth="207.0" promptText="--- --- ----" translateY="-30.0">
                      <font>
                         <Font size="26.0" />
                      </font>
@@ -50,20 +50,20 @@
                   </TextField>
                </children>
             </HBox>
-            <Hyperlink onMouseClicked="#emailClicked" prefHeight="29.0" prefWidth="165.0" text="ثبت نام از طریق ایمیل" textFill="#27ff00" translateX="40.0">
+            <Hyperlink alignment="CENTER" onMouseClicked="#emailClicked" prefHeight="29.0" prefWidth="165.0" text="ثبت نام از طریق ایمیل" textFill="#27ff00" translateX="40.0">
                <font>
                   <Font size="15.0" />
                </font>
             </Hyperlink>
-            <Hyperlink onAction="#asingin" text="قبلا ثبت نام کرده ام" textFill="#1aff00" translateX="40.0">
+            <Hyperlink alignment="CENTER" onAction="#asingin" text="قبلا ثبت نام کرده ام" textFill="#1aff00" translateX="50.0">
                <font>
                   <Font size="15.0" />
                </font>
             </Hyperlink>
-            <HBox alignment="TOP_RIGHT" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <CheckBox fx:id="acceptRule" mnemonicParsing="false" prefHeight="31.0" prefWidth="23.0" translateY="18.0" />
-                  <Label prefHeight="47.0" prefWidth="255.0" text="با سیاست های فوق امنیتی چغک موافقت میکنم" textAlignment="JUSTIFY" textFill="WHITE" translateY="10.0">
+                  <CheckBox fx:id="acceptRule" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" prefHeight="31.0" prefWidth="23.0" translateY="-10.0" />
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="47.0" prefWidth="255.0" text="با سیاست های فوق امنیتی چغک موافقت میکنم" textFill="WHITE" translateY="-10.0">
                      <font>
                         <Font size="13.0" />
                      </font>
