@@ -7,6 +7,6 @@ module com.example.exm {
 	requires com.gluonhq.attach.util;
     requires MaterialFX;
 
-    opens com.example.exm to javafx.fxml;
+    opens com.example.exm to javafx.fxml, com.jfoenix;
     exports com.example.exm;
 }

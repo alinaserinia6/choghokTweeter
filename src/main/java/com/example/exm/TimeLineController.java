@@ -23,7 +23,7 @@ public class TimeLineController {
 		shutdown = false;
 		Label l = new Label();
 		l.setText("In the name of GOD");
-		Client.timeline.getChildren().add(l);
+		Client.timeline.getChildren().add(0,l);
         sp.setContent(Client.timeline);
 		Service<Void> service = new Service<Void>() {
 			@Override
@@ -55,7 +55,7 @@ public class TimeLineController {
             System.out.println("i am in: " + i.getText() + ": ");
             Pane pane = i.tweetToPane();
             Platform.runLater(() -> {
-                Client.timeline.getChildren().add(pane);
+                Client.timeline.getChildren().add(0, pane);
                 try {
                     Client.out.writeObject(new Request(RM.LAST_SEEN_TIME, i.getUser().getUsername(), i.getDt()));
                 } catch (IOException e) {

@@ -2,9 +2,9 @@ package com.example.exm;
 
 import com.gluonhq.charm.glisten.control.Avatar;
 import com.jfoenix.controls.JFXTextArea;
-import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
@@ -15,7 +15,7 @@ import java.io.IOException;
 
 public class TweetController {
     @FXML
-    private JFXTextField name;
+    private TextField name;
     @FXML
     private JFXTextArea text;
     @FXML

@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.*?>
-<?import com.jfoenix.controls.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import com.gluonhq.charm.glisten.control.Avatar?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<Pane maxHeight="447.0" maxWidth="285.0" minHeight="250.0" minWidth="280.0" stylesheets="@showTweet.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="447.0" maxWidth="285.0" minHeight="250.0" minWidth="280.0" stylesheets="@showTweet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <JFXTextField fx:id="name" alignment="CENTER_RIGHT" layoutX="14.0" layoutY="10.0" maxHeight="36.0" maxWidth="500" minHeight="10" minWidth="223.0" prefHeight="26.0" prefWidth="223.0" promptText="نام">
+      <TextField fx:id="name" alignment="CENTER_RIGHT" layoutX="14.0" layoutY="10.0" maxHeight="36.0" maxWidth="500" minHeight="10" minWidth="223.0" prefHeight="26.0" prefWidth="223.0" promptText="نام">
          <font>
             <Font size="15.0" />
          </font>
-      </JFXTextField>
+      </TextField>
       <Label fx:id="like" layoutX="227.0" layoutY="373.0" text="like" />
       <Label fx:id="comment" layoutX="126.0" layoutY="373.0" text="comment" translateX="-5.0" />
       <Label fx:id="retweet" layoutX="29.0" layoutY="373.0" text="retweet" />
