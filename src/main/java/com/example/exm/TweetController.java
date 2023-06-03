@@ -1,23 +1,23 @@
 package com.example.exm;
 
+import com.gluonhq.charm.glisten.control.Avatar;
+import com.jfoenix.controls.JFXTextArea;
+import com.jfoenix.controls.JFXTextField;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 
-
 import java.io.IOException;
 
 public class TweetController {
     @FXML
-    private TextField name;
+    private JFXTextField name;
     @FXML
-    private TextArea text;
+    private JFXTextArea text;
     @FXML
     private Label like;
     @FXML
@@ -25,9 +25,14 @@ public class TweetController {
     @FXML
     private Label retweet;
     @FXML
-    private ImageView avatar;
+    private Avatar avatar;
     @FXML
     private ImageView likepic;
+
+    @FXML
+    void like(MouseEvent e) {
+        
+    }
 
 
     public void setName(String name) {
@@ -50,7 +55,7 @@ public class TweetController {
         this.retweet.setText(Integer.toString(retweet));
     }
 
-    public void setAvatar(ImageView avatar) {
+    public void setAvatar(Avatar avatar) {
         this.avatar = avatar;
     }
 }

@@ -62,6 +62,11 @@
             <scope>system</scope>
             <systemPath>${basedir}/src/main/resources/util-4.0.18.jar</systemPath>
         </dependency>
+        <dependency>
+            <groupId>io.github.palexdev</groupId>
+            <artifactId>materialfx</artifactId>
+            <version>11.16.1</version>
+        </dependency>
     </dependencies>
 
     <build>

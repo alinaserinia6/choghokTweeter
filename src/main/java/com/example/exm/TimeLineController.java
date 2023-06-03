@@ -6,14 +6,14 @@ import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import java.io.IOException;
+import io.github.palexdev.materialfx.controls.MFXScrollPane;
 
 public class TimeLineController {
 	@FXML
-	private ScrollPane sp;
+	private MFXScrollPane sp;
 	@FXML
 	private Avatar avatar;
 	private boolean shutdown;
@@ -64,6 +64,7 @@ public class TimeLineController {
             });
 		} catch (IOException ignore) {
 			System.err.println("get IOException");
+			ignore.printStackTrace();
 		}
         System.err.println("finish getting tweet");
 	}

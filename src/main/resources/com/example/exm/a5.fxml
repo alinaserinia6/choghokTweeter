@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.gluonhq.charm.glisten.control.Avatar?>
+<?import io.github.palexdev.materialfx.controls.MFXScrollPane?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -92,7 +92,6 @@
          </padding>
       </HBox>
       <Line endX="156.0" endY="-1.0" startX="-130.0" GridPane.rowIndex="3" />
-      <ScrollPane fx:id="sp" pannable="true" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2" />
       <ImageView fitHeight="53.0" fitWidth="38.0" onMouseClicked="#addTweet" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-10.0" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
          <image>
             <Image url="@qw.jpg" />
@@ -101,5 +100,6 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
+      <MFXScrollPane fx:id="sp" fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="NEVER" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP" />
    </children>
 </GridPane>

@@ -1,27 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.Avatar?>
-<?import javafx.scene.Cursor?>
-<?import com.jfoenix.controls.JFXTextArea?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
+<?import com.gluonhq.charm.glisten.control.*?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<Pane maxHeight="447.0" maxWidth="285.0" minHeight="250.0" minWidth="280.0" stylesheets="@showTweet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="447.0" maxWidth="285.0" minHeight="250.0" minWidth="280.0" stylesheets="@showTweet.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextField fx:id="name" alignment="CENTER_RIGHT" layoutX="14.0" layoutY="10.0" maxHeight="36.0" maxWidth="500" minHeight="10" minWidth="223.0" prefHeight="26.0" prefWidth="223.0" promptText="نام">
+      <JFXTextField fx:id="name" alignment="CENTER_RIGHT" layoutX="14.0" layoutY="10.0" maxHeight="36.0" maxWidth="500" minHeight="10" minWidth="223.0" prefHeight="26.0" prefWidth="223.0" promptText="نام">
          <font>
             <Font size="15.0" />
          </font>
-      </TextField>
+      </JFXTextField>
       <Label fx:id="like" layoutX="227.0" layoutY="373.0" text="like" />
       <Label fx:id="comment" layoutX="126.0" layoutY="373.0" text="comment" translateX="-5.0" />
       <Label fx:id="retweet" layoutX="29.0" layoutY="373.0" text="retweet" />
-      <Avatar layoutX="237.0" layoutY="5.0" />
-      <JFXTextArea fx:id="text" editable="false" layoutX="19.0" layoutY="59.0" maxHeight="300.0" maxWidth="220.0" minHeight="200.0" minWidth="150.0" nodeOrientation="RIGHT_TO_LEFT" promptText="متن توییت:" wrapText="true">
+      <Avatar fx:id="avatar" layoutX="237.0" layoutY="5.0" />
+      <JFXTextArea fx:id="text" editable="false" focusColor="WHITE" focusTraversable="false" layoutX="19.0" layoutY="59.0" maxHeight="300.0" maxWidth="220.0" minHeight="200.0" minWidth="150.0" nodeOrientation="RIGHT_TO_LEFT" promptText="متن توییت:" unFocusColor="WHITE" wrapText="true">
          <font>
             <Font size="30.0" />
          </font></JFXTextArea>

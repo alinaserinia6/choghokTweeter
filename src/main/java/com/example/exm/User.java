@@ -1,5 +1,6 @@
 package com.example.exm;
 
+import com.gluonhq.charm.glisten.control.Avatar;
 import javafx.scene.image.ImageView;
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -23,7 +24,7 @@ public class User implements Serializable {
     public HashMap<String, LocalDateTime> following;
     public ArrayList<Tweet> tweets;
     public ArrayList<Comment> comments;
-    private ImageView avatar;
+    private Avatar avatar;
     private ImageView header;
     private String birthDate;
     private String joinDate;
@@ -78,11 +79,11 @@ public class User implements Serializable {
         this.bio = bio;
     }
 
-    public ImageView getAvatar() {
+    public Avatar getAvatar() {
         return avatar;
     }
 
-    public void setAvatar(ImageView avatar) {
+    public void setAvatar(Avatar avatar) {
         this.avatar = avatar;
     }
 
