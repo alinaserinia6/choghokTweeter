@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<Pane maxHeight="447.0" maxWidth="285.0" minHeight="250.0" minWidth="280.0" stylesheets="@showTweet.css" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="447.0" maxWidth="285.0" minHeight="250.0" minWidth="280.0" stylesheets="@showTweet.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <JFXTextField fx:id="name" alignment="CENTER_RIGHT" layoutX="14.0" layoutY="10.0" maxHeight="36.0" maxWidth="500" minHeight="10" minWidth="223.0" prefHeight="26.0" prefWidth="223.0" promptText="نام">
          <font>
@@ -23,7 +23,7 @@
          <font>
             <Font size="30.0" />
          </font></JFXTextArea>
-      <ImageView fx:id="likepic" fitHeight="18.0" fitWidth="20.0" layoutX="250.0" layoutY="373.0" onMouseClicked="#like" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="18.0" fitWidth="20.0" layoutX="250.0" layoutY="373.0" pickOnBounds="true" preserveRatio="true" translateX="-10.0">
          <image>
             <Image url="@162732873716363058935021-128.png" />
          </image>
@@ -31,15 +31,21 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="184.0" layoutY="373.0" pickOnBounds="true" preserveRatio="true" translateX="-3.0">
+      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="184.0" layoutY="373.0" pickOnBounds="true" preserveRatio="true" translateX="-50.0">
          <image>
             <Image url="@19540556161582545596-128.png" />
          </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </ImageView>
-      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="73.0" layoutY="373.0" pickOnBounds="true" preserveRatio="true" translateX="3.0">
+      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="73.0" layoutY="373.0" pickOnBounds="true" preserveRatio="true" translateX="-35.0">
          <image>
             <Image url="@3479454101582793681-128.png" />
          </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </ImageView>
    </children>
 </Pane>

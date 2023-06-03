@@ -11,29 +11,26 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="CENTER" prefHeight="625.0" prefWidth="285.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.TimeLineController">
+<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="625.0" prefWidth="285.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.TimeLineController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
    </columnConstraints>
    <rowConstraints>
       <RowConstraints maxHeight="40.0" minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="5.0" minHeight="0.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="600.0" minHeight="10.0" prefHeight="481.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="10.0" minHeight="5.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="50.0" minHeight="10.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="600.0" minHeight="10.0" prefHeight="539.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <HBox alignment="CENTER_RIGHT" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="47.0" prefWidth="285.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <children>
-            <Label text="چغک">
+            <Label text="چغک" translateX="60.0">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <ImageView fitHeight="47.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="47.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true" translateX="50.0">
                <image>
                   <Image url="@icon.png" />
                </image>
@@ -41,17 +38,19 @@
                   <Insets right="70.0" />
                </HBox.margin>
             </ImageView>
-            <Avatar fx:id="avatar" onMouseClicked="#setting">
+            <Avatar fx:id="avatar" onMouseClicked="#setting" translateX="45.0">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Avatar>
          </children>
       </HBox>
-      <Line endX="171.0" endY="1.0" startX="-115.0" GridPane.rowIndex="1" />
-      <HBox maxHeight="50.0" maxWidth="50.0" minHeight="20.0" minWidth="20.0" GridPane.rowIndex="4">
+      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="20.0" minWidth="20.0" prefHeight="50.0" prefWidth="286.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <children>
-            <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="-20.0" translateY="5.0">
+            <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="-70.0">
                <image>
                   <Image url="@email.png" />
                </image>
@@ -59,7 +58,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="10.0" translateY="5.0">
+            <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="-40.0">
                <image>
                   <Image url="@notification.png" />
                </image>
@@ -67,7 +66,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="40.0" translateY="5.0">
+            <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="-10.0">
                <image>
                   <Image url="@search.png" />
                </image>
@@ -75,7 +74,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="70.0" translateY="5.0">
+            <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="20.0">
                <image>
                   <Image url="@home.png" />
                </image>
@@ -91,11 +90,10 @@
             <Insets left="50.0" />
          </padding>
       </HBox>
-      <Line endX="156.0" endY="-1.0" startX="-130.0" GridPane.rowIndex="3" />
-      <MFXScrollPane fx:id="sp" fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="NEVER" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="TOP" />
-      <ImageView fitHeight="53.0" fitWidth="38.0" onMouseClicked="#addTweet" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-10.0" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+      <MFXScrollPane fx:id="sp" fitToWidth="true" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="536.0" prefWidth="285.0" vbarPolicy="NEVER" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+      <ImageView fitHeight="53.0" fitWidth="38.0" onMouseClicked="#addTweet" pickOnBounds="true" preserveRatio="true" translateX="-110.0" translateY="235.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <image>
-            <Image url="@qw.jpg" />
+            <Image url="@12.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
