@@ -16,13 +16,13 @@ public class Client {
 	public static ObjectOutputStream out;
 	public static ObjectInputStream in;
 	public static VBox timeline = new VBox();
-
+	public static VBox contacts = new VBox();
 	public static void main(String[] args) throws InterruptedException {
 		user.setUsername("ali");
 		user.setFirstName("ali");
 		user.setLastName("farahbaksh");
 		user.setPassword("ali");
-		user.following.put("@support", LocalDateTime.MIN);
+		user.following.put("@support",new Following("@support", LocalDateTime.MIN));
 		HelloApplication app = new HelloApplication();
 		Platform.startup(app);
 		sleep(3000);

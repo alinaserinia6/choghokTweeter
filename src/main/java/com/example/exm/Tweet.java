@@ -1,8 +1,7 @@
 package com.example.exm;
 
+import com.gluonhq.charm.glisten.control.Avatar;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
@@ -11,35 +10,35 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Tweet implements Serializable {
+    private int id;
     private String text;
     private LocalDateTime dt;
-    private User user;
-    private ArrayList<User> likes;
+    private String username;
+    private ArrayList<String> likes;
     private ArrayList<Comment> comments;
     private ArrayList<User> retweet;
     private TweetController controller;
 
-    public Tweet(String text, User user) {
+    public Tweet(String text, String username) {
         this.text = text;
-        this.user = user;
+        this.username = username;
         dt = LocalDateTime.now();
-        likes = new ArrayList<User>();
+        likes = new ArrayList<String>();
         comments = new ArrayList<Comment>();
         retweet = new ArrayList<User>();
     }
 
     public Pane tweetToPane() throws IOException {
+        Client.out.writeObject(new Request(RM.GET_NAME, username));
+        String name = (String) Client.getObject();
+        Client.out.writeObject(new Request(RM.GET_AVATAR, username));
+        Avatar avatar = (Avatar) Client.getObject();
         TweetController controller = new TweetController();
         this.controller = controller;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("showTweet.fxml"));
         fxmlLoader.setController(controller);
         Pane p = fxmlLoader.load();
-        controller.setName(user.getFirstName() + " " + user.getLastName() + " " + user.getUsername());
-        controller.setText(text);
-        controller.setLike(likes.size());
-        controller.setComment(comments.size());
-        controller.setRetweet(retweet.size());
-        controller.setAvatar(user.getAvatar());
+        controller.build(name, text, likes.size(), comments.size(), retweet.size(), avatar, this);
         return p;
     }
 
@@ -47,20 +46,24 @@ public class Tweet implements Serializable {
         return text;
     }
 
-    public User getUser() {
-        return user;
-    }
-
     public LocalDateTime getDt() {
         return dt;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public int getId() {
+        return id;
     }
 
     @Override
     public String toString() {
-        return user.getUsername() + ": " + text;
+        return username + ": " + text;
     }
 }

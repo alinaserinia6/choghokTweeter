@@ -3,16 +3,10 @@ package com.example.exm;
 import com.gluonhq.charm.glisten.control.Avatar;
 import javafx.scene.image.ImageView;
 import java.io.Serializable;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 
-enum Gender {
-    MALE,
-    FEMALE,
-    UNKNOWN
-}
 public class User implements Serializable {
     private String username;
     private String phoneNumber;
@@ -21,9 +15,11 @@ public class User implements Serializable {
     private String lastName;
     private String bio;
     public HashSet<String> followers;
-    public HashMap<String, LocalDateTime> following;
+    public HashMap<String, Following> following;
     public ArrayList<Tweet> tweets;
     public ArrayList<Comment> comments;
+
+    public HashMap<Integer, Tweet> likes;
     private Avatar avatar;
     private ImageView header;
     private String birthDate;
@@ -141,4 +137,5 @@ public class User implements Serializable {
                 + "Name: " + firstName + " " + lastName + "\n"
                 + "username: " + username;
     }
+
 }

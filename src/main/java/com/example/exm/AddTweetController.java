@@ -19,8 +19,11 @@ public class AddTweetController {
         if (text.getText().isEmpty()) {
             return;
         }
-        Tweet tweet = new Tweet(text.getText(), Client.user);
+        Tweet tweet = new Tweet(text.getText(), Client.user.getUsername());
         Client.out.writeObject(new Request(RM.ADD_TWEET, tweet));
+        int id = (int) Client.getObject();
+        tweet.setId(id);
+        Client.timeline.getChildren().add(0, tweet.tweetToPane());
         HelloApplication.ChangePage(e, "a5");
     }
 

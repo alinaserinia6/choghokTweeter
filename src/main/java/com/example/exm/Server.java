@@ -4,7 +4,6 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.*;
 
 public class Server {
@@ -12,6 +11,7 @@ public class Server {
 	public static HashMap<String, User> users = new HashMap<>();
 	public static HashSet<String> keys = new HashSet<>();
 	public static ArrayList<Tweet> tweets = new ArrayList<>();
+	public static int TweetId;
 
 	public static void main(String[] args) {
 		User user = new User();
@@ -25,9 +25,8 @@ public class Server {
 		support.setFirstName("support");
 		support.setLastName("Choghok");
 		users.put("@support", support);
-		user.following.put("@support", LocalDateTime.MIN);
-//		followingTime.put("")
-		Tweet t = new Tweet("only heydar is amir al momenin", support);
+		user.following.put("@support",new Following("@support", LocalDateTime.MIN));
+		Tweet t = new Tweet("only heydar is amir al momenin", "@support");
 		support.tweets.add(t);
 		tweets.add(t);
 
@@ -48,8 +47,6 @@ public class Server {
 		}
 	}
 }
-
-
 class Accept extends Thread {
 	private Socket client;
 	private User user;
@@ -59,11 +56,10 @@ class Accept extends Thread {
 	@Override
 	public void run() {
 		ObjectInputStream in;
-		ObjectOutputStream out = null;
+		ObjectOutputStream out;
 		try {
 			in = new ObjectInputStream(client.getInputStream());
 			out = new ObjectOutputStream(client.getOutputStream());
-//			Server.list.add(out);
 			while (true) {
 				try {
 					Request o = (Request) in.readObject();
@@ -85,10 +81,26 @@ class Accept extends Thread {
 							String key = (String) o.get2();
 							Server.keys.add(key);
 							Server.users.put(user.getUsername(), user);
+							Server.list.put(user.getUsername(), out);
+							ArrayList<ShowUser> userList = new ArrayList<>(); // TODO merge this and GET_USER
+							for (User u : Server.users.values()) {
+								if (u.getUsername().equals(user.getUsername())) continue;
+								ShowUser showUser = new ShowUser(u.getFirstName() + " " + u.getLastName(), u.getUsername(), u.getBio());
+								userList.add(showUser);
+							}
+							out.writeObject(userList);
 						}
 						case GET_USER -> {
 							String username = (String) o.get1();
 							user = Server.users.get(username);
+							Server.list.put(username, out);
+							ArrayList<ShowUser> userList = new ArrayList<>();
+							for (User u : Server.users.values()) {
+								if (u.getUsername().equals(user.getUsername())) continue;
+								ShowUser showUser = new ShowUser(u.getFirstName() + " " + u.getLastName(), u.getUsername(), u.getBio());
+								userList.add(showUser);
+							}
+							out.writeObject(userList);
 						}
 						case CHECK_PASS -> {
 							String username = (String) o.get1();
@@ -98,14 +110,17 @@ class Accept extends Thread {
 						}
 						case ADD_TWEET -> {
 							Tweet tw = (Tweet) o.get1();
+							tw.setId(Server.TweetId);
+							out.writeObject(Server.TweetId);
+							Server.TweetId++;
 							Server.tweets.add(tw);
-							out.writeObject(tw);
 						}
 						case GET_TWEETS -> {
 							System.out.println("GET_TWEETS REQUEST FROM " + user.getUsername() + ":");
-							for (Map.Entry<String, LocalDateTime> i : user.following.entrySet()) {
-								String username = i.getKey();
-								LocalDateTime ldt = i.getValue();
+							for (Following i : user.following.values()) {
+								String username = i.getUser();
+								LocalDateTime ldt = i.getTime();
+								if (!i.isFollowing()) continue;
 								System.out.println(username + " " + ldt);
 								for (Tweet j : Server.users.get(username).tweets) {
 									System.out.print(j);
@@ -119,7 +134,36 @@ class Accept extends Thread {
 							}
 						}
 						case LAST_SEEN_TIME -> {
-							user.following.put((String) o.get1(), (LocalDateTime) o.get2());
+							String username = (String) o.get1();
+							LocalDateTime time = (LocalDateTime) o.get2();
+							Following f = user.following.get(username);
+							f.setTime(time);
+						}
+						case FOLLOW_REQUEST -> {
+							String username = (String) o.get1();
+							Following f = user.following.get(username);
+							if (f == null) {
+								f = new Following(username, LocalDateTime.MIN);
+								user.following.put(username, f);
+							} else {
+								f.follow();
+							}
+						}
+						case GET_NAME -> {
+							String username = (String) o.get1();
+							User u = Server.users.get(username);
+							out.writeObject(u.getFirstName() + " " + u.getLastName() + " " + u.getUsername());
+						}
+						case GET_AVATAR -> {
+							String username = (String) o.get1();
+							User u = Server.users.get(username);
+							out.writeObject(u.getAvatar());
+						}
+						case LIKE_TWEET -> {
+
+						}
+						case DISLIKE_TWEET -> {
+
 						}
 					}
 				} catch (ClassNotFoundException e) {
@@ -131,7 +175,7 @@ class Accept extends Thread {
 				sleep(5000);
 			}
 		} catch (IOException | InterruptedException e) {
-			Server.list.remove(out);
+			Server.list.remove(user.getUsername());
 			e.printStackTrace(System.out);
 		}
 

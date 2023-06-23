@@ -7,9 +7,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
-import javafx.stage.Stage;
-
 
 import java.io.IOException;
 
@@ -27,35 +24,30 @@ public class TweetController {
     @FXML
     private Avatar avatar;
     @FXML
-    private ImageView likepic;
+    private ImageView likePicture;
+
+    private Tweet tweet;
+    private boolean isLiked = false;
 
     @FXML
-    void like(MouseEvent e) {
-        
+    void like(MouseEvent e) throws IOException {
+        if (isLiked) {
+            Client.out.writeObject(new Request(RM.DISLIKE_TWEET, tweet.getUsername(), tweet.getId()));
+
+        } else {
+            Client.out.writeObject(new Request(RM.LIKE_TWEET, tweet.getUsername(), tweet.getId()));
+
+        }
+        isLiked = !isLiked;
     }
 
-
-    public void setName(String name) {
+    public void build(String name, String text, int like, int comment, int retweet, Avatar avatar, Tweet tweet) {
         this.name.setText(name);
-    }
-
-    public void setText(String text) {
         this.text.setText(text);
-    }
-
-    public void setLike(int like) {
-        this.like.setText(Integer.toString(like));
-    }
-
-    public void setComment(int comment) {
-        this.comment.setText(Integer.toString(comment));
-    }
-
-    public void setRetweet(int retweet) {
-        this.retweet.setText(Integer.toString(retweet));
-    }
-
-    public void setAvatar(Avatar avatar) {
+        this.like.setText(String.valueOf(like));
+        this.comment.setText(String.valueOf(comment));
+        this.retweet.setText(String.valueOf(retweet));
         this.avatar = avatar;
+        this.tweet = tweet;
     }
 }

@@ -8,5 +8,10 @@ public enum RM { // REQUEST METHOD
     GET_TWEETS,
     ADD_TWEET,
     LAST_SEEN_TIME,
-    GET_USER
+    GET_USER,
+    FOLLOW_REQUEST,
+    GET_NAME,
+    GET_AVATAR,
+    LIKE_TWEET,
+    DISLIKE_TWEET
 }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.Avatar?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="300.0" maxWidth="285.0" minHeight="100.0" minWidth="280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Avatar layoutX="234.0" layoutY="9.0" />
+      <Label fx:id="name" alignment="CENTER_RIGHT" layoutX="190.0" layoutY="9.0" text="name" />
+      <Label fx:id="username" alignment="CENTER_RIGHT" layoutX="170.0" layoutY="27.0" text="username" />
+      <Label fx:id="bio" alignment="CENTER_RIGHT" layoutX="203.0" layoutY="54.0" text="bio" />
+      <JFXButton fx:id="follow" layoutX="15.0" layoutY="15.0" text="follow" onAction="#followButton" />
+   </children>
+</Pane>

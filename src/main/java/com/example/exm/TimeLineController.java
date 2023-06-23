@@ -57,14 +57,14 @@ public class TimeLineController {
             Platform.runLater(() -> {
                 Client.timeline.getChildren().add(0, pane);
                 try {
-                    Client.out.writeObject(new Request(RM.LAST_SEEN_TIME, i.getUser().getUsername(), i.getDt()));
+                    Client.out.writeObject(new Request(RM.LAST_SEEN_TIME, i.getUsername(), i.getDt()));
                 } catch (IOException e) {
                     throw new RuntimeException(e);
                 }
             });
-		} catch (IOException ignore) {
+		} catch (IOException e) {
 			System.err.println("get IOException");
-			ignore.printStackTrace();
+			e.printStackTrace();
 		}
         System.err.println("finish getting tweet");
 	}
@@ -81,5 +81,9 @@ public class TimeLineController {
 		HelloApplication.ChangePage(e, "a7");
 	}
 
+	@FXML
+	void searchButton(MouseEvent e) throws IOException {
+		HelloApplication.ChangePage(e, "a8");
+	}
 
 }

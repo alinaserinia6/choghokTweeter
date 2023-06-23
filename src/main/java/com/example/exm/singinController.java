@@ -2,16 +2,12 @@ package com.example.exm;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class singinController {
 
@@ -43,6 +39,11 @@ public class singinController {
             return;
         }
         Client.out.writeObject(new Request(RM.GET_USER, username.getText()));
+        ArrayList<ShowUser> userList = (ArrayList<ShowUser>) Client.getObject();
+        for (ShowUser u : userList) {
+            System.out.println(u.getUsername());
+            Client.contacts.getChildren().add(u.usertoPane(Client.user.following.get(u.getUsername())));
+        }
         HelloApplication.ChangePage(e, "a5");
     }
     public void backk(ActionEvent e) throws IOException {
