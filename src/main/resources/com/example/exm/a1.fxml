@@ -27,7 +27,7 @@
          <children>
             <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@icon.png" />
+                  <Image url="@PchoghockIcon.png" />
                </image>
                <VBox.margin>
                   <Insets bottom="100.0" />

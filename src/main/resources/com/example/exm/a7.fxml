@@ -38,11 +38,11 @@
             </TextArea>
             <ImageView fitHeight="93.0" fitWidth="285.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" translateY="-20.0">
                <image>
-                  <Image url="@header2.jpg" />
+                  <Image url="@Pheader.jpg" />
                </image></ImageView>
             <ImageView fx:id="IM" fitHeight="43.0" fitWidth="45.0" layoutX="242.0" layoutY="-3.0" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#backtotimeline" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@1959125971582004485-128.png" />
+                  <Image url="@Pback.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -72,7 +72,7 @@
             </Label>
             <ImageView fitHeight="31.0" fitWidth="28.0" layoutX="250.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@11749646681666068047-128.png" />
+                  <Image url="@Pcalender.png" />
                </image>
             </ImageView>
             <Label layoutX="166.0" layoutY="255.0" prefHeight="20.0" prefWidth="81.0" text="تاریخ پیوستن:">
@@ -140,7 +140,7 @@
          <children>
             <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="-65.0" translateY="-5.0">
                <image>
-                  <Image url="@email.png" />
+                  <Image url="@Pemail.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -148,7 +148,7 @@
             </ImageView>
             <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="-35.0" translateY="-5.0">
                <image>
-                  <Image url="@notification.png" />
+                  <Image url="@Pnotif.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -156,7 +156,7 @@
             </ImageView>
             <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="-5.0" translateY="-5.0">
                <image>
-                  <Image url="@search.png" />
+                  <Image url="@Psearch.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -164,7 +164,7 @@
             </ImageView>
             <ImageView fitHeight="35.0" fitWidth="45.0" onMouseClicked="#backtotimeline" pickOnBounds="true" preserveRatio="true" translateX="20.0" translateY="-5.0">
                <image>
-                  <Image url="@home.png" />
+                  <Image url="@PhomeIcon.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />

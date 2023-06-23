@@ -14,9 +14,9 @@ public class Tweet implements Serializable {
     private String text;
     private LocalDateTime dt;
     private String username;
-    private ArrayList<String> likes;
-    private ArrayList<Comment> comments;
-    private ArrayList<User> retweet;
+    public ArrayList<String> likes;
+    public ArrayList<Comment> comments;
+    public ArrayList<User> retweet;
     private TweetController controller;
 
     public Tweet(String text, String username) {

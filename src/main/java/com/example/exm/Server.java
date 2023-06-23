@@ -160,10 +160,16 @@ class Accept extends Thread {
 							out.writeObject(u.getAvatar());
 						}
 						case LIKE_TWEET -> {
-
-						}
-						case DISLIKE_TWEET -> {
-
+							String username = (String) o.get1();
+							int id = (int) o.get2();
+							Tweet tweet = Server.users.get(username).tweets.get(id);
+							if (tweet.likes.contains(user.getUsername())) {
+								tweet.likes.remove(user.getUsername());
+								user.likes.remove(id);
+							} else {
+								tweet.likes.add(user.getUsername());
+								user.likes.put(id, tweet);
+							}
 						}
 					}
 				} catch (ClassNotFoundException e) {
@@ -172,7 +178,7 @@ class Accept extends Thread {
 					System.err.println("file is empty");
 				}
 				System.out.print("+");
-				sleep(5000);
+				sleep(3000);
 			}
 		} catch (IOException | InterruptedException e) {
 			Server.list.remove(user.getUsername());

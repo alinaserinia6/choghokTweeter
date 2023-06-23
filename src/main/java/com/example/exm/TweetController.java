@@ -31,12 +31,12 @@ public class TweetController {
 
     @FXML
     void like(MouseEvent e) throws IOException {
-        if (isLiked) {
-            Client.out.writeObject(new Request(RM.DISLIKE_TWEET, tweet.getUsername(), tweet.getId()));
-
-        } else {
-            Client.out.writeObject(new Request(RM.LIKE_TWEET, tweet.getUsername(), tweet.getId()));
-
+        Client.out.writeObject(new Request(RM.LIKE_TWEET, tweet.getUsername(), tweet.getId()));
+        if (isLiked) { // dislike
+            Client.user.likes.remove(tweet.getId());
+        } else { // like
+            Client.user.likes.put(tweet.getId(), tweet);
+            
         }
         isLiked = !isLiked;
     }

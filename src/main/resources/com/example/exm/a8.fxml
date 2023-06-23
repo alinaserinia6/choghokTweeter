@@ -43,7 +43,7 @@
          <children>
             <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="-70.0">
                <image>
-                  <Image url="@email.png" />
+                  <Image url="@Pemail.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -51,7 +51,7 @@
             </ImageView>
             <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="-40.0">
                <image>
-                  <Image url="@notification.png" />
+                  <Image url="@Pnotif.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -59,7 +59,7 @@
             </ImageView>
             <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="-10.0">
                <image>
-                  <Image url="@search.png" />
+                  <Image url="@Psearch.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -67,7 +67,7 @@
             </ImageView>
             <ImageView fitHeight="35.0" fitWidth="45.0" onMouseClicked="#timeLineButton" pickOnBounds="true" preserveRatio="true" translateX="20.0">
                <image>
-                  <Image url="@home.png" />
+                  <Image url="@PhomeIcon.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />

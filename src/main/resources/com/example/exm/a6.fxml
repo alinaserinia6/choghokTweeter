@@ -23,7 +23,7 @@
    <children>
       <ImageView fitHeight="40.0" fitWidth="32.0" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true" translateX="250.0">
          <image>
-            <Image url="@1959125971582004485-128.png" />
+            <Image url="@Pback.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />

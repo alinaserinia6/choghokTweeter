@@ -13,5 +13,5 @@ public enum RM { // REQUEST METHOD
     GET_NAME,
     GET_AVATAR,
     LIKE_TWEET,
-    DISLIKE_TWEET
+
 }
