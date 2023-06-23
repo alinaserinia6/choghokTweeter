@@ -10,8 +10,6 @@ public enum RM { // REQUEST METHOD
     LAST_SEEN_TIME,
     GET_USER,
     FOLLOW_REQUEST,
-    GET_NAME,
-    GET_AVATAR,
     LIKE_TWEET,
 
 }

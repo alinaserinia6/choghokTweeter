@@ -31,13 +31,12 @@ public class TimeLineController {
 				return new Task<Void>() {
 					@Override
 					protected Void call() throws Exception {
-						//Background work
 						System.out.println("IN SERVICE");
-                        Client.out.writeObject(new Request(RM.GET_TWEETS));
 						while (!shutdown) {
+							Client.out.writeObject(new Request(RM.GET_TWEETS));
 							System.out.println("in while");
 							getTweets();
-							Thread.currentThread().sleep(4000);
+							Thread.sleep(4000);
 						}
 						return null;
 					}
@@ -51,18 +50,15 @@ public class TimeLineController {
 	private void getTweets() {
 		System.out.println("\t".repeat(7) + "{getTweet}");
 		try {
-            Tweet i = (Tweet) Client.getObject();
+            Tweet i = (Tweet) Client.in.readObject();
+			if (i.getId() == -1) {
+				return;
+			}
             System.out.println("i am in: " + i.getText() + ": ");
             Pane pane = i.tweetToPane();
-            Platform.runLater(() -> {
-                Client.timeline.getChildren().add(0, pane);
-                try {
-                    Client.out.writeObject(new Request(RM.LAST_SEEN_TIME, i.getUsername(), i.getDt()));
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            });
-		} catch (IOException e) {
+			Platform.runLater(() -> Client.timeline.getChildren().add(0, pane));
+			Client.out.writeObject(new Request(RM.LAST_SEEN_TIME, i.getUsername(), i.getDt()));
+		} catch (IOException | ClassNotFoundException e) {
 			System.err.println("get IOException");
 			e.printStackTrace();
 		}

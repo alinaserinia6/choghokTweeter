@@ -21,9 +21,13 @@ public class AddTweetController {
         }
         Tweet tweet = new Tweet(text.getText(), Client.user.getUsername());
         Client.out.writeObject(new Request(RM.ADD_TWEET, tweet));
-        int id = (int) Client.getObject();
+        System.out.println("request send");
+        int id = (Integer) Client.getObject();
+        System.out.println("id get");
         tweet.setId(id);
+        System.out.println("id set");
         Client.timeline.getChildren().add(0, tweet.tweetToPane());
+        System.out.println("id pane");
         HelloApplication.ChangePage(e, "a5");
     }
 

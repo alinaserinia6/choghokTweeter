@@ -17,8 +17,13 @@ public class Tweet implements Serializable {
     public ArrayList<String> likes;
     public ArrayList<Comment> comments;
     public ArrayList<User> retweet;
+    private Avatar avatar;
+    private String name;
     private TweetController controller;
 
+    public Tweet() {
+        id = -1;
+    }
     public Tweet(String text, String username) {
         this.text = text;
         this.username = username;
@@ -29,10 +34,6 @@ public class Tweet implements Serializable {
     }
 
     public Pane tweetToPane() throws IOException {
-        Client.out.writeObject(new Request(RM.GET_NAME, username));
-        String name = (String) Client.getObject();
-        Client.out.writeObject(new Request(RM.GET_AVATAR, username));
-        Avatar avatar = (Avatar) Client.getObject();
         TweetController controller = new TweetController();
         this.controller = controller;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("showTweet.fxml"));
@@ -60,6 +61,14 @@ public class Tweet implements Serializable {
 
     public int getId() {
         return id;
+    }
+
+    public void setAvatar(Avatar avatar) {
+        this.avatar = avatar;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override

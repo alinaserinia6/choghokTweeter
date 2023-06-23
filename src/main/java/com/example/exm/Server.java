@@ -112,7 +112,9 @@ class Accept extends Thread {
 							Tweet tw = (Tweet) o.get1();
 							tw.setId(Server.TweetId);
 							out.writeObject(Server.TweetId);
+							System.out.println(Server.TweetId);
 							Server.TweetId++;
+							System.out.println(Server.TweetId);
 							Server.tweets.add(tw);
 						}
 						case GET_TWEETS -> {
@@ -122,9 +124,12 @@ class Accept extends Thread {
 								LocalDateTime ldt = i.getTime();
 								if (!i.isFollowing()) continue;
 								System.out.println(username + " " + ldt);
-								for (Tweet j : Server.users.get(username).tweets) {
+								User u = Server.users.get(username);
+								for (Tweet j : u.tweets) {
 									System.out.print(j);
 									if (j.getDt().isAfter(ldt)) {
+										j.setName(u.getFirstName() + " " + u.getLastName() + " " + username);
+										j.setAvatar(u.getAvatar());
 										out.writeObject(j);
 										System.out.println("  watch it");
 									} else {
@@ -132,6 +137,8 @@ class Accept extends Thread {
 									}
 								}
 							}
+							Tweet finish = new Tweet();
+							out.writeObject(finish);
 						}
 						case LAST_SEEN_TIME -> {
 							String username = (String) o.get1();
@@ -148,16 +155,6 @@ class Accept extends Thread {
 							} else {
 								f.follow();
 							}
-						}
-						case GET_NAME -> {
-							String username = (String) o.get1();
-							User u = Server.users.get(username);
-							out.writeObject(u.getFirstName() + " " + u.getLastName() + " " + u.getUsername());
-						}
-						case GET_AVATAR -> {
-							String username = (String) o.get1();
-							User u = Server.users.get(username);
-							out.writeObject(u.getAvatar());
 						}
 						case LIKE_TWEET -> {
 							String username = (String) o.get1();

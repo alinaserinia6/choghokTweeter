@@ -1,29 +1,29 @@
 #pane{
-    -fx-background-image: url("space.gif");
+    -fx-background-image: url("Gspace.gif");
     -fx-background-repeat: stretch;   
     -fx-background-size: cover;
     -fx-background-position: center center;
 }
 #a2{
-    -fx-background-image: url("abc.gif");
+    -fx-background-image: url("Gsignin.gif");
     -fx-background-repeat: stretch;   
     -fx-background-size: cover;
     -fx-background-position: center center;
 }
 #a2email{
-    -fx-background-image: url("abc.gif");
+    -fx-background-image: url("Gsignin.gif");
     -fx-background-repeat: stretch;
     -fx-background-size: cover;
     -fx-background-position: center center;
 }
 #a3{
-    -fx-background-image: url("abc.gif");
+    -fx-background-image: url("Gsignin.gif");
     -fx-background-repeat: stretch;
     -fx-background-size: cover;
     -fx-background-position: center center;
 }
 #a4{
-    -fx-background-image: url("abc.gif");
+    -fx-background-image: url("Gsignin.gif");
     -fx-background-repeat: stretch;
     -fx-background-size: cover;
     -fx-background-position: center center;
