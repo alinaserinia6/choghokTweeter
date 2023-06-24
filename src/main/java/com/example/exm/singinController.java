@@ -21,12 +21,12 @@ public class singinController {
     @FXML
     public void singInbuttonAction(ActionEvent e) throws IOException {
         if (username.getText().isEmpty()) {
-            error.setText("نام کاربری نباید خالی باشد");
+            error.setText("Username must not be empty");
             error.setVisible(true);
             return;
         }
         if (password.getText().isEmpty()) {
-            error.setText("گذرواژه نباید خالی باشد");
+            error.setText("The password must not be empty");
             error.setVisible(true);
             return;
         }
@@ -34,7 +34,7 @@ public class singinController {
         Client.out.writeObject(r);
         boolean b = (boolean) Client.getObject();
         if (!b) {
-            error.setText("نام کاربری یا گذواژه اشتباه است");
+            error.setText("The username or password is incorrect");
             error.setVisible(true);
             return;
         }

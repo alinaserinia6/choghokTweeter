@@ -24,12 +24,12 @@ public class emailController {
     public void emailAction(ActionEvent e) throws IOException {
         String key = email.getText();
         if (key.isEmpty()) {
-            error.setText("آدرس ایمیل نمیتواند خالی باشد");
+            error.setText("The email address cannot be empty");
             error.setVisible(true);
             return;
         }
         if (!Pattern.compile(EMAIL_PATTERN).matcher(key).matches()) {
-            error.setText("آدرس ایمیل نا معتبر است");
+            error.setText("The email address is invalid");
             error.setVisible(true);
             return;
         }
@@ -37,7 +37,7 @@ public class emailController {
         Client.out.writeObject(r);
         boolean b = (boolean) Client.getObject();
         if (b) {
-            error.setText("ایمیل وارد شده قبلا ثبت شده است");
+            error.setText("The email entered has already been registered");
             error.setVisible(true);
             return;
         }

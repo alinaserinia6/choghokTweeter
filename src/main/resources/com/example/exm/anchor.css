@@ -1,43 +1,58 @@
-#pane{
-    -fx-background-image: url("Gspace.gif");
-    -fx-background-repeat: stretch;   
-    -fx-background-size: cover;
-    -fx-background-position: center center;
+@font-face{
+    src: url("NotoSerif.ttf");
 }
-#a2{
-    -fx-background-image: url("Gsignin.gif");
-    -fx-background-repeat: stretch;   
-    -fx-background-size: cover;
-    -fx-background-position: center center;
-}
-#a2email{
-    -fx-background-image: url("Gsignin.gif");
-    -fx-background-repeat: stretch;
-    -fx-background-size: cover;
-    -fx-background-position: center center;
-}
-#a3{
-    -fx-background-image: url("Gsignin.gif");
-    -fx-background-repeat: stretch;
-    -fx-background-size: cover;
-    -fx-background-position: center center;
-}
-#a4{
-    -fx-background-image: url("Gsignin.gif");
-    -fx-background-repeat: stretch;
-    -fx-background-size: cover;
-    -fx-background-position: center center;
-}
-#a7{
-       -fx-background-image: url("a7.jpg");
-       -fx-background-repeat: stretch;
-       -fx-background-size: cover;
-       -fx-background-position: center center;
-   }
 
-#a5{
-          -fx-background-image: url("a7.jpg");
-          -fx-background-repeat: stretch;
-          -fx-background-size: cover;
-          -fx-background-position: center center;
-   }
+* {-fx-font-family: "Noto Serif";}
+
+#pane, #a2, #a2email, #a3, #a4, #a7, #a5 {
+    -fx-background-repeat: stretch;
+    -fx-background-size: cover;
+    -fx-background-position: center center;
+}
+
+#label_one {-fx-font-family: "Noto Serif";}
+
+
+#pane       {-fx-background-image: url("Gspace.gif");}
+#a2         {-fx-background-image: url("Gsignin.gif");}
+#a2email    {-fx-background-image: url("Gsignin.gif");}
+#a3         {-fx-background-image: url("Gsignin.gif");}
+#a4         {-fx-background-image: url("Gsignin.gif");}
+#a7         {-fx-background-image: url("psky.jpg");}
+#a5         {-fx-background-image: url("psky.jpg");}
+
+#start{
+    -fx-background-color: gray;
+}
+#start:hover {
+    -fx-background-color: Aquamarine;
+}
+#nextButton{
+    -fx-background-color: gray;
+}
+#nextButton:hover {
+    -fx-background-color: Aquamarine;
+}
+#b2{
+    -fx-background-color: gray;
+}
+#b2:hover {
+    -fx-background-color: Aquamarine;
+}
+#b3{
+    -fx-background-color: gray;
+}
+#b3:hover {
+    -fx-background-color: Aquamarine;
+}
+#s1{
+    -fx-background-color: gray;
+}
+#s1:hover {
+    -fx-background-color: Aquamarine;
+}#s2{
+     -fx-background-color: gray;
+ }
+ #s2:hover {
+     -fx-background-color: Aquamarine;
+ }

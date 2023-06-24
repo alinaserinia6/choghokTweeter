@@ -14,75 +14,74 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="630.0" stylesheets="@anchor.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.StartController">
-<children>
-<GridPane alignment="CENTER" prefHeight="623.0" prefWidth="280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-   <columnConstraints>
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
-   </columnConstraints>
-   <rowConstraints>
-      <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
-   </rowConstraints>
    <children>
-      <VBox alignment="CENTER" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <GridPane alignment="CENTER" prefHeight="623.0" prefWidth="280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+         </rowConstraints>
          <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@PchoghockIcon.png" />
-               </image>
-               <VBox.margin>
-                  <Insets bottom="100.0" />
-               </VBox.margin>
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor>
-            </ImageView>
-            <Label prefHeight="26.0" prefWidth="176.0" style="-fx-font-family: iransans;" text="لذت استفاده از تکنولوژی" textFill="#f8f8f8" translateY="-100.0">
-               <font>
-                  <Font size="17.0" />
-               </font>
-               <VBox.margin>
+            <VBox alignment="CENTER" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+               <children>
+                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@PchoghockIcon.png" />
+                     </image>
+                     <VBox.margin>
+                        <Insets bottom="100.0" />
+                     </VBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="DEFAULT" />
+                     </cursor>
+                  </ImageView>
+                  <Label fx:id="label_one" prefHeight="29.0" prefWidth="262.0" text="Enjoy ultra-strong security " textFill="WHITE" translateX="5.0" translateY="-100.0">
+                     <font>
+                        <Font name="System Bold Italic" size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
+                  <Label prefHeight="29.0" prefWidth="209.0" text="and communications " textFill="WHITE" translateX="7.0" translateY="-90.0">
+                     <font>
+                        <Font name="System Bold" size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="whit" textFill="WHITE" translateY="-78.0">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
+                  <Label text="Choghok" textFill="WHITE" translateY="-70.0">
+                     <font>
+                        <Font name="System Bold Italic" size="37.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                  </Label>
+                  <Button fx:id="start" mnemonicParsing="false" onAction="#letUsGo" prefHeight="42.0" prefWidth="90.0" text="Let's Go!" translateY="-30.0">
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </Button>
+               </children>
+               <opaqueInsets>
                   <Insets />
-               </VBox.margin>
-            </Label>
-            <Label prefHeight="26.0" prefWidth="110.0" text="و برقراری ارتباط" textFill="WHITE" translateY="-90.0">
-               <font>
-                  <Font size="17.0" />
-               </font>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </Label>
-            <Label text="با" textFill="WHITE" translateY="-80.0">
-               <font>
-                  <Font size="20.0" />
-               </font>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </Label>
-            <Label text="چغک" textFill="WHITE" translateY="-70.0">
-               <font>
-                  <Font name="System Bold Italic" size="37.0" />
-               </font>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </Label>
-            <Button mnemonicParsing="false" onAction="#letUsGo" prefHeight="25.0" prefWidth="78.0" text="بزن بریم !" translateY="-30.0">
-               <font>
-                  <Font name="System Bold" size="13.0" />
-               </font>
-               <VBox.margin>
-                  <Insets top="20.0" />
-               </VBox.margin>
-            </Button>
+               </opaqueInsets>
+            </VBox>
          </children>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-      </VBox>
+      </GridPane>
    </children>
-</GridPane>
-</children>
 </AnchorPane>
-

@@ -49,17 +49,17 @@ public class HelloController {
     @FXML
     public void nexti(ActionEvent e) throws IOException {
         if (phoneNumberCountry.getSelectionModel().isEmpty()) {
-            error.setText("کشور خود را وارد کنید");
+            error.setText("Enter your country");
             error.setVisible(true);
             return;
         }
         if (phoneNumber.getText().length() != 10) {
-            error.setText("شماره همراه باید ۱۰ رقمی باشد");
+            error.setText("Mobile number must be 10 digits");
             error.setVisible(true);
             return;
         }
         if (!acceptRule.isSelected()) {
-            error.setText("باید با سیاست های فوق امنیتی چغک موافقت کنید");
+            error.setText("You must agree to the security policies of Choghok");
             error.setVisible(true);
             return;
         }
@@ -68,7 +68,7 @@ public class HelloController {
         Client.out.writeObject(r);
         boolean b = (boolean) Client.getObject();
         if (b) {
-            error.setText("شماره تلفن وارد شده قبلا ثبت شده است");
+            error.setText("The entered phone number is already registered");
             error.setVisible(true);
             return;
         }

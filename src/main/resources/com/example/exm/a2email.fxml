@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.emailController">
+<GridPane prefHeight="625.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.emailController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
    </columnConstraints>
@@ -20,21 +20,21 @@
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="623.0" prefWidth="285.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <children>
-            <Label fx:id="error" alignment="CENTER" contentDisplay="CENTER" prefHeight="86.0" prefWidth="296.0" textAlignment="CENTER" textFill="#ff0707" translateY="500.0">
+            <Label fx:id="error" alignment="CENTER" contentDisplay="CENTER" prefHeight="86.0" prefWidth="332.0" textAlignment="CENTER" textFill="#ff0707" translateY="500.0">
                <font>
-                  <Font size="15.0" />
+                  <Font size="16.0" />
                </font>
             </Label>
-            <Label prefHeight="21.0" prefWidth="167.0" text="لطفا ایمیل خود را وارد کنید:" textFill="WHITE" translateY="125.0">
+            <Label prefHeight="25.0" prefWidth="193.0" text="Please enter your email :" textFill="WHITE" translateY="125.0">
                <font>
-                  <Font size="15.0" />
+                  <Font size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="email" maxWidth="285.0" prefHeight="25.0" prefWidth="264.0" promptText="Email:" translateY="150.0" />
+            <TextField fx:id="email" maxWidth="292.0" prefHeight="25.0" prefWidth="292.0" promptText="Email:" translateY="150.0" />
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" translateY="300.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#backnumber" prefHeight="31.0" prefWidth="68.0" text="مرحله قبل" translateX="-20.0" translateY="-80.0" />
-                  <Button mnemonicParsing="false" onAction="#emailAction" prefHeight="31.0" prefWidth="67.0" text="بعدی" textOverrun="CLIP" translateX="30.0" translateY="-80.0">
+                  <Button fx:id="b3" mnemonicParsing="false" onAction="#backnumber" prefHeight="31.0" prefWidth="80.0" text="Back" textOverrun="CLIP" translateX="-20.0" translateY="-80.0" />
+                  <Button fx:id="b2" mnemonicParsing="false" onAction="#emailAction" prefHeight="31.0" prefWidth="80.0" text="Next" textOverrun="CLIP" translateX="30.0" translateY="-80.0">
                      <font>
                         <Font name="Arial Black" size="12.0" />
                      </font>

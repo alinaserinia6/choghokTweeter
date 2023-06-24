@@ -8,7 +8,6 @@ import javafx.scene.control.TextField;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.Date;
 
 
@@ -30,55 +29,57 @@ public class signUpController {
     private Label singUpError;
 
     @FXML
-    public void singUpbuttonAction(ActionEvent e) throws IOException { // TODO uncomment these text ۷
-//        if (firstName.getText().isEmpty()) {
-//            singUpError.setText("نام نباید خالی باشد");
-//            singUpError.setVisible(true);
-//            return;
-//        }
-//        if (lastName.getText().isEmpty()) {
-//            singUpError.setText("نام خانوادگی نباید خالی باشد");
-//            singUpError.setVisible(true);
-//            return;
-//        }
-//        if (userName.getText().isEmpty()) {
-//            singUpError.setText("نام کاربری نباید خالی باشد");
-//            singUpError.setVisible(true);
-//            return;
-//        }
-//        if (password.getText().isEmpty()) {
-//            singUpError.setText("گذرواژه نباید خالی باشد");
-//            singUpError.setVisible(true);
-//            return;
-//        }
-//        if (repeatPassword.getText().isEmpty()) {
-//            singUpError.setText("تکرار گذرواژه نباید خالی باشد");
-//            singUpError.setVisible(true);
-//            return;
-//        }
-//        if (birthDate.getValue() == null) {
-//            singUpError.setText("تاریخ تولد نباید خالی باشد");
-//            singUpError.setVisible(true);
-//            return;
-//        }
-//        if (!password.getText().equals(repeatPassword.getText())) {
-//            singUpError.setText("تکرار گذر واژه صحیح نیست");
-//            singUpError.setVisible(true);
-//            return;
-//        }
-//        if (!checkPassword(password.getText())) {
-//            singUpError.setText("گذرواژه نامعتبر است");
-//            singUpError.setVisible(true);
-//            return;
-//        }
+    public void singUpbuttonAction(ActionEvent e) throws IOException {
+        if (firstName.getText().isEmpty()) {
+            singUpError.setText("The first name must not be empty");
+            singUpError.setVisible(true);
+            return;
+        }
+        if (lastName.getText().isEmpty()) {
+            singUpError.setText("The last name must not be empty");
+            singUpError.setVisible(true);
+            return;
+        }
+        if (userName.getText().isEmpty()) {
+            singUpError.setText("The username must not be empty");
+            singUpError.setVisible(true);
+            return;
+        }
+        if (password.getText().isEmpty()) {
+            singUpError.setText("The password must not be empty");
+            singUpError.setVisible(true);
+            return;
+        }
+        if (repeatPassword.getText().isEmpty()) {
+            singUpError.setText("The repeat password must not be empty");
+            singUpError.setVisible(true);
+            return;
+        }
+        if (birthDate.getValue() == null) {
+            singUpError.setText("The Date of birth must not be empty");
+            singUpError.setVisible(true);
+            return;
+        }
+        if (!password.getText().equals(repeatPassword.getText())) {
+            singUpError.setText("Repeat password is not correct");
+            singUpError.setVisible(true);
+            return;
+        }
+        if (!checkPassword(password.getText())) {
+            singUpError.setText("The password is invalid");
+            singUpError.setVisible(true);
+            return;
+        }
         Request r = new Request(RM.DUPLICATE_ID, userName.getText());
         Client.out.writeObject(r);
         boolean b = (boolean) Client.getObject();
         if (b) {
-            singUpError.setText("نام کاربری قبلا استفاده شده است");
+            singUpError.setText("Username is already in use");
             singUpError.setVisible(true);
             return;
         }
+
+        HelloApplication.ChangePage(e, "a5");
 
         Client.user.setFirstName(firstName.getText());
         Client.user.setLastName(lastName.getText());
@@ -91,12 +92,6 @@ public class signUpController {
         String key = Client.user.getEmail() == null ? Client.user.getPhoneNumber() : Client.user.getEmail();
         r = new Request(RM.ADD_USER, Client.user, key);
         Client.out.writeObject(r);
-        ArrayList<ShowUser> userList = (ArrayList<ShowUser>) Client.getObject();
-        for (ShowUser u : userList) {
-            System.out.println(u.getUsername());
-            Client.contacts.getChildren().add(u.usertoPane(Client.user.following.get(u.getUsername())));
-        }
-        HelloApplication.ChangePage(e, "a5");
     }
 
     public void back(ActionEvent e) throws IOException {
