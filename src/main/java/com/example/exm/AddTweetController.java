@@ -25,6 +25,7 @@ public class AddTweetController {
         int id = (Integer) Client.getObject();
         System.out.println("id get");
         tweet.setId(id);
+        Client.user.tweets.put(id, tweet);
         System.out.println("id set");
         Client.timeline.getChildren().add(0, tweet.tweetToPane());
         System.out.println("id pane");

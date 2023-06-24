@@ -32,9 +32,8 @@ public class ShowUserController {
             follow.setText("دنبال کردن");
         }
     }
-
     @FXML
-    void followButton(ActionEvent e) throws IOException { // TODO send to server
+    void followButton(ActionEvent e) throws IOException {
         Client.out.writeObject(new Request(RM.FOLLOW_REQUEST, username.getText()));
         if (following == null) {
             following = new Following(username.getText(), LocalDateTime.MIN);
@@ -43,8 +42,10 @@ public class ShowUserController {
             following.follow();
         }
         if (isFollow) {
+            Client.user.following.remove(username.getText());
             follow.setText("دنبال کردن");
         } else {
+            Client.user.following.put(username.getText(), following);
             follow.setText("دنبال شده");
         }
         isFollow = !isFollow;

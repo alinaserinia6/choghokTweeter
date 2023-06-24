@@ -11,5 +11,5 @@ public enum RM { // REQUEST METHOD
     GET_USER,
     FOLLOW_REQUEST,
     LIKE_TWEET,
-
+    DISCOVER_USERS
 }

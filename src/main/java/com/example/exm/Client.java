@@ -17,6 +17,7 @@ public class Client {
 	public static ObjectInputStream in;
 	public static VBox timeline = new VBox();
 	public static VBox contacts = new VBox();
+	public static int LAST_USER_SEEN = 0;
 	public static void main(String[] args) throws InterruptedException {
 		user.setUsername("ali");
 		user.setFirstName("ali");

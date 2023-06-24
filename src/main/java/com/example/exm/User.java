@@ -16,7 +16,7 @@ public class User implements Serializable {
     private String bio;
     public HashSet<String> followers;
     public HashMap<String, Following> following;
-    public ArrayList<Tweet> tweets;
+    public HashMap<Integer, Tweet> tweets;
     public ArrayList<Comment> comments;
 
     public HashMap<Integer, Tweet> likes;
@@ -30,7 +30,7 @@ public class User implements Serializable {
     public User() {
         followers = new HashSet<>();
         following = new HashMap<>();
-        tweets = new ArrayList<>();
+        tweets = new HashMap<>();
         comments = new ArrayList<>();
         gender = Gender.UNKNOWN;
     }

@@ -27,7 +27,7 @@ public class Server {
 		users.put("@support", support);
 		user.following.put("@support",new Following("@support", LocalDateTime.MIN));
 		Tweet t = new Tweet("only heydar is amir al momenin", "@support");
-		support.tweets.add(t);
+		support.tweets.put(110, t);
 		tweets.add(t);
 
 
@@ -50,6 +50,8 @@ public class Server {
 class Accept extends Thread {
 	private Socket client;
 	private User user;
+
+	private final int MAX_READ = 5;
 	public Accept(Socket client) {
 		this.client = client;
 	}
@@ -82,18 +84,13 @@ class Accept extends Thread {
 							Server.keys.add(key);
 							Server.users.put(user.getUsername(), user);
 							Server.list.put(user.getUsername(), out);
-							ArrayList<ShowUser> userList = new ArrayList<>(); // TODO merge this and GET_USER
-							for (User u : Server.users.values()) {
-								if (u.getUsername().equals(user.getUsername())) continue;
-								ShowUser showUser = new ShowUser(u.getFirstName() + " " + u.getLastName(), u.getUsername(), u.getBio());
-								userList.add(showUser);
-							}
-							out.writeObject(userList);
 						}
 						case GET_USER -> {
 							String username = (String) o.get1();
 							user = Server.users.get(username);
 							Server.list.put(username, out);
+						}
+						case DISCOVER_USERS -> {
 							ArrayList<ShowUser> userList = new ArrayList<>();
 							for (User u : Server.users.values()) {
 								if (u.getUsername().equals(user.getUsername())) continue;
@@ -112,12 +109,12 @@ class Accept extends Thread {
 							Tweet tw = (Tweet) o.get1();
 							tw.setId(Server.TweetId);
 							out.writeObject(Server.TweetId);
-							System.out.println(Server.TweetId);
-							Server.TweetId++;
-							System.out.println(Server.TweetId);
 							Server.tweets.add(tw);
+							user.tweets.put(Server.TweetId, tw);
+							Server.TweetId++;
 						}
 						case GET_TWEETS -> {
+							int readed = 0;
 							System.out.println("GET_TWEETS REQUEST FROM " + user.getUsername() + ":");
 							for (Following i : user.following.values()) {
 								String username = i.getUser();
@@ -125,17 +122,20 @@ class Accept extends Thread {
 								if (!i.isFollowing()) continue;
 								System.out.println(username + " " + ldt);
 								User u = Server.users.get(username);
-								for (Tweet j : u.tweets) {
+								for (Tweet j : u.tweets.values()) {
 									System.out.print(j);
 									if (j.getDt().isAfter(ldt)) {
 										j.setName(u.getFirstName() + " " + u.getLastName() + " " + username);
 										j.setAvatar(u.getAvatar());
 										out.writeObject(j);
+										readed++;
 										System.out.println("  watch it");
 									} else {
 										System.out.println("  watched");
 									}
+									if (readed == MAX_READ) break;
 								}
+								if (readed == MAX_READ) break;
 							}
 							Tweet finish = new Tweet();
 							out.writeObject(finish);

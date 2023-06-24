@@ -35,7 +35,6 @@ public class emailController {
         }
         Request r = new Request(RM.DUPLICATE_KEY, key);
         Client.out.writeObject(r);
-        Client.out.writeObject(r);
         boolean b = (boolean) Client.getObject();
         if (b) {
             error.setText("ایمیل وارد شده قبلا ثبت شده است");
@@ -47,7 +46,6 @@ public class emailController {
     }
     public void backnumber(ActionEvent e) throws IOException {
         HelloApplication.ChangePage(e, "a2");
-
     }
 }
 
