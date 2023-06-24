@@ -41,7 +41,7 @@ public class emailController {
             error.setVisible(true);
             return;
         }
-        Client.user.setEmail(email.getText());
+        Client.key = email.getText();
         HelloApplication.ChangePage(e, "a3");
     }
     public void backnumber(ActionEvent e) throws IOException {

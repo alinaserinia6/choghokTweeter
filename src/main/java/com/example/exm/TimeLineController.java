@@ -94,7 +94,6 @@ public class TimeLineController {
 	@FXML
 	void addTweet(MouseEvent e) throws IOException {
 		shutdown = true;
-//		service.cancel();
 		thread.interrupt();
 		HelloApplication.ChangePage(e, "a6");
 	}
@@ -103,12 +102,13 @@ public class TimeLineController {
 	void setting(MouseEvent e) throws IOException {
 		shutdown = true;
 		thread.interrupt();
-//		service.cancel();
 		HelloApplication.ChangePage(e, "a7");
 	}
 
 	@FXML
 	void searchButton(MouseEvent e) throws IOException {
+		shutdown = true;
+		thread.interrupt();
 		HelloApplication.ChangePage(e, "a8");
 	}
 

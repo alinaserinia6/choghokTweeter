@@ -3,6 +3,7 @@ package com.example.exm;
 import com.gluonhq.charm.glisten.control.Avatar;
 import javafx.scene.image.ImageView;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -23,7 +24,7 @@ public class User implements Serializable {
     private Avatar avatar;
     private ImageView header;
     private String birthDate;
-    private String joinDate;
+    private LocalDateTime joinDate;
     private Gender gender;
     private String password;
 
@@ -33,6 +34,34 @@ public class User implements Serializable {
         tweets = new HashMap<>();
         comments = new ArrayList<>();
         gender = Gender.UNKNOWN;
+        joinDate = LocalDateTime.MIN;
+    }
+
+    public User(String firstName, String lastName, String username, String password, LocalDateTime joinDate) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.username = username;
+        this.password = password;
+        followers = new HashSet<>();
+        following = new HashMap<>();
+        tweets = new HashMap<>();
+        comments = new ArrayList<>();
+        gender = Gender.UNKNOWN;
+        this.joinDate = joinDate;
+    }
+
+    public User(String firstName, String lastName, String username, LocalDateTime joinDate, String password, String birthDate) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.username = username;
+        this.password = password;
+        followers = new HashSet<>();
+        following = new HashMap<>();
+        tweets = new HashMap<>();
+        comments = new ArrayList<>();
+        gender = Gender.UNKNOWN;
+        this.joinDate = joinDate;
+        this.birthDate = birthDate;
     }
 
     public String getUsername() {
@@ -41,6 +70,10 @@ public class User implements Serializable {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public void setJoinDate(LocalDateTime joinDate) {
+        this.joinDate = joinDate;
     }
 
     public String getPhoneNumber() {
@@ -99,12 +132,8 @@ public class User implements Serializable {
         this.birthDate = birthDate;
     }
 
-    public String getJoinDate() {
+    public LocalDateTime getJoinDate() {
         return joinDate;
-    }
-
-    public void setJoinDate(String joinDate) {
-        this.joinDate = joinDate;
     }
 
     public Gender getGender() {

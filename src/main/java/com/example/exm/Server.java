@@ -3,6 +3,8 @@ package com.example.exm;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.time.Duration;
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.util.*;
 
@@ -14,22 +16,14 @@ public class Server {
 	public static int TweetId;
 
 	public static void main(String[] args) {
-		User user = new User();
-		user.setUsername("ali");
-		user.setFirstName("ali");
-		user.setLastName("farahbaksh");
-		user.setPassword("ali");
+		User user = new User("ali", "farahbaksh", "ali", "ali", LocalDateTime.now());
+		User support = new User("support", "Choghok", "support", "1234", LocalDateTime.now());
 		users.put("ali", user);
-		User support = new User();
-		support.setUsername("@support");
-		support.setFirstName("support");
-		support.setLastName("Choghok");
-		users.put("@support", support);
-		user.following.put("@support",new Following("@support", LocalDateTime.MIN));
-		Tweet t = new Tweet("only heydar is amir al momenin", "@support");
+		users.put("support", support);
+		user.following.put("support",new Following("support", LocalDateTime.MIN));
+		Tweet t = new Tweet("only heydar is amir al momenin", "support");
 		support.tweets.put(110, t);
 		tweets.add(t);
-
 
 		System.out.println("\t".repeat(7) + "{SERVER}\n");
 		try (ServerSocket serverSocket = new ServerSocket(5757)){
@@ -66,6 +60,8 @@ class Accept extends Thread {
 				try {
 					Request o = (Request) in.readObject();
 					RM method = o.getMethod();
+					Instant start = Instant.now();
+					System.out.println("\u001B[35m" + "\t".repeat(7) + "{" + method + "}\u001B[0m");
 					switch(method) {
 						case DUPLICATE_KEY -> {
 							String key = (String) o.get1();
@@ -89,14 +85,19 @@ class Accept extends Thread {
 							String username = (String) o.get1();
 							user = Server.users.get(username);
 							Server.list.put(username, out);
+							out.writeObject(user);
 						}
 						case DISCOVER_USERS -> {
+							LocalDateTime LAST_SEEN = (LocalDateTime) o.get1();
 							ArrayList<ShowUser> userList = new ArrayList<>();
+							LocalDateTime NEW_LAST = LAST_SEEN;
 							for (User u : Server.users.values()) {
-								if (u.getUsername().equals(user.getUsername())) continue;
+								if (u.getUsername().equals(user.getUsername()) || !LAST_SEEN.isBefore(u.getJoinDate())) continue;
 								ShowUser showUser = new ShowUser(u.getFirstName() + " " + u.getLastName(), u.getUsername(), u.getBio());
 								userList.add(showUser);
+								if (NEW_LAST.isBefore(u.getJoinDate())) NEW_LAST = u.getJoinDate();
 							}
+							out.writeObject(NEW_LAST);
 							out.writeObject(userList);
 						}
 						case CHECK_PASS -> {
@@ -169,6 +170,9 @@ class Accept extends Thread {
 							}
 						}
 					}
+					Instant end = Instant.now();
+					Duration timeElapsed = Duration.between(start, end);
+					System.out.println("\u001B[32m" + "\t".repeat(7) + "{" + timeElapsed + "}\u001B[0m");
 				} catch (ClassNotFoundException e) {
 					System.err.println("cant cast read from user to String!");
 				} catch (EOFException e) {

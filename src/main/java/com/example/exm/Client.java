@@ -4,29 +4,29 @@ import javafx.application.Platform;
 import javafx.scene.layout.VBox;
 
 import java.io.*;
+import java.time.Duration;
+import java.time.Instant;
 import java.time.LocalDateTime;
-import java.util.*;
 import java.net.Socket;
 
 import static java.lang.Thread.sleep;
 
 public class Client {
 
-	public static User user = new User();
+	public static User user;
+	public static String key;
 	public static ObjectOutputStream out;
 	public static ObjectInputStream in;
 	public static VBox timeline = new VBox();
 	public static VBox contacts = new VBox();
-	public static int LAST_USER_SEEN = 0;
+	public static LocalDateTime LAST_USER_SEEN = LocalDateTime.MIN;
 	public static void main(String[] args) throws InterruptedException {
-		user.setUsername("ali");
-		user.setFirstName("ali");
-		user.setLastName("farahbaksh");
-		user.setPassword("ali");
-		user.following.put("@support",new Following("@support", LocalDateTime.MIN));
+		Instant start = Instant.now();
 		HelloApplication app = new HelloApplication();
 		Platform.startup(app);
-		sleep(3000);
+		Instant end = Instant.now();
+		System.out.println("\u001B[32m" + "\t".repeat(7) + "{" + Duration.between(start, end) + "}\u001B[0m");
+//		sleep(1000);
 		try (Socket client = new Socket("localhost", 5757)) {
 			System.out.println(client.getInetAddress());
 			out = new ObjectOutputStream(client.getOutputStream());
@@ -55,40 +55,19 @@ public class Client {
 			}
 		}
 	}
-
-}
-
-class listen extends Thread {
-	private Socket socket;
-	private ObjectOutputStream out;
-	private ObjectInputStream in;
-
-	public listen(Socket socket, ObjectOutputStream out, ObjectInputStream in) {
-		this.socket = socket;
-		this.out = out;
-		this.in = in;
-	}
-
-	@Override
-	public void run() {
-		try {
-			in = new ObjectInputStream(socket.getInputStream());
-			while (true) {
-                System.out.println(Client.user);
-//				if (Thread.currentThread().isInterrupted()) {
-//					return;
-//				}
-				Object o;
+	public static Object getObject(String s) {
+		while (true) {
+			try {
+				return in.readObject();
+			} catch (ClassNotFoundException | IOException ignore) {
 				try {
-					o = in.readObject();
-				} catch (EOFException | ClassNotFoundException e) {
-					sleep(3000);
+					System.out.print(s);
+					sleep(100);
+				} catch (InterruptedException ex) {
+					System.err.println("sleep exception");
 				}
 			}
-		} catch (IOException | InterruptedException e) {
-            System.err.println("exception error in run listening");
-            e.printStackTrace(System.out);
-        }
+		}
 	}
 
 }

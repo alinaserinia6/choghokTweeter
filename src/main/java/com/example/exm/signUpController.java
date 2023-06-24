@@ -6,9 +6,10 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 
 public class signUpController {
@@ -29,7 +30,7 @@ public class signUpController {
     private Label singUpError;
 
     @FXML
-    public void singUpbuttonAction(ActionEvent e) throws IOException {
+    public void singUpbuttonAction(ActionEvent e) throws IOException { // TODO uncomment these text ۷
         if (firstName.getText().isEmpty()) {
             singUpError.setText("The first name must not be empty");
             singUpError.setVisible(true);
@@ -78,20 +79,24 @@ public class signUpController {
             singUpError.setVisible(true);
             return;
         }
-
-        HelloApplication.ChangePage(e, "a5");
-
-        Client.user.setFirstName(firstName.getText());
-        Client.user.setLastName(lastName.getText());
-        Client.user.setUsername(userName.getText());
-        String date = new SimpleDateFormat("yyy MM").format(new Date());
-        Client.user.setJoinDate(date);
-        Client.user.setPassword(password.getText());
         String birth = birthDate.getValue().format(DateTimeFormatter.ofPattern("MMM dd"));
-        Client.user.setBirthDate(birth);
-        String key = Client.user.getEmail() == null ? Client.user.getPhoneNumber() : Client.user.getEmail();
-        r = new Request(RM.ADD_USER, Client.user, key);
+        Client.user = new User(firstName.getText(), lastName.getText(), userName.getText(), LocalDateTime.now(), password.getText(), birth);
+        if (Pattern.compile("-?\\d+(\\.\\d+)?").matcher(Client.key).matches()) {
+            Client.user.setPhoneNumber(Client.key);
+        } else {
+            Client.user.setEmail(Client.key);
+        }
+        r = new Request(RM.ADD_USER, Client.user, Client.key);
         Client.out.writeObject(r);
+        r = new Request(RM.DISCOVER_USERS, Client.LAST_USER_SEEN);
+        Client.out.writeObject(r);
+        Client.LAST_USER_SEEN = (LocalDateTime) Client.getObject();
+        ArrayList<ShowUser> userList = (ArrayList<ShowUser>) Client.getObject();
+        for (ShowUser u : userList) {
+            System.out.println(u.getUsername());
+            Client.contacts.getChildren().add(u.usertoPane(Client.user.following.get(u.getUsername())));
+        }
+        HelloApplication.ChangePage(e, "a5");
     }
 
     public void back(ActionEvent e) throws IOException {

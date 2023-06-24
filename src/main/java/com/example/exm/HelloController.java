@@ -72,7 +72,7 @@ public class HelloController {
             error.setVisible(true);
             return;
         }
-        Client.user.setPhoneNumber(key);
+        Client.key = key;
         HelloApplication.ChangePage(e, "a3");
     }
 
