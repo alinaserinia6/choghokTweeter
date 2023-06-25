@@ -3,10 +3,13 @@ package com.example.exm;
 import com.gluonhq.charm.glisten.control.Avatar;
 import com.jfoenix.controls.JFXTextArea;
 import io.github.palexdev.materialfx.controls.MFXTextField;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -24,9 +27,11 @@ public class EditProfileController {
 	@FXML
 	private JFXTextArea bio;
 	@FXML
-	private MFXTextField location;
+	private MFXTextField city;
 	@FXML
 	private MFXTextField website;
+	@FXML
+	private AnchorPane chooseImagePanel;
 
 	public void initialize() {
 		header.setImage(Client.user.getHeader());
@@ -34,7 +39,7 @@ public class EditProfileController {
 		firstname.setText(Client.user.getFirstName());
 		lastname.setText(Client.user.getLastName());
 		bio.setText(Client.user.getBio());
-		location.setText(Client.user.getLocation());
+		city.setText(Client.user.getLocation());
 		website.setText(Client.user.getWebsite());
 	}
 
@@ -44,21 +49,37 @@ public class EditProfileController {
 	}
 
 	@FXML
-	void saveButton(MouseEvent e) throws IOException {
+	void saveButton(ActionEvent e) throws IOException {
 		// TODO MAKE CLASS TO CHANGE CLIENT AND SERVER
 		HelloApplication.ChangePage(e, "a7");
 	}
 
 	@FXML
 	void changeHeader(MouseEvent e) throws IOException {
-		// TODO make javafx window for select or give path
-		FileChooser f = new FileChooser();
-		Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-		File file = f.showOpenDialog(stage);
-		System.out.println(file.getAbsolutePath());
+		chooseImagePanel.setVisible(true);
 	}
 	@FXML
 	void changeAvatar(MouseEvent e) throws IOException {
 
+	}
+
+	@FXML
+	void cancel(MouseEvent e) {
+		chooseImagePanel.setVisible(false);
+		chooseImagePanel.setManaged(false);
+	}
+
+	@FXML
+	void chooseImageButton(MouseEvent e) {
+		FileChooser f = new FileChooser();
+		FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.jpeg", "*.png");
+		f.getExtensionFilters().add(extFilter);
+//		Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow(); which one is better?
+		Stage stage = new Stage();
+		stage.setTitle("select picture");
+		File file = f.showOpenDialog(stage);
+		if (file == null) return;
+		Image image = new Image (file.toURI().toString(), 285, 149, false, true, true);
+		header.setImage(image);
 	}
 }

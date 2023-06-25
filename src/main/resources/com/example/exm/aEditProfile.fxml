@@ -6,6 +6,7 @@
 <?import io.github.palexdev.materialfx.controls.MFXScrollPane?>
 <?import io.github.palexdev.materialfx.controls.MFXTextField?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -48,7 +49,7 @@
                   <Label text="Bio" />
                   <JFXTextArea fx:id="bio" prefHeight="85.0" prefWidth="285.0" />
                   <Label text="Location" />
-                  <MFXTextField fx:id="location" />
+                  <MFXTextField fx:id="city" />
                   <Label text="Website" />
                   <MFXTextField fx:id="website" />
                   <Label text="Birth date" />
@@ -56,5 +57,32 @@
             </VBox>
          </content>
       </MFXScrollPane>
+      <AnchorPane id="panel" fx:id="chooseImagePanel" maxHeight="130.0" stylesheets="@CeditProfile.css" visible="false" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+         <children>
+            <VBox alignment="BOTTOM_CENTER" layoutY="4.0" minWidth="285.0">
+               <children>
+                  <Separator id="line" maxWidth="40.0" minWidth="30.0" stylesheets="@CeditProfile.css" />
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#chooseImageButton">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label contentDisplay="CENTER" text="choose image" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label text="delete image" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#cancel">
+                     <children>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
+                        <Label text="cancel" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
    </children>
 </GridPane>

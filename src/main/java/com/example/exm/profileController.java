@@ -1,9 +1,10 @@
 package com.example.exm;
 
 import com.gluonhq.charm.glisten.control.Avatar;
-import com.jfoenix.controls.JFXTextArea;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
@@ -21,7 +22,7 @@ public class profileController {
     @FXML
     private Label following;
     @FXML
-    private JFXTextArea bio;
+    private TextArea bio;
     @FXML
     private Avatar avatar;
 
@@ -47,7 +48,7 @@ public class profileController {
     }
 
     @FXML
-    void editProfileButton(MouseEvent e) throws IOException {
+    void editProfileButton(ActionEvent e) throws IOException {
         HelloApplication.ChangePage(e, "aEditProfile");
     }
 

@@ -96,12 +96,12 @@
                <image>
                   <Image url="@Psky.jpg" />
                </image></Avatar>
-            <Button fx:id="edit" layoutX="297.0" layoutY="144.0" mnemonicParsing="false" prefHeight="36.0" prefWidth="98.0" text="Edit profile">
+            <Button fx:id="edit" layoutX="297.0" layoutY="144.0" mnemonicParsing="false" onAction="#editProfileButton" prefHeight="36.0" prefWidth="98.0" text="Edit profile">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <TextArea layoutY="226.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="74.0" prefWidth="421.0" promptText="Bio :" translateY="-10.0" wrapText="true">
+            <TextArea fx:id="bio" layoutY="226.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="74.0" prefWidth="421.0" promptText="Bio :" translateY="-10.0" wrapText="true">
                <font>
                   <Font size="15.0" />
                </font>
