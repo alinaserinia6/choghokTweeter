@@ -25,7 +25,7 @@
          <children>
             <VBox alignment="CENTER" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <children>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="icon" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@PchoghockIcon.png" />
                      </image>
@@ -68,9 +68,9 @@
                         <Insets />
                      </VBox.margin>
                   </Label>
-                  <Button fx:id="start" mnemonicParsing="false" onAction="#letUsGo" prefHeight="42.0" prefWidth="90.0" text="Let's Go!" translateY="-30.0">
+                  <Button fx:id="start" mnemonicParsing="false" onAction="#letUsGo" prefHeight="42.0" prefWidth="96.0" text="Let's Go!" translateX="5.0" translateY="-30.0">
                      <font>
-                        <Font name="System Bold" size="16.0" />
+                        <Font name="Blackadder ITC" size="17.0" />
                      </font>
                      <VBox.margin>
                         <Insets top="20.0" />

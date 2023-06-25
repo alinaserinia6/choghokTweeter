@@ -2,6 +2,7 @@
     src: url("NotoSerif.ttf");
 }
 
+
 * {-fx-font-family: "Noto Serif";}
 
 #pane, #a2, #a2email, #a3, #a4, #a7, #a5 {
@@ -22,37 +23,83 @@
 #a5         {-fx-background-image: url("psky.jpg");}
 
 #start{
-    -fx-background-color: gray;
+        -fx-background-color: transparent;
+        -fx-border-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
+        -fx-border-radius: 3;
+        -fx-text-fill: #5ed3f7ff;
+
 }
 #start:hover {
-    -fx-background-color: Aquamarine;
+    -fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
+        -fx-text-fill: Wheat;
 }
 #nextButton{
-    -fx-background-color: gray;
+    -fx-background-color: transparent;
+            -fx-border-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
+            -fx-border-radius: 3;
+            -fx-text-fill: white;
 }
 #nextButton:hover {
-    -fx-background-color: Aquamarine;
+    -fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
+            -fx-text-fill: white;
 }
 #b2{
-    -fx-background-color: gray;
+    -fx-background-color: transparent;
+                -fx-border-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
+                -fx-border-radius: 3;
+                -fx-text-fill: white;
 }
 #b2:hover {
-    -fx-background-color: Aquamarine;
+    -fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
+                -fx-text-fill: Wheat;
 }
 #b3{
-    -fx-background-color: gray;
+    -fx-background-color: transparent;
+                -fx-border-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
+                -fx-border-radius: 3;
+                -fx-text-fill: white;
 }
 #b3:hover {
-    -fx-background-color: Aquamarine;
+    -fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
+                -fx-text-fill: Wheat;
 }
 #s1{
-    -fx-background-color: gray;
+    -fx-background-color: transparent;
+                -fx-border-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
+                -fx-border-radius: 3;
+                -fx-text-fill: white;
 }
 #s1:hover {
-    -fx-background-color: Aquamarine;
-}#s2{
-     -fx-background-color: gray;
+    -fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
+                -fx-text-fill: Wheat;
+}
+#s2{
+     -fx-background-color: transparent;
+                 -fx-border-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
+                 -fx-border-radius: 3;
+                 -fx-text-fill: white;
  }
  #s2:hover {
-     -fx-background-color: Aquamarine;
- }
+     -fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
+                 -fx-text-fill: Wheat;
+}
+#v1 {
+-fx-background-color: transparent;
+                 -fx-border-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
+                 -fx-border-radius: 3;
+                 -fx-text-fill: white;
+}
+#v1:hover {
+-fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
+                 -fx-text-fill: Wheat;
+}
+#v2 {
+-fx-background-color: transparent;
+                 -fx-border-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
+                 -fx-border-radius: 3;
+                 -fx-text-fill: white;
+}
+#v2:hover {
+-fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
+                 -fx-text-fill: Wheat;
+}
