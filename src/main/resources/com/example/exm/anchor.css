@@ -103,3 +103,13 @@
 -fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
                  -fx-text-fill: Wheat;
 }
+#edit{
+    -fx-background-color: Violet;
+    -fx-border-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
+    -fx-border-radius: 3;
+    -fx-text-fill: white;
+}
+#edit:hover{
+-fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
+                 -fx-text-fill: black;
+}

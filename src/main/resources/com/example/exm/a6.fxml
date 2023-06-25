@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane prefHeight="625.0" prefWidth="285.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.AddTweetController">
+<GridPane prefHeight="625.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.AddTweetController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="360.0" minWidth="10.0" prefWidth="285.0" />
    </columnConstraints>
@@ -21,7 +21,7 @@
       <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <ImageView fitHeight="40.0" fitWidth="32.0" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true" translateX="250.0">
+      <ImageView fitHeight="32.0" fitWidth="45.0" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true" translateX="283.0">
          <image>
             <Image url="@Pback.png" />
          </image>
@@ -31,14 +31,17 @@
       </ImageView>
       <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
          <children>
-            <TextArea fx:id="text" minWidth="240.0" nodeOrientation="RIGHT_TO_LEFT" onKeyTyped="#postButtonAppear" prefWidth="240.0" promptText="چه خبر؟" wrapText="true">
+            <TextArea fx:id="text" minWidth="240.0" nodeOrientation="LEFT_TO_RIGHT" onKeyTyped="#postButtonAppear" prefHeight="543.0" prefWidth="427.0" promptText="Whats up?" wrapText="true">
                <font>
-                  <Font size="15.0" />
+                  <Font size="16.0" />
                </font></TextArea>
             <ImageView fitHeight="47.0" fitWidth="45.0" nodeOrientation="RIGHT_TO_LEFT" pickOnBounds="true" preserveRatio="true" />
          </children>
       </HBox>
       <HBox alignment="BOTTOM_CENTER" fillHeight="false" prefHeight="125.0" prefWidth="285.0" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
-      <Button fx:id="postButton" mnemonicParsing="false" onAction="#post" text="انتشار" />
+      <Button fx:id="postButton" mnemonicParsing="false" onAction="#post" prefHeight="31.0" prefWidth="72.0" text="Tweet">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font></Button>
    </children>
 </GridPane>
