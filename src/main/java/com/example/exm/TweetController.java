@@ -5,6 +5,7 @@ import com.jfoenix.controls.JFXTextArea;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
@@ -41,13 +42,13 @@ public class TweetController {
         isLiked = !isLiked;
     }
 
-    public void build(String name, String text, int like, int comment, int retweet, Avatar avatar, Tweet tweet) {
+    public void build(String name, String text, int like, int comment, int retweet, Image avatar, Tweet tweet) {
         this.name.setText(name);
         this.text.setText(text);
         this.like.setText(String.valueOf(like));
         this.comment.setText(String.valueOf(comment));
         this.retweet.setText(String.valueOf(retweet));
-        this.avatar = avatar;
+        this.avatar.setImage(avatar);
         this.tweet = tweet;
     }
 }

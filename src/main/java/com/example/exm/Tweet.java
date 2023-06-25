@@ -1,7 +1,7 @@
 package com.example.exm;
 
-import com.gluonhq.charm.glisten.control.Avatar;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 
 import java.io.IOException;
@@ -17,7 +17,7 @@ public class Tweet implements Serializable {
     public ArrayList<String> likes;
     public ArrayList<Comment> comments;
     public ArrayList<User> retweet;
-    private Avatar avatar;
+    private Image avatar;
     private String name;
     private TweetController controller;
 
@@ -63,7 +63,7 @@ public class Tweet implements Serializable {
         return id;
     }
 
-    public void setAvatar(Avatar avatar) {
+    public void setAvatar(Image avatar) {
         this.avatar = avatar;
     }
 

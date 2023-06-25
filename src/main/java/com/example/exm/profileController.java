@@ -1,18 +1,15 @@
 package com.example.exm;
 
 import com.gluonhq.charm.glisten.control.Avatar;
+import com.jfoenix.controls.JFXTextArea;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 import java.time.format.DateTimeFormatter;
 
 public class profileController {
-    @FXML
-    private ImageView IM;
     @FXML
     private Label name;
     @FXML
@@ -24,7 +21,7 @@ public class profileController {
     @FXML
     private Label following;
     @FXML
-    private TextArea bio;
+    private JFXTextArea bio;
     @FXML
     private Avatar avatar;
 
@@ -36,7 +33,7 @@ public class profileController {
         following.setText(String.valueOf(Client.user.following.size()));
         DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy MMM");
         joinDate.setText(Client.user.getJoinDate().format(format));
-        avatar = Client.user.getAvatar();
+        avatar.setImage(Client.user.getAvatar());
     }
 
     @FXML
@@ -47,6 +44,11 @@ public class profileController {
     @FXML
     void searchButton(MouseEvent e) throws IOException {
         HelloApplication.ChangePage(e, "a8");
+    }
+
+    @FXML
+    void editProfileButton(MouseEvent e) throws IOException {
+        HelloApplication.ChangePage(e, "aEditProfile");
     }
 
 }

@@ -1,23 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.gluonhq.charm.glisten.control.Avatar?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.InnerShadow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.shape.Line?>
-<?import javafx.scene.text.Font?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="285.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.profileController">
+<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="285.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.profileController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -31,17 +25,16 @@
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <children>
-            <Avatar layoutX="232.0" layoutY="66.0" />
-            <TextArea fx:id="bio" editable="false" layoutY="186.0" prefHeight="56.0" prefWidth="285.0" promptText="bio:">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </TextArea>
+<!--            <TextArea fx:id="bio" editable="false" layoutY="186.0" prefHeight="56.0" prefWidth="285.0" promptText="bio:">-->
+<!--               <font>-->
+<!--                  <Font size="13.0" />-->
+<!--               </font>-->
+<!--            </TextArea>-->
             <ImageView fitHeight="93.0" fitWidth="285.0" layoutX="-1.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true" translateY="-20.0">
                <image>
                   <Image url="@Pheader.jpg" />
                </image></ImageView>
-            <ImageView fx:id="IM" fitHeight="43.0" fitWidth="45.0" layoutX="242.0" layoutY="-3.0" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#backtotimeline" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="43.0" fitWidth="45.0" layoutX="242.0" layoutY="-3.0" nodeOrientation="RIGHT_TO_LEFT" onMouseClicked="#backtotimeline" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Pback.png" />
                </image>
@@ -49,7 +42,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <TextField alignment="CENTER" editable="false" layoutX="7.0" layoutY="92.0" prefHeight="25.0" prefWidth="107.0" style="-fx-background-color: Aqua;" text="ویرایش نمایه">
+            <TextField alignment="CENTER" editable="false" layoutX="7.0" layoutY="92.0" onMouseClicked="#editProfileButton" prefHeight="25.0" prefWidth="107.0" style="-fx-background-color: Aqua;" text="ویرایش نمایه">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -105,6 +98,11 @@
                   <Font size="14.0" />
                </font>
             </Label>
+            <Avatar fx:id="avatar" layoutX="224.0" layoutY="66.0">
+               <image>
+                  <Image url="@Psky.jpg" />
+               </image></Avatar>
+            <JFXTextArea fx:id="bio" editable="false" layoutX="-1.0" layoutY="180.0" prefHeight="64.0" prefWidth="285.0" promptText="bio" wrapText="true" />
          </children>
       </AnchorPane>
       <HBox alignment="CENTER" prefHeight="140.0" prefWidth="285.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">

@@ -1,6 +1,7 @@
 package com.example.exm;
 
 import com.gluonhq.charm.glisten.control.Avatar;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -15,14 +16,16 @@ public class User implements Serializable {
     private String firstName;
     private String lastName;
     private String bio;
+    private String location;
+    private String website;
     public HashSet<String> followers;
     public HashMap<String, Following> following;
     public HashMap<Integer, Tweet> tweets;
     public ArrayList<Comment> comments;
 
     public HashMap<Integer, Tweet> likes;
-    private Avatar avatar;
-    private ImageView header;
+    private Image avatar;
+    private Image header;
     private String birthDate;
     private LocalDateTime joinDate;
     private Gender gender;
@@ -108,19 +111,19 @@ public class User implements Serializable {
         this.bio = bio;
     }
 
-    public Avatar getAvatar() {
+    public Image getAvatar() {
         return avatar;
     }
 
-    public void setAvatar(Avatar avatar) {
+    public void setAvatar(Image avatar) {
         this.avatar = avatar;
     }
 
-    public ImageView getHeader() {
+    public Image getHeader() {
         return header;
     }
 
-    public void setHeader(ImageView header) {
+    public void setHeader(Image header) {
         this.header = header;
     }
 
@@ -158,6 +161,22 @@ public class User implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
     }
 
     @Override

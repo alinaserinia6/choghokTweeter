@@ -1,5 +1,7 @@
 package com.example.exm;
 
+import javafx.scene.image.Image;
+
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -16,6 +18,7 @@ public class Server {
 	public static int TweetId;
 
 	public static void main(String[] args) {
+		// preprocess
 		User user = new User("ali", "farahbaksh", "ali", "ali", LocalDateTime.now());
 		User support = new User("support", "Choghok", "support", "1234", LocalDateTime.now());
 		users.put("ali", user);
@@ -24,6 +27,8 @@ public class Server {
 		Tweet t = new Tweet("only heydar is amir al momenin", "support");
 		support.tweets.put(110, t);
 		tweets.add(t);
+//		Image image = new Image(Server.class.getResource("PchoghockIcon.png").toString());
+//		user.setAvatar(image);
 
 		System.out.println("\t".repeat(7) + "{SERVER}\n");
 		try (ServerSocket serverSocket = new ServerSocket(5757)){
