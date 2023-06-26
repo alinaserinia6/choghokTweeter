@@ -91,8 +91,8 @@ public class signUpController {
         r = new Request(RM.DISCOVER_USERS, Client.LAST_USER_SEEN);
         Client.out.writeObject(r);
         Client.LAST_USER_SEEN = (LocalDateTime) Client.getObject();
-        ArrayList<ShowUser> userList = (ArrayList<ShowUser>) Client.getObject();
-        for (ShowUser u : userList) {
+        ArrayList<User> userList = (ArrayList<User>) Client.getObject();
+        for (User u : userList) {
             System.out.println(u.getUsername());
             Client.contacts.getChildren().add(u.usertoPane(Client.user.following.get(u.getUsername())));
         }

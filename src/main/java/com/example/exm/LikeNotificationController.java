@@ -15,8 +15,8 @@ public class LikeNotificationController {
 	private Avatar avatar;
 	@FXML
 	private JFXTextArea text;
-	public void build(ShowUser user, Tweet tweet) {
-		this.name.setText(user.getName());
+	public void build(User user, Tweet tweet) {
+		this.name.setText(user.getFirstName() + " " + user.getLastName());
 		this.avatar.setImage(user.getAvatar());
 		this.username.setText(user.getUsername());
 		this.text.setText(tweet.getText());

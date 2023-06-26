@@ -1,8 +1,10 @@
 package com.example.exm;
 
-import com.gluonhq.charm.glisten.control.Avatar;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
+
+import java.io.IOException;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -186,6 +188,15 @@ public class User implements Serializable {
         return "id: " + ((phoneNumber == null) ? email : phoneNumber) + "\n"
                 + "Name: " + firstName + " " + lastName + "\n"
                 + "username: " + username;
+    }
+
+    public Pane usertoPane(Following f) throws IOException {
+        ShowUserController controller = new ShowUserController();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("showUser.fxml"));
+        fxmlLoader.setController(controller);
+        Pane p = fxmlLoader.load();
+        controller.build(this, f);
+        return p;
     }
 
 }

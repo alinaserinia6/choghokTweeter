@@ -48,8 +48,8 @@ public class singinController {
         System.out.println("GET LAST_USER_SEEN");
         Client.LAST_USER_SEEN = (LocalDateTime) Client.getObject();
         System.out.println("get UserList");
-        ArrayList<ShowUser> userList = (ArrayList<ShowUser>) Client.getObject();
-        for (ShowUser u : userList) {
+        ArrayList<User> userList = (ArrayList<User>) Client.getObject();
+        for (User u : userList) {
             System.out.println(u.getUsername());
             Client.contacts.getChildren().add(u.usertoPane(Client.user.following.get(u.getUsername())));
         }

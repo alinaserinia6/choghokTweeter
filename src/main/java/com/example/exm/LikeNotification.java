@@ -7,11 +7,11 @@ import javafx.scene.layout.Pane;
 import java.io.IOException;
 
 public class LikeNotification {
-	private ShowUser user;
+	private User user;
 	private Tweet tweet;
 	private LikeNotificationController controller;
 
-	public LikeNotification(ShowUser user, Tweet tweet) {
+	public LikeNotification(User user, Tweet tweet) {
 		this.user = user;
 		this.tweet = tweet;
 	}

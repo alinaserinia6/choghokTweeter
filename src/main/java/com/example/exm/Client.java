@@ -50,7 +50,7 @@ public class Client {
 					System.out.println("\u001B[35m" + "\t".repeat(7) + "{" + method + "}\u001B[0m");
 					switch(method) {
 						case LIKE_TWEET -> {
-							ShowUser showUser = (ShowUser) r.get1();
+							User showUser = (User) r.get1();
 							Tweet t = (Tweet) r.get2();
 							System.out.println(showUser.getUsername() + " like tweet: " + t.getText());
 							LikeNotification likeNotification = new LikeNotification(showUser, t);

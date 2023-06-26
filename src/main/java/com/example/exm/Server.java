@@ -93,12 +93,11 @@ class Accept extends Thread {
 						}
 						case DISCOVER_USERS -> {
 							LocalDateTime LAST_SEEN = (LocalDateTime) o.get1();
-							ArrayList<ShowUser> userList = new ArrayList<>();
+							ArrayList<User> userList = new ArrayList<>();
 							LocalDateTime NEW_LAST = LAST_SEEN;
 							for (User u : Server.users.values()) {
 								if (u.getUsername().equals(user.getUsername()) || !LAST_SEEN.isBefore(u.getJoinDate())) continue;
-								ShowUser showUser = new ShowUser(u.getFirstName() + " " + u.getLastName(), u.getUsername(), u.getBio(), u.getAvatar());
-								userList.add(showUser);
+								userList.add(u);
 								if (NEW_LAST.isBefore(u.getJoinDate())) NEW_LAST = u.getJoinDate();
 							}
 							out.writeObject(NEW_LAST);
@@ -175,11 +174,10 @@ class Accept extends Thread {
 								user.likes.put(id, tweet);
 							}
 							ObjectOutputStream stream = Server.onlineUser.get(username);
-							ShowUser showUser = new ShowUser(user.getFirstName() + " " + user.getLastName(), user.getUsername(), user.getBio(), user.getAvatar());
 							System.out.print("stream is ");
 							if (stream != null) {
 								System.out.println("not null");
-								stream.writeObject(new Request(RM.LIKE_TWEET, showUser));
+								stream.writeObject(new Request(RM.LIKE_TWEET, Client.user, tweet));
 							} else {
 								System.out.println("null");
 							}

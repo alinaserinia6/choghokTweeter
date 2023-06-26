@@ -26,6 +26,8 @@ public class profileController {
     @FXML
     private Avatar avatar;
 
+
+
     public void initialize() {
         name.setText(Client.user.getFirstName() + " " + Client.user.getLastName());
         username.setText("@"+ Client.user.getUsername());

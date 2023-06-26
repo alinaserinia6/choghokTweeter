@@ -19,12 +19,12 @@ public class searchController {
     @FXML
     private MFXScrollPane sp;
 
-    public void initialize() throws IOException {
+    public void initialize() throws IOException { // TODO get all online
         sp.setContent(Client.contacts);
         Client.out.writeObject(new Request(RM.DISCOVER_USERS, Client.LAST_USER_SEEN));
         Client.LAST_USER_SEEN = (LocalDateTime) Client.getObject();
-        ArrayList<ShowUser> userList = (ArrayList<ShowUser>) Client.getObject();
-        for (ShowUser u : userList) {
+        ArrayList<User> userList = (ArrayList<User>) Client.getObject();
+        for (User u : userList) {
             System.out.println(u.getUsername());
             Platform.runLater(() -> {
                 try {
