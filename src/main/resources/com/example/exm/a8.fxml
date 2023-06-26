@@ -2,9 +2,10 @@
 
 <?import com.gluonhq.charm.glisten.control.Avatar?>
 <?import io.github.palexdev.materialfx.controls.MFXScrollPane?>
-<?import io.github.palexdev.materialfx.controls.MFXTextField?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -12,7 +13,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="625.0" prefWidth="285.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.searchController">
+<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="625.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.searchController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
    </columnConstraints>
@@ -22,14 +23,9 @@
       <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <HBox alignment="CENTER" maxHeight="40.0" maxWidth="285.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+      <HBox alignment="CENTER" maxHeight="43.0" maxWidth="425.0" prefHeight="43.0" prefWidth="420.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <children>
-            <MFXTextField fx:id="searchBox" alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefColumnCount="0" prefHeight="22.0" prefWidth="156.0">
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-            </MFXTextField>
-            <Avatar fx:id="avatar" onMouseClicked="#setting" translateX="45.0">
+            <Avatar fx:id="avatar" onMouseClicked="#setting" translateX="-50.0">
                <HBox.margin>
                   <Insets />
                </HBox.margin>
@@ -37,11 +33,16 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Avatar>
+            <TextField nodeOrientation="LEFT_TO_RIGHT" prefHeight="26.0" prefWidth="194.0" promptText="Search Choghok">
+               <effect>
+                  <Blend />
+               </effect>
+            </TextField>
          </children>
       </HBox>
-      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="20.0" minWidth="20.0" prefHeight="50.0" prefWidth="286.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+      <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="20.0" minWidth="20.0" prefHeight="46.0" prefWidth="420.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <children>
-            <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="-70.0">
+            <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="-90.0">
                <image>
                   <Image url="@Pemail.png" />
                </image>
@@ -49,7 +50,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fitHeight="35.0" fitWidth="45.0" onMouseClicked="#notificationButton" pickOnBounds="true" preserveRatio="true" translateX="-40.0">
+            <ImageView fitHeight="35.0" fitWidth="45.0" onMouseClicked="#notificationButton" pickOnBounds="true" preserveRatio="true" translateX="-45.0">
                <image>
                   <Image url="@Pnotif.png" />
                </image>
@@ -57,7 +58,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="-10.0">
+            <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="-5.0">
                <image>
                   <Image url="@Psearch.png" />
                </image>
@@ -65,7 +66,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fitHeight="35.0" fitWidth="45.0" onMouseClicked="#timeLineButton" pickOnBounds="true" preserveRatio="true" translateX="20.0">
+            <ImageView fitHeight="35.0" fitWidth="45.0" onMouseClicked="#timeLineButton" pickOnBounds="true" preserveRatio="true" translateX="42.0">
                <image>
                   <Image url="@PhomeIcon.png" />
                </image>

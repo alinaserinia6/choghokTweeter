@@ -91,7 +91,7 @@
          </padding>
       </HBox>
       <MFXScrollPane fx:id="sp" fitToWidth="true" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="536.0" prefWidth="422.0" vbarPolicy="NEVER" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-      <ImageView fitHeight="65.0" fitWidth="50.0" onMouseClicked="#addTweet" pickOnBounds="true" preserveRatio="true" translateX="-170.0" translateY="235.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+      <ImageView fitHeight="57.0" fitWidth="40.0" onMouseClicked="#addTweet" pickOnBounds="true" preserveRatio="true" translateX="-170.0" translateY="235.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <image>
             <Image url="@PaddTweet.png" />
          </image>
