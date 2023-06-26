@@ -1,87 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.gluonhq.charm.glisten.control.Avatar?>
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXTextArea?>
-<?import io.github.palexdev.materialfx.controls.MFXScrollPane?>
-<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
 
-<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="285.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.EditProfileController">
+<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.EditProfileController">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     </columnConstraints>
     <rowConstraints>
-        <RowConstraints maxHeight="346.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="298.0" minHeight="10.0" prefHeight="195.0" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="367.0" minHeight="10.0" prefHeight="367.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="346.0" minHeight="10.0" prefHeight="150.0" vgrow="SOMETIMES" />
+        <RowConstraints maxHeight="475.0" minHeight="10.0" prefHeight="475.0" vgrow="SOMETIMES" />
     </rowConstraints>
    <children>
-      <HBox prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <ImageView fitHeight="62.0" fitWidth="70.0" onMouseClicked="#backButton" pickOnBounds="true" preserveRatio="true" />
-            <Label text="edit profile" />
-            <JFXButton onAction="#saveButton" text="save" />
-         </children>
-      </HBox>
+      <ImageView fitHeight="155.0" fitWidth="420.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+         <image>
+            <Image url="@Pheader.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="header" fitHeight="49.0" fitWidth="53.0" onMouseClicked="#changeHeader" pickOnBounds="true" preserveRatio="true" translateX="-180.0" translateY="50.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+         <image>
+            <Image url="@add-photo.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Avatar translateX="185.0" translateY="70.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+         <image>
+            <Image url="@add.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Avatar>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1">
          <children>
-            <ImageView fx:id="header" fitHeight="149.0" fitWidth="285.0" onMouseClicked="#changeHeader" pickOnBounds="true" preserveRatio="true" />
-            <Avatar fx:id="avatar" layoutX="21.0" layoutY="131.0" />
-         </children>
-      </AnchorPane>
-      <MFXScrollPane GridPane.rowIndex="2">
-         <content>
-            <VBox prefHeight="200.0" prefWidth="100.0">
-               <children>
-                  <Label text="First Name" />
-                  <MFXTextField fx:id="firstname" prefHeight="50.0" prefWidth="92.0" />
-                  <Label text="Last Name" />
-                  <MFXTextField fx:id="lastname" />
-                  <Label text="Bio" />
-                  <JFXTextArea fx:id="bio" prefHeight="85.0" prefWidth="285.0" />
-                  <Label text="Location" />
-                  <MFXTextField fx:id="city" />
-                  <Label text="Website" />
-                  <MFXTextField fx:id="website" />
-                  <Label text="Birth date" />
-               </children>
-            </VBox>
-         </content>
-      </MFXScrollPane>
-      <AnchorPane id="panel" fx:id="chooseImagePanel" maxHeight="130.0" stylesheets="@CeditProfile.css" visible="false" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
-         <children>
-            <VBox alignment="BOTTOM_CENTER" layoutY="4.0" minWidth="285.0">
-               <children>
-                  <Separator id="line" maxWidth="40.0" minWidth="30.0" stylesheets="@CeditProfile.css" />
-                  <HBox alignment="CENTER_LEFT" onMouseClicked="#chooseImageButton">
-                     <children>
-                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label contentDisplay="CENTER" text="choose image" />
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT">
-                     <children>
-                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label text="delete image" />
-                     </children>
-                  </HBox>
-                  <HBox alignment="CENTER_LEFT" nodeOrientation="LEFT_TO_RIGHT" onMouseClicked="#cancel">
-                     <children>
-                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" />
-                        <Label text="cancel" />
-                     </children>
-                  </HBox>
-               </children>
-            </VBox>
+            <Label layoutX="14.0" layoutY="39.0" text="Label" />
+            <Label layoutX="14.0" layoutY="57.0" text="Label" />
+            <Label layoutX="14.0" layoutY="75.0" text="Label" />
+            <TextArea layoutX="136.0" layoutY="95.0" prefHeight="5.0" prefWidth="186.0" />
+            <Label layoutX="14.0" layoutY="93.0" text="Label" />
+            <Label layoutX="14.0" layoutY="111.0" text="Label" translateY="250.0" />
          </children>
       </AnchorPane>
    </children>
