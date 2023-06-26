@@ -27,17 +27,24 @@ public class TweetController {
     @FXML
     private ImageView likePicture;
 
+    private Image liked = new Image(getClass().getResource("Pliked.png").toString());
+    private Image disliked = new Image(getClass().getResource("Plike.png").toString());
+
+
     private Tweet tweet;
-    private boolean isLiked = false;
+    private boolean isLiked;
 
     @FXML
     void like(MouseEvent e) throws IOException {
         Client.out.writeObject(new Request(RM.LIKE_TWEET, tweet.getUsername(), tweet.getId()));
         if (isLiked) { // dislike
             Client.user.likes.remove(tweet.getId());
+            likePicture.setImage(disliked);
+            likeChange(-1);
         } else { // like
             Client.user.likes.put(tweet.getId(), tweet);
-            
+            likePicture.setImage(liked);
+            likeChange(1);
         }
         isLiked = !isLiked;
     }
@@ -50,5 +57,19 @@ public class TweetController {
         this.retweet.setText(String.valueOf(retweet));
         this.avatar.setImage(avatar);
         this.tweet = tweet;
+        if (Client.user.likes.containsKey(tweet.getId())) {
+            likePicture.setImage(liked);
+            isLiked = true;
+        }
+        else {
+            likePicture.setImage(disliked);
+            isLiked = false;
+        }
+    }
+
+    void likeChange(int x) {
+        int y = Integer.parseInt(like.getText());
+        y += x;
+        like.setText(String.valueOf(y));
     }
 }

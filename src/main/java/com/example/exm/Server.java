@@ -1,7 +1,5 @@
 package com.example.exm;
 
-import javafx.scene.image.Image;
-
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -11,7 +9,7 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 public class Server {
-	static HashMap<String, ObjectOutputStream> list = new HashMap<String, ObjectOutputStream>();
+	static HashMap<String, ObjectOutputStream> onlineUser = new HashMap<String, ObjectOutputStream>();
 	public static HashMap<String, User> users = new HashMap<>();
 	public static HashSet<String> keys = new HashSet<>();
 	public static ArrayList<Tweet> tweets = new ArrayList<>();
@@ -25,6 +23,7 @@ public class Server {
 		users.put("support", support);
 		user.following.put("support",new Following("support", LocalDateTime.MIN));
 		Tweet t = new Tweet("only heydar is amir al momenin", "support");
+		t.setId(110);
 		support.tweets.put(110, t);
 		tweets.add(t);
 //		Image image = new Image(Server.class.getResource("PchoghockIcon.png").toString());
@@ -58,7 +57,7 @@ class Accept extends Thread {
 	public void run() {
 		ObjectInputStream in;
 		ObjectOutputStream out;
-		try {
+		try { // TODO JSON WEB TOKENS
 			in = new ObjectInputStream(client.getInputStream());
 			out = new ObjectOutputStream(client.getOutputStream());
 			while (true) {
@@ -84,12 +83,12 @@ class Accept extends Thread {
 							String key = (String) o.get2();
 							Server.keys.add(key);
 							Server.users.put(user.getUsername(), user);
-							Server.list.put(user.getUsername(), out);
+							Server.onlineUser.put(user.getUsername(), out);
 						}
 						case GET_USER -> {
 							String username = (String) o.get1();
 							user = Server.users.get(username);
-							Server.list.put(username, out);
+							Server.onlineUser.put(username, out);
 							out.writeObject(user);
 						}
 						case DISCOVER_USERS -> {
@@ -98,7 +97,7 @@ class Accept extends Thread {
 							LocalDateTime NEW_LAST = LAST_SEEN;
 							for (User u : Server.users.values()) {
 								if (u.getUsername().equals(user.getUsername()) || !LAST_SEEN.isBefore(u.getJoinDate())) continue;
-								ShowUser showUser = new ShowUser(u.getFirstName() + " " + u.getLastName(), u.getUsername(), u.getBio());
+								ShowUser showUser = new ShowUser(u.getFirstName() + " " + u.getLastName(), u.getUsername(), u.getBio(), u.getAvatar());
 								userList.add(showUser);
 								if (NEW_LAST.isBefore(u.getJoinDate())) NEW_LAST = u.getJoinDate();
 							}
@@ -119,7 +118,7 @@ class Accept extends Thread {
 							user.tweets.put(Server.TweetId, tw);
 							Server.TweetId++;
 						}
-						case GET_TWEETS -> {
+						case GET_TWEETS -> { // TODO sort by time
 							int readed = 0;
 							System.out.println("GET_TWEETS REQUEST FROM " + user.getUsername() + ":");
 							for (Following i : user.following.values()) {
@@ -167,12 +166,26 @@ class Accept extends Thread {
 							int id = (int) o.get2();
 							Tweet tweet = Server.users.get(username).tweets.get(id);
 							if (tweet.likes.contains(user.getUsername())) {
+								user.likes.remove(id);
 								tweet.likes.remove(user.getUsername());
 								user.likes.remove(id);
 							} else {
+								user.likes.put(id, tweet);
 								tweet.likes.add(user.getUsername());
 								user.likes.put(id, tweet);
 							}
+							ObjectOutputStream stream = Server.onlineUser.get(username);
+							ShowUser showUser = new ShowUser(user.getFirstName() + " " + user.getLastName(), user.getUsername(), user.getBio(), user.getAvatar());
+							System.out.print("stream is ");
+							if (stream != null) {
+								System.out.println("not null");
+								stream.writeObject(new Request(RM.LIKE_TWEET, showUser));
+							} else {
+								System.out.println("null");
+							}
+						}
+						case END_PROCESS -> {
+							throw new InterruptedException();
 						}
 					}
 					Instant end = Instant.now();
@@ -184,11 +197,13 @@ class Accept extends Thread {
 					System.err.println("file is empty");
 				}
 				System.out.print("+");
-				sleep(3000);
+				sleep(1500);
 			}
 		} catch (IOException | InterruptedException e) {
-			Server.list.remove(user.getUsername());
-			e.printStackTrace(System.out);
+			try {
+				Server.onlineUser.remove(user.getUsername());
+			} catch(NullPointerException ignore){}
+//			e.printStackTrace(System.out);
 		}
 
 	}

@@ -22,7 +22,6 @@ public class User implements Serializable {
     public HashMap<String, Following> following;
     public HashMap<Integer, Tweet> tweets;
     public ArrayList<Comment> comments;
-
     public HashMap<Integer, Tweet> likes;
     private Image avatar;
     private Image header;
@@ -36,6 +35,7 @@ public class User implements Serializable {
         following = new HashMap<>();
         tweets = new HashMap<>();
         comments = new ArrayList<>();
+        likes = new HashMap<>();
         gender = Gender.UNKNOWN;
         joinDate = LocalDateTime.MIN;
     }
@@ -49,6 +49,7 @@ public class User implements Serializable {
         following = new HashMap<>();
         tweets = new HashMap<>();
         comments = new ArrayList<>();
+        likes = new HashMap<>();
         gender = Gender.UNKNOWN;
         this.joinDate = joinDate;
     }
@@ -62,6 +63,7 @@ public class User implements Serializable {
         following = new HashMap<>();
         tweets = new HashMap<>();
         comments = new ArrayList<>();
+        likes = new HashMap<>();
         gender = Gender.UNKNOWN;
         this.joinDate = joinDate;
         this.birthDate = birthDate;

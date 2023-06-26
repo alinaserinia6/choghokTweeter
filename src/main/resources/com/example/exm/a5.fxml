@@ -58,7 +58,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="-37.0">
+            <ImageView fitHeight="35.0" fitWidth="45.0" onMouseClicked="#notificationButton" pickOnBounds="true" preserveRatio="true" translateX="-37.0">
                <image>
                   <Image url="@Pnotif.png" />
                </image>

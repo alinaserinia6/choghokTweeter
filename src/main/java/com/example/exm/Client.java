@@ -19,6 +19,7 @@ public class Client {
 	public static ObjectInputStream in;
 	public static VBox timeline = new VBox();
 	public static VBox contacts = new VBox();
+	public static VBox notification = new VBox();
 	public static LocalDateTime LAST_USER_SEEN = LocalDateTime.MIN;
 	public static void main(String[] args) throws InterruptedException {
 		Instant start = Instant.now();
@@ -26,13 +27,11 @@ public class Client {
 		Platform.startup(app);
 		Instant end = Instant.now();
 		System.out.println("\u001B[32m" + "\t".repeat(7) + "{" + Duration.between(start, end) + "}\u001B[0m");
-//		sleep(1000);
+		sleep(300);
 		try (Socket client = new Socket("localhost", 5757)) {
 			System.out.println(client.getInetAddress());
 			out = new ObjectOutputStream(client.getOutputStream());
 			in = new ObjectInputStream(client.getInputStream());
-//			listen lis = new listen(client, out, in);
-//			lis.start();
 			while (!client.isClosed()) {
 				sleep(10000);
 			}
@@ -44,24 +43,27 @@ public class Client {
 	public static Object getObject() {
 		while (true) {
 			try {
-				return in.readObject();
+				Object x = in.readObject();
+				if (x instanceof Request) {
+					Request r = (Request) x;
+					RM method = r.getMethod();
+					System.out.println("\u001B[35m" + "\t".repeat(7) + "{" + method + "}\u001B[0m");
+					switch(method) {
+						case LIKE_TWEET -> {
+							ShowUser showUser = (ShowUser) r.get1();
+							Tweet t = (Tweet) r.get2();
+							System.out.println(showUser.getUsername() + " like tweet: " + t.getText());
+							LikeNotification likeNotification = new LikeNotification(showUser, t);
+							Client.notification.getChildren().add(0, likeNotification.toPane());
+						}
+					}
+					System.out.println("\u001B[35m" + "\t".repeat(7) + "{END" + "}\u001B[0m");
+				} else {
+					return x;
+				}
 			} catch (ClassNotFoundException | IOException ignore) {
 				try {
 					System.out.print("+");
-					sleep(100);
-				} catch (InterruptedException ex) {
-					System.err.println("sleep exception");
-				}
-			}
-		}
-	}
-	public static Object getObject(String s) {
-		while (true) {
-			try {
-				return in.readObject();
-			} catch (ClassNotFoundException | IOException ignore) {
-				try {
-					System.out.print(s);
 					sleep(100);
 				} catch (InterruptedException ex) {
 					System.err.println("sleep exception");

@@ -17,7 +17,6 @@ public class TimeLineController {
 	@FXML
 	private Avatar avatar;
 	private boolean shutdown;
-//	private Service<Void> service;
 	private Thread thread;
 
 	private final int MAX_READ = 5 + 1;
@@ -29,25 +28,6 @@ public class TimeLineController {
 		l.setText("In the name of GOD");
 		Client.timeline.getChildren().add(0,l);
         sp.setContent(Client.timeline);
-//		service = new Service<Void>() {
-//			@Override
-//			protected Task<Void> createTask() {
-//			return new Task<Void>() {
-//			@Override
-//			protected Void call() throws Exception {
-//				System.out.println("IN SERVICE");
-//				while (!shutdown) {
-//					Client.out.writeObject(new Request(RM.GET_TWEETS));
-//					System.out.println("in while");
-//					getTweets();
-//					Thread.sleep(4000); // time of sleep between get tweet
-//				}
-//				return null;
-//			}
-//			};
-//			}
-//		};
-//		service.start();
 		thread = new Thread(() -> {
 			while (!shutdown) {
 				try {
@@ -74,7 +54,7 @@ public class TimeLineController {
 		System.out.println("\t".repeat(7) + "{getTweet}");
 		for (int t = 0; t < MAX_READ; t++) {
 			try {
-				Tweet i = (Tweet) Client.in.readObject();
+				Tweet i = (Tweet) Client.getObject();
 				if (i.getId() == -1) {
 					System.err.println("\t".repeat(7) + "{Finish}");
 					return;
@@ -83,7 +63,7 @@ public class TimeLineController {
 				Pane pane = i.tweetToPane();
 				Platform.runLater(() -> Client.timeline.getChildren().add(0, pane));
 				Client.out.writeObject(new Request(RM.LAST_SEEN_TIME, i.getUsername(), i.getDt()));
-			} catch (IOException | ClassNotFoundException e) {
+			} catch (IOException e) {
 				System.err.println("get IOException");
 				e.printStackTrace();
 			}
@@ -110,6 +90,13 @@ public class TimeLineController {
 		shutdown = true;
 		thread.interrupt();
 		HelloApplication.ChangePage(e, "a8");
+	}
+
+	@FXML
+	void notificationButton(MouseEvent e) throws IOException{
+		shutdown = true;
+		thread.interrupt();
+		HelloApplication.ChangePage(e, "aNotification");
 	}
 
 }

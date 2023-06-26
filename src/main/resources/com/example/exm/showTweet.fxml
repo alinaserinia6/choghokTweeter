@@ -25,7 +25,7 @@
          <font>
             <Font size="30.0" />
          </font></JFXTextArea>
-      <ImageView fitHeight="18.0" fitWidth="20.0" layoutX="322.0" layoutY="414.0" pickOnBounds="true" preserveRatio="true" translateX="-10.0">
+      <ImageView fx:id="likePicture" fitHeight="18.0" fitWidth="20.0" layoutX="322.0" layoutY="414.0" onMouseClicked="#like" pickOnBounds="true" preserveRatio="true" translateX="-10.0">
          <image>
             <Image url="@Plike.png" />
          </image>

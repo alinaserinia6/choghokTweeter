@@ -46,4 +46,9 @@ public class searchController {
         HelloApplication.ChangePage(e, "a7");
     }
 
+    @FXML
+    void notificationButton(MouseEvent e) throws IOException{
+        HelloApplication.ChangePage(e, "aNotification");
+    }
+
 }

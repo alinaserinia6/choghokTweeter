@@ -1,9 +1,11 @@
 package com.example.exm;
 
+import com.gluonhq.charm.glisten.control.Avatar;
 import com.jfoenix.controls.JFXButton;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -17,13 +19,16 @@ public class ShowUserController {
     private Label bio;
     @FXML
     private JFXButton follow;
+    @FXML
+    private Avatar avatar;
     private boolean isFollow;
     private Following following;
 
-    public void build(String name, String username, String bio, Following following) {
+    public void build(String name, String username, String bio, Image avatar, Following following) {
         this.name.setText(name);
         this.username.setText(username);
         this.bio.setText(bio);
+        this.avatar.setImage(avatar);
         this.following = following;
         isFollow = following != null && following.isFollowing();
         if (isFollow) {
