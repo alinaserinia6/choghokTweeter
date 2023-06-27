@@ -5,6 +5,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -23,8 +24,16 @@
     <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
   </rowConstraints>
   <children>
-    <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="421.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+    <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="55.0" prefWidth="420.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
       <children>
+            <ImageView fitHeight="37.0" fitWidth="43.0" onMouseClicked="#back1" pickOnBounds="true" preserveRatio="true" translateX="-70.0">
+               <image>
+                  <Image url="@Pback.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
         <Label text="Choghok" translateX="60.0">
           <font>
             <Font name="System Bold" size="18.0" />
@@ -90,6 +99,9 @@
         <Insets left="50.0" />
       </padding>
     </HBox>
-    <MFXScrollPane fx:id="sp" fitToWidth="true" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="536.0" prefWidth="422.0" vbarPolicy="NEVER" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+    <MFXScrollPane fx:id="sp" fitToWidth="true" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="536.0" prefWidth="422.0" vbarPolicy="NEVER" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+         <content>
+            <Separator prefWidth="200.0" />
+         </content></MFXScrollPane>
   </children>
 </GridPane>

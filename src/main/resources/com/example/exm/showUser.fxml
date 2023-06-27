@@ -5,9 +5,9 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.Pane?>
 
-<Pane maxHeight="300.0" maxWidth="285.0" minHeight="100.0" minWidth="280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="300.0" maxWidth="420.0" minHeight="100.0" minWidth="280.0" prefHeight="100.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Avatar fx:id="avatar" layoutX="234.0" layoutY="9.0" onMouseClicked="#seeProfile"/>
+      <Avatar fx:id="avatar" layoutX="234.0" layoutY="9.0" onMouseClicked="#seeProfile" />
       <Label fx:id="name" alignment="CENTER_RIGHT" layoutX="190.0" layoutY="9.0" text="name" />
       <Label fx:id="username" alignment="CENTER_RIGHT" layoutX="170.0" layoutY="27.0" text="username" />
       <Label fx:id="bio" alignment="CENTER_RIGHT" layoutX="203.0" layoutY="54.0" text="bio" />

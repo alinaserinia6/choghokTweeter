@@ -18,6 +18,10 @@
 #a4         {-fx-background-image: url("Gsignin.gif");}
 #a7         {-fx-background-image: url("psky.jpg");}
 #a5         {-fx-background-image: url("psky.jpg");}
+#a6         {-fx-background-image: url("psky.jpg");}
+#a8         {-fx-background-image: url("psky.jpg");}
+#aEditprofile         {-fx-background-image: url("psky.jpg");}
+#showTweet      {-fx-background-image: url("psky.jpg");}
 
 #start{
         -fx-background-color: transparent;
@@ -119,6 +123,17 @@
 }
 
 #postButton:hover{
+-fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
+                 -fx-text-fill: black;
+}
+#save{
+-fx-background-color: Violet;
+    -fx-border-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
+    -fx-border-radius: 3;
+    -fx-text-fill: white;
+}
+#save:hover{
+
 -fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
                  -fx-text-fill: black;
 }

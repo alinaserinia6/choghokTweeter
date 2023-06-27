@@ -28,5 +28,9 @@ public class NotificationController {
 	void searchButton(MouseEvent e) throws IOException {
 		HelloApplication.ChangePage(e, "a8");
 	}
+	@FXML
+	void back1(MouseEvent e) throws IOException {
+		HelloApplication.ChangePage(e, "a8");
+	}
 
 }

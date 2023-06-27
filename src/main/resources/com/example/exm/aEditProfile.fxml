@@ -92,7 +92,7 @@
                   <Blend />
                </effect>
             </DatePicker>
-            <Button mnemonicParsing="false" onAction="#saveButton" prefHeight="30.0" prefWidth="84.0" text="Save" translateY="100.0">
+            <Button fx:id="save" mnemonicParsing="false" onAction="#saveButton" prefHeight="30.0" prefWidth="84.0" text="Save" translateY="100.0">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>

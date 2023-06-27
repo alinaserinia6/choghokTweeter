@@ -21,7 +21,7 @@
       <Label fx:id="comment" layoutX="192.0" layoutY="415.0" text="0" translateX="-5.0" translateY="-20.0" />
       <Label fx:id="retweet" layoutX="91.0" layoutY="415.0" text="0" translateY="-20.0" />
       <Avatar fx:id="avatar" layoutX="14.0" layoutY="5.0" />
-      <JFXTextArea fx:id="text" editable="false" focusColor="WHITE" focusTraversable="false" layoutX="7.0" layoutY="56.0" maxHeight="317.0" maxWidth="407.0" minHeight="200.0" minWidth="150.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="317.0" prefWidth="407.0" promptText="The text of the tweet:" unFocusColor="WHITE" wrapText="true">
+      <JFXTextArea fx:id="text" editable="false" focusColor="WHITE" focusTraversable="false" layoutY="56.0" maxHeight="317.0" maxWidth="420.0" minHeight="200.0" minWidth="150.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="317.0" prefWidth="420.0" promptText="The text of the tweet:" unFocusColor="WHITE" wrapText="true">
          <font>
             <Font size="30.0" />
          </font></JFXTextArea>
