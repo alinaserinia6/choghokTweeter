@@ -1,11 +1,17 @@
 package com.example.exm;
 
 import com.gluonhq.charm.glisten.control.Avatar;
+import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.time.format.DateTimeFormatter;
@@ -47,6 +53,24 @@ public class UserFocusController {
 	@FXML
 	void searchButton(MouseEvent e) throws IOException {
 		HelloApplication.ChangePage(e, "a8");
+	}
+
+	@FXML
+	void directMassage(MouseEvent e) throws IOException {
+		Stage stage = HelloApplication.getStage();
+		Direct direct = Client.directs.get(user.getUsername());
+		if (direct == null) direct = new Direct(user);
+		WriteMassageController controller = direct.getController();
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("aWriteMassage.fxml"));
+		fxmlLoader.setController(controller);
+		controller.setDirect(direct);
+		Parent root = fxmlLoader.load();
+		root.setId("WriteMassage");
+		Scene scene = new Scene(root);
+		stage.setScene(scene);
+		Application a = new Application() {@Override public void start(Stage stage) throws Exception {}};
+		scene.getStylesheets().addAll(a.getClass().getResource("anchor.css").toExternalForm());
+		stage.show();
 	}
 
 	public void setUser(User user) {

@@ -129,6 +129,11 @@
                         </Label>
                     </children>
                 </HBox>
+            <ImageView fitHeight="43.0" fitWidth="46.0" layoutX="149.0" layoutY="150.0" onMouseClicked="#directMassage" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Pemail.png" />
+               </image>
+            </ImageView>
             </children>
         </AnchorPane>
         <HBox alignment="CENTER" prefHeight="214.0" prefWidth="285.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">

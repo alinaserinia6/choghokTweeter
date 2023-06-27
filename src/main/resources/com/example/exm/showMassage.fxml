@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="200.0" maxWidth="300.0" minHeight="100.0" minWidth="200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <JFXTextArea fx:id="text" layoutX="5.0" layoutY="3.0" maxHeight="65.0" maxWidth="180.0" minHeight="50.0" minWidth="160.0" />
+      <Label fx:id="date" layoutX="8.0" layoutY="76.0" text="time" />
+   </children>
+</Pane>

@@ -8,6 +8,7 @@ import java.time.Duration;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.net.Socket;
+import java.util.LinkedHashMap;
 
 import static java.lang.Thread.sleep;
 
@@ -20,6 +21,7 @@ public class Client {
 	public static VBox timeline = new VBox();
 	public static VBox contacts = new VBox();
 	public static VBox notification = new VBox();
+	public static LinkedHashMap<String, Direct> directs = new LinkedHashMap<>();
 	public static LocalDateTime LAST_USER_SEEN = LocalDateTime.MIN;
 	public static void main(String[] args) throws InterruptedException {
 		Instant start = Instant.now();
@@ -55,6 +57,17 @@ public class Client {
 							System.out.println(showUser.getUsername() + " like tweet: " + t.getText());
 							LikeNotification likeNotification = new LikeNotification(showUser, t);
 							Client.notification.getChildren().add(0, likeNotification.toPane());
+						}
+						case DIRECT_MASSAGE -> {
+							User user = (User) r.get1();
+							Massage massage = (Massage) r.get2();
+							String username = user.getUsername();
+							Direct direct = Client.directs.get(username);
+							if (direct == null) direct = new Direct(user);
+							direct.getMassages().add(massage);
+							Client.directs.put(username, direct);
+							direct.getController().addMassage(massage);
+							// TODO notification icon use better
 						}
 					}
 					System.out.println("\u001B[35m" + "\t".repeat(7) + "{END" + "}\u001B[0m");

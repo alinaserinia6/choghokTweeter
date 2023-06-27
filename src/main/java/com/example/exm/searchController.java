@@ -51,4 +51,9 @@ public class searchController {
         HelloApplication.ChangePage(e, "aNotification");
     }
 
+    @FXML
+    void directButton(MouseEvent e) throws IOException {
+        HelloApplication.ChangePage(e, "aDirect");
+    }
+
 }

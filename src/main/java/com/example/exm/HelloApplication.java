@@ -19,6 +19,8 @@ import java.nio.file.Paths;
 
 public class HelloApplication extends Application implements Runnable {
 
+	private static Stage stage;
+
 	@Override
 	public void start(Stage stage) throws IOException {
 		FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("a1.fxml"));
@@ -42,6 +44,7 @@ public class HelloApplication extends Application implements Runnable {
 				System.exit(0);
 			}
 		});
+		this.stage = stage;
 		stage.show();
 	}
 
@@ -72,5 +75,7 @@ public class HelloApplication extends Application implements Runnable {
 		stage.show();
 	}
 
-
+	public static Stage getStage() {
+		return stage;
+	}
 }

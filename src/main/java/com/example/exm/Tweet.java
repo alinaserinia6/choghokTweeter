@@ -19,7 +19,7 @@ public class Tweet implements Serializable {
     public ArrayList<User> retweet;
     private Image avatar;
     private String name;
-    private TweetController controller;
+//    private TweetController controller;
 
     public Tweet() {
         id = -1;
@@ -35,7 +35,7 @@ public class Tweet implements Serializable {
 
     public Pane tweetToPane() throws IOException {
         TweetController controller = new TweetController();
-        this.controller = controller;
+//        this.controller = controller;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("showTweet.fxml"));
         fxmlLoader.setController(controller);
         Pane p = fxmlLoader.load();

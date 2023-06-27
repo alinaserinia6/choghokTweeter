@@ -59,7 +59,7 @@
     </HBox>
     <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="20.0" minWidth="20.0" prefHeight="46.0" prefWidth="420.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
       <children>
-        <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="-90.0">
+        <ImageView fitHeight="35.0" fitWidth="45.0" onMouseClicked="#directButton" pickOnBounds="true" preserveRatio="true" translateX="-90.0">
           <image>
             <Image url="@Pemail.png" />
           </image>

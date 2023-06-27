@@ -33,4 +33,9 @@ public class NotificationController {
 		HelloApplication.ChangePage(e, "a8");
 	}
 
+	@FXML
+	void directButton(MouseEvent e) throws IOException {
+		HelloApplication.ChangePage(e, "aDirect");
+	}
+
 }

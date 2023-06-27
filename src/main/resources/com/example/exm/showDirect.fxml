@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.Avatar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="90.0" maxWidth="420.0" minHeight="70.0" minWidth="400.0" onMouseClicked="#writeMassagePage" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Avatar fx:id="avatar" layoutX="14.0" layoutY="12.0" onMouseClicked="#writeMassagePage" />
+      <Label fx:id="detail" layoutX="57.0" layoutY="12.0" onMouseClicked="#writeMassagePage" text="firstName lastName userName date" />
+      <Label fx:id="text" layoutX="57.0" layoutY="40.0" onMouseClicked="#writeMassagePage" text="text" />
+   </children>
+</Pane>

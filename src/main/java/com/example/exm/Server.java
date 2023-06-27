@@ -177,10 +177,25 @@ class Accept extends Thread {
 							System.out.print("stream is ");
 							if (stream != null) {
 								System.out.println("not null");
-								stream.writeObject(new Request(RM.LIKE_TWEET, Client.user, tweet));
+								stream.writeObject(new Request(RM.LIKE_TWEET, user, tweet));
 							} else {
 								System.out.println("null");
 							}
+						}
+						case DIRECT_MASSAGE -> {
+							User user = (User) o.get1();
+							Massage massage = (Massage) o.get2();
+							ObjectOutputStream stream = Server.onlineUser.get(user.getUsername());
+							System.out.print("stream is ");
+							if (stream != null) {
+								System.out.println("not null");
+								stream.writeObject(new Request(RM.DIRECT_MASSAGE, this.user, massage));
+							} else {
+								System.out.println("null");
+							}
+						}
+						case GET_MASSAGES -> {
+							out.writeObject(new Massage());
 						}
 						case END_PROCESS -> {
 							throw new InterruptedException();
