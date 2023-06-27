@@ -12,20 +12,20 @@
 
 <Pane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="625.0" prefWidth="420.0" stylesheets="@showTweet.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextField fx:id="name" alignment="CENTER_RIGHT" layoutX="14.0" layoutY="10.0" maxHeight="36.0" maxWidth="500" minHeight="10" minWidth="223.0" prefHeight="26.0" prefWidth="223.0" promptText="نام">
+      <TextField fx:id="name" layoutX="55.0" layoutY="14.0" maxHeight="36.0" maxWidth="500" minHeight="10" minWidth="223.0" prefHeight="26.0" prefWidth="243.0" promptText="Name">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <Label fx:id="like" layoutX="298.0" layoutY="414.0" text="0" />
-      <Label fx:id="comment" layoutX="211.0" layoutY="414.0" text="0" translateX="-5.0" />
-      <Label fx:id="retweet" layoutX="78.0" layoutY="423.0" text="0" />
-      <Avatar fx:id="avatar" layoutX="237.0" layoutY="5.0" />
-      <JFXTextArea fx:id="text" editable="false" focusColor="WHITE" focusTraversable="false" layoutX="7.0" layoutY="56.0" maxHeight="317.0" maxWidth="407.0" minHeight="200.0" minWidth="150.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="317.0" prefWidth="407.0" promptText="متن توییت:" unFocusColor="WHITE" wrapText="true">
+      <Label fx:id="like" layoutX="298.0" layoutY="414.0" text="0" translateY="-20.0" />
+      <Label fx:id="comment" layoutX="192.0" layoutY="415.0" text="0" translateX="-5.0" translateY="-20.0" />
+      <Label fx:id="retweet" layoutX="91.0" layoutY="415.0" text="0" translateY="-20.0" />
+      <Avatar fx:id="avatar" layoutX="14.0" layoutY="5.0" />
+      <JFXTextArea fx:id="text" editable="false" focusColor="WHITE" focusTraversable="false" layoutX="7.0" layoutY="56.0" maxHeight="317.0" maxWidth="407.0" minHeight="200.0" minWidth="150.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="317.0" prefWidth="407.0" promptText="The text of the tweet:" unFocusColor="WHITE" wrapText="true">
          <font>
             <Font size="30.0" />
          </font></JFXTextArea>
-      <ImageView fx:id="likePicture" fitHeight="18.0" fitWidth="20.0" layoutX="322.0" layoutY="414.0" onMouseClicked="#like" pickOnBounds="true" preserveRatio="true" translateX="-10.0">
+      <ImageView fx:id="likePicture" fitHeight="18.0" fitWidth="20.0" layoutX="322.0" layoutY="414.0" onMouseClicked="#like" pickOnBounds="true" preserveRatio="true" translateX="-10.0" translateY="-20.0">
          <image>
             <Image url="@Plike.png" />
          </image>
@@ -33,7 +33,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="269.0" layoutY="414.0" pickOnBounds="true" preserveRatio="true" translateX="-50.0">
+      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="252.0" layoutY="414.0" pickOnBounds="true" preserveRatio="true" translateX="-50.0" translateY="-20.0">
          <image>
             <Image url="@Pcomment.png" />
          </image>
@@ -41,7 +41,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </ImageView>
-      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="129.0" layoutY="423.0" pickOnBounds="true" preserveRatio="true" translateX="-35.0">
+      <ImageView fitHeight="18.0" fitWidth="18.0" layoutX="143.0" layoutY="423.0" pickOnBounds="true" preserveRatio="true" translateX="-35.0" translateY="-28.0">
          <image>
             <Image url="@Pretweet.png" />
          </image>
