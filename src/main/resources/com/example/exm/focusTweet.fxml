@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.Avatar?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<GridPane alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="410.0" minWidth="380.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="50.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="1.7976931348623157E308" minHeight="40.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="40.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="40.0" valignment="CENTER" />
+  </rowConstraints>
+   <children>
+      <VBox GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+         <children>
+            <Separator prefWidth="200.0" />
+            <HBox alignment="CENTER" spacing="50.0">
+               <children>
+                  <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#commentButton" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Pcomment.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="retweetPicture" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#retweetButton" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Pretweet.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="likePicture" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#likeButton" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@Plike.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <Separator prefWidth="200.0" />
+         </children>
+      </VBox>
+      <HBox spacing="5.0" GridPane.rowIndex="3">
+         <children>
+            <Label fx:id="retweet" text="0">
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </Label>
+            <Label text="Retweets" />
+            <Label fx:id="quote" text="0">
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </Label>
+            <Label text="Quotes" />
+            <Label fx:id="like" text="0">
+               <HBox.margin>
+                  <Insets left="5.0" />
+               </HBox.margin>
+            </Label>
+            <Label text="Likes" />
+         </children>
+      </HBox>
+      <Label fx:id="date" text="date" GridPane.rowIndex="2">
+         <GridPane.margin>
+            <Insets left="5.0" />
+         </GridPane.margin>
+      </Label>
+      <HBox>
+         <children>
+            <Avatar fx:id="avatar" maxHeight="50.0" maxWidth="50.0" minHeight="40.0" minWidth="40.0">
+               <image>
+                  <Image url="@PchoghockIcon.png" />
+               </image>
+            </Avatar>
+            <VBox minHeight="30.0" minWidth="40.0">
+               <children>
+                  <Label fx:id="name" text="name" />
+                  <Label fx:id="usernameLabel" text="username" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</GridPane>

@@ -65,30 +65,30 @@ public class DirectController {
 
     @FXML
     void setting(MouseEvent e) throws IOException {
-        shutdown = true;
-        thread.interrupt();
+        stop();
         HelloApplication.ChangePage(e, "a7");
     }
 
     @FXML
     void searchButton(MouseEvent e) throws IOException {
-        shutdown = true;
-        thread.interrupt();
+        stop();
         HelloApplication.ChangePage(e, "a8");
     }
 
     @FXML
     void notificationButton(MouseEvent e) throws IOException{
-        shutdown = true;
-        thread.interrupt();
+        stop();
         HelloApplication.ChangePage(e, "aNotification");
     }
 
     @FXML
     void timeLineButton(MouseEvent e) throws IOException {
-        shutdown = true;
-        thread.interrupt();
+        stop();
         HelloApplication.ChangePage(e, "a5");
     }
 
+    public void stop() {
+        shutdown = true;
+        thread.interrupt();
+    }
 }

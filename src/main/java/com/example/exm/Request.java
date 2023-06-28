@@ -1,10 +1,12 @@
 package com.example.exm;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Request implements Serializable {
 	RM method;
 	Object p, q, r;
+	ArrayList<String> a;
 
 	public Request(RM method) {
 		this.method = method;
@@ -42,5 +44,13 @@ public class Request implements Serializable {
 
 	public Object get3() {
 		return r;
+	}
+
+	public ArrayList<String> getA() {
+		return a;
+	}
+
+	public void setA(ArrayList<String> a) {
+		this.a = a;
 	}
 }

@@ -18,6 +18,8 @@ import java.time.format.DateTimeFormatter;
 
 public class UserFocusController {
 	@FXML
+	private Avatar avatar;
+	@FXML
 	private Label name;
 	@FXML
 	private Label username;
@@ -29,8 +31,6 @@ public class UserFocusController {
 	private Label following;
 	@FXML
 	private TextArea bio;
-	@FXML
-	private Avatar avatar;
 
 	private User user;
 

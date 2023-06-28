@@ -33,7 +33,7 @@
                <font>
                   <Font size="15.0" />
                </font></Label>
-            <TextField fx:id="auser" layoutX="15.0" layoutY="136.0" prefHeight="25.0" prefWidth="257.0" promptText="UserName:" styleClass="auser" stylesheets="anchor.css" />
+            <TextField fx:id="username" layoutX="15.0" layoutY="136.0" prefHeight="25.0" prefWidth="257.0" promptText="UserName:" styleClass="auser" stylesheets="anchor.css" />
             <PasswordField fx:id="password" layoutX="14.0" layoutY="264.0" prefHeight="25.0" prefWidth="257.0" promptText="Password:" styleClass="password" stylesheets="anchor.css" />
             <Button fx:id="v1" layoutX="103.0" layoutY="408.0" mnemonicParsing="false" onAction="#singInbuttonAction" prefHeight="30.0" prefWidth="80.0" text="Sign in">
                <font>

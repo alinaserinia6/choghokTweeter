@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.gluonhq.charm.glisten.control.Avatar?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
@@ -24,7 +23,6 @@
         <RowConstraints maxHeight="254.0" minHeight="10.0" prefHeight="23.0" vgrow="SOMETIMES" />
         <RowConstraints maxHeight="254.0" minHeight="10.0" prefHeight="26.0" vgrow="SOMETIMES" />
         <RowConstraints maxHeight="254.0" minHeight="10.0" prefHeight="235.0" vgrow="SOMETIMES" />
-        <RowConstraints maxHeight="299.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
     </rowConstraints>
     <children>
         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="414.0" prefWidth="420.0" translateY="50.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
@@ -101,7 +99,12 @@
                     </font>
                 </TextArea>
                 <Line endX="272.0" layoutX="148.0" layoutY="393.0" startX="-148.0" />
-                <HBox alignment="CENTER" layoutX="1.0" layoutY="353.0" prefHeight="43.0" prefWidth="421.0">
+            <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="149.0" layoutY="150.0" onMouseClicked="#directMassage" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@PnewDirect.png" />
+               </image>
+            </ImageView>
+                <HBox alignment="CENTER" prefHeight="43.0" prefWidth="421.0">
                     <children>
                         <Label nodeOrientation="LEFT_TO_RIGHT" prefHeight="21.0" prefWidth="59.0" text="Tweets" translateX="-40.0">
                             <font>
@@ -129,55 +132,7 @@
                         </Label>
                     </children>
                 </HBox>
-            <ImageView fitHeight="43.0" fitWidth="46.0" layoutX="149.0" layoutY="150.0" onMouseClicked="#directMassage" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Pemail.png" />
-               </image>
-            </ImageView>
             </children>
         </AnchorPane>
-        <HBox alignment="CENTER" prefHeight="214.0" prefWidth="285.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
-            <children>
-                <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="-100.0" translateY="-5.0">
-                    <image>
-                        <Image url="@Pemail.png" />
-                    </image>
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </ImageView>
-                <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="-44.0" translateY="-5.0">
-                    <image>
-                        <Image url="@Pnotif.png" />
-                    </image>
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </ImageView>
-                <ImageView fitHeight="35.0" fitWidth="45.0" onMouseClicked="#searchButton" pickOnBounds="true" preserveRatio="true" translateX="4.0" translateY="-5.0">
-                    <image>
-                        <Image url="@Psearch.png" />
-                    </image>
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </ImageView>
-                <ImageView fitHeight="35.0" fitWidth="45.0" onMouseClicked="#backtotimeline" pickOnBounds="true" preserveRatio="true" translateX="50.0" translateY="-5.0">
-                    <image>
-                        <Image url="@PhomeIcon.png" />
-                    </image>
-                    <cursor>
-                        <Cursor fx:constant="HAND" />
-                    </cursor>
-                </ImageView>
-            </children>
-            <opaqueInsets>
-                <Insets />
-            </opaqueInsets>
-            <padding>
-                <Insets left="50.0" />
-            </padding>
-        </HBox>
-        <Line endX="319.29290771484375" endY="1.2156836986541748" startX="-100.0" translateY="109.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
     </children>
 </GridPane>

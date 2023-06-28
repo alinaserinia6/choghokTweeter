@@ -10,6 +10,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.LinkedHashMap;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class User implements Serializable {
     private String username;
@@ -22,22 +24,22 @@ public class User implements Serializable {
     private String website;
     public HashSet<String> followers;
     public HashMap<String, Following> following;
-    public HashMap<Integer, Tweet> tweets;
+    public ConcurrentHashMap<Integer, Tweet> tweets;
     public ArrayList<Comment> comments;
-    public HashMap<Integer, Tweet> likes;
+    public HashSet<Integer> likes;
     private Image avatar;
     private Image header;
     private String birthDate;
     private LocalDateTime joinDate;
     private Gender gender;
-    private String password;
+    private String password; // TODO transmit this
 
     public User() {
         followers = new HashSet<>();
         following = new HashMap<>();
-        tweets = new HashMap<>();
+        tweets = new ConcurrentHashMap<>();
         comments = new ArrayList<>();
-        likes = new HashMap<>();
+        likes = new HashSet<>();
         gender = Gender.UNKNOWN;
         joinDate = LocalDateTime.MIN;
     }
@@ -49,9 +51,9 @@ public class User implements Serializable {
         this.password = password;
         followers = new HashSet<>();
         following = new HashMap<>();
-        tweets = new HashMap<>();
+        tweets = new ConcurrentHashMap<>();
         comments = new ArrayList<>();
-        likes = new HashMap<>();
+        likes = new HashSet<>();
         gender = Gender.UNKNOWN;
         this.joinDate = joinDate;
     }
@@ -63,9 +65,9 @@ public class User implements Serializable {
         this.password = password;
         followers = new HashSet<>();
         following = new HashMap<>();
-        tweets = new HashMap<>();
+        tweets = new ConcurrentHashMap<>();
         comments = new ArrayList<>();
-        likes = new HashMap<>();
+        likes = new HashSet<>();
         gender = Gender.UNKNOWN;
         this.joinDate = joinDate;
         this.birthDate = birthDate;

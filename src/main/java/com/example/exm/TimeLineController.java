@@ -5,6 +5,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import java.io.IOException;
 import io.github.palexdev.materialfx.controls.MFXScrollPane;
@@ -53,12 +54,13 @@ public class TimeLineController {
 		for (int t = 0; t < MAX_READ; t++) {
 			try {
 				Tweet i = (Tweet) Client.getObject();
+//				System.out.println(i.getLikes().size());
 				if (i.getId() == -1) {
 					System.err.println("\t".repeat(7) + "{Finish}");
 					return;
 				}
-				System.out.println("i am in: " + i.getText() + ": ");
-				Pane pane = i.tweetToPane();
+				System.out.println("i am in: " + i.getText() + ": " + i.getLikes().size());
+				GridPane pane = i.toFocus();
 				Platform.runLater(() -> Client.timeline.getChildren().add(0, pane));
 				Client.out.writeObject(new Request(RM.LAST_SEEN_TIME, i.getUsername(), i.getDt()));
 			} catch (IOException e) {
@@ -71,37 +73,37 @@ public class TimeLineController {
 
 	@FXML
 	void addTweet(MouseEvent e) throws IOException {
-		shutdown = true;
-		thread.interrupt();
+		stop();
 		HelloApplication.ChangePage(e, "a6");
 	}
 
 	@FXML
 	void setting(MouseEvent e) throws IOException {
-		shutdown = true;
-		thread.interrupt();
+		stop();
 		HelloApplication.ChangePage(e, "a7");
 	}
 
 	@FXML
 	void searchButton(MouseEvent e) throws IOException {
-		shutdown = true;
-		thread.interrupt();
+		stop();
 		HelloApplication.ChangePage(e, "a8");
 	}
 
 	@FXML
 	void notificationButton(MouseEvent e) throws IOException{
-		shutdown = true;
-		thread.interrupt();
+		stop();
 		HelloApplication.ChangePage(e, "aNotification");
 	}
 
 	@FXML
 	void directButton(MouseEvent e) throws IOException {
+		stop();
+		HelloApplication.ChangePage(e, "aDirect");
+	}
+
+	public void stop() {
 		shutdown = true;
 		thread.interrupt();
-		HelloApplication.ChangePage(e, "aDirect");
 	}
 
 

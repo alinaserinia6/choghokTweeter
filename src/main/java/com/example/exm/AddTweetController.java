@@ -20,6 +20,7 @@ public class AddTweetController {
             return;
         }
         Tweet tweet = new Tweet(text.getText(), Client.user.getUsername());
+        tweet.update(Client.user.getAvatar(), Client.user.getFirstName() + " " + Client.user.getLastName());
         Client.out.writeObject(new Request(RM.ADD_TWEET, tweet));
         System.out.println("request send");
         int id = (Integer) Client.getObject();

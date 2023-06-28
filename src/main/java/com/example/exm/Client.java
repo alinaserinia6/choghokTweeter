@@ -8,7 +8,7 @@ import java.time.Duration;
 import java.time.Instant;
 import java.time.LocalDateTime;
 import java.net.Socket;
-import java.util.LinkedHashMap;
+import java.util.*;
 
 import static java.lang.Thread.sleep;
 
@@ -22,6 +22,7 @@ public class Client {
 	public static VBox contacts = new VBox();
 	public static VBox notification = new VBox();
 	public static LinkedHashMap<String, Direct> directs = new LinkedHashMap<>();
+	public static HashMap<Integer, TweetController> getTweetController = new HashMap<>();
 	public static LocalDateTime LAST_USER_SEEN = LocalDateTime.MIN;
 	public static void main(String[] args) throws InterruptedException {
 		Instant start = Instant.now();
@@ -50,7 +51,7 @@ public class Client {
 					Request r = (Request) x;
 					RM method = r.getMethod();
 					System.out.println("\u001B[35m" + "\t".repeat(7) + "{" + method + "}\u001B[0m");
-					switch(method) {
+					switch (method) {
 						case LIKE_TWEET -> {
 							User showUser = (User) r.get1();
 							Tweet t = (Tweet) r.get2();
@@ -68,6 +69,13 @@ public class Client {
 							Client.directs.put(username, direct);
 							direct.getController().addMassage(massage);
 							// TODO notification icon use better
+						}
+						case UPDATE_TWEET -> {
+							Tweet tweet = (Tweet) r.get1();
+							int id = tweet.getId();
+							TweetController t = Client.getTweetController.get(id);
+							t.update(tweet);
+							// TODO WHAT HAPPENED FOR ME
 						}
 					}
 					System.out.println("\u001B[35m" + "\t".repeat(7) + "{END" + "}\u001B[0m");

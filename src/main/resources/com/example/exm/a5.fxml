@@ -41,9 +41,6 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
-               <image>
-                  <Image url="@profile.gif" />
-               </image>
             </Avatar>
          </children>
       </HBox>
@@ -51,7 +48,7 @@
          <children>
             <ImageView fitHeight="35.0" fitWidth="45.0" onMouseClicked="#directButton" pickOnBounds="true" preserveRatio="true" translateX="-90.0">
                <image>
-                  <Image url="@message.gif" />
+                  <Image url="@Pdirect.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -59,7 +56,7 @@
             </ImageView>
             <ImageView fitHeight="35.0" fitWidth="45.0" onMouseClicked="#notificationButton" pickOnBounds="true" preserveRatio="true" translateX="-37.0">
                <image>
-                  <Image url="@notification-bell.gif" />
+                  <Image url="@Pnotif.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -67,7 +64,7 @@
             </ImageView>
             <ImageView fitHeight="35.0" fitWidth="45.0" onMouseClicked="#searchButton" pickOnBounds="true" preserveRatio="true" translateX="15.0">
                <image>
-                  <Image url="@searching.gif" />
+                  <Image url="@Psearch.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -75,7 +72,7 @@
             </ImageView>
             <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="60.0">
                <image>
-                  <Image url="@home.gif" />
+                  <Image url="@PhomeFilled.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -92,7 +89,7 @@
       <MFXScrollPane fx:id="sp" fitToWidth="true" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="536.0" prefWidth="422.0" vbarPolicy="NEVER" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
       <ImageView fitHeight="57.0" fitWidth="40.0" onMouseClicked="#addTweet" pickOnBounds="true" preserveRatio="true" translateX="-170.0" translateY="235.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <image>
-            <Image url="@dove-.gif" />
+            <Image url="@PaddTweet.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />

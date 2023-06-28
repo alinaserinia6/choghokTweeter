@@ -141,7 +141,7 @@
          <children>
             <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="-100.0" translateY="-5.0">
                <image>
-                  <Image url="@Pemail.png" />
+                  <Image url="@Pdirect.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />
@@ -165,7 +165,7 @@
             </ImageView>
             <ImageView fitHeight="35.0" fitWidth="45.0" onMouseClicked="#backtotimeline" pickOnBounds="true" preserveRatio="true" translateX="50.0" translateY="-5.0">
                <image>
-                  <Image url="@PhomeIcon.png" />
+                  <Image url="@Phome.png" />
                </image>
                <cursor>
                   <Cursor fx:constant="HAND" />
