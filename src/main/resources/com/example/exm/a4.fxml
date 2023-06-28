@@ -20,9 +20,9 @@
    <children>
       <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="285.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <children>
-            <Label layoutX="117.0" layoutY="14.0" prefHeight="32.0" prefWidth="58.0" text="SignIn" textFill="WHITE">
+            <Label layoutX="103.0" layoutY="14.0" prefHeight="32.0" prefWidth="80.0" text="Sign In" textFill="WHITE">
                <font>
-                  <Font name="System Bold" size="18.0" />
+                  <Font name="System Bold" size="20.0" />
                </font>
             </Label>
             <Label layoutX="204.0" layoutY="109.0" text="UserName:" textFill="WHITE" translateX="-188.0" translateY="2.0">
@@ -33,9 +33,9 @@
                <font>
                   <Font size="15.0" />
                </font></Label>
-            <TextField fx:id="username" layoutX="15.0" layoutY="136.0" prefHeight="25.0" prefWidth="257.0" promptText="UserName:" />
-            <PasswordField fx:id="password" layoutX="14.0" layoutY="264.0" prefHeight="25.0" prefWidth="257.0" promptText="Password:" />
-            <Button fx:id="v1" layoutX="103.0" layoutY="408.0" mnemonicParsing="false" onAction="#singInbuttonAction" prefHeight="30.0" prefWidth="80.0" text="SingIn">
+            <TextField fx:id="auser" layoutX="15.0" layoutY="136.0" prefHeight="25.0" prefWidth="257.0" promptText="UserName:" styleClass="auser" stylesheets="anchor.css" />
+            <PasswordField fx:id="password" layoutX="14.0" layoutY="264.0" prefHeight="25.0" prefWidth="257.0" promptText="Password:" styleClass="password" stylesheets="anchor.css" />
+            <Button fx:id="v1" layoutX="103.0" layoutY="408.0" mnemonicParsing="false" onAction="#singInbuttonAction" prefHeight="30.0" prefWidth="80.0" text="Sign in">
                <font>
                   <Font size="15.0" />
                </font></Button>

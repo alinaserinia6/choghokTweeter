@@ -37,8 +37,8 @@
             </Label>
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <ComboBox fx:id="phoneNumberCountry" prefHeight="47.0" prefWidth="98.0" translateY="-30.0" />
-                  <TextField fx:id="phoneNumber" alignment="CENTER" prefHeight="56.0" prefWidth="212.0" promptText="--- --- ----" translateY="-30.0">
+                  <ComboBox fx:id="phoneNumberCountry" prefHeight="47.0" prefWidth="98.0" styleClass="email" stylesheets="anchor.css" translateY="-30.0" />
+                  <TextField fx:id="phoneNumber" alignment="CENTER" prefHeight="56.0" prefWidth="212.0" promptText="--- --- ----" styleClass="email" stylesheets="anchor.css" translateX="3.0" translateY="-30.0">
                      <font>
                         <Font size="26.0" />
                      </font>
@@ -51,12 +51,12 @@
                   </TextField>
                </children>
             </HBox>
-            <Hyperlink fx:id="link1" alignment="CENTER" onMouseClicked="#emailClicked" prefHeight="34.0" prefWidth="148.0" text="SignUp By Email" textAlignment="CENTER" textFill="#27ff00" translateX="-70.0" translateY="-5.0" visited="true">
+            <Hyperlink fx:id="link1" alignment="CENTER" onMouseClicked="#emailClicked" prefHeight="34.0" prefWidth="148.0" text="SignUp By Email" textAlignment="CENTER" textFill="#615959" translateX="-70.0" translateY="-5.0" visited="true">
                <font>
                   <Font size="17.0" />
                </font>
             </Hyperlink>
-            <Hyperlink alignment="CENTER" onAction="#asingin" prefHeight="35.0" prefWidth="144.0" text="Already SignUp" textFill="#1aff00" translateX="-72.0" visited="true">
+            <Hyperlink alignment="CENTER" onAction="#asingin" prefHeight="35.0" prefWidth="144.0" text="Already SignUp" textFill="#615959" translateX="-72.0" visited="true">
                <font>
                   <Font size="17.0" />
                </font>
@@ -71,7 +71,7 @@
                   <CheckBox fx:id="acceptRule" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" prefHeight="17.0" prefWidth="15.0" translateX="-5.0" translateY="-10.0" />
                </children>
             </HBox>
-            <Button fx:id="nextButton" mnemonicParsing="false" onAction="#nexti" prefHeight="30.0" prefWidth="80.0" text="Next">
+            <Button fx:id="nextButton" mnemonicParsing="false" onAction="#nexti" prefHeight="43.0" prefWidth="99.0" text="Next">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>

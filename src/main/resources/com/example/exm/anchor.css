@@ -12,10 +12,10 @@
 }
 
 #pane       {-fx-background-image: url("Gspace.gif");}
-#a2         {-fx-background-image: url("Gsignin.gif");}
-#a2email    {-fx-background-image: url("Gsignin.gif");}
-#a3         {-fx-background-image: url("Gsignin.gif");}
-#a4         {-fx-background-image: url("Gsignin.gif");}
+#a2         {-fx-background-color : #99cc99}
+#a2email    {-fx-background-color : #99cc99}
+#a3         {-fx-background-color : #99cc99}
+#a4         {-fx-background-color : #99cc99}
 #a7         {-fx-background-image: url("Psky.jpg");}
 #a5         {-fx-background-image: url("Psky.jpg");}
 #a6         {-fx-background-image: url("psky.jpg");}
@@ -25,9 +25,11 @@
 
 #start{
         -fx-background-color: transparent;
+        -fx-border-radius: 20;
         -fx-border-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
-        -fx-border-radius: 3;
         -fx-text-fill: #5ed3f7ff;
+        -fx-background-radius: 20;
+        -fx-effect: dropshadow(three-pass-box, #00000080, 10, 0, 0, 0);
 
 }
 #start:hover {
@@ -35,80 +37,96 @@
         -fx-text-fill: Wheat;
 }
 #nextButton{
-    -fx-background-color: transparent;
+            -fx-background-color: transparent;
+            -fx-border-radius: 20;
             -fx-border-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
-            -fx-border-radius: 3;
-            -fx-text-fill: white;
+            -fx-text-fill: #003333;
+            -fx-background-radius: 20;
+            -fx-effect: dropshadow(three-pass-box, #00000080, 10, 0, 0, 0);
 }
 #nextButton:hover {
     -fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
             -fx-text-fill: white;
 }
 #b2{
-    -fx-background-color: transparent;
-                -fx-border-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
-                -fx-border-radius: 3;
-                -fx-text-fill: white;
+               -fx-background-color: transparent;
+              -fx-border-radius: 20;
+              -fx-border-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
+              -fx-text-fill: #003333;
+              -fx-background-radius: 20;
+              -fx-effect: dropshadow(three-pass-box, #00000080, 10, 0, 0, 0);
 }
 #b2:hover {
     -fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
                 -fx-text-fill: Wheat;
 }
 #b3{
-    -fx-background-color: transparent;
+                -fx-background-color: transparent;
+                -fx-border-radius: 20;
                 -fx-border-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
-                -fx-border-radius: 3;
-                -fx-text-fill: white;
+                -fx-text-fill: #003333;
+                -fx-background-radius: 20;
+                -fx-effect: dropshadow(three-pass-box, #00000080, 10, 0, 0, 0);
 }
 #b3:hover {
     -fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
                 -fx-text-fill: Wheat;
 }
 #s1{
-    -fx-background-color: transparent;
+                -fx-background-color: transparent;
+                -fx-border-radius: 20;
                 -fx-border-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
-                -fx-border-radius: 3;
-                -fx-text-fill: white;
+                -fx-text-fill: #003333;
+                -fx-background-radius: 20;
+                -fx-effect: dropshadow(three-pass-box, #00000080, 10, 0, 0, 0);
 }
 #s1:hover {
     -fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
                 -fx-text-fill: Wheat;
 }
 #s2{
-     -fx-background-color: transparent;
+                  -fx-background-color: transparent;
+                 -fx-border-radius: 20;
                  -fx-border-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
-                 -fx-border-radius: 3;
-                 -fx-text-fill: white;
+                 -fx-text-fill: #003333;
+                 -fx-background-radius: 20;
+                 -fx-effect: dropshadow(three-pass-box, #00000080, 10, 0, 0, 0);
  }
  #s2:hover {
      -fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
                  -fx-text-fill: Wheat;
 }
 #v1 {
--fx-background-color: transparent;
-                 -fx-border-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
-                 -fx-border-radius: 3;
-                 -fx-text-fill: white;
+            -fx-background-color: transparent;
+            -fx-border-radius: 20;
+            -fx-border-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
+            -fx-text-fill: #003333;
+            -fx-background-radius: 20;
+            -fx-effect: dropshadow(three-pass-box, #00000080, 10, 0, 0, 0);
 }
 #v1:hover {
 -fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
                  -fx-text-fill: Wheat;
 }
 #v2 {
--fx-background-color: transparent;
-                 -fx-border-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
-                 -fx-border-radius: 3;
-                 -fx-text-fill: white;
+            -fx-background-color: transparent;
+            -fx-border-radius: 20;
+            -fx-border-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
+            -fx-text-fill: #003333;
+            -fx-background-radius: 20;
+            -fx-effect: dropshadow(three-pass-box, #00000080, 10, 0, 0, 0);
 }
 #v2:hover {
 -fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
                  -fx-text-fill: Wheat;
 }
 #edit{
-    -fx-background-color: Violet;
-    -fx-border-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
-    -fx-border-radius: 3;
-    -fx-text-fill: white;
+            -fx-background-color: transparent;
+            -fx-border-radius: 20;
+            -fx-border-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
+            -fx-text-fill: #003333;
+            -fx-background-radius: 20;
+            -fx-effect: dropshadow(three-pass-box, #00000080, 10, 0, 0, 0);
 }
 #edit:hover{
 -fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
@@ -116,10 +134,12 @@
 }
 
 #postButton{
--fx-background-color: Violet;
-    -fx-border-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
-    -fx-border-radius: 3;
-    -fx-text-fill: white;
+            -fx-background-color: transparent;
+            -fx-border-radius: 20;
+            -fx-border-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
+            -fx-text-fill: #003333;
+            -fx-background-radius: 20;
+            -fx-effect: dropshadow(three-pass-box, #00000080, 10, 0, 0, 0);
 }
 
 #postButton:hover{
@@ -127,13 +147,68 @@
                  -fx-text-fill: black;
 }
 #save{
--fx-background-color: Violet;
-    -fx-border-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
-    -fx-border-radius: 3;
-    -fx-text-fill: white;
+            -fx-background-color: transparent;
+            -fx-border-radius: 20;
+            -fx-border-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
+            -fx-text-fill: #003333;
+            -fx-background-radius: 20;
+            -fx-effect: dropshadow(three-pass-box, #00000080, 10, 0, 0, 0);
 }
 #save:hover{
 
 -fx-background-color: linear-gradient(from 0.0% 0.0% to 100.0% 0.0%, #5ed3f7ff 0.0%, #1763c6ff 100.0%);
                  -fx-text-fill: black;
 }
+.email{
+    -fx-background-color: #FFFFFFFF;
+    -fx-background-radius: 20;
+    -fx-effect: dropshadow(three-pass-box, #00000080, 10, 0, 0, 0);
+}
+.auser{
+    -fx-background-color: #FFFFFFFF;
+    -fx-background-radius: 20;
+    -fx-effect: dropshadow(three-pass-box, #00000080, 10, 0, 0, 0);
+}
+
+.phoneNumber{
+    -fx-background-color: #FFFFFFFF;
+    -fx-background-radius: 20;
+    -fx-effect: dropshadow(three-pass-box, #00000080, 10, 0, 0, 0);
+}
+
+.phoneNumberCountry{
+    -fx-background-color: #FFFFFFFF;
+    -fx-background-radius: 20;
+    -fx-effect: dropshadow(three-pass-box, #00000080, 10, 0, 0, 0);
+}
+.firstName{
+    -fx-background-color: #FFFFFFFF;
+    -fx-background-radius: 20;
+    -fx-effect: dropshadow(three-pass-box, #00000080, 10, 0, 0, 0);
+}
+
+.lastName{
+    -fx-background-color: #FFFFFFFF;
+    -fx-background-radius: 20;
+    -fx-effect: dropshadow(three-pass-box, #00000080, 10, 0, 0, 0);
+}
+
+.userName{
+    -fx-background-color: #FFFFFFFF;
+    -fx-background-radius: 20;
+    -fx-effect: dropshadow(three-pass-box, #00000080, 10, 0, 0, 0);
+}
+
+.password{
+    -fx-background-color: #FFFFFFFF;
+    -fx-background-radius: 20;
+    -fx-effect: dropshadow(three-pass-box, #00000080, 10, 0, 0, 0);
+}
+
+.repeatPassword{
+    -fx-background-color: #FFFFFFFF;
+    -fx-background-radius: 20;
+    -fx-effect: dropshadow(three-pass-box, #00000080, 10, 0, 0, 0);
+}
+
+
