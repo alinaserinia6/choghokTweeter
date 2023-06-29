@@ -76,6 +76,20 @@ public class HelloApplication extends Application implements Runnable {
 		stage.show();
 	}
 
+	public static void ChangePage(Event e, String fxmlFile, Object controller) throws IOException {
+		Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+		FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(fxmlFile + ".fxml"));
+		fxmlLoader.setController(controller);
+		Parent root = fxmlLoader.load();
+		root.setId(fxmlFile);
+		Scene scene = new Scene(root);
+		stage.setScene(scene);
+		Application a = new Application() {@Override public void start(Stage stage) throws Exception {}};
+		scene.getStylesheets().addAll(a.getClass().getResource("anchor.css").toExternalForm());
+		stage.show();
+	}
+
+
 	public static Stage getStage() {
 		return stage;
 	}

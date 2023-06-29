@@ -3,6 +3,7 @@ package com.example.exm;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Cursor;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
@@ -40,6 +41,7 @@ public class Tweet implements Serializable {
     }
 
     public void fitTextArea(JFXTextArea txt) {
+        txt.setEditable(false);
         txt.setMaxWidth(400);
         txt.setWrapText(true);
         Text t = new Text();
@@ -62,21 +64,16 @@ public class Tweet implements Serializable {
         GridPane p = fxmlLoader.load();
         JFXTextArea txt = new JFXTextArea();
         fitTextArea(txt);
+        txt.setCursor(Cursor.HAND);
         txt.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent e) {
-                VBox v = new VBox();
+//                TimeLineController.stop();
                 try {
-                    v.getChildren().add(toFocus());
+                    HelloApplication.ChangePage(e, "aFocusTweet", controller);
+                    controller.buildScroll();
                 } catch (IOException ex) {
                     throw new RuntimeException(ex);
-                }
-                for (Comment i : comments) {
-                    try {
-                        v.getChildren().add(i.toShow());
-                    } catch (IOException ex) {
-                        throw new RuntimeException(ex);
-                    }
                 }
             }
         });

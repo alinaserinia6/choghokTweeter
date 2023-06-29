@@ -1,12 +1,14 @@
 package com.example.exm;
 
 import com.gluonhq.charm.glisten.control.Avatar;
+import io.github.palexdev.materialfx.controls.MFXScrollPane;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.time.LocalDateTime;
@@ -37,12 +39,15 @@ public class TweetController {
     private ImageView likePicture;
     @FXML
     private ImageView retweetPicture;
+    @FXML
+    private MFXScrollPane sp;
     private Image liked = new Image(getClass().getResource("Pliked.png").toString());
     private Image disliked = new Image(getClass().getResource("Plike.png").toString());
     private Image notRetweet = new Image(getClass().getResource("Pretweet.png").toString());
     private Image retweeted = new Image(getClass().getResource("Pretweeted.png").toString());
     private int id;
     private String username;
+    private Tweet tweet;
     private boolean isLiked;
     private boolean isRetweeted;
 
@@ -143,7 +148,31 @@ public class TweetController {
         this.date.setText(date.format(format));
     }
 
+    public void buildScroll() {
+        VBox v = new VBox();
+        sp.setContent(v);
+        Platform.runLater(() -> {
+            try {
+                v.getChildren().add(tweet.toFocus());
+                System.out.println(tweet);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        for (Comment c : tweet.comments) {
+            Platform.runLater(() -> {
+                try {
+                    v.getChildren().add(c.toShow());
+                    System.out.println(c);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            });
+        }
+    }
+
     public void update(Tweet tweet) { // don't add constant field
+        this.tweet = tweet;
         Platform.runLater(() -> {
             this.name.setText(tweet.getName());
             this.like.setText(String.valueOf(tweet.getLikes().size()));
@@ -188,7 +217,7 @@ public class TweetController {
     void likeButton(MouseEvent e) throws IOException {
         Client.out.writeObject(new Request(RM.LIKE_TWEET, username, id));
         if (isLiked) { // dislike
-            Client.user.likes.remove(username);
+            Client.user.likes.remove(id);
             likePicture.setImage(disliked);
             likeChange(-1);
         } else { // like
@@ -201,6 +230,26 @@ public class TweetController {
     @FXML
     void retweetButton(MouseEvent e) throws IOException {
 
+    }
+
+    @FXML
+    void searchButton(MouseEvent e) throws IOException {
+        HelloApplication.ChangePage(e, "a8");
+    }
+
+    @FXML
+    void notificationButton(MouseEvent e) throws IOException{
+        HelloApplication.ChangePage(e, "aNotification");
+    }
+
+    @FXML
+    void directButton(MouseEvent e) throws IOException {
+        HelloApplication.ChangePage(e, "aDirect");
+    }
+
+    @FXML
+    void timelineButton(MouseEvent e) throws IOException {
+        HelloApplication.ChangePage(e, "a5");
     }
 
 }

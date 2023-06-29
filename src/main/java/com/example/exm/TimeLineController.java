@@ -15,9 +15,8 @@ public class TimeLineController {
 	private MFXScrollPane sp;
 	@FXML
 	private Avatar avatar;
-	private boolean shutdown;
-	private Thread thread;
-
+	private static boolean shutdown;
+	private static Thread thread;
 	private final int MAX_READ = 5 + 1;
 
 	public void initialize() {
@@ -27,6 +26,7 @@ public class TimeLineController {
 		l.setText("In the name of GOD");
 		Client.timeline.getChildren().add(0,l);
         sp.setContent(Client.timeline);
+		if (thread != null) return;
 		thread = new Thread(() -> {
 			while (!shutdown) {
 				try {
@@ -60,7 +60,7 @@ public class TimeLineController {
 					return;
 				}
 				System.out.println("i am in: " + i.getText() + ": " + i.getLikes().size());
-				GridPane pane = i.toFocus();
+				GridPane pane = i.toShow();
 				Platform.runLater(() -> Client.timeline.getChildren().add(0, pane));
 				Client.out.writeObject(new Request(RM.LAST_SEEN_TIME, i.getUsername(), i.getDt()));
 			} catch (IOException e) {
@@ -101,7 +101,7 @@ public class TimeLineController {
 		HelloApplication.ChangePage(e, "aDirect");
 	}
 
-	public void stop() {
+	public static void stop() {
 		shutdown = true;
 		thread.interrupt();
 	}
