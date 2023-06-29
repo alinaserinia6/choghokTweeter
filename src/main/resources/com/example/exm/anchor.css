@@ -5,23 +5,26 @@
 
 * {-fx-font-family: "Noto Serif";}
 
-#pane, #a2, #a2email, #a3, #a4, #a7, #a5 {
+#pane, #a2, #a2email, #a3, #a4, #a7, #a5, #a6, #a8, #aEditprofile, #showTweet, #aDirect, #aWriteMassage{
     -fx-background-repeat: stretch;
     -fx-background-size: cover;
     -fx-background-position: center center;
 }
 
-#pane       {-fx-background-image: url("Gspace.gif");}
-#a2         {-fx-background-color : #99cc99}
-#a2email    {-fx-background-color : #99cc99}
-#a3         {-fx-background-color : #99cc99}
-#a4         {-fx-background-color : #99cc99}
-#a7         {-fx-background-image: url("Psky.jpg");}
-#a5         {-fx-background-image: url("Psky.jpg");}
-#a6         {-fx-background-image: url("Psky.jpg");}
-#a8         {-fx-background-image: url("Psky.jpg");}
-#aEditprofile         {-fx-background-image: url("Psky.jpg");}
-#showTweet      {-fx-background-image: url("Psky.jpg");}
+#pane           {-fx-background-image: url("Gspace.gif");}
+#a2             {-fx-background-color : #99cc99}
+#a2email        {-fx-background-color : #99cc99}
+#a3             {-fx-background-color : #99cc99}
+#a4             {-fx-background-color : #99cc99}
+#a7             {-fx-background-image: url("a7.jpg");}
+#a5             {-fx-background-image: url("a7.jpg");}
+#a6             {-fx-background-image: url("a7.jpg");}
+#a8             {-fx-background-image: url("a7.jpg");}
+#aEditprofile   {-fx-background-image: url("a7.jpg");}
+#showTweet      {-fx-background-image: url("a7.jpg");}
+#aDirect        {-fx-background-image: url("a7.jpg");}
+#aWriteMassage  {-fx-background-image: url("a7.jpg");}
+
 
 #start{
         -fx-background-color: transparent;
@@ -209,6 +212,50 @@
     -fx-background-color: #FFFFFFFF;
     -fx-background-radius: 20;
     -fx-effect: dropshadow(three-pass-box, #00000080, 10, 0, 0, 0);
+}
+.addtweet{
+
+    -fx-line-height: 1.5em;
+}
+
+.search{
+        -fx-background-color: #FFFFFFFF;
+        -fx-background-radius: 20;
+        -fx-effect: dropshadow(three-pass-box, #00000080, 10, 0, 0, 0);
+}
+.follow{
+                -fx-background-color: #FFFFFFFF;
+                -fx-background-radius: 20;
+                -fx-effect: dropshadow(three-pass-box, #00000080, 10, 0, 0, 0);
+}
+.firstname{
+                        -fx-background-color: #FFFFFFFF;
+                        -fx-background-radius: 20;
+                        -fx-effect: dropshadow(three-pass-box, #00000080, 10, 0, 0, 0);
+}
+
+.lastname{
+                -fx-background-color: #FFFFFFFF;
+                -fx-background-radius: 20;
+                -fx-effect: dropshadow(three-pass-box, #00000080, 10, 0, 0, 0);
+}
+
+.bio{
+                -fx-background-color: #FFFFFFFF;
+                -fx-background-radius: 20;
+                -fx-effect: dropshadow(three-pass-box, #00000080, 10, 0, 0, 0);
+}
+
+.city{
+                -fx-background-color: #FFFFFFFF;
+                -fx-background-radius: 20;
+                -fx-effect: dropshadow(three-pass-box, #00000080, 10, 0, 0, 0);
+}
+
+.website{
+                -fx-background-color: #FFFFFFFF;
+                -fx-background-radius: 20;
+                -fx-effect: dropshadow(three-pass-box, #00000080, 10, 0, 0, 0);
 }
 
 

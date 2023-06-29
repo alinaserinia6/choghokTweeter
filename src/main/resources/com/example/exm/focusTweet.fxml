@@ -11,35 +11,36 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
 <GridPane alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="410.0" minWidth="380.0" />
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints minHeight="50.0" vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="1.7976931348623157E308" minHeight="40.0" vgrow="SOMETIMES" />
-    <RowConstraints minHeight="30.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="40.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="40.0" valignment="CENTER" />
+    <RowConstraints maxHeight="46.0" minHeight="45.0" prefHeight="46.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="1.7976931348623157E308" minHeight="40.0" prefHeight="55.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="50.0" minHeight="30.0" prefHeight="35.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="53.0" minHeight="33.0" prefHeight="37.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="49.0" minHeight="40.0" prefHeight="41.0" valignment="CENTER" />
   </rowConstraints>
    <children>
       <VBox GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <children>
             <Separator prefWidth="200.0" />
-            <HBox alignment="CENTER" spacing="50.0">
+            <HBox alignment="CENTER" prefHeight="48.0" prefWidth="380.0" spacing="50.0">
                <children>
-                  <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#commentButton" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="27.0" fitWidth="27.0" onMouseClicked="#commentButton" pickOnBounds="true" preserveRatio="true" translateX="-10.0">
                      <image>
                         <Image url="@Pcomment.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="retweetPicture" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#retweetButton" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="retweetPicture" fitHeight="27.0" fitWidth="27.0" onMouseClicked="#retweetButton" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@Pretweet.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="likePicture" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#likeButton" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="likePicture" fitHeight="27.0" fitWidth="27.0" onMouseClicked="#likeButton" pickOnBounds="true" preserveRatio="true" translateX="10.0">
                      <image>
                         <Image url="@Plike.png" />
                      </image>
@@ -78,15 +79,21 @@
       </Label>
       <HBox>
          <children>
-            <Avatar fx:id="avatar" maxHeight="50.0" maxWidth="50.0" minHeight="40.0" minWidth="40.0">
+            <Avatar fx:id="avatar" maxHeight="50.0" maxWidth="50.0" minHeight="40.0" minWidth="40.0" translateX="18.0">
                <image>
-                  <Image url="@PchoghockIcon.png" />
+                  <Image url="@profile.gif" />
                </image>
             </Avatar>
-            <VBox minHeight="30.0" minWidth="40.0">
+            <VBox minHeight="30.0" minWidth="40.0" prefHeight="46.0" prefWidth="154.0" translateX="20.0">
                <children>
-                  <Label fx:id="name" text="name" />
-                  <Label fx:id="usernameLabel" text="username" />
+                  <Label fx:id="name" prefHeight="20.0" prefWidth="128.0" text="name">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
+                  <Label fx:id="usernameLabel" prefHeight="20.0" prefWidth="126.0" text="username">
+                     <font>
+                        <Font size="14.0" />
+                     </font></Label>
                </children>
             </VBox>
          </children>

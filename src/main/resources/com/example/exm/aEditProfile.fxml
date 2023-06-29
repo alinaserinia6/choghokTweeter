@@ -33,7 +33,7 @@
             <Image url="@Pheader.png" />
          </image>
       </ImageView>
-      <Avatar fx:id="avatar" minHeight="50.0" minWidth="50.0" onMouseClicked="#changeAvatar" radius="25.0" translateX="185.0" translateY="70.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+      <Avatar fx:id="avatar" minHeight="50.0" minWidth="50.0" onMouseClicked="#changeAvatar" radius="25.0" translateX="176.0" translateY="65.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <image>
             <Image url="@add.png" />
          </image>
@@ -43,7 +43,7 @@
       </Avatar>
       <VBox alignment="CENTER" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <children>
-            <TextField fx:id="firstname" alignment="CENTER" maxWidth="350.0" prefHeight="0.0" prefWidth="120.0" promptText="FirstName:" translateY="-100.0" VBox.vgrow="ALWAYS">
+            <TextField fx:id="firstname" alignment="CENTER" maxWidth="350.0" prefHeight="0.0" prefWidth="120.0" promptText="FirstName:" translateY="-100.0" VBox.vgrow="ALWAYS" styleClass="firstname" stylesheets="anchor.css">
                <effect>
                   <Blend />
                </effect>
@@ -54,7 +54,7 @@
                   <Font size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="lastname" alignment="CENTER" maxWidth="350.0" prefHeight="36.0" prefWidth="399.0" promptText="LastName:" translateY="-70.0">
+            <TextField fx:id="lastname" alignment="CENTER" maxWidth="350.0" prefHeight="36.0" prefWidth="399.0" promptText="LastName:" translateY="-70.0" styleClass="lastname" stylesheets="anchor.css">
                <effect>
                   <Blend />
                </effect>
@@ -62,12 +62,12 @@
                   <Font size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="bio" alignment="CENTER" maxWidth="350.0" prefHeight="46.0" prefWidth="350.0" promptText="Bio:   " translateY="-50.0">
+            <TextField fx:id="bio" alignment="CENTER" maxWidth="350.0" prefHeight="46.0" prefWidth="350.0" promptText="Bio:   " translateY="-45.0" styleClass="bio" stylesheets="anchor.css">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="city" alignment="CENTER" maxWidth="350.0" prefHeight="26.0" prefWidth="319.0" promptText="Location:   " translateY="-15.0">
+            <TextField fx:id="city" alignment="CENTER" maxWidth="350.0" prefHeight="26.0" prefWidth="319.0" promptText="Location:   " translateY="-7.0" styleClass="city" stylesheets="anchor.css">
                <effect>
                   <Blend />
                </effect>
@@ -75,7 +75,7 @@
                   <Font size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="website" alignment="CENTER" maxWidth="350.0" prefHeight="26.0" prefWidth="319.0" promptText="website:">
+            <TextField fx:id="website" alignment="CENTER" maxWidth="350.0" prefHeight="26.0" prefWidth="319.0" promptText="website:" translateY="30.0" styleClass="website" stylesheets="anchor.css">
                <effect>
                   <Blend />
                </effect>

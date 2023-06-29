@@ -12,42 +12,52 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<GridPane maxHeight="1600.0" maxWidth="720.0" minHeight="625.0" minWidth="420.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<GridPane alignment="CENTER" maxHeight="1600.0" maxWidth="720.0" minHeight="625.0" minWidth="420.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
   <rowConstraints>
-    <RowConstraints maxHeight="40.0" minHeight="10.0" vgrow="SOMETIMES" />
-    <RowConstraints vgrow="SOMETIMES" />
-    <RowConstraints maxHeight="100.0" minHeight="70.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="56.0" minHeight="10.0" prefHeight="56.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="500.0" minHeight="484.0" prefHeight="497.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="100.0" minHeight="70.0" prefHeight="72.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <HBox prefHeight="100.0" prefWidth="200.0">
+      <HBox alignment="CENTER" nodeOrientation="LEFT_TO_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <children>
-            <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#backButton" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="45.0" fitWidth="42.0" onMouseClicked="#backButton" pickOnBounds="true" preserveRatio="true" translateX="-85.0">
                <image>
                   <Image url="@Pback.png" />
                </image>
             </ImageView>
-            <Avatar fx:id="avatar" />
-            <VBox prefHeight="200.0" prefWidth="100.0">
+            <Avatar fx:id="avatar" translateX="-5.0" />
+            <VBox prefHeight="40.0" prefWidth="160.0">
                <children>
-                  <Label fx:id="name" text="name" />
-                  <Label fx:id="username" text="username" />
+                  <Label fx:id="name" prefHeight="21.0" prefWidth="161.0" text="name" translateY="7.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Label>
+                  <Label fx:id="username" prefHeight="21.0" prefWidth="163.0" text="username" translateY="5.0">
+                     <font>
+                        <Font size="15.0" />
+                     </font></Label>
                </children>
             </VBox>
          </children>
       </HBox>
-      <MFXScrollPane fx:id="sp" vvalue="1.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+      <MFXScrollPane fx:id="sp" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="489.0" prefWidth="420.0" style="-fx-background-color: #ccffff;" vbarPolicy="NEVER" vvalue="1.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="2">
          <children>
-            <JFXTextArea fx:id="text" maxHeight="70.0" maxWidth="350.0" promptText="enter massage">
+            <JFXTextArea fx:id="text" maxHeight="70.0" maxWidth="361.0" prefHeight="70.0" prefWidth="361.0" promptText="Enter Massage:">
                <padding>
                   <Insets left="10.0" />
                </padding>
+               <font>
+                  <Font size="14.0" />
+               </font>
             </JFXTextArea>
-            <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#sendMassageButton" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="38.0" fitWidth="36.0" onMouseClicked="#sendMassageButton" pickOnBounds="true" preserveRatio="true" translateX="-5.0">
                <image>
                   <Image url="@PsendMessage.png" />
                </image>

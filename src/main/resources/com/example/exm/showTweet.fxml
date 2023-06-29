@@ -24,7 +24,7 @@
   </rowConstraints>
    <children>
       <Avatar fx:id="avatar" minHeight="40.0" minWidth="40.0" />
-      <HBox prefHeight="100.0" prefWidth="200.0" spacing="4.0" GridPane.columnIndex="1">
+      <HBox prefHeight="40.0" prefWidth="134.0" spacing="4.0" GridPane.columnIndex="1">
          <children>
             <Label fx:id="name" text="name">
                <HBox.margin>
@@ -37,34 +37,34 @@
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4">
          <children>
-            <HBox alignment="CENTER" minWidth="360.0" spacing="6.0">
+            <HBox alignment="CENTER" minWidth="360.0" prefHeight="41.0" prefWidth="381.0" spacing="6.0">
                <children>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" translateX="-20.0" translateY="-2.0">
                      <image>
                         <Image url="@Pcomment.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="comment" text="0">
+                  <Label fx:id="comment" text="0" translateX="-20.0">
                      <padding>
                         <Insets right="70.0" />
                      </padding>
                   </Label>
-                  <ImageView fx:id="retweetPicture" fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="retweetPicture" fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" translateX="-15.0">
                      <image>
                         <Image url="@Pretweet.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="retweet" text="0">
+                  <Label fx:id="retweet" text="0" translateX="-16.0">
                      <HBox.margin>
                         <Insets right="70.0" />
                      </HBox.margin>
                   </Label>
-                  <ImageView fx:id="likePicture" fitHeight="30.0" fitWidth="30.0" onMouseClicked="#likeButton" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="likePicture" fitHeight="27.0" fitWidth="27.0" onMouseClicked="#likeButton" pickOnBounds="true" preserveRatio="true" translateX="-17.0">
                      <image>
                         <Image url="@Plike.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="like" text="0" />
+                  <Label fx:id="like" text="0" translateX="-18.0" />
                </children>
             </HBox>
          </children>

@@ -3,10 +3,14 @@
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
 <Pane maxHeight="200.0" maxWidth="300.0" minHeight="100.0" minWidth="200.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <JFXTextArea fx:id="text" layoutX="5.0" layoutY="3.0" maxHeight="65.0" maxWidth="180.0" minHeight="50.0" minWidth="160.0" />
-      <Label fx:id="date" layoutX="8.0" layoutY="76.0" text="time" />
+      <JFXTextArea fx:id="text" layoutX="-2.0" layoutY="3.0" maxHeight="65.0" maxWidth="200.0" minHeight="50.0" minWidth="160.0" prefHeight="65.0" prefWidth="200.0" />
+      <Label fx:id="date" layoutX="8.0" layoutY="76.0" prefHeight="20.0" prefWidth="69.0" text="time">
+         <font>
+            <Font size="14.0" />
+         </font></Label>
    </children>
 </Pane>

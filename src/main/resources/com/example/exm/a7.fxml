@@ -94,7 +94,7 @@
             </Label>
             <Avatar fx:id="avatar" layoutX="29.0" layoutY="121.0">
                <image>
-                  <Image url="@Psky.jpg" />
+                  <Image url="@profile.gif" />
                </image></Avatar>
             <Button fx:id="edit" layoutX="297.0" layoutY="144.0" mnemonicParsing="false" onAction="#editProfileButton" prefHeight="36.0" prefWidth="112.0" text="Edit profile">
                <font>
@@ -111,15 +111,15 @@
                <children>
                   <Label nodeOrientation="LEFT_TO_RIGHT" prefHeight="21.0" prefWidth="59.0" text="Tweets" translateX="-40.0">
                      <font>
-                        <Font size="15.0" />
+                        <Font name="System Bold" size="15.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Label>
-                  <Label prefHeight="21.0" prefWidth="146.0" text="Tweets and replise" translateX="6.0">
+                  <Label prefHeight="21.0" prefWidth="146.0" text="Tweets and replise" translateX="4.0">
                      <font>
-                        <Font size="15.0" />
+                        <Font name="System Bold" size="15.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -127,7 +127,7 @@
                   </Label>
                   <Label text="Media" translateX="35.0">
                      <font>
-                        <Font size="15.0" />
+                        <Font name="System Bold" size="15.0" />
                      </font>
                      <cursor>
                         <Cursor fx:constant="HAND" />
