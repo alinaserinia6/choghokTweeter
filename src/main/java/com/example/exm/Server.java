@@ -29,7 +29,6 @@ public class Server {
 		t.comments.add(c);
 		user.tweets.put(66, c);
 		t.getLikes().add("amin");
-		t.getRetweet().add("hey");
 		t.setId(110);
 		t.update(support.getAvatarAsString(), support.getFirstName() + " " + support.getLastName());
 		support.tweets.put(110, t);
@@ -140,6 +139,7 @@ class Accept extends Thread {
 									System.out.print(j);
 									if (j.getDt().isAfter(ldt)) {
 										j.update(u.getAvatarAsString(), u.getFirstName() + " " + u.getLastName());
+										if (!j.getUsername().equals(username)) j.setRetweetByUser(username);
 										out.writeObject(j);
 										readed++;
 										System.out.println("  watch it");
@@ -170,11 +170,10 @@ class Accept extends Thread {
 							}
 						}
 						case LIKE_TWEET -> {
-							synchronized (this) {
-								String username = (String) o.get1();
-								Integer id = (Integer) o.get2();
-								System.out.print("#" + username + ":" + id + " * ");
-								Tweet tweet = Server.users.get(username).tweets.get(id);
+							String username = (String) o.get1();
+							Integer id = (Integer) o.get2();
+							Tweet tweet = Server.users.get(username).tweets.get(id);
+							synchronized (tweet) {
 								if (tweet.getLikes().contains(user.getUsername())) {
 									user.likes.remove(id);
 									tweet.getLikes().remove(user.getUsername());
@@ -185,15 +184,33 @@ class Accept extends Thread {
 									System.out.println("like -> " + tweet.getLikes().size());
 								}
 								Server.users.get(username).tweets.put(id, tweet);
-								ObjectOutputStream stream = Server.onlineUser.get(username);
-								System.out.print("stream is ");
-								if (stream != null) {
-									System.out.println("not null");
-									stream.writeObject(new Request(RM.LIKE_TWEET, user, tweet));
-								} else {
-									System.out.println("null");
-								}
 							}
+							ObjectOutputStream stream = Server.onlineUser.get(username);
+							System.out.print("stream is ");
+							if (stream != null) {
+								System.out.println("not null");
+								stream.writeObject(new Request(RM.LIKE_TWEET, user, tweet));
+							} else {
+								System.out.println("null");
+							}
+						}
+						case RETWEET -> {
+							String username = (String) o.get1();
+							Integer id = (Integer) o.get2();
+							Tweet tweet = Server.users.get(username).tweets.get(id);
+							synchronized (tweet) {
+								if (tweet.retweet.contains(user.getUsername())) {
+									user.tweets.remove(id);
+									tweet.retweet.remove(user.getUsername());
+									System.out.println("unRetweet -> " + tweet.getLikes().size());
+								} else {
+									user.tweets.put(id, tweet);
+									tweet.retweet.add(user.getUsername());
+									System.out.println("Retweet -> " + tweet.getLikes().size());
+								}
+								Server.users.get(username).tweets.put(id, tweet);
+							}
+							// TODO ONLINE USER
 						}
 						case DIRECT_MASSAGE -> {
 							User user = (User) o.get1();

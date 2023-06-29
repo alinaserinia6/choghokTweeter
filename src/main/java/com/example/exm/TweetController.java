@@ -215,7 +215,8 @@ public class TweetController {
 
     @FXML
     void commentButton(MouseEvent e) throws IOException {
-
+        HelloApplication.ChangePage(e, "aFocusTweet", this);
+        buildScroll();
     }
     @FXML
     void likeButton(MouseEvent e) throws IOException {
@@ -233,7 +234,17 @@ public class TweetController {
     }
     @FXML
     void retweetButton(MouseEvent e) throws IOException {
-
+        Client.out.writeObject(new Request(RM.RETWEET, username, id));
+        if (isRetweeted) {
+            Client.user.tweets.remove(id);
+            retweetPicture.setImage(notRetweet);
+            retweetChange(-1);
+        } else {
+            Client.user.tweets.put(id, tweet);
+            retweetPicture.setImage(retweeted);
+            retweetChange(1);
+        }
+        isRetweeted = !isRetweeted;
     }
 
     @FXML

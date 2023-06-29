@@ -4,7 +4,9 @@ import com.jfoenix.controls.JFXTextArea;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
@@ -24,6 +26,7 @@ public class Tweet implements Serializable {
     protected ArrayList<String> likes;
     public ArrayList<Comment> comments;
     protected ArrayList<String> retweet;
+    private String retweetByUser;
     private transient TweetController controller;
 
     public Tweet() {
@@ -68,7 +71,6 @@ public class Tweet implements Serializable {
         txt.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent e) {
-//                TimeLineController.stop();
                 try {
                     HelloApplication.ChangePage(e, "aFocusTweet", controller);
                     controller.buildScroll();
@@ -77,7 +79,16 @@ public class Tweet implements Serializable {
                 }
             }
         });
-        p.add(txt, 1, 1);
+        if (retweetByUser != null) {
+            ImageView ret = new ImageView();
+            Image r = new Image(String.valueOf(getClass().getResource("Pretweet.png")));
+            ret.setImage(r);
+            p.add(ret, 0, 0);
+            Label name = new Label();
+            name.setText("Retweeted " + this.name);
+            p.add(name, 1, 0);
+        }
+        p.add(txt, 1, 2);
         controller.build(this, name, text, likes.size(), comments.size(), retweet.size(), avatar, id, username);
         controller.run();
         return p;
@@ -185,6 +196,14 @@ public class Tweet implements Serializable {
 
     public void setController(TweetController controller) {
         this.controller = controller;
+    }
+
+    public String getRetweetByUser() {
+        return retweetByUser;
+    }
+
+    public void setRetweetByUser(String retweetByUser) {
+        this.retweetByUser = retweetByUser;
     }
 
     @Override
