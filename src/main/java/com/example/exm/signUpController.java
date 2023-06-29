@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -28,6 +30,8 @@ public class signUpController {
     private DatePicker birthDate;
     @FXML
     private Label singUpError;
+
+    private final Image defaultHeader = new Image(getClass().getResource("Pheader.png").toString());
 
     @FXML
     public void singUpbuttonAction(ActionEvent e) throws IOException { // TODO uncomment these text ۷
@@ -81,6 +85,7 @@ public class signUpController {
         }
         String birth = birthDate.getValue().format(DateTimeFormatter.ofPattern("MMM dd"));
         Client.user = new User(firstName.getText(), lastName.getText(), userName.getText(), LocalDateTime.now(), password.getText(), birth);
+        Client.user.setHeader(defaultHeader);
         if (Pattern.compile("-?\\d+(\\.\\d+)?").matcher(Client.key).matches()) {
             Client.user.setPhoneNumber(Client.key);
         } else {

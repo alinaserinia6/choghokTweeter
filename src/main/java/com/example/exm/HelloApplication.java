@@ -40,8 +40,9 @@ public class HelloApplication extends Application implements Runnable {
 					Client.out.close();
 				} catch (IOException e) {
 					throw new RuntimeException(e);
+				} finally {
+					System.exit(0);
 				}
-				System.exit(0);
 			}
 		});
 		this.stage = stage;

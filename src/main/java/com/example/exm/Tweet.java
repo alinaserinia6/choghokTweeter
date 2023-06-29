@@ -1,14 +1,11 @@
 package com.example.exm;
 
 import com.jfoenix.controls.JFXTextArea;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Bounds;
 import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
@@ -28,8 +25,6 @@ public class Tweet implements Serializable {
     public ArrayList<Comment> comments;
     private ArrayList<String> retweet;
     private transient TweetController controller;
-    private double oldHeight = 0;
-
 
     public Tweet() {
         id = -1;
@@ -44,66 +39,75 @@ public class Tweet implements Serializable {
         retweet = new ArrayList<>();
     }
 
-    public void update(Image avatar, String name) { // TODO UPDATE WHEN EDIT PROFILE
-        this.avatar = avatar;
-        this.name = name;
-        // username is constant
-    }
-
-    public GridPane tweetToPane() throws IOException {
-        if (controller == null) {
-            TweetController t = Client.getTweetController.get(id);
-            if (t == null) {
-                controller = new TweetController();
-                Client.getTweetController.put(id, controller);
-            } else {
-                controller = t;
-            }
-        }
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("showTweet.fxml"));
-        fxmlLoader.setController(controller);
-        GridPane p = fxmlLoader.load();
-        controller.build(name, text, likes.size(), comments.size(), retweet.size(), avatar, id, username);
-        controller.run();
-        return p;
-    }
-    public GridPane toFocus() throws IOException {
-        if (controller == null) {
-            TweetController t = Client.getTweetController.get(id);
-            if (t == null) {
-                controller = new TweetController();
-                Client.getTweetController.put(id, controller);
-            } else {
-                controller = t;
-            }
-        }
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("focusTweet.fxml"));
-        fxmlLoader.setController(controller);
-        GridPane p = fxmlLoader.load();
-        final JFXTextArea txt = new JFXTextArea();
+    public void fitTextArea(JFXTextArea txt) {
         txt.setMaxWidth(400);
         txt.setWrapText(true);
         Text t = new Text();
         t.setWrappingWidth(txt.getWidth() - 10);
         t.setText(text);
-        double height = t.getLayoutBounds().getHeight();
+        double height = t.getLayoutBounds().getHeight() * 1.1;
         txt.setPrefHeight(height + 20);
-//        t.textProperty().bind(txt.textProperty());
-//        t.layoutBoundsProperty().addListener(new ChangeListener<Bounds>() {
-//            @Override
-//            public void changed(ObservableValue<? extends Bounds> observable, Bounds oldValue, Bounds newValue) {
-//                if (oldHeight != newValue.getHeight()) {
-//                    System.out.println("newValue = " + newValue.getHeight());
-//                    oldHeight = newValue.getHeight();
-//                    txt.setMinHeight(t.getLayoutBounds().getHeight() + 20); // +20 is for paddings
-//                }
-//            }
-//        });
         txt.setText(text);
+    }
+
+    public void update(Image avatar, String name) { // TODO UPDATE WHEN EDIT PROFILE
+        this.avatar = avatar;
+        this.name = name;
+    }
+
+    public GridPane toShow() throws IOException {
+        setController();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("showTweet.fxml"));
+        fxmlLoader.setController(controller);
+        GridPane p = fxmlLoader.load();
+        JFXTextArea txt = new JFXTextArea();
+        fitTextArea(txt);
+        txt.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent e) {
+                VBox v = new VBox();
+                try {
+                    v.getChildren().add(toFocus());
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
+                for (Comment i : comments) {
+                    try {
+                        v.getChildren().add(i.toShow());
+                    } catch (IOException ex) {
+                        throw new RuntimeException(ex);
+                    }
+                }
+            }
+        });
+        p.add(txt, 1, 1);
+        controller.build(name, text, likes.size(), comments.size(), retweet.size(), avatar, id, username);
+        controller.run();
+        return p;
+    }
+    public GridPane toFocus() throws IOException {
+        setController();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("focusTweet.fxml"));
+        fxmlLoader.setController(controller);
+        GridPane p = fxmlLoader.load();
+        JFXTextArea txt = new JFXTextArea();
+        fitTextArea(txt);
         p.add(txt, 0, 1); // TODO QUOTE
         controller.focusBuild(name, username, avatar, dt, retweet.size(),retweet.size(), likes.size(), id);
         controller.run();
         return p;
+    }
+
+    public void setController() {
+        if (controller == null) {
+            TweetController t = Client.getTweetController.get(id);
+            if (t == null) {
+                controller = new TweetController();
+                Client.getTweetController.put(id, controller);
+            } else {
+                controller = t;
+            }
+        }
     }
 
     public int getId() {

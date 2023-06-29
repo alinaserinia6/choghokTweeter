@@ -24,6 +24,8 @@ public class Server {
 		users.put("support", support);
 		user.following.put("support",new Following("support", LocalDateTime.MIN));
 		Tweet t = new Tweet("only heydar is amir al momenin", "support");
+		Comment c = new Comment("thank god", "ali");
+//		t.comments.add();
 		t.getLikes().add("amin");
 		t.getRetweet().add("hey");
 		t.setId(110);

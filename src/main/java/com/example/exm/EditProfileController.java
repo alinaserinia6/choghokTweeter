@@ -1,17 +1,19 @@
 package com.example.exm;
 
 import com.gluonhq.charm.glisten.control.Avatar;
-import com.jfoenix.controls.JFXTextArea;
-import io.github.palexdev.materialfx.controls.MFXTextField;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,20 +23,21 @@ public class EditProfileController {
 	@FXML
 	private ImageView header;
 	@FXML
-	private MFXTextField firstname;
+	private TextField firstname;
 	@FXML
-	private MFXTextField lastname;
+	private TextField lastname;
 	@FXML
-	private JFXTextArea bio;
+	private TextField bio;
 	@FXML
-	private MFXTextField city;
+	private TextField city;
 	@FXML
-	private MFXTextField website;
+	private TextField website;
 	@FXML
 	private AnchorPane chooseImagePanel;
+	private boolean isForAvatar;
 
 	public void initialize() {
-		header.setImage(Client.user.getHeader());
+		if (Client.user.getHeader() != null) header.setImage(Client.user.getHeader());
 		avatar.setImage(Client.user.getAvatar());
 		firstname.setText(Client.user.getFirstName());
 		lastname.setText(Client.user.getLastName());
@@ -56,17 +59,18 @@ public class EditProfileController {
 
 	@FXML
 	void changeHeader(MouseEvent e) throws IOException {
-		chooseImagePanel.setVisible(true);
+		isForAvatar = false;
+		movePanel(true);
 	}
 	@FXML
 	void changeAvatar(MouseEvent e) throws IOException {
-
+		isForAvatar =  true;
+		movePanel(true);
 	}
 
 	@FXML
 	void cancel(MouseEvent e) {
-		chooseImagePanel.setVisible(false);
-		chooseImagePanel.setManaged(false);
+		movePanel(false);
 	}
 
 	@FXML
@@ -74,12 +78,21 @@ public class EditProfileController {
 		FileChooser f = new FileChooser();
 		FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.jpeg", "*.png");
 		f.getExtensionFilters().add(extFilter);
-//		Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow(); which one is better?
 		Stage stage = new Stage();
 		stage.setTitle("select picture");
 		File file = f.showOpenDialog(stage);
 		if (file == null) return;
 		Image image = new Image (file.toURI().toString(), 285, 149, false, true, true);
-		header.setImage(image);
+		if (isForAvatar) avatar.setImage(image);
+		else header.setImage(image);
+	}
+
+	public void movePanel(boolean up) {
+		int y = up ? 0 : 130;
+		KeyFrame keyFrame = new KeyFrame(Duration.millis(500), new KeyValue(chooseImagePanel.translateYProperty(), y));
+		Timeline t = new Timeline();
+		t.setCycleCount(1);
+		t.getKeyFrames().add(keyFrame);
+		t.play();
 	}
 }

@@ -28,7 +28,7 @@ public class AddTweetController {
         tweet.setId(id);
         Client.user.tweets.put(id, tweet);
         System.out.println("id set");
-        Client.timeline.getChildren().add(0, tweet.tweetToPane());
+        Client.timeline.getChildren().add(0, tweet.toShow());
         System.out.println("id pane");
         HelloApplication.ChangePage(e, "a5");
     }
