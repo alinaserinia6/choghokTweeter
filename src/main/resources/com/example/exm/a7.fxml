@@ -35,7 +35,7 @@
 <!--                  <Font size="13.0" />-->
 <!--               </font>-->
 <!--            </TextArea>-->
-            <ImageView fitHeight="159.0" fitWidth="420.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" translateY="-20.0">
+            <ImageView fx:id="header" fitHeight="159.0" fitWidth="420.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" translateY="-20.0">
                <image>
                   <Image url="@Pheader.png" />
                </image></ImageView>
@@ -47,12 +47,12 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <Label fx:id="name" alignment="CENTER_RIGHT" layoutX="5.0" layoutY="157.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="54.0" prefWidth="227.0" text="amin naseri" translateY="-13.0">
+            <Label fx:id="name" alignment="CENTER_RIGHT" layoutX="7.0" layoutY="160.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="54.0" prefWidth="227.0" text="amin naseri" translateY="-13.0">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <Label fx:id="username" layoutX="15.0" layoutY="189.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="36.0" prefWidth="227.0" text="\@aliamini" translateY="-9.0">
+            <Label fx:id="username" layoutX="14.0" layoutY="194.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="36.0" prefWidth="227.0" text="\@aliamini" translateY="-9.0">
                <font>
                   <Font size="16.0" />
                </font>
@@ -92,9 +92,9 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Avatar fx:id="avatar" layoutX="29.0" layoutY="121.0">
+            <Avatar fx:id="avatar" layoutX="12.0" layoutY="105.0" radius="30.0">
                <image>
-                  <Image url="@profile.gif" />
+                  <Image url="@PhomeFilled.png" />
                </image></Avatar>
             <Button fx:id="edit" layoutX="297.0" layoutY="144.0" mnemonicParsing="false" onAction="#editProfileButton" prefHeight="36.0" prefWidth="112.0" text="Edit profile">
                <font>
@@ -109,7 +109,7 @@
             <Line endX="272.0" layoutX="148.0" layoutY="393.0" startX="-148.0" />
             <HBox alignment="CENTER" layoutX="1.0" layoutY="353.0" prefHeight="43.0" prefWidth="421.0">
                <children>
-                  <Label nodeOrientation="LEFT_TO_RIGHT" prefHeight="21.0" prefWidth="59.0" text="Tweets" translateX="-40.0">
+                  <Label nodeOrientation="LEFT_TO_RIGHT" prefHeight="21.0" text="Tweets" translateX="-40.0">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -117,7 +117,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Label>
-                  <Label prefHeight="21.0" prefWidth="146.0" text="Tweets and replise" translateX="4.0">
+                  <Label prefHeight="21.0" text="Tweets and replise" translateX="4.0">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>

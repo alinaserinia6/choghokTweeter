@@ -5,6 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
@@ -25,8 +26,8 @@ public class profileController {
     private TextArea bio;
     @FXML
     private Avatar avatar;
-
-
+    @FXML
+    private ImageView header;
 
     public void initialize() {
         name.setText(Client.user.getFirstName() + " " + Client.user.getLastName());
@@ -37,6 +38,7 @@ public class profileController {
         DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy MMM");
         joinDate.setText(Client.user.getJoinDate().format(format));
         avatar.setImage(Client.user.getAvatar());
+        header.setImage(Client.user.getHeader());
     }
 
     @FXML

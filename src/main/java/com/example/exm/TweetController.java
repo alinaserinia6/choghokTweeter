@@ -117,12 +117,14 @@ public class TweetController {
 //        thread2.start();
     }
 
-    public void build(String name, String text, int like, int comment, int retweet, Image avatar, int id, String username) { // TODO CAN YOU DELETE THIS?
+    public void build(Tweet tweet, String name, String text, int like, int comment, int retweet, String avatar, int id, String username) { // TODO CAN YOU DELETE THIS?
+        this.tweet = tweet;
         this.name.setText(name);
         this.like.setText(String.valueOf(like));
         this.comment.setText(String.valueOf(comment));
         this.retweet.setText(String.valueOf(retweet));
-        this.avatar.setImage(avatar);
+        Image a = new Image(String.valueOf(getClass().getResource(avatar)));
+        this.avatar.setImage(a);
         this.id = id;
         this.username = username;
         if (Client.user.likes.contains(id)) {
@@ -135,12 +137,14 @@ public class TweetController {
         }
     }
 
-    public void focusBuild(String name, String username, Image avatar, LocalDateTime date, int retweet, int quote, int like, int id) {
+    public void focusBuild(Tweet tweet, String name, String username, String avatar, LocalDateTime date, int retweet, int quote, int like, int id) {
+        this.tweet = tweet;
         this.name.setText(name);
         this.like.setText(String.valueOf(like));
         this.retweet.setText(String.valueOf(retweet));
         this.quote.setText(String.valueOf(quote));
-        this.avatar.setImage(avatar);
+        Image a = new Image(String.valueOf(getClass().getResource(avatar)));
+        this.avatar.setImage(a);
         this.id = id;
         this.usernameLabel.setText(username);
         this.username = username;

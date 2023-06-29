@@ -25,11 +25,13 @@ public class Server {
 		user.following.put("support",new Following("support", LocalDateTime.MIN));
 		Tweet t = new Tweet("only heydar is amir al momenin", "support");
 		Comment c = new Comment("thank god", "ali");
-//		t.comments.add();
+		c.setId(66);
+		t.comments.add(c);
+		user.tweets.put(66, c);
 		t.getLikes().add("amin");
 		t.getRetweet().add("hey");
 		t.setId(110);
-		t.update(support.getAvatar(), support.getFirstName() + " " + support.getLastName());
+		t.update(support.getAvatarAsString(), support.getFirstName() + " " + support.getLastName());
 		support.tweets.put(110, t);
 		tweets.add(t);
 //		Image image = new Image(Server.class.getResource("PchoghockIcon.png").toString());
@@ -137,7 +139,7 @@ class Accept extends Thread {
 								for (Tweet j : u.tweets.values()) {
 									System.out.print(j);
 									if (j.getDt().isAfter(ldt)) {
-										j.update(u.getAvatar(), u.getFirstName() + " " + u.getLastName());
+										j.update(u.getAvatarAsString(), u.getFirstName() + " " + u.getLastName());
 										out.writeObject(j);
 										readed++;
 										System.out.println("  watch it");
@@ -212,12 +214,13 @@ class Accept extends Thread {
 							String username = (String) o.get1();
 							int id = (int) o.get2();
 							Tweet tweet = Server.users.get(username).tweets.get(id);
-							for (String i : tweet.getLikes()) System.out.println(i);
 							Request r = new Request(RM.UPDATE_TWEET, tweet);
-							r.setA(tweet.getLikes());
 							out.writeUnshared(r); // TODO THANK GOD! :))))))
 							out.flush();
 							out.reset();
+						}
+						case UPDATE_USER -> {
+							this.user = (User) o.get1();
 						}
 						case END_PROCESS -> {
 							throw new InterruptedException();

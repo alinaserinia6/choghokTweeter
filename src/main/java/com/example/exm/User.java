@@ -4,13 +4,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.LinkedHashMap;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class User implements Serializable {
@@ -25,10 +24,9 @@ public class User implements Serializable {
     public HashSet<String> followers;
     public HashMap<String, Following> following;
     public ConcurrentHashMap<Integer, Tweet> tweets;
-    public ArrayList<Comment> comments;
     public HashSet<Integer> likes;
-    private Image avatar;
-    private Image header;
+    private String avatar;
+    private String header;
     private String birthDate;
     private LocalDateTime joinDate;
     private Gender gender;
@@ -38,10 +36,11 @@ public class User implements Serializable {
         followers = new HashSet<>();
         following = new HashMap<>();
         tweets = new ConcurrentHashMap<>();
-        comments = new ArrayList<>();
         likes = new HashSet<>();
         gender = Gender.UNKNOWN;
         joinDate = LocalDateTime.MIN;
+        avatar = "Plike.png";
+        header = "Pheader.png";
     }
 
     public User(String firstName, String lastName, String username, String password, LocalDateTime joinDate) {
@@ -52,10 +51,11 @@ public class User implements Serializable {
         followers = new HashSet<>();
         following = new HashMap<>();
         tweets = new ConcurrentHashMap<>();
-        comments = new ArrayList<>();
         likes = new HashSet<>();
         gender = Gender.UNKNOWN;
         this.joinDate = joinDate;
+        avatar = "Plike.png";
+        header = "Pheader.png";
     }
 
     public User(String firstName, String lastName, String username, LocalDateTime joinDate, String password, String birthDate) {
@@ -66,11 +66,12 @@ public class User implements Serializable {
         followers = new HashSet<>();
         following = new HashMap<>();
         tweets = new ConcurrentHashMap<>();
-        comments = new ArrayList<>();
         likes = new HashSet<>();
         gender = Gender.UNKNOWN;
         this.joinDate = joinDate;
         this.birthDate = birthDate;
+        avatar = "Plike.png";
+        header = "Pheader.png";
     }
 
     public String getUsername() {
@@ -118,18 +119,27 @@ public class User implements Serializable {
     }
 
     public Image getAvatar() {
+        return new Image(String.valueOf(getClass().getResource(avatar)));
+    }
+
+    public String getAvatarAsString() {
         return avatar;
     }
 
-    public void setAvatar(Image avatar) {
+    public void setAvatar(String avatar) {
         this.avatar = avatar;
     }
 
     public Image getHeader() {
+        Image res = new Image(String.valueOf(getClass().getResource(header)));
+        return res;
+    }
+
+    public String getHeaderAsString() {
         return header;
     }
 
-    public void setHeader(Image header) {
+    public void setHeader(String header) {
         this.header = header;
     }
 

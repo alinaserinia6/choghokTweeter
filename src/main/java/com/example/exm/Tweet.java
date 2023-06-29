@@ -7,7 +7,6 @@ import javafx.scene.Cursor;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 
 import java.io.IOException;
@@ -17,14 +16,14 @@ import java.util.*;
 
 public class Tweet implements Serializable {
     private int id;
-    private Image avatar;
+    private String avatar;
     private String name;
     private String username;
     private String text;
-    private LocalDateTime dt;
-    private ArrayList<String> likes;
+    protected LocalDateTime dt;
+    protected ArrayList<String> likes;
     public ArrayList<Comment> comments;
-    private ArrayList<String> retweet;
+    protected ArrayList<String> retweet;
     private transient TweetController controller;
 
     public Tweet() {
@@ -38,6 +37,7 @@ public class Tweet implements Serializable {
         likes = new ArrayList<>();
         comments = new ArrayList<>();
         retweet = new ArrayList<>();
+        avatar = "Plike.png";
     }
 
     public void fitTextArea(JFXTextArea txt) {
@@ -52,7 +52,7 @@ public class Tweet implements Serializable {
         txt.setText(text);
     }
 
-    public void update(Image avatar, String name) { // TODO UPDATE WHEN EDIT PROFILE
+    public void update(String avatar, String name) { // TODO UPDATE WHEN EDIT PROFILE
         this.avatar = avatar;
         this.name = name;
     }
@@ -78,7 +78,7 @@ public class Tweet implements Serializable {
             }
         });
         p.add(txt, 1, 1);
-        controller.build(name, text, likes.size(), comments.size(), retweet.size(), avatar, id, username);
+        controller.build(this, name, text, likes.size(), comments.size(), retweet.size(), avatar, id, username);
         controller.run();
         return p;
     }
@@ -90,7 +90,7 @@ public class Tweet implements Serializable {
         JFXTextArea txt = new JFXTextArea();
         fitTextArea(txt);
         p.add(txt, 0, 1); // TODO QUOTE
-        controller.focusBuild(name, username, avatar, dt, retweet.size(),retweet.size(), likes.size(), id);
+        controller.focusBuild(this, name, username, avatar, dt, retweet.size(),retweet.size(), likes.size(), id);
         controller.run();
         return p;
     }
@@ -116,10 +116,10 @@ public class Tweet implements Serializable {
     }
 
     public Image getAvatar() {
-        return avatar;
+        return new Image(String.valueOf(getClass().getResource(avatar)));
     }
 
-    public void setAvatar(Image avatar) {
+    public void setAvatar(String avatar) {
         this.avatar = avatar;
     }
 

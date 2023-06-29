@@ -5,8 +5,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -31,7 +29,7 @@ public class signUpController {
     @FXML
     private Label singUpError;
 
-    private final Image defaultHeader = new Image(getClass().getResource("Pheader.png").toString());
+    private final String defaultHeader = "Pheader.png";
 
     @FXML
     public void singUpbuttonAction(ActionEvent e) throws IOException { // TODO uncomment these text ۷
