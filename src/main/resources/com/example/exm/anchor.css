@@ -5,7 +5,7 @@
 
 * {-fx-font-family: "Noto Serif";}
 
-#pane, #a2, #a2email, #a3, #a4, #a7, #a5, #a6, #a8, #aEditprofile, #showTweet, #aDirect, #aWriteMassage{
+#pane, #a2, #a2email, #a3, #a4, #a7, #a5, #a6, #a8, #aEditprofile, #showTweet, #aDirect, #aWriteMassage, #aNotification, #aFocusTweet{
     -fx-background-repeat: stretch;
     -fx-background-size: cover;
     -fx-background-position: center center;
@@ -24,7 +24,8 @@
 #showTweet      {-fx-background-image: url("a7.jpg");}
 #aDirect        {-fx-background-image: url("a7.jpg");}
 #aWriteMassage  {-fx-background-image: url("a7.jpg");}
-
+#aNotification  {-fx-background-image: url("a7.jpg");}
+#aFocusTweet    {-fx-background-image: url("a7.jpg");}
 
 #start{
         -fx-background-color: transparent;

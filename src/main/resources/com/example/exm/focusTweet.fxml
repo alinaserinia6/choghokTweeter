@@ -72,7 +72,7 @@
             <Label text="Likes" />
          </children>
       </HBox>
-      <Label fx:id="date" text="date" GridPane.rowIndex="2">
+      <Label fx:id="date" prefHeight="28.0" prefWidth="113.0" text="date" GridPane.rowIndex="2">
          <GridPane.margin>
             <Insets left="5.0" />
          </GridPane.margin>

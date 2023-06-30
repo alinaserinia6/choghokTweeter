@@ -101,7 +101,7 @@
                   <Font name="System Bold" size="15.0" />
                </font>
             </Button>
-            <TextArea fx:id="bio" layoutY="226.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="74.0" prefWidth="421.0" promptText="Bio :" translateY="-10.0" wrapText="true">
+            <TextArea fx:id="bio" editable="false" layoutY="226.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="74.0" prefWidth="421.0" promptText="Bio :" translateY="-10.0" wrapText="true">
                <font>
                   <Font size="15.0" />
                </font>

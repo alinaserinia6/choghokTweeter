@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane prefHeight="625.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.HelloController">
+<GridPane prefHeight="625.0" prefWidth="420.0" stylesheets="@anchor.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.HelloController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
    </columnConstraints>
@@ -51,12 +51,15 @@
                   </TextField>
                </children>
             </HBox>
-            <Hyperlink fx:id="link1" alignment="CENTER" onMouseClicked="#emailClicked" prefHeight="34.0" prefWidth="148.0" text="SignUp By Email" textAlignment="CENTER" textFill="#615959" translateX="-70.0" translateY="-5.0" visited="true">
+            <Hyperlink fx:id="link1" alignment="CENTER" focusTraversable="false" onMouseClicked="#emailClicked" prefHeight="34.0" prefWidth="148.0" text="SignUp By Email" textAlignment="CENTER" textFill="#615959" textOverrun="CLIP" translateX="-70.0" translateY="-5.0" visited="true">
                <font>
                   <Font size="17.0" />
                </font>
+               <opaqueInsets>
+                  <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+               </opaqueInsets>
             </Hyperlink>
-            <Hyperlink alignment="CENTER" onAction="#asingin" prefHeight="35.0" prefWidth="144.0" text="Already SignUp" textFill="#615959" translateX="-72.0" visited="true">
+            <Hyperlink alignment="CENTER" focusTraversable="false" onAction="#asingin" prefHeight="35.0" prefWidth="144.0" text="Already SignUp" textFill="#615959" translateX="-72.0" visited="true">
                <font>
                   <Font size="17.0" />
                </font>
@@ -73,7 +76,7 @@
             </HBox>
             <Button fx:id="nextButton" mnemonicParsing="false" onAction="#nexti" prefHeight="43.0" prefWidth="99.0" text="Next">
                <font>
-                  <Font name="System Bold" size="16.0" />
+                  <Font name="System Bold" size="17.0" />
                </font>
                <cursor>
                   <Cursor fx:constant="DEFAULT" />

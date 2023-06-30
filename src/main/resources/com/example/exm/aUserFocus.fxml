@@ -32,11 +32,11 @@
                 <!--                  <Font size="13.0" />-->
                 <!--               </font>-->
                 <!--            </TextArea>-->
-                <ImageView fitHeight="159.0" fitWidth="420.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true" translateY="-20.0">
+                <ImageView fitHeight="160.0" fitWidth="420.0" pickOnBounds="true" preserveRatio="true" translateY="-20.0">
                     <image>
                         <Image url="@Pheader.png" />
                     </image></ImageView>
-                <ImageView fitHeight="43.0" fitWidth="45.0" layoutX="7.0" onMouseClicked="#backtotimeline" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="43.0" fitWidth="45.0" layoutX="7.0" onMouseClicked="#backtotimeline" pickOnBounds="true" preserveRatio="true" translateY="-12.0">
                     <image>
                         <Image url="@Pback.png" />
                     </image>
@@ -44,7 +44,7 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </ImageView>
-                <Label fx:id="name" alignment="CENTER_RIGHT" layoutX="5.0" layoutY="157.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="54.0" prefWidth="227.0" text="amin naseri" translateY="-13.0">
+                <Label fx:id="name" alignment="CENTER_RIGHT" layoutX="7.0" layoutY="167.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="36.0" prefWidth="155.0" text="amin naseri" translateY="-13.0">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
@@ -93,18 +93,18 @@
                     <image>
                         <Image url="@Psky.jpg" />
                     </image></Avatar>
-                <TextArea fx:id="bio" layoutY="226.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="74.0" prefWidth="421.0" promptText="Bio :" translateY="-10.0" wrapText="true">
+                <TextArea fx:id="bio" editable="false" layoutY="226.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="74.0" prefWidth="421.0" promptText="Bio :" translateY="-10.0" wrapText="true">
                     <font>
                         <Font size="15.0" />
                     </font>
                 </TextArea>
                 <Line endX="272.0" layoutX="148.0" layoutY="393.0" startX="-148.0" />
-            <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="149.0" layoutY="150.0" onMouseClicked="#directMassage" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="27.0" fitWidth="27.0" layoutX="169.0" layoutY="159.0" onMouseClicked="#directMassage" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@PnewDirect.png" />
                </image>
             </ImageView>
-                <HBox alignment="CENTER" prefHeight="43.0" prefWidth="421.0">
+                <HBox alignment="CENTER" prefHeight="43.0" prefWidth="421.0" translateY="352.0">
                     <children>
                         <Label nodeOrientation="LEFT_TO_RIGHT" prefHeight="21.0" prefWidth="59.0" text="Tweets" translateX="-40.0">
                             <font>
@@ -114,7 +114,7 @@
                                 <Cursor fx:constant="HAND" />
                             </cursor>
                         </Label>
-                        <Label prefHeight="21.0" prefWidth="150.0" text="Tweets and replise" translateX="-7.0">
+                        <Label prefHeight="21.0" prefWidth="163.0" text="Tweets and replise" translateX="7.0">
                             <font>
                                 <Font size="15.0" />
                             </font>
