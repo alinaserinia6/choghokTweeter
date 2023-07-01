@@ -25,7 +25,7 @@ public class profileController {
     @FXML
     private TextArea bio;
     @FXML
-    private Avatar avatar;
+    private ImageView avatar;
     @FXML
     private ImageView header;
 

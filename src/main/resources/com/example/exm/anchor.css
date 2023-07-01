@@ -167,6 +167,7 @@
     -fx-background-color: #FFFFFFFF;
     -fx-background-radius: 20;
     -fx-effect: dropshadow(three-pass-box, #00000080, 10, 0, 0, 0);
+
 }
 .auser{
     -fx-background-color: #FFFFFFFF;
@@ -178,6 +179,7 @@
     -fx-background-color: #FFFFFFFF;
     -fx-background-radius: 20;
     -fx-effect: dropshadow(three-pass-box, #00000080, 10, 0, 0, 0);
+
 }
 
 .phoneNumberCountry{
@@ -258,5 +260,7 @@
                 -fx-background-radius: 20;
                 -fx-effect: dropshadow(three-pass-box, #00000080, 10, 0, 0, 0);
 }
+
+
 
 

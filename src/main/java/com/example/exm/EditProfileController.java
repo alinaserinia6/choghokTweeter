@@ -20,7 +20,7 @@ import java.io.File;
 import java.io.IOException;
 public class EditProfileController {
 	@FXML
-	private Avatar avatar;
+	private ImageView avatar;
 	@FXML
 	private ImageView header;
 	@FXML

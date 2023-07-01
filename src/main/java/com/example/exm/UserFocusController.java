@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -16,7 +17,7 @@ import java.time.format.DateTimeFormatter;
 
 public class UserFocusController {
 	@FXML
-	private Avatar avatar;
+	private ImageView avatar;
 	@FXML
 	private Label name;
 	@FXML

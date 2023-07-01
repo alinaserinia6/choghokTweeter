@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.Avatar?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
@@ -13,6 +12,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.shape.Circle?>
 
 <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
     <columnConstraints>
@@ -89,10 +89,6 @@
                         <Font size="15.0" />
                     </font>
                 </Label>
-                <Avatar fx:id="avatar" layoutX="29.0" layoutY="121.0">
-                    <image>
-                        <Image url="@Psky.jpg" />
-                    </image></Avatar>
                 <TextArea fx:id="bio" editable="false" layoutY="226.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="74.0" prefWidth="421.0" promptText="Bio :" translateY="-10.0" wrapText="true">
                     <font>
                         <Font size="15.0" />
@@ -132,6 +128,17 @@
                         </Label>
                     </children>
                 </HBox>
+            <ImageView fx:id="avatar" fitHeight="50.0" fitWidth="50.0" layoutX="25.0" layoutY="110.0" pickOnBounds="true" >
+               <image>
+                  <Image url="@icons8-test-account-100.png" />
+               </image>
+                <clip>
+                    <Circle centerX="25" centerY="25" radius="25" />
+                </clip>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
             </children>
         </AnchorPane>
     </children>

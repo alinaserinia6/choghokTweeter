@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.Avatar?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -13,10 +12,11 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.profileController">
+<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="420.0" stylesheets="@anchor.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.profileController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -47,7 +47,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </ImageView>
-            <Label fx:id="name" alignment="CENTER_RIGHT" layoutX="7.0" layoutY="160.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="54.0" prefWidth="227.0" text="amin naseri" translateY="-13.0">
+            <Label fx:id="name" alignment="CENTER_RIGHT" layoutX="7.0" layoutY="160.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="54.0" prefWidth="227.0" text="amin naseri" translateX="4.0" translateY="-13.0">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -92,11 +92,7 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <Avatar fx:id="avatar" layoutX="12.0" layoutY="105.0" radius="30.0">
-               <image>
-                  <Image url="@PhomeFilled.png" />
-               </image></Avatar>
-            <Button fx:id="edit" layoutX="297.0" layoutY="144.0" mnemonicParsing="false" onAction="#editProfileButton" prefHeight="36.0" prefWidth="112.0" text="Edit profile">
+            <Button fx:id="edit" focusTraversable="false" layoutX="297.0" layoutY="144.0" mnemonicParsing="false" onAction="#editProfileButton" prefHeight="36.0" prefWidth="112.0" text="Edit profile">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -135,6 +131,17 @@
                   </Label>
                </children>
             </HBox>
+            <ImageView fx:id="avatar" fitHeight="50.0" fitWidth="50.0" layoutX="4.0" layoutY="90.0" pickOnBounds="true" translateX="15.0" translateY="15.0">
+               <image>
+                  <Image url="@icons8-test-account-100.png" />
+               </image>
+                <clip>
+                    <Circle centerX="25" centerY="25" radius="25" />
+                </clip>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
          </children>
       </AnchorPane>
       <HBox alignment="CENTER" prefHeight="214.0" prefWidth="285.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">

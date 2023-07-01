@@ -4,6 +4,7 @@ import com.gluonhq.charm.glisten.control.Avatar;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
@@ -14,7 +15,7 @@ public class TimeLineController {
 	@FXML
 	private MFXScrollPane sp;
 	@FXML
-	private Avatar avatar;
+	private ImageView avatar;
 	private static boolean shutdown;
 	private static Thread thread;
 	private final int MAX_READ = 5 + 1;

@@ -4,6 +4,7 @@ import com.gluonhq.charm.glisten.control.Avatar;
 import io.github.palexdev.materialfx.controls.MFXScrollPane;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 
@@ -14,7 +15,7 @@ public class DirectController {
     @FXML
     private MFXScrollPane sp;
     @FXML
-    private Avatar avatar;
+    private ImageView avatar;
     private Thread thread;
     private boolean shutdown = false;
 

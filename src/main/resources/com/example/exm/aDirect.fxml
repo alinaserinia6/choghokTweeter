@@ -1,36 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.Avatar?>
-<?import io.github.palexdev.materialfx.controls.MFXScrollPane?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.Cursor?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Font?>
+<?import io.github.palexdev.materialfx.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="625.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.DirectController">
+<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="625.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.DirectController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
    </columnConstraints>
    <rowConstraints>
-      <RowConstraints maxHeight="40.0" minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="600.0" minHeight="10.0" prefHeight="539.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="57.0" minHeight="10.0" prefHeight="55.0" valignment="CENTER" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="600.0" minHeight="10.0" prefHeight="524.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
       <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="421.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <children>
-            <Label text="Choghok" translateX="60.0">
+            <ImageView fx:id="avatar" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#setting" pickOnBounds="true"  translateX="-30.0">
+               <image>
+                  <Image url="@icons8-test-account-100.png" />
+               </image>
+               <clip>
+                  <Circle centerX="25" centerY="25" radius="25" />
+               </clip>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
+            <Label text="Choghok" translateX="20.0">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Label>
-            <ImageView fitHeight="49.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true" translateX="50.0">
+            <ImageView fitHeight="49.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true" translateX="10.0">
                <image>
                   <Image url="@PchoghockIcon.png" />
                </image>
@@ -38,14 +45,6 @@
                   <Insets right="70.0" />
                </HBox.margin>
             </ImageView>
-            <Avatar fx:id="avatar" onMouseClicked="#setting" translateX="45.0">
-               <HBox.margin>
-                  <Insets />
-               </HBox.margin>
-               <cursor>
-                  <Cursor fx:constant="HAND" />
-               </cursor>
-            </Avatar>
          </children>
       </HBox>
       <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="20.0" minWidth="20.0" prefHeight="46.0" prefWidth="420.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">

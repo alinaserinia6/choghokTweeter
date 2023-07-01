@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.Avatar?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -17,9 +16,10 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.EditProfileController">
+<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="625.0" prefWidth="420.0" stylesheets="@anchor.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.EditProfileController">
     <columnConstraints>
         <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
     </columnConstraints>
@@ -33,17 +33,9 @@
             <Image url="@Pheader.png" />
          </image>
       </ImageView>
-      <Avatar fx:id="avatar" minHeight="50.0" minWidth="50.0" onMouseClicked="#changeAvatar" radius="25.0" translateX="176.0" translateY="65.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
-         <image>
-            <Image url="@add.png" />
-         </image>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Avatar>
       <VBox alignment="CENTER" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <children>
-            <TextField fx:id="firstname" alignment="CENTER" maxWidth="350.0" prefHeight="0.0" prefWidth="120.0" promptText="FirstName:" styleClass="firstname" stylesheets="anchor.css" translateY="-85.0" VBox.vgrow="ALWAYS">
+            <TextField fx:id="firstname" alignment="CENTER" maxWidth="350.0" prefHeight="0.0" prefWidth="120.0" promptText="FirstName:" styleClass="firstname" stylesheets="anchor.css" translateY="-80.0" VBox.vgrow="ALWAYS">
                <effect>
                   <Blend />
                </effect>
@@ -54,7 +46,7 @@
                   <Font size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="lastname" alignment="CENTER" maxWidth="350.0" prefHeight="36.0" prefWidth="399.0" promptText="LastName:" styleClass="lastname" stylesheets="anchor.css" translateY="-64.0">
+            <TextField fx:id="lastname" alignment="CENTER" maxWidth="350.0" prefHeight="36.0" prefWidth="399.0" promptText="LastName:" styleClass="lastname" stylesheets="anchor.css" translateY="-50.0">
                <effect>
                   <Blend />
                </effect>
@@ -62,12 +54,12 @@
                   <Font size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="bio" alignment="CENTER" maxWidth="350.0" prefHeight="46.0" prefWidth="350.0" promptText="Bio:   " styleClass="bio" stylesheets="anchor.css" translateY="-34.0">
+            <TextField fx:id="bio" alignment="CENTER" maxWidth="350.0" prefHeight="46.0" prefWidth="350.0" promptText="Bio:   " styleClass="bio" stylesheets="anchor.css" translateY="-20.0">
                <font>
                   <Font size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="city" alignment="CENTER" maxWidth="350.0" prefHeight="26.0" prefWidth="319.0" promptText="Location:   " styleClass="city" stylesheets="anchor.css" translateY="1.0">
+            <TextField fx:id="city" alignment="CENTER" maxWidth="350.0" prefHeight="26.0" prefWidth="319.0" promptText="Location:   " styleClass="city" stylesheets="anchor.css" translateY="11.0">
                <effect>
                   <Blend />
                </effect>
@@ -75,7 +67,7 @@
                   <Font size="15.0" />
                </font>
             </TextField>
-            <TextField fx:id="website" alignment="CENTER" maxWidth="350.0" prefHeight="26.0" prefWidth="319.0" promptText="website:" styleClass="website" stylesheets="anchor.css" translateY="33.0">
+            <TextField fx:id="website" alignment="CENTER" maxWidth="350.0" prefHeight="26.0" prefWidth="319.0" promptText="website:" styleClass="website" stylesheets="anchor.css" translateY="44.0">
                <effect>
                   <Blend />
                </effect>
@@ -83,12 +75,12 @@
                   <Font size="15.0" />
                </font>
             </TextField>
-            <DatePicker maxWidth="350.0" prefHeight="26.0" prefWidth="320.0" promptText="                                      Date of birth:" translateY="65.0">
+            <DatePicker maxWidth="350.0" prefHeight="26.0" prefWidth="320.0" promptText="                                      Date of birth:" translateY="75.0">
                <effect>
                   <Blend />
                </effect>
             </DatePicker>
-            <Button fx:id="save" mnemonicParsing="false" onAction="#saveButton" prefHeight="30.0" prefWidth="84.0" text="Save" translateY="100.0">
+            <Button fx:id="save" mnemonicParsing="false" onAction="#saveButton" prefHeight="30.0" prefWidth="84.0" text="Save" translateY="105.0">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
@@ -138,13 +130,21 @@
             </VBox>
          </children>
       </AnchorPane>
-      <ImageView fitHeight="49.0" fitWidth="53.0" onMouseClicked="#changeHeader" pickOnBounds="true" preserveRatio="true" translateX="-180.0" translateY="50.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+      <ImageView fitHeight="50.0" fitWidth="50.0" onMouseClicked="#changeHeader" pickOnBounds="true" preserveRatio="true" translateX="-180.0" translateY="50.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <image>
             <Image url="@add-photo.png" />
          </image>
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
+      </ImageView>
+      <ImageView fx:id="avatar" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#changeAvatar" pickOnBounds="true"  translateX="160.0" translateY="48.0" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+         <image>
+            <Image url="@add.png" />
+         </image>
+         <clip>
+            <Circle centerX="25" centerY="25" radius="25" />
+         </clip>
       </ImageView>
    </children>
 </GridPane>

@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 
 public class WriteMassageController {
 	@FXML
-	private Avatar avatar;
+	private ImageView avatar;
 	@FXML
 	private Label name;
 	@FXML

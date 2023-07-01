@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.Avatar?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
@@ -9,6 +8,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Circle?>
 
 <GridPane maxWidth="420.0" minHeight="100.0" minWidth="400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
@@ -24,16 +24,15 @@
       <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <Avatar fx:id="avatar" minHeight="40.0" minWidth="40.0" GridPane.rowIndex="1" />
       <HBox prefHeight="40.0" prefWidth="134.0" spacing="4.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
          <children>
-            <Label fx:id="name" text="name">
+            <Label fx:id="name" text="name" translateX="20.0">
                <HBox.margin>
                   <Insets left="3.0" />
                </HBox.margin>
             </Label>
-            <Label fx:id="usernameLabel" text="\@username" />
-            <Label fx:id="datePassed" text="datePassed" />
+            <Label fx:id="usernameLabel" text="\@username" translateX="20.0" />
+            <Label fx:id="datePassed" text="datePassed" translateX="20.0" />
          </children>
       </HBox>
       <HBox prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
@@ -70,5 +69,13 @@
             </HBox>
          </children>
       </HBox>
+      <ImageView fx:id="avatar" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true"  translateX="10.0" translateY="-5.0" GridPane.rowIndex="1">
+         <image>
+            <Image url="@icons8-test-account-100.png" />
+         </image>
+          <clip>
+              <Circle centerX="25" centerY="25" radius="25" />
+          </clip>
+      </ImageView>
    </children>
 </GridPane>

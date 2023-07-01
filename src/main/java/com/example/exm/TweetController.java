@@ -30,7 +30,7 @@ public class TweetController {
     @FXML
     private Label quote;
     @FXML
-    private Avatar avatar;
+    private ImageView avatar;
     @FXML
     private Label date;
     @FXML

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.Avatar?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
@@ -11,6 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
 <GridPane alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
@@ -79,12 +79,7 @@
       </Label>
       <HBox>
          <children>
-            <Avatar fx:id="avatar" maxHeight="50.0" maxWidth="50.0" minHeight="40.0" minWidth="40.0" translateX="18.0">
-               <image>
-                  <Image url="@profile.gif" />
-               </image>
-            </Avatar>
-            <VBox minHeight="30.0" minWidth="40.0" prefHeight="46.0" prefWidth="154.0" translateX="20.0">
+            <VBox minHeight="30.0" minWidth="40.0" prefHeight="46.0" prefWidth="154.0" translateX="70.0" translateY="6.0">
                <children>
                   <Label fx:id="name" prefHeight="20.0" prefWidth="128.0" text="name">
                      <font>
@@ -96,6 +91,14 @@
                      </font></Label>
                </children>
             </VBox>
+            <ImageView fx:id="avatar" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true"  translateX="-150.0">
+               <image>
+                  <Image url="@icons8-test-account-100.png" />
+               </image>
+               <clip>
+                  <Circle centerX="25" centerY="25" radius="25" />
+               </clip>
+            </ImageView>
          </children>
       </HBox>
    </children>

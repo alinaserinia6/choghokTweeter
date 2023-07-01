@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.Avatar?>
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import io.github.palexdev.materialfx.controls.MFXScrollPane?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -13,6 +13,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.shape.Circle?>
 
 <GridPane alignment="CENTER" maxHeight="1600.0" maxWidth="720.0" minHeight="625.0" minWidth="420.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
   <columnConstraints>
@@ -31,7 +32,17 @@
                   <Image url="@Pback.png" />
                </image>
             </ImageView>
-            <Avatar fx:id="avatar" translateX="-5.0" />
+            <ImageView fx:id="avatar" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true"  translateX="-3.0">
+               <image>
+                  <Image url="@icons8-test-account-100.png" />
+               </image>
+               <clip>
+                  <Circle centerX="25" centerY="25" radius="25" />
+               </clip>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
             <VBox prefHeight="40.0" prefWidth="160.0">
                <children>
                   <Label fx:id="name" prefHeight="21.0" prefWidth="161.0" text="name" translateY="7.0">

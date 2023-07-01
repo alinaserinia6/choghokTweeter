@@ -1,13 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.Avatar?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
 
 <Pane maxHeight="90.0" maxWidth="420.0" minHeight="70.0" minWidth="400.0" onMouseClicked="#writeMassagePage" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Avatar fx:id="avatar" layoutX="14.0" layoutY="12.0" onMouseClicked="#writeMassagePage" />
       <Label fx:id="detail" layoutX="57.0" layoutY="12.0" onMouseClicked="#writeMassagePage" text="firstName lastName userName date" />
       <Label fx:id="text" layoutX="57.0" layoutY="40.0" onMouseClicked="#writeMassagePage" text="text" />
+      <ImageView fx:id="avatar" fitHeight="50.0" fitWidth="50.0" layoutX="7.0" layoutY="10.0" onMouseClicked="#writeMassagePage" pickOnBounds="true"  translateX="-4.0">
+         <image>
+            <Image url="@icons8-test-account-100.png" />
+         </image>
+         <clip>
+            <Circle centerX="25" centerY="25" radius="25" />
+         </clip>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
    </children>
 </Pane>

@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.Avatar?>
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.shape.Circle?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Avatar fx:id="avatar" layoutX="126.0" layoutY="7.0" />
       <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="69.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Pliked.png" />
@@ -25,5 +24,13 @@
             <Font name="System Bold" size="15.0" />
          </font></Label>
       <JFXTextArea fx:id="text" layoutX="44.0" layoutY="43.0" maxHeight="40.0" maxWidth="360.0" minHeight="20.0" minWidth="300.0" wrapText="true" />
+      <ImageView fx:id="avatar" fitHeight="50.0" fitWidth="50.0" layoutX="121.0" pickOnBounds="true"  translateX="-3.0">
+         <image>
+            <Image url="@icons8-test-account-100.png" />
+         </image>
+         <clip>
+            <Circle centerX="25" centerY="25" radius="25" />
+         </clip>
+      </ImageView>
    </children>
 </Pane>

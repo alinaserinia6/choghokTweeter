@@ -4,13 +4,14 @@ import com.gluonhq.charm.glisten.control.Avatar;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
 
 public class FocusTweetController { // TODO DELETE THIS
     @FXML
-    private Avatar avatar;
+    private ImageView avatar;
     @FXML
     private Label name;
     @FXML

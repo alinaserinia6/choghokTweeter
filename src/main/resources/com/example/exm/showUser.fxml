@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.Avatar?>
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.shape.Circle?>
 <Pane maxHeight="300.0" maxWidth="420.0" minHeight="100.0" minWidth="280.0" prefHeight="100.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Avatar fx:id="avatar" layoutX="234.0" layoutY="9.0" onMouseClicked="#seeProfile" translateX="50.0" />
       <Label fx:id="name" alignment="TOP_LEFT" layoutX="115.0" layoutY="9.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="18.0" prefWidth="149.0" text="name" textOverrun="CLIP">
          <font>
             <Font size="15.0" />
@@ -19,5 +21,16 @@
          </font></Label>
       <Label fx:id="bio" alignment="CENTER_RIGHT" layoutX="203.0" layoutY="54.0" text="bio" />
       <JFXButton fx:id="follow" layoutX="15.0" layoutY="15.0" onAction="#followButton" text="follow" />
+      <ImageView fx:id="avatar" fitHeight="50.0" fitWidth="50.0" layoutX="239.0" layoutY="2.0" onMouseClicked="#seeProfile" pickOnBounds="true" >
+         <image>
+            <Image url="@icons8-test-account-100.png" />
+         </image>
+         <clip>
+            <Circle centerX="25" centerY="25" radius="25" />
+         </clip>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
    </children>
 </Pane>

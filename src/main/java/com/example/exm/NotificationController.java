@@ -3,6 +3,7 @@ package com.example.exm;
 import com.gluonhq.charm.glisten.control.Avatar;
 import io.github.palexdev.materialfx.controls.MFXScrollPane;
 import javafx.fxml.FXML;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
@@ -12,7 +13,7 @@ public class NotificationController {
 	@FXML
 	private MFXScrollPane sp;
 	@FXML
-	private Avatar avatar;
+	private ImageView avatar;
 
 	public void initialize() {
 		sp.setContent(Client.notification);

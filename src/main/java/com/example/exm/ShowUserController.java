@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -27,7 +28,7 @@ public class ShowUserController {
 	@FXML
 	private JFXButton follow;
 	@FXML
-	private Avatar avatar;
+	private ImageView avatar;
 	private boolean isFollow;
 	private Following following;
 	private User user;

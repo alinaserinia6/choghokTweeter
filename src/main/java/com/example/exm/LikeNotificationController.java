@@ -5,6 +5,7 @@ import com.jfoenix.controls.JFXTextArea;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 public class LikeNotificationController {
 	@FXML
@@ -12,7 +13,7 @@ public class LikeNotificationController {
 	@FXML
 	private Label username;
 	@FXML
-	private Avatar avatar;
+	private ImageView avatar;
 	@FXML
 	private JFXTextArea text;
 	public void build(User user, Tweet tweet) {

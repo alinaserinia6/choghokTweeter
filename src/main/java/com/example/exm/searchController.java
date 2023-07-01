@@ -4,6 +4,7 @@ import com.gluonhq.charm.glisten.control.Avatar;
 import io.github.palexdev.materialfx.controls.MFXScrollPane;
 import io.github.palexdev.materialfx.controls.MFXTextField;
 import javafx.fxml.FXML;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 
 import java.io.IOException;
@@ -15,7 +16,7 @@ public class searchController {
     @FXML
     private MFXTextField searchBox;
     @FXML
-    private Avatar avatar;
+    private ImageView avatar;
     @FXML
     private MFXScrollPane sp;
 
