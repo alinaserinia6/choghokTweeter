@@ -19,6 +19,7 @@ public enum RM { // REQUEST METHOD
     UPDATE_USER,
     GET_HASHTAG,
     NEW_USER,
-    SEE_USER, // TODO
+    SEE_USER,
+    QUOTE,
     END_PROCESS
 }

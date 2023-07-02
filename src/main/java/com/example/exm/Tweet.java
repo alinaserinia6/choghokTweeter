@@ -15,19 +15,20 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 public class Tweet implements Serializable {
-	private int id;
-	private String avatar;
-	private String name;
-	private String username;
+	protected int id;
+	protected String avatar;
+	protected String name;
+	protected String username;
 	private String text;
 	protected LocalDateTime dt;
 	protected ArrayList<String> likes;
 	public ArrayList<Comment> comments;
 	protected ArrayList<String> retweet;
+	public ArrayList<Quote> quotes;
 	private String retweetByUser;
-	private transient TweetController controller;
+	protected transient TweetController controller;
 	private transient FocusTweetController focusController;
-	private transient boolean firstTime;
+	protected transient boolean firstTime;
 
 	public Tweet() {
 		id = -1;
@@ -40,6 +41,7 @@ public class Tweet implements Serializable {
 		likes = new ArrayList<>();
 		comments = new ArrayList<>();
 		retweet = new ArrayList<>();
+		quotes = new ArrayList<>();
 		avatar = "PdefaultAvatar.png";
 	}
 
@@ -76,10 +78,9 @@ public class Tweet implements Serializable {
 		JFXTextArea txt = new JFXTextArea();
 		fitTextArea(txt);
 		txt.setCursor(Cursor.HAND);
-		Tweet thisTweet = this;
 		txt.setOnMouseClicked(e -> {
 			try {
-				Client.selectedTweet = thisTweet;
+				Client.selectedTweet = id;
 				HelloApplication.ChangePage(e, "aFocusTweet");
 			} catch (IOException ex) {
 				throw new RuntimeException(ex);
@@ -101,7 +102,9 @@ public class Tweet implements Serializable {
 	}
 	public GridPane toFocus() throws IOException {
 		updateTweet(Client.tweets.get(id));
+		Client.selectedTweet = id;
 		focusController = makeFocusController();
+		Client.focusTweetControllers.put(id, focusController);
 		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("focusTweet.fxml"));
 		fxmlLoader.setController(focusController);
 		GridPane p = fxmlLoader.load();
@@ -112,7 +115,7 @@ public class Tweet implements Serializable {
 		return p;
 	}
 
-	private void makeController() {
+	protected void makeController() {
 		controller = Client.tweetControllers.get(id);
 		if (controller == null) {
 			System.err.println("making new controller for " + id + " tweet");

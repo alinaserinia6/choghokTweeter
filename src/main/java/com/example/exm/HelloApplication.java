@@ -67,8 +67,11 @@ public class HelloApplication extends Application implements Runnable {
 
 	public static void ChangePage(Event e, String fxmlFile) throws IOException {
 		Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-		Parent root = FXMLLoader.load(HelloApplication.class.getResource(fxmlFile + ".fxml"));
+//		Parent root = FXMLLoader.load(HelloApplication.class.getResource(fxmlFile + ".fxml"));
+		FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource(fxmlFile + ".fxml"));
+		Parent root = fxmlLoader.load();
 		root.setId(fxmlFile);
+		if (fxmlFile.equals("aFocusTweet")) Client.tp = fxmlLoader.getController();
 		Scene scene = new Scene(root);
 		stage.setScene(scene);
 		Application a = new Application() {@Override public void start(Stage stage) throws Exception {}};

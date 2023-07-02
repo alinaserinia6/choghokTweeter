@@ -28,7 +28,8 @@ public class Client {
 	public static HashMap<String, ShowUserController> showUserControllers = new HashMap<>();
 	public static HashMap<Integer, Tweet> tweets = new HashMap<>();
 	public static LocalDateTime LAST_USER_SEEN = LocalDateTime.MIN;
-	public static Tweet selectedTweet;
+	public static Integer selectedTweet;
+	public static TweetPageController tp;
 
 	public static void main(String[] args) throws InterruptedException {
 		Instant start = Instant.now();

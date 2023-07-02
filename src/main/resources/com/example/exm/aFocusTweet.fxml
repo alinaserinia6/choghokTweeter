@@ -4,22 +4,27 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="625.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.TweetPageController">
+<GridPane alignment="CENTER" maxHeight="625.0" maxWidth="420.0" prefHeight="625.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.TweetPageController">
    <columnConstraints>
-      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="420.0" />
    </columnConstraints>
    <rowConstraints>
-      <RowConstraints maxHeight="40.0" minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="600.0" minHeight="10.0" prefHeight="539.0" vgrow="SOMETIMES" />
-      <RowConstraints maxHeight="50.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="50.0" minHeight="10.0" valignment="CENTER" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="550.0" minHeight="10.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="50.0" minHeight="10.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="5.0" />
+      <RowConstraints maxHeight="5.0" />
    </rowConstraints>
    <children>
       <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="49.0" prefWidth="421.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
@@ -37,7 +42,7 @@
                   <Insets right="70.0" />
                </HBox.margin>
             </ImageView>
-            <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true" rotate="180.0" translateX="80.0">
+            <ImageView fitHeight="40.0" fitWidth="40.0" onMouseClicked="#timelineButton" pickOnBounds="true" preserveRatio="true" rotate="180.0" translateX="80.0">
                <image>
                   <Image url="@Pback.png" />
                </image>
@@ -87,5 +92,44 @@
          </padding>
       </HBox>
       <MFXScrollPane fx:id="sp" fitToWidth="true" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="536.0" prefWidth="422.0" vbarPolicy="NEVER" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+      <AnchorPane id="panel" fx:id="panel" maxHeight="1.7976931348623157E308" minHeight="100.0" minWidth="420.0" stylesheets="@CeditProfile.css" translateY="53.0" GridPane.rowIndex="4">
+         <children>
+            <VBox alignment="TOP_CENTER" minWidth="420.0" spacing="10.0">
+               <children>
+                  <Separator maxWidth="50.0" minWidth="30.0" />
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#retweet" spacing="5.0">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Pretweet.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Retweet" />
+                     </children>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" onMouseClicked="#quote" spacing="5.0">
+                     <children>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@Pquote.png" />
+                           </image>
+                        </ImageView>
+                        <Label text="Quote Tweet" />
+                     </children>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </HBox>
+               </children>
+               <padding>
+                  <Insets top="5.0" />
+               </padding>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="frontAnchor" managed="false" minHeight="490.0" minWidth="420.0" onMouseClicked="#panelDown" opacity="0.31" prefWidth="420.0" style="-fx-background-color: #ffcc33;" translateY="-330.0" GridPane.rowIndex="3" />
    </children>
 </GridPane>

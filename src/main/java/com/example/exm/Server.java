@@ -252,15 +252,27 @@ class Accept extends Thread {
 								if (tweet.retweet.contains(user.getUsername())) {
 									user.tweets.remove(id);
 									tweet.retweet.remove(user.getUsername());
-									System.out.println("unRetweet -> " + tweet.getLikes().size());
 								} else {
 									user.tweets.put(id, tweet);
 									tweet.retweet.add(user.getUsername());
-									System.out.println("Retweet -> " + tweet.getLikes().size());
 								}
 								Server.users.get(username).tweets.put(id, tweet);
 							}
-							// TODO ONLINE USER
+						}
+						case QUOTE -> {
+							synchronized (this) {
+								String username = (String) o.get1();
+								Integer id = (Integer) o.get2();
+								Quote q = (Quote) o.get3();
+								q.setId(Server.TweetId);
+								System.out.println(username + " " + id + " quote");
+								out.writeObject(Server.TweetId);
+								Tweet tweet = Server.users.get(username).tweets.get(id);
+								user.tweets.put(Server.TweetId, q);
+								tweet.quotes.add(q);
+								Server.tweets.add(q);
+								Server.TweetId++;
+							}
 						}
 						case DIRECT_MASSAGE -> {
 							User user = (User) o.get1();

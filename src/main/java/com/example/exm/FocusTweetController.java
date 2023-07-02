@@ -33,6 +33,7 @@ public class FocusTweetController {
 	private Image disliked = new Image(getClass().getResource("Plike.png").toString());
 	private Image notRetweet = new Image(getClass().getResource("Pretweet.png").toString());
 	private Image retweeted = new Image(getClass().getResource("Pretweeted.png").toString());
+	private boolean itsMe;
 	private int id;
 	private String username;
 	private Tweet tweet;
@@ -49,6 +50,7 @@ public class FocusTweetController {
 		this.usernameLabel.setText(tweet.getUsername());
 		this.username = tweet.getUsername();
 		this.tc = Client.tweetControllers.get(id);
+		this.itsMe = username.equals(Client.user.getUsername());
 		DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyy MMM");
 		this.date.setText(tweet.getDt().format(format));
 		if (Client.user.likes.contains(id)) {
@@ -56,7 +58,7 @@ public class FocusTweetController {
 		} else {
 			likePicture.setImage(disliked);
 		}
-		if (Client.user.tweets.containsKey(id)) {
+		if (Client.user.tweets.containsKey(id) && !itsMe) {
 			retweetPicture.setImage(retweeted);
 		} else {
 			retweetPicture.setImage(notRetweet);
@@ -88,7 +90,7 @@ public class FocusTweetController {
 			tweet.getRetweet().remove(Client.user.getUsername());
 			retweetPicture.setImage(retweeted);
 		}
-		if (!tweet.getRetweet().contains(Client.user.getUsername()) && Client.user.tweets.containsKey(id)) {
+		if (!tweet.getRetweet().contains(Client.user.getUsername()) && Client.user.tweets.containsKey(id) && !itsMe) {
 			tweet.getRetweet().add(Client.user.getUsername());
 			retweetPicture.setImage(notRetweet);
 		}
@@ -129,6 +131,11 @@ public class FocusTweetController {
 	}
 	@FXML
 	void retweetButton(MouseEvent e) throws IOException {
+		if (itsMe) return;
+		Client.tp.panelUp();
+	}
+
+	public void selectRetweet() throws IOException {
 		Client.out.writeObject(new Request(RM.RETWEET, username, id));
 		if (Client.user.tweets.containsKey(id)) {
 			Client.user.tweets.remove(id);
@@ -141,6 +148,10 @@ public class FocusTweetController {
 			retweetChange(1);
 			tc.retweetChange(1);
 		}
+	}
+
+	public void selectQuote(MouseEvent e) throws IOException {
+		HelloApplication.ChangePage(e, "aQuote");
 	}
 
 }

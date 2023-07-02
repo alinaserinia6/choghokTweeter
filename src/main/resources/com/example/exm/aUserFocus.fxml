@@ -131,7 +131,7 @@
                </cursor>
             </ImageView>
             <JFXTextArea fx:id="bio" layoutX="1.0" layoutY="216.0" maxHeight="70.0" maxWidth="420.0" minHeight="50.0" minWidth="400.0" />
-            <JFXButton fx:id="follow" layoutX="306.0" layoutY="150.0" maxHeight="45.0" maxWidth="100.0" minHeight="35.0" minWidth="80.0" onAction="#followButton" text="Following" />
+            <JFXButton id="nextButton" fx:id="follow" layoutX="306.0" layoutY="150.0" maxHeight="45.0" maxWidth="100.0" minHeight="35.0" minWidth="80.0" onAction="#followButton" text="Following" />
             </children>
         </AnchorPane>
     </children>
