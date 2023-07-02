@@ -1,7 +1,7 @@
 module com.example.exm {
     requires javafx.controls;
     requires javafx.fxml;
-    requires javafx.media;
+//    requires javafx.media;
 	requires com.jfoenix;
 	requires com.gluonhq.charm.glisten;
 	requires com.gluonhq.attach.util;
