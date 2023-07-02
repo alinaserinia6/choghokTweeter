@@ -34,7 +34,20 @@ public class Server {
 		t.updateUser(support.getAvatarAsString(), support.getName());
 		support.tweets.put(110, t);
 		tweets.add(t);
-
+		try {
+			FileInputStream fos = new FileInputStream("/home/ali/B/exm/src/main/resources/com/example/exm/choghok.bin");
+			ObjectInputStream oos = new ObjectInputStream(fos);
+			users = (ConcurrentHashMap<String, User>) oos.readObject();
+			keys = (HashSet<String>) oos.readObject();
+			tweets = (ArrayList<Tweet>) oos.readObject();
+			hashtag = (HashMap<String, Integer>) oos.readObject();
+			oos.close();
+		} catch(EOFException ignore){
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		} catch (ClassNotFoundException e) {
+			throw new RuntimeException(e);
+		}
 
 		System.out.println("\t".repeat(7) + "{SERVER}\n");
 		try (ServerSocket serverSocket = new ServerSocket(5757)){
@@ -49,11 +62,23 @@ public class Server {
 			}
 		} catch (IOException exception) {
 			exception.printStackTrace();
+		} finally {
+			try {
+				FileOutputStream fos = new FileOutputStream("/home/ali/B/exm/src/main/resources/com/example/exm/choghok.bin");
+				ObjectOutputStream oos = new ObjectOutputStream(fos);
+				oos.writeObject(users);
+				oos.writeObject(keys);
+				oos.writeObject(tweets);
+				oos.writeObject(hashtag);
+				oos.close();
+			} catch(IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 }
 class Accept extends Thread {
-	private Socket client;
+	private final Socket client;
 	private User user;
 
 	private final int MAX_READ = 5;
@@ -64,7 +89,7 @@ class Accept extends Thread {
 	public void run() {
 		ObjectInputStream in;
 		ObjectOutputStream out;
-		try { // TODO JSON WEB TOKENS
+		try {
 			in = new ObjectInputStream(client.getInputStream());
 			out = new ObjectOutputStream(client.getOutputStream());
 			while (true) {

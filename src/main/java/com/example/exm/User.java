@@ -30,7 +30,7 @@ public class User implements Serializable {
     private String birthDate;
     private LocalDateTime joinDate;
     private Gender gender;
-    private String password; // TODO transmit this
+    private String password;
     private transient UserController controller;
     private transient ShowUserController showController;
 

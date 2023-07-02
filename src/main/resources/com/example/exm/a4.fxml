@@ -33,13 +33,13 @@
                <font>
                   <Font size="15.0" />
                </font></Label>
-            <TextField fx:id="username" layoutX="15.0" layoutY="136.0" prefHeight="25.0" prefWidth="257.0" promptText="UserName:" styleClass="auser"  />
-            <PasswordField fx:id="password" layoutX="14.0" layoutY="264.0" prefHeight="25.0" prefWidth="257.0" promptText="Password:" styleClass="password"  />
+            <TextField fx:id="username" layoutX="15.0" layoutY="136.0" prefHeight="25.0" prefWidth="257.0" promptText="UserName:" styleClass="auser" />
+            <PasswordField fx:id="password" layoutX="14.0" layoutY="264.0" prefHeight="25.0" prefWidth="257.0" promptText="Password:" styleClass="password" />
             <Button fx:id="v1" layoutX="103.0" layoutY="408.0" mnemonicParsing="false" onAction="#singInbuttonAction" prefHeight="30.0" prefWidth="80.0" text="Sign in">
                <font>
                   <Font size="15.0" />
                </font></Button>
-            <Label fx:id="error" alignment="CENTER" layoutX="14.0" layoutY="517.0" prefHeight="86.0" prefWidth="240.0" textAlignment="CENTER" textFill="RED" translateX="13.0">
+            <Label fx:id="error" alignment="CENTER" layoutX="-12.0" layoutY="517.0" prefHeight="86.0" prefWidth="285.0" textAlignment="CENTER" textFill="RED" translateX="13.0">
                <font>
                   <Font size="15.0" />
                </font>
