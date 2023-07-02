@@ -1,22 +1,14 @@
 package com.example.exm;
 
-import com.gluonhq.charm.glisten.control.Avatar;
 import com.jfoenix.controls.JFXButton;
-import javafx.application.Application;
+import com.jfoenix.controls.JFXTextArea;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
 
 public class ShowUserController {
 	@FXML
@@ -24,62 +16,78 @@ public class ShowUserController {
 	@FXML
 	private Label username;
 	@FXML
-	private Label bio;
+	private JFXTextArea bio;
 	@FXML
 	private JFXButton follow;
 	@FXML
 	private ImageView avatar;
-	private boolean isFollow;
-	private Following following;
+	private UserController uc;
+	private Following f;
 	private User user;
-
-	public void build(User user, Following following) {
-		this.name.setText(user.getFirstName() + user.getLastName());
-		this.username.setText(user.getUsername());
-		this.bio.setText(user.getBio());
-		this.avatar.setImage(user.getAvatar());
-		this.following = following;
+	public void showBuild(User user) {
 		this.user = user;
-		isFollow = following != null && following.isFollowing();
-		if (isFollow) {
-			follow.setText("دنبال شده");
+		name.setText(user.getFirstName() + " " + user.getLastName());
+		username.setText("@"+ user.getUsername());
+		bio.setText(user.getBio());
+		avatar.setImage(user.getAvatar());
+		makeFollowing();
+		if (f.isFollowing()) {
+			follow.setText("Following");
 		} else {
-			follow.setText("دنبال کردن");
+			follow.setText("Follow");
 		}
 	}
+
+	public void makeFollowing() {
+		f = Client.user.following.get(user.getUsername());
+		if (f == null) {
+			f = new Following(user.getUsername());
+			f.setUser(user);
+			Client.user.following.put(user.getUsername(), f);
+		}
+	}
+
+	private void makeController() {
+		uc = Client.userControllers.get(user.getUsername());
+		if (uc == null) {
+			uc = new UserController();
+			Client.userControllers.put(user.getUsername(), uc);
+		}
+	}
+
+	@FXML
+	void seeProfile(MouseEvent e) throws IOException{
+		makeController();
+		TimeLineController.stop();
+		Client.out.writeObject(new Request(RM.SEE_USER, user.getUsername()));
+		User u = (User) Client.getObject();
+		user = u;
+		HelloApplication.ChangePage(e, "aUserFocus", uc);
+		uc.focusBuild(u);
+	}
+
 	@FXML
 	void followButton(ActionEvent e) throws IOException {
-		Client.out.writeObject(new Request(RM.FOLLOW_REQUEST, username.getText()));
-		if (following == null) {
-			following = new Following(username.getText(), LocalDateTime.MIN);
-			Client.user.following.put(username.getText(), following);
+		Client.out.writeObject(new Request(RM.FOLLOW_REQUEST, user.getUsername()));
+		Following f = Client.user.following.get(user.getUsername());
+		if (f.isFollowing()) {
+			follow.setText("Follow");
+			user.followers.remove(Client.user.getUsername());
 		} else {
-			following.follow();
+			follow.setText("Following");
+			user.followers.add(Client.user.getUsername());
 		}
-		if (isFollow) {
-			Client.user.following.remove(username.getText());
-			follow.setText("دنبال کردن");
-		} else {
-			Client.user.following.put(username.getText(), following);
-			follow.setText("دنبال شده");
-		}
-		isFollow = !isFollow;
+		f.follow();
 	}
 
-	@FXML
-	void seeProfile(MouseEvent e) throws IOException {
-		UserFocusController controller = new UserFocusController();
-		Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("aUserFocus.fxml"));
-		fxmlLoader.setController(controller);
-		controller.setUser(user);
-		Parent root = fxmlLoader.load();
-		root.setId("aUserFocus");
-		Scene scene = new Scene(root);
-		stage.setScene(scene);
-		Application a = new Application() {@Override public void start(Stage stage) throws Exception {}};
-		scene.getStylesheets().addAll(a.getClass().getResource("anchor.css").toExternalForm());
-		stage.show();
+	public void followChange() {
+		Following f = Client.user.following.get(user.getUsername());
+		if (f.isFollowing()) {
+			follow.setText("Follow");
+			user.followers.remove(Client.user.getUsername());
+		} else {
+			follow.setText("Following");
+			user.followers.add(Client.user.getUsername());
+		}
 	}
-
 }

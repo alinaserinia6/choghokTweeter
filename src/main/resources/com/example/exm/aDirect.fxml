@@ -23,7 +23,7 @@
          <children>
             <ImageView fx:id="avatar" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#setting" pickOnBounds="true"  translateX="-30.0">
                <image>
-                  <Image url="@icons8-test-account-100.png" />
+                  <Image url="@PdefaultAvatar.png" />
                </image>
                <clip>
                   <Circle centerX="25" centerY="25" radius="25" />

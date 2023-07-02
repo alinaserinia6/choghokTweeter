@@ -22,8 +22,14 @@ public class Client {
 	public static VBox contacts = new VBox();
 	public static VBox notification = new VBox();
 	public static LinkedHashMap<String, Direct> directs = new LinkedHashMap<>();
-	public static HashMap<Integer, TweetController> getTweetController = new HashMap<>();
+	public static HashMap<Integer, TweetController> tweetControllers = new HashMap<>();
+	public static HashMap<Integer, FocusTweetController> focusTweetControllers = new HashMap<>();
+	public static HashMap<String, UserController> userControllers = new HashMap<>();
+	public static HashMap<String, ShowUserController> showUserControllers = new HashMap<>();
+	public static HashMap<Integer, Tweet> tweets = new HashMap<>();
 	public static LocalDateTime LAST_USER_SEEN = LocalDateTime.MIN;
+	public static Tweet selectedTweet;
+
 	public static void main(String[] args) throws InterruptedException {
 		Instant start = Instant.now();
 		HelloApplication app = new HelloApplication();
@@ -57,7 +63,13 @@ public class Client {
 							Tweet t = (Tweet) r.get2();
 							System.out.println(showUser.getUsername() + " like tweet: " + t.getText());
 							LikeNotification likeNotification = new LikeNotification(showUser, t);
-							Client.notification.getChildren().add(0, likeNotification.toPane());
+							Platform.runLater(() -> {
+								try {
+									Client.notification.getChildren().add(0, likeNotification.toPane());
+								} catch (IOException e) {
+									throw new RuntimeException(e);
+								}
+							});
 						}
 						case DIRECT_MASSAGE -> {
 							User user = (User) r.get1();
@@ -73,9 +85,22 @@ public class Client {
 						case UPDATE_TWEET -> {
 							Tweet tweet = (Tweet) r.get1();
 							int id = tweet.getId();
-							TweetController t = Client.getTweetController.get(id);
+							Client.tweets.put(id, tweet);
+							TweetController t = Client.tweetControllers.get(id);
+							FocusTweetController f = Client.focusTweetControllers.get(id);
+							if (f != null) f.update(tweet);
 							t.update(tweet);
 							// TODO WHAT HAPPENED FOR ME
+						}
+						case NEW_USER -> {
+							User newUser = (User) r.get1();
+							Platform.runLater(() -> {
+								try {
+									Client.contacts.getChildren().add(newUser.toShow());
+								} catch (IOException e) {
+									throw new RuntimeException(e);
+								}
+							});
 						}
 					}
 					System.out.println("\u001B[35m" + "\t".repeat(7) + "{END" + "}\u001B[0m");

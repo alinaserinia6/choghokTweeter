@@ -1,6 +1,5 @@
 package com.example.exm;
 
-import com.gluonhq.charm.glisten.control.Avatar;
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;

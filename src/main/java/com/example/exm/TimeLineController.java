@@ -1,13 +1,11 @@
 package com.example.exm;
 
-import com.gluonhq.charm.glisten.control.Avatar;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
 import java.io.IOException;
 import io.github.palexdev.materialfx.controls.MFXScrollPane;
 
@@ -44,6 +42,7 @@ public class TimeLineController {
 					break;
 				}
 			}
+			thread = null;
 			System.out.println("finish thread");
 		});
 		thread.start();
@@ -55,21 +54,18 @@ public class TimeLineController {
 		for (int t = 0; t < MAX_READ; t++) {
 			try {
 				Tweet i = (Tweet) Client.getObject();
-//				System.out.println(i.getLikes().size());
+				Client.tweets.put(i.getId(), i);
 				if (i.getId() == -1) {
 					System.err.println("\t".repeat(7) + "{Finish}");
 					return;
 				}
-				System.out.println("i am in: " + i.getText() + ": " + i.getLikes().size());
 				GridPane pane = i.toShow();
 				Platform.runLater(() -> Client.timeline.getChildren().add(0, pane));
 				Client.out.writeObject(new Request(RM.LAST_SEEN_TIME, i.getUsername(), i.getDt()));
 			} catch (IOException e) {
-				System.err.println("get IOException");
 				e.printStackTrace();
 			}
 		}
-		System.err.println("finish getting tweet");
 	}
 
 	@FXML
@@ -102,10 +98,9 @@ public class TimeLineController {
 		HelloApplication.ChangePage(e, "aDirect");
 	}
 
-	public static void stop() {
+	public static void stop() { // TODO DELETE STATIC
 		shutdown = true;
-		thread.interrupt();
+		if (thread != null) thread.interrupt();
 	}
-
 
 }

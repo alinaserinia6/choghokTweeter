@@ -16,20 +16,15 @@ public class AddTweetController {
 
     @FXML
     void post(ActionEvent e) throws IOException {
-        if (text.getText().isEmpty()) {
-            return;
-        }
+        if (text.getText().isEmpty()) return;
         Tweet tweet = new Tweet(text.getText(), Client.user.getUsername());
-        tweet.update(Client.user.getAvatarAsString(), Client.user.getFirstName() + " " + Client.user.getLastName());
+        tweet.updateUser(Client.user.getAvatarAsString(), Client.user.getName());
         Client.out.writeObject(new Request(RM.ADD_TWEET, tweet));
-        System.out.println("request send");
         int id = (Integer) Client.getObject();
-        System.out.println("id get");
         tweet.setId(id);
         Client.user.tweets.put(id, tweet);
-        System.out.println("id set");
+        Client.tweets.put(id, tweet);
         Client.timeline.getChildren().add(0, tweet.toShow());
-        System.out.println("id pane");
         HelloApplication.ChangePage(e, "a5");
     }
 

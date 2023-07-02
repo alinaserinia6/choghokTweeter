@@ -12,80 +12,87 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane prefHeight="625.0" prefWidth="420.0" stylesheets="@anchor.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.HelloController">
+<GridPane prefHeight="625.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.HelloController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
    </columnConstraints>
    <rowConstraints>
+      <RowConstraints minHeight="50.0" valignment="CENTER" vgrow="SOMETIMES" />
       <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <VBox alignment="CENTER" prefHeight="623.0" prefWidth="285.0">
+      <Hyperlink alignment="CENTER" onAction="#asingin" prefHeight="35.0" prefWidth="144.0" text="Already SignUp" textFill="#615959" visited="true" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+         <font>
+            <Font size="17.0" />
+         </font>
+         <GridPane.margin>
+            <Insets right="150.0" />
+         </GridPane.margin>
+      </Hyperlink>
+      <Hyperlink fx:id="link1" alignment="CENTER" onMouseClicked="#emailClicked" prefHeight="34.0" prefWidth="148.0" text="SignUp By Email" textAlignment="CENTER" textFill="#615959" textOverrun="CLIP" visited="true" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+         <font>
+            <Font size="17.0" />
+         </font>
+         <opaqueInsets>
+            <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
+         </opaqueInsets>
+         <GridPane.margin>
+            <Insets right="150.0" />
+         </GridPane.margin>
+      </Hyperlink>
+      <Label fx:id="error" alignment="CENTER" focusTraversable="false" prefHeight="65.0" prefWidth="354.0" text="باید با سیاست های فوق امنیتی چغک موافقت کنید" textAlignment="CENTER" textFill="RED" visible="false" GridPane.halignment="CENTER" GridPane.rowIndex="6">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" GridPane.rowIndex="1">
          <children>
-            <Label prefHeight="26.0" prefWidth="287.0" text="please enter your phone number:" textFill="WHITE" translateX="5.0">
+            <ComboBox fx:id="phoneNumberCountry" maxHeight="50.0" maxWidth="100.0" minHeight="40.0" minWidth="100.0" styleClass="email" />
+            <TextField fx:id="phoneNumber" alignment="CENTER" maxHeight="50.0" maxWidth="230.0" minHeight="40.0" minWidth="210.0" promptText="--- --- ----" scaleShape="false" styleClass="email">
                <font>
-                  <Font size="17.0" />
-               </font>
-            </Label>
-            <Label fx:id="error" alignment="CENTER" prefHeight="65.0" prefWidth="354.0" text="باید با سیاست های فوق امنیتی چغک موافقت کنید" textAlignment="CENTER" textFill="RED" translateX="5.0" translateY="380.0" visible="false">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </Label>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <ComboBox fx:id="phoneNumberCountry" prefHeight="47.0" prefWidth="98.0" styleClass="email" stylesheets="anchor.css" translateY="-30.0" />
-                  <TextField fx:id="phoneNumber" alignment="CENTER" prefHeight="56.0" prefWidth="212.0" promptText="--- --- ----" styleClass="email" stylesheets="anchor.css" translateX="3.0" translateY="-30.0">
-                     <font>
-                        <Font size="26.0" />
-                     </font>
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </TextField>
-               </children>
-            </HBox>
-            <Hyperlink fx:id="link1" alignment="CENTER" focusTraversable="false" onMouseClicked="#emailClicked" prefHeight="34.0" prefWidth="148.0" text="SignUp By Email" textAlignment="CENTER" textFill="#615959" textOverrun="CLIP" translateX="-70.0" translateY="-5.0" visited="true">
-               <font>
-                  <Font size="17.0" />
+                  <Font size="26.0" />
                </font>
                <opaqueInsets>
-                  <Insets bottom="1.0" left="1.0" right="1.0" top="1.0" />
-               </opaqueInsets>
-            </Hyperlink>
-            <Hyperlink alignment="CENTER" focusTraversable="false" onAction="#asingin" prefHeight="35.0" prefWidth="144.0" text="Already SignUp" textFill="#615959" translateX="-72.0" visited="true">
-               <font>
-                  <Font size="17.0" />
-               </font>
-            </Hyperlink>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="41.0" prefWidth="316.0" text="I agree with Choghok super security policies" textFill="WHITE" translateX="-7.0" translateY="-10.0">
-                     <font>
-                        <Font size="15.0" />
-                     </font>
-                  </Label>
-                  <CheckBox fx:id="acceptRule" alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" mnemonicParsing="false" prefHeight="17.0" prefWidth="15.0" translateX="-5.0" translateY="-10.0" />
-               </children>
-            </HBox>
-            <Button fx:id="nextButton" mnemonicParsing="false" onAction="#nexti" prefHeight="43.0" prefWidth="99.0" text="Next">
-               <font>
-                  <Font name="System Bold" size="17.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor>
-               <VBox.margin>
                   <Insets />
-               </VBox.margin>
-            </Button>
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </TextField>
          </children>
-      </VBox>
+      </HBox>
+      <Button fx:id="nextButton" mnemonicParsing="false" onAction="#nexti" prefHeight="43.0" prefWidth="99.0" text="Next" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+         <font>
+            <Font name="System Bold" size="17.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="DEFAULT" />
+         </cursor>
+      </Button>
+      <HBox alignment="CENTER" centerShape="false" focusTraversable="true" prefHeight="100.0" prefWidth="200.0" scaleShape="false" spacing="15.0" GridPane.halignment="CENTER" GridPane.rowIndex="4">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" prefHeight="41.0" prefWidth="316.0" text="I agree with Choghok super security policies" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <CheckBox fx:id="acceptRule" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="17.0" prefWidth="15.0" />
+         </children>
+      </HBox>
+      <Label alignment="CENTER" contentDisplay="CENTER" focusTraversable="false" prefHeight="26.0" prefWidth="287.0" text="please enter your phone number:" textFill="WHITE" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+         <font>
+            <Font size="17.0" />
+         </font>
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+      </Label>
    </children>
 </GridPane>

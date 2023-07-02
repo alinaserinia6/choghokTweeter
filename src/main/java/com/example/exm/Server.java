@@ -14,6 +14,7 @@ public class Server {
 	public static ConcurrentHashMap<String, User> users = new ConcurrentHashMap<>();
 	public static HashSet<String> keys = new HashSet<>();
 	public static ArrayList<Tweet> tweets = new ArrayList<>();
+	public static HashMap<String, Integer> hashtag = new HashMap<>();
 	public static int TweetId;
 
 	public static void main(String[] args) {
@@ -30,11 +31,10 @@ public class Server {
 		user.tweets.put(66, c);
 		t.getLikes().add("amin");
 		t.setId(110);
-		t.update(support.getAvatarAsString(), support.getFirstName() + " " + support.getLastName());
+		t.updateUser(support.getAvatarAsString(), support.getName());
 		support.tweets.put(110, t);
 		tweets.add(t);
-//		Image image = new Image(Server.class.getResource("PchoghockIcon.png").toString());
-//		user.setAvatar(image);
+
 
 		System.out.println("\t".repeat(7) + "{SERVER}\n");
 		try (ServerSocket serverSocket = new ServerSocket(5757)){
@@ -90,6 +90,11 @@ class Accept extends Thread {
 							String key = (String) o.get2();
 							Server.keys.add(key);
 							Server.users.put(user.getUsername(), user);
+							for (ObjectOutputStream i : Server.onlineUser.values()) {
+								i.writeUnshared(new Request(RM.NEW_USER, user));
+								i.flush();
+								i.reset();
+							}
 							Server.onlineUser.put(user.getUsername(), out);
 						}
 						case GET_USER -> {
@@ -110,6 +115,9 @@ class Accept extends Thread {
 							out.writeObject(NEW_LAST);
 							out.writeObject(userList);
 						}
+						case GET_HASHTAG -> {
+							out.writeObject(Server.hashtag);
+						}
 						case CHECK_PASS -> {
 							String username = (String) o.get1();
 							String pass = (String) o.get2();
@@ -125,12 +133,21 @@ class Accept extends Thread {
 							synchronized (this) {
 								Server.TweetId++;
 							}
+							for (String i : tw.getText().split("( )|(\n)")) {
+								if (i.startsWith("#")) {
+									if (Server.hashtag.containsKey(i)) {
+										Server.hashtag.put(i, Server.hashtag.get(i) + 1);
+									} else {
+										Server.hashtag.put(i, 1);
+									}
+								}
+							}
 						}
 						case GET_TWEETS -> { // TODO sort by time
 							int readed = 0;
 							System.out.println("GET_TWEETS REQUEST FROM " + user.getUsername() + ":");
 							for (Following i : user.following.values()) {
-								String username = i.getUser();
+								String username = i.getUsername();
 								LocalDateTime ldt = i.getTime();
 								if (!i.isFollowing()) continue;
 								System.out.println(username + " " + ldt);
@@ -138,7 +155,7 @@ class Accept extends Thread {
 								for (Tweet j : u.tweets.values()) {
 									System.out.print(j);
 									if (j.getDt().isAfter(ldt)) {
-										j.update(u.getAvatarAsString(), u.getFirstName() + " " + u.getLastName());
+										j.updateUser(u.getAvatarAsString(), u.getName());
 										if (!j.getUsername().equals(username)) j.setRetweetByUser(username);
 										out.writeObject(j);
 										readed++;
@@ -161,11 +178,19 @@ class Accept extends Thread {
 						}
 						case FOLLOW_REQUEST -> {
 							String username = (String) o.get1();
+							User thatUser = Server.users.get(username);
 							Following f = user.following.get(username);
 							if (f == null) {
 								f = new Following(username, LocalDateTime.MIN);
+								f.setUser(thatUser);
 								user.following.put(username, f);
+								thatUser.followers.add(user.getUsername());
+							} else if (!f.isFollowing()) {
+								f.follow();
+								user.following.put(username, f);
+								thatUser.followers.add(user.getUsername());
 							} else {
+								thatUser.followers.remove(user.getUsername());
 								f.follow();
 							}
 						}
@@ -230,7 +255,11 @@ class Accept extends Thread {
 						case UPDATE_TWEET -> {
 							String username = (String) o.get1();
 							int id = (int) o.get2();
-							Tweet tweet = Server.users.get(username).tweets.get(id);
+							System.out.println("\u001B[34m" + "\t".repeat(7) + "{" + id + "}\u001B[0m");
+							User u = Server.users.get(username);
+							Tweet tweet = u.tweets.get(id);
+							tweet.setName(u.getName());
+							tweet.setAvatar(u.getAvatarAsString());
 							Request r = new Request(RM.UPDATE_TWEET, tweet);
 							out.writeUnshared(r); // TODO THANK GOD! :))))))
 							out.flush();
@@ -238,6 +267,10 @@ class Accept extends Thread {
 						}
 						case UPDATE_USER -> {
 							this.user = (User) o.get1();
+						}
+						case SEE_USER -> {
+							String username = (String) o.get1();
+							out.writeObject(Server.users.get(username));
 						}
 						case END_PROCESS -> {
 							throw new InterruptedException();
@@ -252,7 +285,7 @@ class Accept extends Thread {
 					System.err.println("file is empty");
 				}
 				System.out.print("+");
-				sleep(150);
+				sleep(1500);
 			}
 		} catch (IOException | InterruptedException e) {
 			try {

@@ -2,9 +2,9 @@ package com.example.exm;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.image.Image;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -31,6 +31,8 @@ public class User implements Serializable {
     private LocalDateTime joinDate;
     private Gender gender;
     private String password; // TODO transmit this
+    private transient UserController controller;
+    private transient ShowUserController showController;
 
     public User() {
         followers = new HashSet<>();
@@ -39,7 +41,7 @@ public class User implements Serializable {
         likes = new HashSet<>();
         gender = Gender.UNKNOWN;
         joinDate = LocalDateTime.MIN;
-        avatar = "Plike.png";
+        avatar = "PdefaultAvatar.png";
         header = "Pheader.png";
     }
 
@@ -54,7 +56,7 @@ public class User implements Serializable {
         likes = new HashSet<>();
         gender = Gender.UNKNOWN;
         this.joinDate = joinDate;
-        avatar = "Plike.png";
+        avatar = "PdefaultAvatar.png";
         header = "Pheader.png";
     }
 
@@ -70,8 +72,30 @@ public class User implements Serializable {
         gender = Gender.UNKNOWN;
         this.joinDate = joinDate;
         this.birthDate = birthDate;
-        avatar = "Plike.png";
+        avatar = "PdefaultAvatar.png";
         header = "Pheader.png";
+    }
+
+    public Pane toShow() throws IOException {
+        makeShowController();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("showUser.fxml"));
+        fxmlLoader.setController(showController);
+        Pane p = fxmlLoader.load();
+        showController.showBuild(this);
+        return p;
+    }
+
+    private void makeShowController() {
+        showController = Client.showUserControllers.get(username);
+        if (showController == null) {
+            showController = new ShowUserController();
+            Client.showUserControllers.put(username, showController);
+        }
+        if (Client.user.following.get(username) == null) {
+            Following f = new Following(username);
+            f.setUser(this);
+            Client.user.following.put(username, f);
+        }
     }
 
     public String getUsername() {
@@ -194,21 +218,13 @@ public class User implements Serializable {
     public void setWebsite(String website) {
         this.website = website;
     }
-
+    public String getName() {
+        return firstName + " " + lastName;
+    }
     @Override
     public String toString() {
         return "id: " + ((phoneNumber == null) ? email : phoneNumber) + "\n"
                 + "Name: " + firstName + " " + lastName + "\n"
                 + "username: " + username;
     }
-
-    public Pane usertoPane(Following f) throws IOException {
-        ShowUserController controller = new ShowUserController();
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("showUser.fxml"));
-        fxmlLoader.setController(controller);
-        Pane p = fxmlLoader.load();
-        controller.build(this, f);
-        return p;
-    }
-
 }

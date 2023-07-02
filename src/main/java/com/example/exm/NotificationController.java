@@ -1,6 +1,5 @@
 package com.example.exm;
 
-import com.gluonhq.charm.glisten.control.Avatar;
 import io.github.palexdev.materialfx.controls.MFXScrollPane;
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
@@ -38,5 +37,12 @@ public class NotificationController {
 	void directButton(MouseEvent e) throws IOException {
 		HelloApplication.ChangePage(e, "aDirect");
 	}
+
+	@FXML
+	void timelineButton(MouseEvent e) throws IOException {
+		HelloApplication.ChangePage(e, "a5");
+	}
+
+
 
 }

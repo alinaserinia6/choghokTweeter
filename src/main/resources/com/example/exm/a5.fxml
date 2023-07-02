@@ -10,8 +10,8 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Font?>
 <?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
 
 <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="625.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.TimeLineController">
    <columnConstraints>
@@ -38,9 +38,9 @@
                   <Insets right="70.0" />
                </HBox.margin>
             </ImageView>
-            <ImageView fx:id="avatar" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#setting" pickOnBounds="true"  translateX="50.0">
+            <ImageView fx:id="avatar" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#setting" pickOnBounds="true" translateX="50.0">
                <image>
-                  <Image url="@icons8-test-account-100.png" />
+                  <Image url="@PdefaultAvatar.png" />
                </image>
                <clip>
                   <Circle centerX="25" centerY="25" radius="25" />
@@ -93,7 +93,13 @@
             <Insets left="50.0" />
          </padding>
       </HBox>
-      <MFXScrollPane fx:id="sp" fitToWidth="true" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="536.0" prefWidth="422.0" vbarPolicy="NEVER" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+      <MFXScrollPane fx:id="sp" fitToWidth="true" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="536.0" prefWidth="422.0" vbarPolicy="NEVER" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+         <GridPane.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </GridPane.margin>
+         <padding>
+            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+         </padding></MFXScrollPane>
       <ImageView fitHeight="57.0" fitWidth="40.0" onMouseClicked="#addTweet" pickOnBounds="true" preserveRatio="true" translateX="-170.0" translateY="235.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <image>
             <Image url="@PaddTweet.png" />

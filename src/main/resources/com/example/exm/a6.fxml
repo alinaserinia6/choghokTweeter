@@ -31,7 +31,7 @@
       </ImageView>
       <HBox prefHeight="100.0" prefWidth="200.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <children>
-            <TextArea id="addtweet" fx:id="text" minWidth="240.0" nodeOrientation="LEFT_TO_RIGHT" onKeyTyped="#postButtonAppear" prefHeight="543.0" prefWidth="427.0" promptText="Whats up?" styleClass="addtweet" stylesheets="anchor.css" wrapText="true">
+            <TextArea id="addtweet" fx:id="text" minWidth="240.0" nodeOrientation="LEFT_TO_RIGHT" onKeyTyped="#postButtonAppear" prefHeight="543.0" prefWidth="427.0" promptText="Whats up?" styleClass="addtweet" wrapText="true">
                <font>
                   <Font size="16.0" />
                </font></TextArea>
@@ -39,7 +39,7 @@
          </children>
       </HBox>
       <HBox alignment="CENTER" fillHeight="false" prefHeight="125.0" prefWidth="285.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
-      <Button fx:id="postButton" mnemonicParsing="false" onAction="#post" prefHeight="31.0" prefWidth="72.0" text="Tweet" GridPane.hgrow="ALWAYS">
+      <Button fx:id="postButton" mnemonicParsing="false" onAction="#post" prefHeight="31.0" prefWidth="72.0" text="Tweet" GridPane.hgrow="ALWAYS" opacity="0.5">
          <font>
             <Font name="System Bold" size="15.0" />
          </font></Button>

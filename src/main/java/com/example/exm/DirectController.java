@@ -1,6 +1,5 @@
 package com.example.exm;
 
-import com.gluonhq.charm.glisten.control.Avatar;
 import io.github.palexdev.materialfx.controls.MFXScrollPane;
 import javafx.application.Platform;
 import javafx.fxml.FXML;

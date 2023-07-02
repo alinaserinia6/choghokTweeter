@@ -13,7 +13,7 @@
       <Label fx:id="text" layoutX="57.0" layoutY="40.0" onMouseClicked="#writeMassagePage" text="text" />
       <ImageView fx:id="avatar" fitHeight="50.0" fitWidth="50.0" layoutX="7.0" layoutY="10.0" onMouseClicked="#writeMassagePage" pickOnBounds="true"  translateX="-4.0">
          <image>
-            <Image url="@icons8-test-account-100.png" />
+            <Image url="@PdefaultAvatar.png" />
          </image>
          <clip>
             <Circle centerX="25" centerY="25" radius="25" />

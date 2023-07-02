@@ -30,7 +30,7 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <TextField fx:id="email" maxWidth="292.0" prefHeight="40.0" prefWidth="292.0" promptText="Email:" styleClass="email" stylesheets="anchor.css" translateY="150.0" />
+            <TextField fx:id="email" maxWidth="292.0" prefHeight="40.0" prefWidth="292.0" promptText="Email:" styleClass="email" translateY="150.0" />
             <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" translateY="300.0">
                <children>
                   <Button fx:id="b3" mnemonicParsing="false" onAction="#backnumber" prefHeight="31.0" prefWidth="80.0" text="Back" textOverrun="CLIP" translateX="-20.0" translateY="-80.0" />

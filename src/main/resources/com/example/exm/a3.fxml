@@ -32,13 +32,13 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <TextField fx:id="firstName" maxWidth="285.0" prefHeight="25.0" prefWidth="259.0" promptText="FirstName:" styleClass="firstName" stylesheets="anchor.css" translateY="7.0" />
+            <TextField fx:id="firstName" maxWidth="285.0" prefHeight="25.0" prefWidth="259.0" promptText="FirstName:" styleClass="firstName" translateY="7.0" />
             <Label prefHeight="21.0" prefWidth="80.0" text="LastName:" textFill="WHITE" translateX="-100.0" translateY="40.0">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <PasswordField fx:id="repeatPassword" maxWidth="286.0" prefHeight="25.0" prefWidth="286.0" styleClass="repeatPassword" stylesheets="anchor.css" translateY="245.0" />
+            <PasswordField fx:id="repeatPassword" maxWidth="286.0" prefHeight="25.0" prefWidth="286.0" styleClass="repeatPassword" translateY="245.0" />
             <Label prefHeight="21.0" prefWidth="80.0" text="Password:" textFill="WHITE" translateX="-100.0" translateY="130.0">
                <font>
                   <Font size="15.0" />
@@ -47,13 +47,13 @@
                <font>
                   <Font size="15.0" />
                </font></Label>
-            <PasswordField fx:id="password" maxHeight="200.0" maxWidth="285.0" prefHeight="25.0" prefWidth="285.0" styleClass="password" stylesheets="anchor.css" translateY="112.0" />
+            <PasswordField fx:id="password" maxHeight="200.0" maxWidth="285.0" prefHeight="25.0" prefWidth="285.0" styleClass="password" translateY="112.0" />
             <Label nodeOrientation="LEFT_TO_RIGHT" prefHeight="21.0" prefWidth="138.0" text="Date of birth :" textFill="WHITE" translateX="-73.0" translateY="207.0">
                <font>
                   <Font size="15.0" />
                </font></Label>
-            <TextField fx:id="lastName" maxWidth="285.0" prefHeight="25.0" prefWidth="259.0" promptText="LastName:" styleClass="lastName" stylesheets="anchor.css" translateY="-72.0" />
-            <TextField fx:id="userName" maxWidth="285.0" prefHeight="25.0" prefWidth="259.0" promptText="UserName:" styleClass="userName" stylesheets="anchor.css" translateY="-30.0" />
+            <TextField fx:id="lastName" maxWidth="285.0" prefHeight="25.0" prefWidth="259.0" promptText="LastName:" styleClass="lastName" translateY="-72.0" />
+            <TextField fx:id="userName" maxWidth="285.0" prefHeight="25.0" prefWidth="259.0" promptText="UserName:" styleClass="userName" translateY="-30.0" />
             <DatePicker prefHeight="25.0" prefWidth="286.0" translateY="160.0" />
             <Button fx:id="s1" mnemonicParsing="false" onAction="#singUpbuttonAction" prefHeight="30.0" prefWidth="80.0" text="SingUp" translateY="200.0">
                <font>

@@ -49,7 +49,7 @@
         </ImageView>
             <ImageView fx:id="avatar" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#setting" pickOnBounds="true"  translateX="30.0">
                <image>
-                  <Image url="@icons8-test-account-100.png" />
+                  <Image url="@PdefaultAvatar.png" />
                </image>
                 <clip>
                     <Circle centerX="25" centerY="25" radius="25" />
@@ -86,7 +86,7 @@
             <Cursor fx:constant="HAND" />
           </cursor>
         </ImageView>
-        <ImageView fitHeight="35.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true" translateX="60.0">
+        <ImageView fitHeight="35.0" fitWidth="45.0" onMouseClicked="#timelineButton" pickOnBounds="true" preserveRatio="true" translateX="60.0">
           <image>
             <Image url="@Phome.png" />
           </image>

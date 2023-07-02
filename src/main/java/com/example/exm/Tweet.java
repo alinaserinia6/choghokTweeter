@@ -1,13 +1,11 @@
 package com.example.exm;
 
 import com.jfoenix.controls.JFXTextArea;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Cursor;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Text;
 
@@ -17,197 +15,214 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 public class Tweet implements Serializable {
-    private int id;
-    private String avatar;
-    private String name;
-    private String username;
-    private String text;
-    protected LocalDateTime dt;
-    protected ArrayList<String> likes;
-    public ArrayList<Comment> comments;
-    protected ArrayList<String> retweet;
-    private String retweetByUser;
-    private transient TweetController controller;
+	private int id;
+	private String avatar;
+	private String name;
+	private String username;
+	private String text;
+	protected LocalDateTime dt;
+	protected ArrayList<String> likes;
+	public ArrayList<Comment> comments;
+	protected ArrayList<String> retweet;
+	private String retweetByUser;
+	private transient TweetController controller;
+	private transient FocusTweetController focusController;
+	private transient boolean firstTime;
 
-    public Tweet() {
-        id = -1;
-    }
+	public Tweet() {
+		id = -1;
+	}
 
-    public Tweet(String text, String username) {
-        this.text = text;
-        this.username = username;
-        dt = LocalDateTime.now();
-        likes = new ArrayList<>();
-        comments = new ArrayList<>();
-        retweet = new ArrayList<>();
-        avatar = "Plike.png";
-    }
+	public Tweet(String text, String username) {
+		this.text = text;
+		this.username = username;
+		dt = LocalDateTime.now();
+		likes = new ArrayList<>();
+		comments = new ArrayList<>();
+		retweet = new ArrayList<>();
+		avatar = "PdefaultAvatar.png";
+	}
 
-    public void fitTextArea(JFXTextArea txt) {
-        txt.setEditable(false);
-        txt.setMaxWidth(400);
-        txt.setWrapText(true);
-        Text t = new Text();
-        t.setWrappingWidth(txt.getWidth() - 10);
-        t.setText(text);
-        double height = t.getLayoutBounds().getHeight() * 1.1;
-        txt.setPrefHeight(height + 20);
-        txt.setText(text);
-    }
+	public void fitTextArea(JFXTextArea txt) {
+		txt.setEditable(false);
+		txt.setMaxWidth(400);
+		txt.setWrapText(true);
+		Text t = new Text();
+		t.setWrappingWidth(txt.getWidth() - 10);
+		t.setText(text);
+		double height = t.getLayoutBounds().getHeight() * 1.1;
+		txt.setPrefHeight(height + 20);
+		txt.setText(text);
+	}
 
-    public void update(String avatar, String name) { // TODO UPDATE WHEN EDIT PROFILE
-        this.avatar = avatar;
-        this.name = name;
-    }
+	public void updateUser(String avatar, String name) { // TODO UPDATE WHEN EDIT PROFILE
+		this.avatar = avatar;
+		this.name = name;
+	}
 
-    public GridPane toShow() throws IOException {
-        setController();
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("showTweet.fxml"));
-        fxmlLoader.setController(controller);
-        GridPane p = fxmlLoader.load();
-        JFXTextArea txt = new JFXTextArea();
-        fitTextArea(txt);
-        txt.setCursor(Cursor.HAND);
-        txt.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent e) {
-                try {
-                    HelloApplication.ChangePage(e, "aFocusTweet", controller);
-                    controller.buildScroll();
-                } catch (IOException ex) {
-                    throw new RuntimeException(ex);
-                }
-            }
-        });
-        if (retweetByUser != null) {
-            ImageView ret = new ImageView();
-            Image r = new Image(String.valueOf(getClass().getResource("Pretweet.png")));
-            ret.setImage(r);
-            p.add(ret, 0, 0);
-            Label name = new Label();
-            name.setText("Retweeted " + this.name);
-            p.add(name, 1, 0);
-        }
-        p.add(txt, 1, 2);
-        controller.build(this, name, text, likes.size(), comments.size(), retweet.size(), avatar, id, username);
-        controller.run();
-        return p;
-    }
-    public GridPane toFocus() throws IOException {
-        setController();
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("focusTweet.fxml"));
-        fxmlLoader.setController(controller);
-        GridPane p = fxmlLoader.load();
-        JFXTextArea txt = new JFXTextArea();
-        fitTextArea(txt);
-        p.add(txt, 0, 1); // TODO QUOTE
-        controller.focusBuild(this, name, username, avatar, dt, retweet.size(),retweet.size(), likes.size(), id);
-        controller.run();
-        return p;
-    }
+	public void updateTweet(Tweet t) {
+		if (t == null) return;
+		likes = t.getLikes();
+		retweet = t.getRetweet();
+		comments = t.getComments();
+	}
 
-    public void setController() {
-        if (controller == null) {
-            TweetController t = Client.getTweetController.get(id);
-            if (t == null) {
-                controller = new TweetController();
-                Client.getTweetController.put(id, controller);
-            } else {
-                controller = t;
-            }
-        }
-    }
+	public GridPane toShow() throws IOException {
+		updateTweet(Client.tweets.get(id));
+		makeController();
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("showTweet.fxml"));
+		fxmlLoader.setController(controller);
+		GridPane p = fxmlLoader.load();
+		JFXTextArea txt = new JFXTextArea();
+		fitTextArea(txt);
+		txt.setCursor(Cursor.HAND);
+		Tweet thisTweet = this;
+		txt.setOnMouseClicked(e -> {
+			try {
+				Client.selectedTweet = thisTweet;
+				HelloApplication.ChangePage(e, "aFocusTweet");
+			} catch (IOException ex) {
+				throw new RuntimeException(ex);
+			}
+		});
+		if (retweetByUser != null) {
+			ImageView ret = new ImageView();
+			Image r = new Image(String.valueOf(getClass().getResource("Pretweet.png")));
+			ret.setImage(r);
+			p.add(ret, 0, 0);
+			Label name = new Label();
+			name.setText("Retweeted " + this.name);
+			p.add(name, 1, 0);
+		}
+		p.add(txt, 1, 2);
+		controller.build(this, name, likes.size(), comments.size(), retweet.size(), avatar, id, username);
+		if (firstTime) controller.run();
+		return p;
+	}
+	public GridPane toFocus() throws IOException {
+		updateTweet(Client.tweets.get(id));
+		focusController = makeFocusController();
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("focusTweet.fxml"));
+		fxmlLoader.setController(focusController);
+		GridPane p = fxmlLoader.load();
+		JFXTextArea txt = new JFXTextArea();
+		fitTextArea(txt);
+		p.add(txt, 0, 1); // TODO QUOTE
+		focusController.focusBuild(this);
+		return p;
+	}
 
-    public int getId() {
-        return id;
-    }
+	private void makeController() {
+		controller = Client.tweetControllers.get(id);
+		if (controller == null) {
+			System.err.println("making new controller for " + id + " tweet");
+			controller = new TweetController();
+			Client.tweetControllers.put(id, controller);
+			firstTime = true;
+		} else {
+			firstTime = false;
+		}
+	}
+	private FocusTweetController makeFocusController() {
+		FocusTweetController f = Client.focusTweetControllers.get(id);
+		if (f == null) {
+			System.err.println("making new controller for " + id + " tweet");
+			f = new FocusTweetController();
+			Client.focusTweetControllers.put(id, focusController);
+		}
+		return f;
+	}
 
-    public void setId(int id) {
-        this.id = id;
-    }
+	public int getId() {
+		return id;
+	}
 
-    public Image getAvatar() {
-        return new Image(String.valueOf(getClass().getResource(avatar)));
-    }
+	public void setId(int id) {
+		this.id = id;
+	}
 
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
+	public Image getAvatar() {
+		return new Image(String.valueOf(getClass().getResource(avatar)));
+	}
 
-    public String getName() {
-        return name;
-    }
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public String getUsername() {
-        return username;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public void setUsername(String username) {
-        this.username = username;
-    }
+	public String getUsername() {
+		return username;
+	}
 
-    public String getText() {
-        return text;
-    }
+	public void setUsername(String username) {
+		this.username = username;
+	}
 
-    public void setText(String text) {
-        this.text = text;
-    }
+	public String getText() {
+		return text;
+	}
 
-    public LocalDateTime getDt() {
-        return dt;
-    }
+	public void setText(String text) {
+		this.text = text;
+	}
 
-    public void setDt(LocalDateTime dt) {
-        this.dt = dt;
-    }
+	public LocalDateTime getDt() {
+		return dt;
+	}
 
-    public ArrayList<Comment> getComments() {
-        return comments;
-    }
+	public void setDt(LocalDateTime dt) {
+		this.dt = dt;
+	}
 
-    public void setComments(ArrayList<Comment> comments) {
-        this.comments = comments;
-    }
+	public ArrayList<Comment> getComments() {
+		return comments;
+	}
 
-    public ArrayList<String> getRetweet() {
-        return retweet;
-    }
+	public void setComments(ArrayList<Comment> comments) {
+		this.comments = comments;
+	}
 
-    public void setRetweet(ArrayList<String> retweet) {
-        this.retweet = retweet;
-    }
+	public ArrayList<String> getRetweet() {
+		return retweet;
+	}
 
-    public ArrayList<String> getLikes() {
-        return likes;
-    }
+	public void setRetweet(ArrayList<String> retweet) {
+		this.retweet = retweet;
+	}
 
-    public void setLikes(ArrayList<String> likes) {
-        this.likes = likes;
-    }
+	public ArrayList<String> getLikes() {
+		return likes;
+	}
 
-    public TweetController getController() {
-        return controller;
-    }
+	public void setLikes(ArrayList<String> likes) {
+		this.likes = likes;
+	}
 
-    public void setController(TweetController controller) {
-        this.controller = controller;
-    }
+	public TweetController getController() {
+		return controller;
+	}
 
-    public String getRetweetByUser() {
-        return retweetByUser;
-    }
+	public void makeController(TweetController controller) {
+		this.controller = controller;
+	}
 
-    public void setRetweetByUser(String retweetByUser) {
-        this.retweetByUser = retweetByUser;
-    }
+	public String getRetweetByUser() {
+		return retweetByUser;
+	}
 
-    @Override
-    public String toString() {
-        return username + ": " + text + " " + likes.size();
-    }
+	public void setRetweetByUser(String retweetByUser) {
+		this.retweetByUser = retweetByUser;
+	}
+
+	@Override
+	public String toString() {
+		return username + ": " + text + " " + likes.size();
+	}
 }

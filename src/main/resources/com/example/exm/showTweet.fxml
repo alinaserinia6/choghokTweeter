@@ -69,9 +69,9 @@
             </HBox>
          </children>
       </HBox>
-      <ImageView fx:id="avatar" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true"  translateX="10.0" translateY="-5.0" GridPane.rowIndex="1">
+      <ImageView fx:id="avatar" onMouseClicked="#seeProfile" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true"  translateX="10.0" translateY="-5.0" GridPane.rowIndex="1">
          <image>
-            <Image url="@icons8-test-account-100.png" />
+            <Image url="@PdefaultAvatar.png" />
          </image>
           <clip>
               <Circle centerX="25" centerY="25" radius="25" />

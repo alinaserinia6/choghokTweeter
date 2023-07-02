@@ -51,16 +51,9 @@ public class singinController {
         ArrayList<User> userList = (ArrayList<User>) Client.getObject();
         for (User u : userList) {
             System.out.println(u.getUsername());
-            Client.contacts.getChildren().add(u.usertoPane(Client.user.following.get(u.getUsername())));
+            Client.contacts.getChildren().add(u.toShow());
         }
-        // HelloApplication.ChangePage(e, "a5"); TODO see different
-        Platform.runLater(() -> {
-            try {
-                HelloApplication.ChangePage(e, "a5");
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
-        });
+         HelloApplication.ChangePage(e, "a5");
     }
     public void backk(ActionEvent e) throws IOException {
         HelloApplication.ChangePage(e, "a2");

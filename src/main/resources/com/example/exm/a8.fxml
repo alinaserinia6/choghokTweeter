@@ -11,6 +11,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
 <?import javafx.scene.shape.Circle?>
 <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="625.0" prefWidth="420.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.exm.searchController">
@@ -27,7 +28,7 @@
          <children>
             <ImageView fx:id="avatar" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#setting" pickOnBounds="true"  translateX="-30.0">
                <image>
-                  <Image url="@icons8-test-account-100.png" />
+                  <Image url="@PdefaultAvatar.png" />
                </image>
                <clip>
                   <Circle centerX="25" centerY="25" radius="25" />
@@ -35,8 +36,11 @@
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <image>
+                  <Image url="@PdefaultAvatar.png" />
+               </image>
             </ImageView>
-            <TextField fx:id="search" prefHeight="26.0" prefWidth="199.0" promptText="Search Choghok" styleClass="search" stylesheets="anchor.css">
+            <TextField fx:id="searchBox" prefHeight="26.0" prefWidth="199.0" promptText="Search Choghok" styleClass="search" >
                <effect>
                   <Blend />
                </effect>
@@ -93,6 +97,11 @@
             <Insets left="50.0" />
          </padding>
       </HBox>
-      <MFXScrollPane fx:id="sp" fitToWidth="true" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="536.0" prefWidth="420.0" vbarPolicy="NEVER" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" />
+      <VBox GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
+         <children>
+            <MFXScrollPane fx:id="shashtag" fitToWidth="true" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="285.0" prefWidth="420.0" vbarPolicy="NEVER" />
+            <MFXScrollPane fx:id="sprofile" fitToWidth="true" hbarPolicy="NEVER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="285.0" prefWidth="420.0" vbarPolicy="NEVER" />
+         </children>
+      </VBox>
    </children>
 </GridPane>

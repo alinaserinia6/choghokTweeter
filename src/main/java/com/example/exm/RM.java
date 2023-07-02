@@ -17,5 +17,8 @@ public enum RM { // REQUEST METHOD
     GET_MASSAGES,
     UPDATE_TWEET,
     UPDATE_USER,
+    GET_HASHTAG,
+    NEW_USER,
+    SEE_USER, // TODO
     END_PROCESS
 }

@@ -97,7 +97,7 @@ public class signUpController {
         ArrayList<User> userList = (ArrayList<User>) Client.getObject();
         for (User u : userList) {
             System.out.println(u.getUsername());
-            Client.contacts.getChildren().add(u.usertoPane(Client.user.following.get(u.getUsername())));
+            Client.contacts.getChildren().add(u.toShow());
         }
         HelloApplication.ChangePage(e, "a5");
     }

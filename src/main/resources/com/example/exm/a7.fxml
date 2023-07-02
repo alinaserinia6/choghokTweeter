@@ -133,7 +133,7 @@
             </HBox>
             <ImageView fx:id="avatar" fitHeight="50.0" fitWidth="50.0" layoutX="4.0" layoutY="90.0" pickOnBounds="true" translateX="15.0" translateY="15.0">
                <image>
-                  <Image url="@icons8-test-account-100.png" />
+                  <Image url="@PdefaultAvatar.png" />
                </image>
                 <clip>
                     <Circle centerX="25" centerY="25" radius="25" />
